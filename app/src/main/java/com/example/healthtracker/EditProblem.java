@@ -7,20 +7,22 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Locale;
 
+public class EditProblem extends AppCompatActivity {
 
-public class AddProblem extends AppCompatActivity {
-
+    private String initial_entry;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_add_problem);
+        setContentView(R.layout.activity_edit_problem);
+        initial_entry = getEntry();
     }
 
     private static boolean testDate(String date) {
@@ -36,62 +38,68 @@ public class AddProblem extends AppCompatActivity {
         return true;
     }
 
-    public void returnFromAddProblem(View view) {
+    private String getEntry() {
         EditText title = findViewById(R.id.title_text);
         EditText date = findViewById(R.id.date_started_editable);
-        EditText description = findViewById(R.id.problem_description_edit);
-        if (title.getText().toString().equals("") || date.getText().toString().equals("")
-                || description.getText().toString().equals("")) {
-            AlertDialog.Builder ab = new AlertDialog.Builder(AddProblem.this);
-            ab.setMessage("Warning. Changes have been made to the problem." + "\n" + "Returning to the home screen will not save changes.");
+        EditText description= findViewById(R.id.problem_description_edit);
+        return title.getText().toString() + " -- " + date.getText().toString() + "\n" + description.getText().toString();
+    }
+
+    public void returnFromEditProblem(View view) {
+        if (!initial_entry.equals(getEntry())) {
+            AlertDialog.Builder ab = new AlertDialog.Builder(EditProblem.this);
+            ab.setMessage("Warning. Changes have been made." + "\n" + "Would you like to save these changes?.");
             ab.setCancelable(true);
             // Set a button to return to the Home screen and don't save changes
-            ab.setNeutralButton("Cancel Problem", new DialogInterface.OnClickListener() {
+            ab.setNeutralButton("No", new DialogInterface.OnClickListener() {
                 @Override
                 public void onClick(DialogInterface dialog, int which) {
                     // launch an intent to return to the home screen
-                    Intent intent = new Intent(AddProblem.this, PatientHome.class);
+                    Intent intent = new Intent(EditProblem.this, PatientHome.class);
                     startActivity(intent);
                 }
             });
 
             // set a button which will close the alert dialog
-            ab.setNegativeButton("Return to Problem", new DialogInterface.OnClickListener() {
+            ab.setNegativeButton("Yes", new DialogInterface.OnClickListener() {
                 @Override
                 public void onClick(DialogInterface dialog, int which) {
                 }
             });
             // show the alert dialog on the screen
             ab.show();
-        } else {
-            Intent intent = new Intent(AddProblem.this, PatientHome.class);
+        }
+        else{
+            Intent intent = new Intent(EditProblem.this, ViewMyProblems.class);
             // Return to the home activity
             startActivity(intent);
 
         }
     }
 
-    public void addPatientProblem(View view) {
+    public void editPatientProblem(View view) {
         EditText title = findViewById(R.id.title_text);
         EditText date = findViewById(R.id.date_started_editable);
-        EditText description = findViewById(R.id.problem_description_edit);
+        EditText description= findViewById(R.id.problem_description_edit);
         if (title.getText().toString().equals("") || date.getText().toString().equals("")
                 || description.getText().toString().equals("")) {
             Toast.makeText(this, "Error, all field must be filled", Toast.LENGTH_LONG).show();
-        } else if (!testDate(date.getText().toString())) {
+        }
+        else if(!testDate(date.getText().toString())){
             Toast.makeText(this, "Improper Date Format", Toast.LENGTH_LONG).show();
-        } else {
-            Toast.makeText(this, "Problem Added", Toast.LENGTH_SHORT).show();
+        }
+        else {
+            Toast.makeText(this, "Problem Edited", Toast.LENGTH_SHORT).show();
             // Create an intent object containing the bridge to between the two activities
-            Intent intent = new Intent(AddProblem.this, PatientHome.class);
+            Intent intent = new Intent(EditProblem.this,ViewMyProblems.class);
             // Launch the browse emotions activity
             startActivity(intent);
         }
     }
 
-    public void addRecordFromAdd(View view) {
+    public void addRecordFromEdit(View view) {
         // Create an intent object containing the bridge to between the two activities
-        Intent intent = new Intent(AddProblem.this, AddorEditRecord.class);
+        Intent intent = new Intent(EditProblem.this, AddorEditRecord.class);
         // Launch the browse emotions activity
         startActivity(intent);
     }

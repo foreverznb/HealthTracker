@@ -19,7 +19,6 @@
         app:layout_constraintStart_toStartOf="parent" />
 
     <ListView
-        android:id="@+id/userlist"
         android:layout_width="368dp"
         android:layout_height="439dp"
         android:layout_marginStart="8dp"

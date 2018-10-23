@@ -7,7 +7,6 @@
     tools:context=".SearchActivity">
 
     <Button
-        android:id="@+id/return_from_search_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
@@ -41,10 +40,10 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.503"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        android:importantForAutofill="no" />
 
     <Spinner
-        android:id="@+id/search_dropdown"
         android:layout_width="151dp"
         android:layout_height="28dp"
         android:layout_marginStart="8dp"

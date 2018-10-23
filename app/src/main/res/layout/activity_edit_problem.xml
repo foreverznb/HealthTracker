@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".AddProblem">
+    tools:context=".EditProblem">
 
     <TextView
         android:id="@+id/problem_title"
@@ -17,18 +17,17 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
-        android:id="@+id/title_text"
+        android:id="@+id/title_text_editscreen"
         android:layout_width="237dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:ems="10"
-        android:hint="@string/max_title_length"
         android:inputType="textPersonName"
         android:maxLength="30"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/problem_title"
-        tools:ignore="Autofill" />
+        tools:ignore="Autofill,LabelFor" />
 
     <TextView
         android:id="@+id/date_started"
@@ -38,53 +37,51 @@
         android:layout_marginTop="8dp"
         android:text="@string/date_started"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/title_text" />
+        app:layout_constraintTop_toBottomOf="@+id/title_text_editscreen" />
 
     <EditText
-        android:id="@+id/date_started_editable"
+        android:id="@+id/date_started_editscreen"
         android:layout_width="237dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:ems="10"
-        android:hint="@string/startdate_edit"
         android:inputType="date"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/date_started"
-        tools:ignore="Autofill" />
+        tools:ignore="Autofill,LabelFor" />
 
     <TextView
-        android:id="@+id/problem_description"
+        android:id="@+id/problem_description_edit"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:text="@string/problem_description"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/date_started_editable" />
+        app:layout_constraintTop_toBottomOf="@+id/date_started_editscreen" />
 
     <EditText
-        android:id="@+id/problem_description_edit"
+        android:id="@+id/problem_description_editscreen"
         android:layout_width="280dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:ems="10"
-        android:hint="@string/max_descript_length"
         android:inputType="textPersonName"
         android:maxLength="300"
         android:scrollHorizontally="false"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/problem_description"
-        tools:ignore="Autofill" />
+        app:layout_constraintTop_toBottomOf="@+id/problem_description_edit"
+        tools:ignore="Autofill,LabelFor" />
 
     <Button
         android:layout_width="87dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginBottom="8dp"
-        android:text="@string/back_from_add_problem"
-        android:onClick="returnFromAddProblem"
+        android:text="@string/cancel_problem_edit"
+        android:onClick="returnFromEditProblem"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
@@ -93,8 +90,8 @@
         android:layout_height="wrap_content"
         android:layout_marginEnd="8dp"
         android:layout_marginBottom="8dp"
-        android:text="@string/add_new_problem"
-        android:onClick="addPatientProblem"
+        android:text="@string/save_edited_problem"
+        android:onClick="editPatientProblem"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
 
@@ -104,8 +101,9 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
-        android:text="@string/add_record_from_add"
-        android:onClick="addRecordFromAdd"
+        android:text="@string/add_record_from_edit"
+        android:onClick="addRecordFromEdit"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/problem_description_edit" />
+        app:layout_constraintTop_toBottomOf="@+id/problem_description_editscreen" />
+
 </android.support.constraint.ConstraintLayout>

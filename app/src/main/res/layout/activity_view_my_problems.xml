@@ -7,7 +7,6 @@
     tools:context=".ViewMyProblems">
 
     <ListView
-        android:id="@+id/my_problems_list"
         android:layout_width="368dp"
         android:layout_height="447dp"
         android:layout_marginStart="8dp"

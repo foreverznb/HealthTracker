@@ -7,7 +7,6 @@
     tools:context=".AddCareProviderComment">
 
     <Button
-        android:id="@+id/back_from_care_provider_comment"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
@@ -18,7 +17,6 @@
         android:onClick="returnToProblem"/>
 
     <Button
-        android:id="@+id/save_care_provider_comment"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="8dp"
@@ -44,7 +42,6 @@
         tools:ignore="Autofill" />
 
     <EditText
-        android:id="@+id/care_comment"
         android:layout_width="215dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
