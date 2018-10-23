@@ -10,8 +10,6 @@ import android.widget.CheckBox;
 // extends
 public class LoginActivity extends AppCompatActivity {
 
-    public boolean checked;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

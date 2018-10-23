@@ -4,7 +4,6 @@ import android.app.Activity;
 import android.content.Context;
 import android.support.annotation.NonNull;
 import android.support.v4.view.PagerAdapter;
-import android.support.v4.view.ViewPager;
 import android.util.DisplayMetrics;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -13,10 +12,9 @@ import android.widget.ImageView;
 
 import com.squareup.picasso.Picasso;
 
-public class ViewPageAdapter extends PagerAdapter {
-    Activity activity;
-    String images[];
-    LayoutInflater inflater;
+class ViewPageAdapter extends PagerAdapter {
+    private Activity activity;
+    private String[] images;
 
     public ViewPageAdapter(Activity activity, String[] images){
         this.activity = activity;
@@ -36,7 +34,7 @@ public class ViewPageAdapter extends PagerAdapter {
     @NonNull
     @Override
     public Object instantiateItem(@NonNull ViewGroup container, int position) {
-        inflater = (LayoutInflater) activity.getApplicationContext().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+        LayoutInflater inflater = (LayoutInflater) activity.getApplicationContext().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         assert inflater != null;
         View itemView = inflater.inflate(R.layout.viewpager_item, container, false);
 
@@ -65,6 +63,6 @@ public class ViewPageAdapter extends PagerAdapter {
 
     @Override
     public void destroyItem(@NonNull ViewGroup container, int position, @NonNull Object object) {
-        ((ViewPager) container).removeView((View)object);
+        container.removeView((View)object);
     }
 }

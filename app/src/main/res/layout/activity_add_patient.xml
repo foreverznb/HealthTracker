@@ -27,6 +27,7 @@
         app:layout_constraintEnd_toEndOf="parent" />
 
     <EditText
+        android:id="@+id/editText4"
         android:layout_width="213dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
@@ -34,11 +35,27 @@
         android:layout_marginEnd="8dp"
         android:ems="10"
         android:hint="@string/patient_id"
+        android:importantForAutofill="no"
         android:inputType="textPersonName"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.503"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        android:importantForAutofill="no" />
+        tools:ignore="UnusedAttribute" />
+
+    <TextView
+        android:id="@+id/patient_id_string"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="84dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="8dp"
+        android:text="@string/patient_id"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/editText4"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0" />
 
 </android.support.constraint.ConstraintLayout>

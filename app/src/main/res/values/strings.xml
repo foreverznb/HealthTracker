@@ -54,6 +54,15 @@
     <string name="add_record_from_add">Add Record</string>
     <string name="add_record_from_edit">Add Record</string>
     <string name="edit_problem_button">Edit</string>
+    <string name="back_from_auser_info">Back</string>
+    <string name="patient_id_strict">Patient ID</string>
+    <string name="record_strict_care_view">Records</string>
+    <string name="a_record_care_view">A Record</string>
+    <string name="description_care_view">Description</string>
+    <string name="date_started_care_view">Date Started</string>
+    <string name="title_care_view">Title</string>
+    <string name="care_title_strict">Title</string>
+    <string name="care_comment_strict">Comment</string>
 
 
     <string-array name="searchTypes">

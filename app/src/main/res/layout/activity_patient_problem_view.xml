@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ProblemView">
+    tools:context=".PatientProblemView">
 
 
     <ScrollView
@@ -19,7 +19,7 @@
 
         <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:orientation="vertical">
 
             <android.support.design.widget.FloatingActionButton
@@ -68,11 +68,11 @@
                 tools:layout_editor_absoluteY="32dp" />
 
             <Button
-                android:id="@+id/button2"
+                android:id="@+id/edit_problem_button"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentStart="true"
-
+                android:onClick="editProblem"
                 android:text="@string/edit_problem_button" />
 
             <TextView

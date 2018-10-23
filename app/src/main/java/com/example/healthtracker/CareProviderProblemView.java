@@ -27,4 +27,11 @@ public class CareProviderProblemView extends AppCompatActivity {
         startActivity(intent);
     }
 
+    public void viewProblemsPhotos(View view) {
+        // Create an intent object containing the bridge to between the two activities
+        Intent intent = new Intent(CareProviderProblemView.this, SlideShow.class);
+        // Launch the browse emotions activity
+        startActivity(intent);
+    }
+
 }

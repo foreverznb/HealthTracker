@@ -6,9 +6,6 @@ import android.os.Bundle;
 
 public class SlideShow extends AppCompatActivity {
 
-    ViewPager viewPager;
-    ViewPageAdapter adapter;
-
     private String[] images = {
             "https://cdn.vox-cdn.com/thumbor/V7Tm4KglmlVomIXKk547fHxf-d4=/0x0:2040x1360/1820x1213/filters:focal(860x1034:1186x1360):format(webp)/cdn.vox-cdn.com/uploads/chorus_image/image/59377089/wjoel_180413_1777_android_001.1523625143.jpg",
             "https://images.pexels.com/photos/67636/rose-blue-flower-rose-blooms-67636.jpeg?auto=compress&cs=tinysrgb&h=350",
@@ -20,8 +17,8 @@ public class SlideShow extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_slide_show);
 
-        viewPager = findViewById(R.id.ViewPager);
-        adapter = new ViewPageAdapter(SlideShow.this,images);
+        ViewPager viewPager = findViewById(R.id.ViewPager);
+        ViewPageAdapter adapter = new ViewPageAdapter(SlideShow.this, images);
         viewPager.setAdapter(adapter);
     }
 }
