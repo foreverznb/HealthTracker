@@ -47,7 +47,7 @@
     <string name="back_from_add_problem">Back</string>
     <string name="add_new_problem">Save</string>
     <string name="test_login_checkbox">Care Provider</string>
-    <string name="back_from_myproblems">Home</string>
+    <string name="back_from_myproblems">Back</string>
     <string name="view_myproblems">View Problems</string>
     <string name="cancel_problem_edit">Cancel</string>
     <string name="save_edited_problem">Save</string>
@@ -63,6 +63,15 @@
     <string name="title_care_view">Title</string>
     <string name="care_title_strict">Title</string>
     <string name="care_comment_strict">Comment</string>
+    <string name="record_view_title">Title</string>
+    <string name="record_view_comment">Comment</string>
+    <string name="record_view_geo_location">Geo-location</string>
+    <string name="record_view_body_location">Body Location</string>
+    <string name="record_view_timestamp">Timestamp</string>
+    <string name="back_from_record_view">Back</string>
+    <string name="back_from_patient_p_view">Back</string>
+    <string name="add_record_to_problem">Add Record</string>
+    <string name="edit_record_button_text">Edit</string>
 
 
     <string-array name="searchTypes">

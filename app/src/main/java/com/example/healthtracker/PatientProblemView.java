@@ -26,4 +26,18 @@ public class PatientProblemView extends AppCompatActivity {
         // Launch the browse emotions activity
         startActivity(intent);
     }
+
+    public void returnToMyProblemView(View view) {
+        // Create an intent object containing the bridge to between the two activities
+        Intent intent = new Intent(PatientProblemView.this, ViewMyProblems.class);
+        // Launch the browse emotions activity
+        startActivity(intent);
+    }
+
+    public void addPatientRecord(View view) {
+        // Create an intent object containing the bridge to between the two activities
+        Intent intent = new Intent(PatientProblemView.this, AddorEditRecord.class);
+        // Launch the browse emotions activity
+        startActivity(intent);
+    }
 }
