@@ -5,7 +5,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 
-public class AddCareProviderComment extends AppCompatActivity {
+public class AddCareProviderCommentView extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -15,14 +15,14 @@ public class AddCareProviderComment extends AppCompatActivity {
 
     public void returnToProblem(View view) {
         // Create an intent object containing the bridge to between the two activities
-        Intent intent = new Intent(AddCareProviderComment.this, CareProviderProblemView.class);
+        Intent intent = new Intent(AddCareProviderCommentView.this, CareProviderProblemView.class);
         // Launch the browse emotions activity
         startActivity(intent);
     }
 
     public void saveCareProviderComment(View view) {
         // Create an intent object containing the bridge to between the two activities
-        Intent intent = new Intent(AddCareProviderComment.this, CareProviderProblemView.class);
+        Intent intent = new Intent(AddCareProviderCommentView.this, CareProviderProblemView.class);
         // Launch the browse emotions activity
         startActivity(intent);
     }

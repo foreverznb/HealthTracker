@@ -30,14 +30,14 @@ public class LoginActivity extends AppCompatActivity {
         CheckBox checkBox = findViewById(R.id.checkBox);
         if (checkBox.isChecked()) {
             // Create an intent object containing the bridge to between the two activities
-            Intent intent = new Intent(LoginActivity.this, CareProviderHome.class);
+            Intent intent = new Intent(LoginActivity.this, CareProviderHomeView.class);
             // Launch the browse emotions activity
             startActivity(intent);
         }
 
         else {
             // Create an intent object containing the bridge to between the two activities
-            Intent intent2 = new Intent(LoginActivity.this, PatientHome.class);
+            Intent intent2 = new Intent(LoginActivity.this, PatientHomeView.class);
             // Launch the browse emotions activity
             startActivity(intent2);
         }

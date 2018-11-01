@@ -6,7 +6,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Toast;
 
-public class AddPatient extends AppCompatActivity {
+public class AddPatientView extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -16,7 +16,7 @@ public class AddPatient extends AppCompatActivity {
 
     public void Return2(View view) {
         // Create an intent object containing the bridge to between the two activities
-        Intent intent = new Intent(AddPatient.this, CareProviderHome.class);
+        Intent intent = new Intent(AddPatientView.this, CareProviderHomeView.class);
         // Launch the browse emotions activity
         startActivity(intent);
     }
@@ -24,7 +24,7 @@ public class AddPatient extends AppCompatActivity {
     public void Add(View view) {
         Toast.makeText(this, "Patient Added", Toast.LENGTH_SHORT).show();
         // Create an intent object containing the bridge to between the two activities
-        Intent intent = new Intent(AddPatient.this, CareProviderHome.class);
+        Intent intent = new Intent(AddPatientView.this, CareProviderHomeView.class);
         // Launch the browse emotions activity
         startActivity(intent);
     }

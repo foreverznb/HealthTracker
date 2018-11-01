@@ -22,14 +22,14 @@ public class CareProviderProblemView extends AppCompatActivity {
 
     public void addCareProviderComment(View view) {
         // Create an intent object containing the bridge to between the two activities
-        Intent intent = new Intent(CareProviderProblemView.this, AddCareProviderComment.class);
+        Intent intent = new Intent(CareProviderProblemView.this, AddCareProviderCommentView.class);
         // Launch the browse emotions activity
         startActivity(intent);
     }
 
     public void viewProblemsPhotos(View view) {
         // Create an intent object containing the bridge to between the two activities
-        Intent intent = new Intent(CareProviderProblemView.this, SlideShow.class);
+        Intent intent = new Intent(CareProviderProblemView.this, SlideShowActivity.class);
         // Launch the browse emotions activity
         startActivity(intent);
     }

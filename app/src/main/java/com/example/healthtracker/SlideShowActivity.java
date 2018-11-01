@@ -4,7 +4,7 @@ import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
-public class SlideShow extends AppCompatActivity {
+public class SlideShowActivity extends AppCompatActivity {
 
     private String[] images = {
             "https://cdn.vox-cdn.com/thumbor/V7Tm4KglmlVomIXKk547fHxf-d4=/0x0:2040x1360/1820x1213/filters:focal(860x1034:1186x1360):format(webp)/cdn.vox-cdn.com/uploads/chorus_image/image/59377089/wjoel_180413_1777_android_001.1523625143.jpg",
@@ -18,7 +18,7 @@ public class SlideShow extends AppCompatActivity {
         setContentView(R.layout.activity_slide_show);
 
         ViewPager viewPager = findViewById(R.id.ViewPager);
-        ViewPageAdapter adapter = new ViewPageAdapter(SlideShow.this, images);
+        ViewPageAdapterActivity adapter = new ViewPageAdapterActivity(SlideShowActivity.this, images);
         viewPager.setAdapter(adapter);
     }
 }

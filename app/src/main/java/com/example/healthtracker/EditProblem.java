@@ -54,7 +54,7 @@ public class EditProblem extends AppCompatActivity {
                 @Override
                 public void onClick(DialogInterface dialog, int which) {
                     // launch an intent to return to the home screen
-                    Intent intent = new Intent(EditProblem.this, PatientHome.class);
+                    Intent intent = new Intent(EditProblem.this, PatientHomeView.class);
                     startActivity(intent);
                 }
             });
@@ -98,7 +98,7 @@ public class EditProblem extends AppCompatActivity {
 
     public void addRecordFromEdit(View view) {
         // Create an intent object containing the bridge to between the two activities
-        Intent intent = new Intent(EditProblem.this, AddorEditRecord.class);
+        Intent intent = new Intent(EditProblem.this, AddorEditRecordView.class);
         // Launch the browse emotions activity
         startActivity(intent);
     }

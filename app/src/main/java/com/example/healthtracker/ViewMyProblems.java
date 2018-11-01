@@ -63,7 +63,7 @@ public class ViewMyProblems extends AppCompatActivity {
 
     public void returnFromMyProblems(View view) {
         // Create an intent object containing the bridge to between the two activities
-        Intent intent = new Intent(ViewMyProblems.this, PatientHome.class);
+        Intent intent = new Intent(ViewMyProblems.this, PatientHomeView.class);
         // Launch the browse emotions activity
         startActivity(intent);
     }

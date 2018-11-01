@@ -6,7 +6,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Toast;
 
-public class UserSettings extends AppCompatActivity {
+public class UserSettingsActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -16,7 +16,7 @@ public class UserSettings extends AppCompatActivity {
 
     public void Logout(View view) {
         // Create an intent object containing the bridge to between the two activities
-        Intent intent = new Intent(UserSettings.this, LoginActivity.class);
+        Intent intent = new Intent(UserSettingsActivity.this, LoginActivity.class);
         // Launch the browse emotions activity
         startActivity(intent);
     }
@@ -24,14 +24,14 @@ public class UserSettings extends AppCompatActivity {
     public void saveSettings(View view) {
         Toast.makeText(this, "Settings Saved", Toast.LENGTH_SHORT).show();
         // Create an intent object containing the bridge to between the two activities
-        Intent intent = new Intent(UserSettings.this, CareProviderHome.class);
+        Intent intent = new Intent(UserSettingsActivity.this, CareProviderHomeView.class);
         // Launch the browse emotions activity
         startActivity(intent);
     }
 
     public void returnHome(View view) {
         // Create an intent object containing the bridge to between the two activities
-        Intent intent = new Intent(UserSettings.this, CareProviderHome.class);
+        Intent intent = new Intent(UserSettingsActivity.this, CareProviderHomeView.class);
         // Launch the browse emotions activity
         startActivity(intent);
     }

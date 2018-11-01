@@ -27,4 +27,5 @@ public class Patient extends User {
     public void deleteProblem(Problem problem){
         this.problemList.remove(problem);
     }
+
 }
