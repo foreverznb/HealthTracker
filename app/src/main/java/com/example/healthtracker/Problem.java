@@ -1,15 +1,9 @@
 package com.example.healthtracker;
 
-
-
 import android.app.Notification;
 
 import java.util.ArrayList;
 import java.util.Date;
-
-/**
- * Created by caochenlin on 2018/10/28.
- */
 
 public class Problem {
 
