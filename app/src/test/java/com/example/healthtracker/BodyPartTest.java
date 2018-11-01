@@ -51,7 +51,7 @@ public class BodyPartTest {
 
     @Test
     public void addBodyPhoto() throws Exception {
-        BodyPhoto newBodyPhoto = new BodyPhoto();
+        BodyPhoto newBodyPhoto = new BodyPhoto("file location",bodyPart.getRecord());
         bodyPart.addBodyPhoto(newBodyPhoto);
     }
 
@@ -67,7 +67,7 @@ public class BodyPartTest {
     public void setBodyPhoto() throws Exception {
 
         Integer index = 0;
-        BodyPhoto newPhoto = new Photo();
+        BodyPhoto newPhoto = new Photo("file location",bodyPart.getRecord());
         BodyPhoto prev_photo = bodyPhotos.get(index);
         bodyPart.setBodyPhoto(index,newPhoto);
 
