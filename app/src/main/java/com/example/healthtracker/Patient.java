@@ -1,7 +1,5 @@
 package com.example.healthtracker;
 
-public class Patient {
-
 import java.util.ArrayList;
 import java.util.List;
 
