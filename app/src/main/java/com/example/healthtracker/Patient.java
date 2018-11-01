@@ -1,5 +1,7 @@
 package com.example.healthtracker;
 
+public class Patient {
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -27,4 +29,5 @@ public class Patient extends User {
     public void deleteProblem(Problem problem){
         this.problemList.remove(problem);
     }
+
 }
