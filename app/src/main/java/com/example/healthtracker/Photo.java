@@ -5,12 +5,13 @@ package com.example.healthtracker;
  */
 
 public class Photo {
-    public String fileLocation;
-    public Record parentRecord;
+    private String fileLocation;
+    private Record parentRecord;
 
-    public void Photo(String fileLocation,Record parentRecord){
-        this.fileLocation = fileLocation;
+    public Photo(String fileLocation,Record parentRecord){
         this.parentRecord = parentRecord;
+        this.fileLocation = fileLocation;
+
     }
 
     public String getFile(){

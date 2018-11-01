@@ -7,15 +7,15 @@ import static org.junit.Assert.assertEquals;
 
 public class PhotoTest {
     private Photo photo;
-    public String fileLocation;
-    public Record parentRecord;
+    private String fileLocation;
+    private Record parentRecord;
 
 
     @Before
     public void setUp() throws Exception {
         fileLocation = "file location";
         parentRecord = new Record();
-        photo = new Photo();
+        photo = new Photo(fileLocation,parentRecord);
     }
     @Test
     public void getFile() throws Exception{
