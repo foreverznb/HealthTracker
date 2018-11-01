@@ -4,6 +4,7 @@ import android.graphics.Bitmap;
 
 import org.junit.Test;
 
+import java.util.Date;
 import java.util.List;
 
 import static org.junit.Assert.*;
@@ -62,18 +63,21 @@ public class CaretakerTest {
         String email = "someone@ualberta.ca";
         Caretaker c = new Caretaker(userID, password, phone, email);
         Patient patient1 = new Patient("1", "2", "3", "4");
-        Problem p1 = new Problem();
+        String title = "cold";
+        Date date = new Date();
+        String description = "very sick";
+        String title2 = "hot";
+        Date date2 = new Date();
+        String description2 = "fever";
+        Problem p1 = new Problem(title, date, description);
         patient1.addProblem(p1);
         Patient patient2 = new Patient("5", "6", "7", "8");
-        Problem p2 = new Problem();
+        Problem p2 = new Problem(title2, date2, description2);
         patient2.addProblem(p2);
-        /*
-        need record and problem implementation
         Record r1 = new Record();
         Record r2 = new Record();
-        p1.addRecord(r1);
-        p2.addRecord(r2);
-        */
+        p1.addRecord(r1, true);
+        p2.addRecord(r2, true);
         Bitmap data = c.createMap();
         assertNotNull(data);
     }
@@ -86,16 +90,20 @@ public class CaretakerTest {
         String email = "someone@ualberta.ca";
         Caretaker c = new Caretaker(userID, password, phone, email);
         Patient patient1 = new Patient("1", "2", "3", "4");
-        Problem p1 = new Problem();
-        patient1.addProblem(p1);
         Patient patient2 = new Patient("5", "6", "7", "8");
-        Problem p2 = new Problem();
+        String title = "cold";
+        Date date = new Date();
+        String description = "very sick";
+        String title2 = "hot";
+        Date date2 = new Date();
+        String description2 = "fever";
+        Problem p1 = new Problem(title, date, description);
+        Problem p2 = new Problem(title2, date2, description2);
         patient2.addProblem(p2);
         List<Problem> filteredProblems = c.search("someKeyword", "keyword");
         assertNotNull(filteredProblems);
         assertEquals(filteredProblems.size(), 1);
         assertEquals(filteredProblems.get(0), p1);
-
     }
 
 

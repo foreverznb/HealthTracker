@@ -4,6 +4,7 @@ import android.graphics.Bitmap;
 
 import org.junit.Test;
 
+import java.util.Date;
 import java.util.List;
 
 import static org.junit.Assert.*;
@@ -45,8 +46,12 @@ public class PatientTest {
         String password = "somePass";
         String phone = "780-777-777";
         String email = "someone@ualberta.ca";
+        String title = "cold";
+        Date date = new Date();
+        String description = "very sick";
+        String title2 = "hot";
         Patient p = new Patient(userID, password, phone, email);
-        Problem p1 = new Problem();
+        Problem p1 = new Problem(title, date, description);
         p.addProblem(p1);
         assertEquals(p.getProblemList().get(0), p1);
         assertEquals(p.getProblemList().size(), 1);
@@ -61,11 +66,17 @@ public class PatientTest {
         String password = "somePass";
         String phone = "780-777-777";
         String email = "someone@ualberta.ca";
+        String title = "cold";
+        Date date = new Date();
+        String description = "very sick";
+        String title2 = "hot";
+        Date date2 = new Date();
+        String description2 = "fever";
         Patient p = new Patient(userID, password, phone, email);
-        Problem p1 = new Problem();
+        Problem p1 = new Problem(title, date, description);
         p.addProblem(p1);
-        Problem p2 = new Problem();
-        //p.setProblem(p1.getTitle(), p2);
+        Problem p2 = new Problem(title2, date2, description2);
+        p.setProblem(p1.getTitle(), p2);
         assertEquals(p.getProblemList().get(0), p2);
     }
 
@@ -75,10 +86,16 @@ public class PatientTest {
         String password = "somePass";
         String phone = "780-777-777";
         String email = "someone@ualberta.ca";
+        String title = "cold";
+        Date date = new Date();
+        String description = "very sick";
+        String title2 = "hot";
+        Date date2 = new Date();
+        String description2 = "fever";
         Patient p = new Patient(userID, password, phone, email);
-        Problem p1 = new Problem();
+        Problem p1 = new Problem(title, date, description);
         p.addProblem(p1);
-        Problem p2 = new Problem();
+        Problem p2 = new Problem(title2, date2, description2);
         p.addProblem(p2);
         List<Problem> filteredProblems = p.search("someKeyword", "keyword");
         assertNotNull(filteredProblems);
@@ -93,18 +110,21 @@ public class PatientTest {
         String password = "somePass";
         String phone = "780-777-777";
         String email = "someone@ualberta.ca";
+        String title = "cold";
+        Date date = new Date();
+        String description = "very sick";
+        String title2 = "hot";
+        Date date2 = new Date();
+        String description2 = "fever";
         Patient p = new Patient(userID, password, phone, email);
-        Problem p1 = new Problem();
+        Problem p1 = new Problem(title, date, description);
         p.addProblem(p1);
-        Problem p2 = new Problem();
+        Problem p2 = new Problem(title2, date2, description2);
         p.addProblem(p2);
-        /*
-        need record and problem implementation
         Record r1 = new Record();
         Record r2 = new Record();
-        p1.addRecord(r1);
-        p2.addRecord(r2);
-        */
+        p1.addRecord(r1, true);
+        p2.addRecord(r2, true);
         Bitmap data = p.createMap();
         assertNotNull(data);
     }
