@@ -6,10 +6,12 @@ import java.util.Date;
 public class BodyPart {
     private String name;
     private ArrayList<BodyPhoto> bodyPhotos;
-    private Record parentRecord;
+    private BaseRecord parentRecord;
 
-    public BodyPart(String name, ArrayList<String>comments, String address, BodyPart bodyPart, ArrayList<Photo> photos, Date timestamp){
-
+    public BodyPart(String name,BaseRecord parentRecord){
+        this.name = name;
+        this.parentRecord = parentRecord;
+        //this.bodyPhotos = bodyPhotos;
     }
     public String getName(){
 
@@ -20,7 +22,7 @@ public class BodyPart {
         return bodyPhotos;
     }
 
-    public Record getRecord(){
+    public BaseRecord getRecord(){
 
         return parentRecord;
     }
