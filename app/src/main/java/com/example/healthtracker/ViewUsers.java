@@ -29,7 +29,7 @@ public class ViewUsers extends AppCompatActivity {
 
     public void Return4(View view) {
         // Create an intent object containing the bridge to between the two activities
-        Intent intent = new Intent(ViewUsers.this, CareProviderHome.class);
+        Intent intent = new Intent(ViewUsers.this, CareProviderHomeView.class);
         // Launch the browse emotions activity
         startActivity(intent);
     }

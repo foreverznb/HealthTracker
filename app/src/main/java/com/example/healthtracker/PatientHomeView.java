@@ -5,7 +5,7 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 
-public class PatientHome extends AppCompatActivity {
+public class PatientHomeView extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -16,14 +16,14 @@ public class PatientHome extends AppCompatActivity {
     // Method containing the new intent which will bring user to the browse emotions activity and layout screen
     public void Search(View view) {
         // Create an intent object containing the bridge to between the two activities
-        Intent intent = new Intent(PatientHome.this, SearchActivity.class);
+        Intent intent = new Intent(PatientHomeView.this, SearchActivity.class);
         // Launch the browse emotions activity
         startActivity(intent);
     }
 
     public void addProblem(View view) {
         // Create an intent object containing the bridge to between the two activities
-        Intent intent = new Intent(PatientHome.this, AddProblem.class);
+        Intent intent = new Intent(PatientHomeView.this, AddProblemView.class);
         // Launch the browse emotions activity
         startActivity(intent);
     }
@@ -33,7 +33,7 @@ public class PatientHome extends AppCompatActivity {
 
         // if (problemcount>0){
             // Create an intent object containing the bridge to between the two activities
-            Intent intent = new Intent(PatientHome.this, ViewMyProblems.class);
+            Intent intent = new Intent(PatientHomeView.this, ViewMyProblems.class);
             // Launch the ViewMyProblems activity
             startActivity(intent);
         //}
@@ -44,21 +44,21 @@ public class PatientHome extends AppCompatActivity {
 
     public void ViewUsers(View view) {
         // Create an intent object containing the bridge to between the two activities
-        Intent intent = new Intent(PatientHome.this, ViewUsers.class);
+        Intent intent = new Intent(PatientHomeView.this, ViewUsers.class);
         // Launch the browse emotions activity
         startActivity(intent);
     }
 
     public void Settings(View view) {
         // Create an intent object containing the bridge to between the two activities
-        Intent intent = new Intent(PatientHome.this, UserSettings.class);
+        Intent intent = new Intent(PatientHomeView.this, UserSettingsActivity.class);
         // Launch the browse emotions activity
         startActivity(intent);
     }
 
     public void viewMap(View view) {
         // Create an intent object containing the bridge to between the two activities
-        Intent intent = new Intent(PatientHome.this, MapView.class);
+        Intent intent = new Intent(PatientHomeView.this, MapView.class);
         // Launch the browse emotions activity
         startActivity(intent);
     }

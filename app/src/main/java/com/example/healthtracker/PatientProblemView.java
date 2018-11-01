@@ -15,7 +15,7 @@ public class PatientProblemView extends AppCompatActivity {
 
     public void viewProblemsPhotos(View view) {
         // Create an intent object containing the bridge to between the two activities
-        Intent intent = new Intent(PatientProblemView.this, SlideShow.class);
+        Intent intent = new Intent(PatientProblemView.this, SlideShowActivity.class);
         // Launch the browse emotions activity
         startActivity(intent);
     }
@@ -36,7 +36,7 @@ public class PatientProblemView extends AppCompatActivity {
 
     public void addPatientRecord(View view) {
         // Create an intent object containing the bridge to between the two activities
-        Intent intent = new Intent(PatientProblemView.this, AddorEditRecord.class);
+        Intent intent = new Intent(PatientProblemView.this, AddorEditRecordView.class);
         // Launch the browse emotions activity
         startActivity(intent);
     }

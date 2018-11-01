@@ -12,11 +12,11 @@ import android.widget.ImageView;
 
 import com.squareup.picasso.Picasso;
 
-class ViewPageAdapter extends PagerAdapter {
+class ViewPageAdapterActivity extends PagerAdapter {
     private Activity activity;
     private String[] images;
 
-    public ViewPageAdapter(Activity activity, String[] images){
+    public ViewPageAdapterActivity(Activity activity, String[] images){
         this.activity = activity;
         this.images = images;
     }

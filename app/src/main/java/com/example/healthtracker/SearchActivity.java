@@ -18,14 +18,14 @@ public class SearchActivity extends AppCompatActivity {
 
     public void Return3(View view) {
         // Create an intent object containing the bridge to between the two activities
-        Intent intent = new Intent(SearchActivity.this, CareProviderHome.class);
+        Intent intent = new Intent(SearchActivity.this, CareProviderHomeView.class);
         // Launch the browse emotions activity
         startActivity(intent);
     }
 
     public void Search(View view) {
         // Create an intent object containing the bridge to between the two activities
-        Intent intent = new Intent(SearchActivity.this, SearchResults.class);
+        Intent intent = new Intent(SearchActivity.this, SearchResultsView.class);
         // Launch the browse emotions activity
         startActivity(intent);
     }
