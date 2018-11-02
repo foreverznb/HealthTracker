@@ -1,12 +1,18 @@
 package com.example.healthtracker;
 
+import android.app.Notification;
+
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
 
+import static java.lang.Boolean.FALSE;
+import static java.lang.Boolean.TRUE;
+import static java.lang.Boolean.parseBoolean;
 import static org.junit.Assert.*;
 
 /**
@@ -65,7 +71,8 @@ public class ProblemTest {
     }
 
     @Test
-    public void incrementRecord() throws Exception {
+    public void countRecord() throws Exception {
+
     }
 
     @Test
@@ -73,17 +80,18 @@ public class ProblemTest {
     }
 
     @Test
-    public void getCommentRecords() throws Exception {
+    public void getCareGiverRecords() throws Exception {
+    }
+
+
+    @Test
+    public void addPatientRecord() throws Exception {
     }
 
     @Test
-    public void setRecord() throws Exception {
-
+    public void addCareGiverRecord() throws Exception {
     }
 
-    @Test
-    public void addRecord() throws Exception {
-    }
 
     @Test
     public void deleteRecord() throws Exception {
@@ -91,26 +99,53 @@ public class ProblemTest {
 
     @Test
     public void getNotifications() throws Exception {
-    }
-
-    @Test
-    public void setNotification() throws Exception {
+        Notification myNotification = new Notification();
+        ArrayList<Notification> notifications = new ArrayList<Notification>();
+        notifications.add(myNotification);
+        problem.addNotification(myNotification);
+        assertEquals(notifications,problem.getNotifications());
     }
 
     @Test
     public void addNotification() throws Exception {
+        Notification myNotification = new Notification();
+        ArrayList<Notification> notifications = new ArrayList<Notification>();
+        notifications.add(myNotification);
+        problem.addNotification(myNotification);
+        assertEquals(notifications,problem.getNotifications());
     }
 
     @Test
     public void deleteNotification() throws Exception {
-    }
 
-    @Test
-    public void getPhotos() throws Exception {
     }
 
     @Test
     public void switchNotification() throws Exception {
+        Boolean myNotification = problem.notificationStatus();
+        switchNotification();
+        Boolean myNotification2 = problem.notificationStatus();
+        assertFalse(myNotification == myNotification2);
+    }
+
+    @Test
+    public void notificationStatus() throws Exception {
+        
+    }
+
+
+    @Test
+    public void getPatient() throws Exception{
+        Patient patient = new Patient("P001","P001","123-456-789","patient1@health.com");
+        problem.setPatient(patient);
+        assertEquals(problem.getPatient(),patient);
+    }
+
+    @Test
+    public void setPatient() throws Exception{
+        Patient newPatient = new Patient("P002","P002","111-222-333","patient2@health.com");
+        problem.setPatient(newPatient);
+        assertEquals(problem.getPatient(),newPatient);
     }
 
 }
