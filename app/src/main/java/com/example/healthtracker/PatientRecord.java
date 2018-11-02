@@ -1,69 +1,53 @@
 package com.example.healthtracker;
 
+import android.graphics.Bitmap;
+
 import java.util.ArrayList;
 import java.util.Date;
 
-public class PatientRecord extends BaseRecord {
+public class PatientRecord extends SimpleRecord {
 
-    private BodyPart bodyPart;
-
+    //private ArrayList<Photo> photos;
+    private String title;
+    private String comment;
+    private Problem parentProblem;
+    private String timestamp;
+    private ArrayList<Bitmap> geoLocations;
     private ArrayList<Photo> photos;
-
-    private ArrayList<Photo> bodyPhotos;
-
-    private Date timestamp;
-
-    private int amountOfPhotos;
+    //private int amountOfPhotos;
 
 
-    public PatientRecord(String title, ArrayList<String> comments, String address, BodyPart bodyPart, ArrayList<Photo> photos, Date timestamp, Problem parentProblem){
-        super(title, comments, parentProblem);
+    public PatientRecord(String title, String comment, Problem parentProblem, String timestamp, ArrayList<Bitmap> geoLocations){
+        super(title, comment, parentProblem);
 
-        this.bodyPart = bodyPart;
-        this.photos = photos;
-        this.bodyPhotos = bodyPhotos;
+        //this.bodyPart = bodyPart;
+        //this.photos = photos;
+        //this.bodyPhotos = bodyPhotos;
         this.timestamp = timestamp;
+        this.geoLocations = geoLocations;
 
     }
 
-    public String getAddress(){
-        String address = "";
-        return address;
+    public void addGeoLocation(Bitmap geoLocation){
+        geoLocations.add(geoLocation);
     }
 
-    public void setAddress(String Address){}
-
-    public BodyPart getBodyPart(){
-        return bodyPart;
+    public void deleteGeoLocation(Bitmap geoLocation){
+        geoLocations.remove(geoLocation);
     }
 
-    public void setBodyPart(BodyPart bodyPart){}
 
-    public ArrayList<Photo> getPhotos(){
-
-        return photos;
+    public void addPhoto(Photo photo){
+        photos.add(photo);
     }
 
-    public void addPhoto(Photo photo){}
-
-    public void removePhoto(int index){}
-
-    public void setPhoto(int index, Photo photo){}
-
-    public Date getTimeStamp(){
-        return timestamp;
+    public void deletePhoto(int index){
+        photos.remove(index);
     }
 
-    public void setTimeStamp(){}
-
-    public ArrayList<Photo> getBodyPhotos(){
-        return bodyPhotos;
+    public Photo getPhoto(int index){
+        return photos.get(index);
     }
-
-    public int getAmountOfPhotos(){
-        return amountOfPhotos;
-    }
-
 
 
 }
