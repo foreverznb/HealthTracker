@@ -5,6 +5,9 @@ import android.app.Notification;
 import java.util.ArrayList;
 import java.util.Date;
 
+import static java.lang.Boolean.FALSE;
+import static java.lang.Boolean.TRUE;
+
 public class Problem {
 
     private String title;
@@ -12,7 +15,7 @@ public class Problem {
     private String description;
     private Integer numOfRecords;
     private ArrayList<Notification> notifications;
-    private Boolean notificationsOn;
+    private Boolean notificationsOn = FALSE;
     private Patient parentPatient;
     private ArrayList<PatientRecord> patientRecords;
     private ArrayList<SimpleRecord> caregiverRecords;
@@ -74,16 +77,15 @@ public class Problem {
     }
 
     public void deletePatientRecord(Integer index){
-        patientRecords.remove(index);
+        patientRecords.remove(patientRecords.get(index));
     }
 
     public void deleteCareGiverRecord(Integer index){
-        caregiverRecords.remove(index);
+        caregiverRecords.remove(caregiverRecords.get(index));
     }
 
     public ArrayList<Notification> getNotifications(){
-        return notifications;
-
+        return this.notifications;
     }
 
     public void addNotification(Notification newNotification){
@@ -96,11 +98,20 @@ public class Problem {
 
 
     public void switchNotification(){
-
+        if (notificationsOn  == TRUE){
+            notificationsOn = FALSE;
+        }
+        else{
+            notificationsOn = TRUE;
+        }
     }
 
     public Boolean notificationStatus(){
         return notificationsOn;
+    }
+
+    public void setPatient(Patient parentPatient){
+        this.parentPatient = parentPatient;
     }
 
     public Patient getPatient(){

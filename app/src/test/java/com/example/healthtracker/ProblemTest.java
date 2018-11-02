@@ -10,6 +10,9 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 
+import static java.lang.Boolean.FALSE;
+import static java.lang.Boolean.TRUE;
+import static java.lang.Boolean.parseBoolean;
 import static org.junit.Assert.*;
 
 /**
@@ -119,16 +122,30 @@ public class ProblemTest {
 
     @Test
     public void switchNotification() throws Exception {
+        Boolean myNotification = problem.notificationStatus();
+        switchNotification();
+        Boolean myNotification2 = problem.notificationStatus();
+        assertFalse(myNotification == myNotification2);
     }
 
     @Test
     public void notificationStatus() throws Exception {
-
+        
     }
+
 
     @Test
     public void getPatient() throws Exception{
+        Patient patient = new Patient("P001","P001","123-456-789","patient1@health.com");
+        problem.setPatient(patient);
+        assertEquals(problem.getPatient(),patient);
+    }
 
+    @Test
+    public void setPatient() throws Exception{
+        Patient newPatient = new Patient("P002","P002","111-222-333","patient2@health.com");
+        problem.setPatient(newPatient);
+        assertEquals(problem.getPatient(),newPatient);
     }
 
 }
