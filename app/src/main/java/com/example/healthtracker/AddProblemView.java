@@ -71,7 +71,7 @@ public class AddProblemView extends AppCompatActivity {
         }
     }
 
-    public void addPatientProblem(View view) {
+    public void addPatientProblem(View view, Problem patientProblem) {
         EditText title = findViewById(R.id.title_text);
         EditText date = findViewById(R.id.date_started_editable);
         EditText description = findViewById(R.id.problem_description_edit);
