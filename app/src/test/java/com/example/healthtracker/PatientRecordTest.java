@@ -1,76 +1,73 @@
 package com.example.healthtracker;
 
+import android.graphics.Bitmap;
+
 import org.junit.Before;
 import org.junit.Test;
 
 import java.util.ArrayList;
-import java.util.Date;
-//import java.util.Iterator;
+import java.sql.Date;
+//import java.util.Date;
 
 import static org.junit.Assert.*;
 
 
 public class PatientRecordTest {
+
     private String title;
-    private ArrayList<String> comments;
-    private Problem problem;
+    private String comment;
+    private Problem parentProblem;
+    private String timestamp;
+    private ArrayList<Bitmap> geoLocations;
+    private ArrayList<Photo> photos;
+    private Photo photo;
     private PatientRecord patientRecord;
 
     @Before
     public void setUp() throws Exception {
-        title = "Record 1";
-        comments = new ArrayList<String>();
-        Date dateStarted = new Date();
-        problem = new Problem("Rash",dateStarted,"Red spots are gradually diminishing");
-        patientRecord = new  PatientRecord(title,comments,problem);
+        title = "PatientRecord";
+        comment = "My finger is hurt.";
+        photo = new Photo("file location", new Record());
+        Date dateStarted = new Date(( new java.util.Date()).getTime());
+        timestamp = "16:00:00";
+        parentProblem = new Problem("SaveMyFinger",dateStarted,"I felt bad on my finger.");
+        geoLocations = new ArrayList<Bitmap>();
+        patientRecord = new PatientRecord(title,comment,parentProblem,timestamp, geoLocations);
+
+    }
+
+
+    @Test
+    public void addGeoLocation() throws Exception {
+
     }
 
     @Test
-    public void setTitle() throws Exception {
-        String newTitle = "Record 2";
-        patientRecord.setTitle(newTitle);
-        assertEquals(patientRecord.getTitle(),newTitle);
+    public void addPhoto() throws Exception {
+        int index = 0;
+        Photo newPhoto = new Photo("file location 1", new Record());
+        patientRecord.addPhoto(newPhoto);
+        assertEquals(newPhoto, patientRecord.getPhoto(index));
     }
 
-    @Test
-    public void getTitle() throws Exception {
-        assertEquals(patientRecord.getTitle(),title);
+    public void deleteGeoLocation() throws Exception {
+
     }
 
+    public void getPhoto() throws Exception{
+        int index = 0;
+        assertEquals(patientRecord.getPhoto(index),photo);
+    }
+
+
     @Test
-    public void getComments() throws Exception {
+    public void deletePhoto() throws Exception {
         Integer index = 0;
-        assertEquals(patientRecord.getComments(index),comments);
+        Photo newPhoto = new Photo("file location", new Record());
+        patientRecord.addPhoto(newPhoto);
+        patientRecord.deletePhoto(index);
+        assertFalse(patientRecord.getPhoto(index) == newPhoto);
     }
-
-    @Test
-    public void addComment() throws Exception {
-        String newComment = "new comment";
-        patientRecord.addComment(newComment);
-
-    }
-
-    @Test
-    public void setComment() throws Exception {
-        String newComment = "new comment";
-        Integer index = 0;
-        patientRecord.setComment(index,newComment);
-        assertEquals(patientRecord.getComments(index),"new comment");
-    }
-
-    @Test
-    public void deleteComment() throws Exception {
-        Integer index = 0;
-        String prev_comment = comments.get(index);
-        patientRecord.deleteComment(index);
-        assertFalse(patientRecord.getComments(index) == prev_comment);
-    }
-
-    @Test
-    public void getProblem() throws Exception {
-        assertEquals(problem,patientRecord.getProblem());
-    }
-
 
 
 }

@@ -10,4 +10,10 @@ public class Notification {
     private Time time;
     private Date startDate;
 
+    public Notification(String repeatType, Time time, Date startDate){
+        this.repeatType = repeatType;
+        this.time = time;
+        this.startDate = startDate;
+    }
+
 }
