@@ -20,7 +20,7 @@ public class CareProviderProblemView extends AppCompatActivity {
         startActivity(intent);
     }
 
-    public void addCareProviderComment(View view) {
+    public void addCareProviderComment(View view, String title, String Comment) {
         // Create an intent object containing the bridge to between the two activities
         Intent intent = new Intent(CareProviderProblemView.this, AddCareProviderCommentView.class);
         // Launch the browse emotions activity

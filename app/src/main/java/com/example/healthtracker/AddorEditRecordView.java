@@ -10,4 +10,8 @@ public class AddorEditRecordView extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_addor_edit_record);
     }
+
+    public void updateDisplay(){
+
+    }
 }

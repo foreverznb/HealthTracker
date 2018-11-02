@@ -6,9 +6,9 @@ package com.example.healthtracker;
 
 public class Photo {
     private String fileLocation;
-    private Record parentRecord;
+    private PatientRecord parentRecord;
 
-    public Photo(String fileLocation,Record parentRecord){
+    public Photo(String fileLocation,PatientRecord parentRecord){
         this.parentRecord = parentRecord;
         this.fileLocation = fileLocation;
 
@@ -22,7 +22,7 @@ public class Photo {
         this.fileLocation = fileLocation;
     }
 
-    public Record getRecord(){
+    public PatientRecord getRecord(){
         return this.parentRecord;
     }
 
