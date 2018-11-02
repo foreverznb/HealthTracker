@@ -4,25 +4,27 @@ import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Toast;
 
-public class AddCareProviderComment extends AppCompatActivity {
+public class AddPatientView extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_add_care_provider_comment);
+        setContentView(R.layout.activity_add_patient);
     }
 
-    public void returnToProblem(View view) {
+    public void Return2(View view) {
         // Create an intent object containing the bridge to between the two activities
-        Intent intent = new Intent(AddCareProviderComment.this, CareProviderProblemView.class);
+        Intent intent = new Intent(AddPatientView.this, CareProviderHomeView.class);
         // Launch the browse emotions activity
         startActivity(intent);
     }
 
-    public void saveCareProviderComment(View view) {
+    public void Add(View view, Patient patient) {
+        Toast.makeText(this, "Patient Added", Toast.LENGTH_SHORT).show();
         // Create an intent object containing the bridge to between the two activities
-        Intent intent = new Intent(AddCareProviderComment.this, CareProviderProblemView.class);
+        Intent intent = new Intent(AddPatientView.this, CareProviderHomeView.class);
         // Launch the browse emotions activity
         startActivity(intent);
     }

@@ -15,14 +15,14 @@ public class RecordView extends AppCompatActivity {
 
     public void viewRecordsPhotos(View view) {
         // Create an intent object containing the bridge to between the two activities
-        Intent intent = new Intent(RecordView.this, SlideShow.class);
+        Intent intent = new Intent(RecordView.this, SlideShowActivity.class);
         // Launch the browse emotions activity
         startActivity(intent);
     }
 
     public void editRecords(View view) {
         // Create an intent object containing the bridge to between the two activities
-        Intent intent = new Intent(RecordView.this, AddorEditRecord.class);
+        Intent intent = new Intent(RecordView.this, AddorEditRecordView.class);
         // Launch the browse emotions activity
         startActivity(intent);
     }

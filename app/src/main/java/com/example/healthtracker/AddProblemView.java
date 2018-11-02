@@ -14,7 +14,7 @@ import java.text.SimpleDateFormat;
 import java.util.Locale;
 
 
-public class AddProblem extends AppCompatActivity {
+public class AddProblemView extends AppCompatActivity {
 
 
     @Override
@@ -42,7 +42,7 @@ public class AddProblem extends AppCompatActivity {
         EditText description = findViewById(R.id.problem_description_edit);
         if (title.getText().toString().equals("") || date.getText().toString().equals("")
                 || description.getText().toString().equals("")) {
-            AlertDialog.Builder ab = new AlertDialog.Builder(AddProblem.this);
+            AlertDialog.Builder ab = new AlertDialog.Builder(AddProblemView.this);
             ab.setMessage("Warning. Changes have been made to the problem." + "\n" + "Returning to the home screen will not save changes.");
             ab.setCancelable(true);
             // Set a button to return to the Home screen and don't save changes
@@ -50,7 +50,7 @@ public class AddProblem extends AppCompatActivity {
                 @Override
                 public void onClick(DialogInterface dialog, int which) {
                     // launch an intent to return to the home screen
-                    Intent intent = new Intent(AddProblem.this, PatientHome.class);
+                    Intent intent = new Intent(AddProblemView.this, PatientHomeView.class);
                     startActivity(intent);
                 }
             });
@@ -64,14 +64,14 @@ public class AddProblem extends AppCompatActivity {
             // show the alert dialog on the screen
             ab.show();
         } else {
-            Intent intent = new Intent(AddProblem.this, PatientHome.class);
+            Intent intent = new Intent(AddProblemView.this, PatientHomeView.class);
             // Return to the home activity
             startActivity(intent);
 
         }
     }
 
-    public void addPatientProblem(View view) {
+    public void addPatientProblem(View view, Problem patientProblem) {
         EditText title = findViewById(R.id.title_text);
         EditText date = findViewById(R.id.date_started_editable);
         EditText description = findViewById(R.id.problem_description_edit);
@@ -83,7 +83,7 @@ public class AddProblem extends AppCompatActivity {
         } else {
             Toast.makeText(this, "Problem Added", Toast.LENGTH_SHORT).show();
             // Create an intent object containing the bridge to between the two activities
-            Intent intent = new Intent(AddProblem.this, PatientHome.class);
+            Intent intent = new Intent(AddProblemView.this, PatientHomeView.class);
             // Launch the browse emotions activity
             startActivity(intent);
         }
@@ -91,7 +91,7 @@ public class AddProblem extends AppCompatActivity {
 
     public void addRecordFromAdd(View view) {
         // Create an intent object containing the bridge to between the two activities
-        Intent intent = new Intent(AddProblem.this, AddorEditRecord.class);
+        Intent intent = new Intent(AddProblemView.this, AddorEditRecordView.class);
         // Launch the browse emotions activity
         startActivity(intent);
     }

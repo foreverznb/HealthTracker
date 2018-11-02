@@ -5,7 +5,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 
-public class SearchResults extends AppCompatActivity {
+public class SearchResultsView extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -15,7 +15,7 @@ public class SearchResults extends AppCompatActivity {
 
     public void Return4(View view) {
         // Create an intent object containing the bridge to between the two activities
-        Intent intent = new Intent(SearchResults.this, SearchActivity.class);
+        Intent intent = new Intent(SearchResultsView.this, SearchActivity.class);
         // Launch the browse emotions activity
         startActivity(intent);
     }

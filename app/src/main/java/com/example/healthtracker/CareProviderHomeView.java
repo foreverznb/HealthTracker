@@ -1,72 +1,66 @@
 package com.example.healthtracker;
 
 import android.content.Intent;
-import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.os.Bundle;
 import android.view.View;
 
-public class PatientHome extends AppCompatActivity {
+public class CareProviderHomeView extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_patient_home);
+        setContentView(R.layout.activity_careprovider_home);
     }
 
     // Method containing the new intent which will bring user to the browse emotions activity and layout screen
     public void Search(View view) {
         // Create an intent object containing the bridge to between the two activities
-        Intent intent = new Intent(PatientHome.this, SearchActivity.class);
+        Intent intent = new Intent(CareProviderHomeView.this, SearchActivity.class);
         // Launch the browse emotions activity
         startActivity(intent);
     }
 
-    public void addProblem(View view) {
+    public void AddPatient(View view) {
         // Create an intent object containing the bridge to between the two activities
-        Intent intent = new Intent(PatientHome.this, AddProblem.class);
+        Intent intent = new Intent(CareProviderHomeView.this, AddPatientView.class);
         // Launch the browse emotions activity
         startActivity(intent);
     }
 
     // Method containing the new intent which will bring user to the browse emotions activity and layout screen
-    public void viewMyProblems(View view) {
-
-        // if (problemcount>0){
-            // Create an intent object containing the bridge to between the two activities
-            Intent intent = new Intent(PatientHome.this, ViewMyProblems.class);
-            // Launch the ViewMyProblems activity
-            startActivity(intent);
-        //}
-        //else{
-        //  Toast.makeText(this, "No Problems to View", Toast.LENGTH_LONG).show();
-
+    public void ViewPatients(View view) {
+        // Create an intent object containing the bridge to between the two activities
+        Intent intent = new Intent(CareProviderHomeView.this, ViewPatients.class);
+        // Launch the browse emotions activity
+        startActivity(intent);
     }
 
     public void ViewUsers(View view) {
         // Create an intent object containing the bridge to between the two activities
-        Intent intent = new Intent(PatientHome.this, ViewUsers.class);
+        Intent intent = new Intent(CareProviderHomeView.this, ViewUsers.class);
         // Launch the browse emotions activity
         startActivity(intent);
     }
 
     public void Settings(View view) {
         // Create an intent object containing the bridge to between the two activities
-        Intent intent = new Intent(PatientHome.this, UserSettings.class);
+        Intent intent = new Intent(CareProviderHomeView.this, UserSettingsActivity.class);
         // Launch the browse emotions activity
         startActivity(intent);
     }
 
-    public void viewMap(View view) {
+    public void careViewMap(View view) {
         // Create an intent object containing the bridge to between the two activities
-        Intent intent = new Intent(PatientHome.this, MapView.class);
+        Intent intent = new Intent(CareProviderHomeView.this, MapView.class);
         // Launch the browse emotions activity
         startActivity(intent);
     }
-    
+
     public void LogOut(){
-        // Create an intent object containing the bridge to between the two activities
-        Intent intent = new Intent(PatientHome.this, LoginActivity.class);
+        Intent intent = new Intent(CareProviderHomeView.this, LoginActivity.class);
         // Launch the browse emotions activity
         startActivity(intent);
+
     }
 }
