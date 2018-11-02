@@ -1,10 +1,13 @@
 package com.example.healthtracker;
 
+import android.app.Notification;
+
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
 
 import static org.junit.Assert.*;
@@ -65,7 +68,8 @@ public class ProblemTest {
     }
 
     @Test
-    public void incrementRecord() throws Exception {
+    public void countRecord() throws Exception {
+
     }
 
     @Test
@@ -73,17 +77,18 @@ public class ProblemTest {
     }
 
     @Test
-    public void getCommentRecords() throws Exception {
+    public void getCareGiverRecords() throws Exception {
+    }
+
+
+    @Test
+    public void addPatientRecord() throws Exception {
     }
 
     @Test
-    public void setRecord() throws Exception {
-
+    public void addCareGiverRecord() throws Exception {
     }
 
-    @Test
-    public void addRecord() throws Exception {
-    }
 
     @Test
     public void deleteRecord() throws Exception {
@@ -91,26 +96,39 @@ public class ProblemTest {
 
     @Test
     public void getNotifications() throws Exception {
-    }
-
-    @Test
-    public void setNotification() throws Exception {
+        Notification myNotification = new Notification();
+        ArrayList<Notification> notifications = new ArrayList<Notification>();
+        notifications.add(myNotification);
+        problem.addNotification(myNotification);
+        assertEquals(notifications,problem.getNotifications());
     }
 
     @Test
     public void addNotification() throws Exception {
+        Notification myNotification = new Notification();
+        ArrayList<Notification> notifications = new ArrayList<Notification>();
+        notifications.add(myNotification);
+        problem.addNotification(myNotification);
+        assertEquals(notifications,problem.getNotifications());
     }
 
     @Test
     public void deleteNotification() throws Exception {
-    }
 
-    @Test
-    public void getPhotos() throws Exception {
     }
 
     @Test
     public void switchNotification() throws Exception {
+    }
+
+    @Test
+    public void notificationStatus() throws Exception {
+
+    }
+
+    @Test
+    public void getPatient() throws Exception{
+
     }
 
 }
