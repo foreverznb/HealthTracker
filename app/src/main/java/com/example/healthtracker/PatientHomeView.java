@@ -62,4 +62,11 @@ public class PatientHomeView extends AppCompatActivity {
         // Launch the browse emotions activity
         startActivity(intent);
     }
+    
+    public void LogOut(){
+        // Create an intent object containing the bridge to between the two activities
+        Intent intent = new Intent(PatientHome.this, LoginActivity.class);
+        // Launch the browse emotions activity
+        startActivity(intent);
+    }
 }

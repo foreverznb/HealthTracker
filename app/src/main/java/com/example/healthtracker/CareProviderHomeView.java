@@ -56,4 +56,11 @@ public class CareProviderHomeView extends AppCompatActivity {
         // Launch the browse emotions activity
         startActivity(intent);
     }
+
+    public void LogOut(){
+        Intent intent = new Intent(CareProviderHome.this, LoginActivity.class);
+        // Launch the browse emotions activity
+        startActivity(intent);
+
+    }
 }
