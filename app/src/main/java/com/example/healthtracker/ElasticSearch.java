@@ -19,7 +19,7 @@ import io.searchbox.core.SearchResult;
 public class ElasticSearch {
     private static JestDroidClient client;
 
-    // TODO we need a function which adds tweets to elastic search
+    // TODO we need a function which adds users to elastic search
     public static class AddUser extends AsyncTask<User, Void, Void> {
 
         @Override
@@ -68,7 +68,7 @@ public class ElasticSearch {
 
             Search search = new Search.Builder(query)
                     .addIndex("testing")
-                    .addType("userID")
+                    .addType("user")
                     .build();
 
             try {
@@ -79,7 +79,7 @@ public class ElasticSearch {
                     users.addAll(foundusers);
                 }
                 else {
-                    Log.i("Error", "The search query failed to find any tweets that matched");
+                    Log.i("Error", "The search query failed to find any users that matched");
                 }
             }
             catch (Exception e) {

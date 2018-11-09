@@ -4,8 +4,8 @@ package com.example.healthtracker;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.View;
-import android.widget.ArrayAdapter;
 import android.widget.CheckBox;
 import android.widget.EditText;
 
@@ -26,7 +26,6 @@ import java.util.ArrayList;
 public class LoginActivity extends AppCompatActivity {
     private static final String FILENAME = "file.sav";
     private ArrayList<User> userList =new ArrayList<User>();
-    private ArrayAdapter<User> adapter;
 
 
     @Override
@@ -62,6 +61,22 @@ public class LoginActivity extends AppCompatActivity {
             Intent intent2 = new Intent(LoginActivity.this, PatientHomeView.class);
             // Launch the browse emotions activity
             startActivity(intent2);
+        }
+    }
+
+    @Override
+    protected void onStart() {
+        // TODO Auto-generated method stub
+        super.onStart();
+        //loadFromFile(); // TODO replace this with elastic search
+
+        ElasticSearch.GetUser getUser = new ElasticSearch.GetUser();
+        getUser.execute("");
+
+        try {
+            userList = getUser.get();
+        } catch (Exception e) {
+            Log.i("Error", "Failed to get the tweets from the async object");
         }
     }
 
