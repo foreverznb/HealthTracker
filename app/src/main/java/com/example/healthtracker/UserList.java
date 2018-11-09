@@ -11,7 +11,6 @@ public class UserList {
 
     public boolean hasUser(User user) {
         return users.contains(user);
-
     }
 
     public User getUser(int index) {

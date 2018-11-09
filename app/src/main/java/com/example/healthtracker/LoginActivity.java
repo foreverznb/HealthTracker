@@ -29,8 +29,6 @@ public class LoginActivity extends AppCompatActivity {
     private ArrayAdapter<User> adapter;
     private EditText userId=findViewById(R.id.username);
 
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -66,6 +64,7 @@ public class LoginActivity extends AppCompatActivity {
         }
     }
 
+
     private void loadFromFile() {
         try {
             FileInputStream fis = openFileInput(FILENAME);
@@ -83,7 +82,6 @@ public class LoginActivity extends AppCompatActivity {
 
     private void saveInFile() {
         try {
-
             FileOutputStream fos = openFileOutput(FILENAME,0);
             OutputStreamWriter writer = new OutputStreamWriter(fos);
             Gson gson = new Gson();
