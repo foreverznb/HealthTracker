@@ -27,7 +27,7 @@ public class LoginActivity extends AppCompatActivity {
     private static final String FILENAME = "file.sav";
     private ArrayList<User> userList =new ArrayList<User>();
     private ArrayAdapter<User> adapter;
-    private EditText userId=findViewById(R.id.username);
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,6 +46,7 @@ public class LoginActivity extends AppCompatActivity {
 
     public void Login(View view) {
         CheckBox checkBox = findViewById(R.id.checkBox);
+        EditText userId=findViewById(R.id.username);
         String username=userId.getText().toString();
         ElasticSearch.GetUser getUser = new ElasticSearch.GetUser();
         getUser.execute(username);
