@@ -36,7 +36,7 @@ public class CaretakerTest {
     String description2;
 
     @Before
-    public void setUp() throws Exception {
+    public void setUp() {
         userID = "Nick";
         password = "nickB";
         phone = "780-777-2342";

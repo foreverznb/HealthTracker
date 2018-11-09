@@ -13,32 +13,32 @@ public class SimpleRecordTest {
     private SimpleRecord simpleRecord;
     private String title;
     @Before
-    public void setUp() throws Exception {
+    public void setUp() {
         title = "Rash";
         comment = "Get a rash after eating some seafood";
         simpleRecord = new SimpleRecord(title,comment);
     }
 
     @Test
-    public void getComment() throws Exception {
+    public void getComment() {
         assertEquals(simpleRecord.getComment(),comment);
     }
 
     @Test
-    public void setComment() throws Exception {
+    public void setComment() {
         String newComment = "Rash is disappearing";
         simpleRecord.setComment(newComment);
         assertEquals(simpleRecord.getComment(),newComment);
     }
 
     @Test
-    public void getTitle() throws Exception {
+    public void getTitle() {
         assertEquals(simpleRecord.getTitle(),title);
 
     }
 
     @Test
-    public void setTitle() throws Exception {
+    public void setTitle() {
         String newTitle = "Rash2";
         simpleRecord.setTitle(newTitle);
         assertEquals(simpleRecord.getTitle(),newTitle);

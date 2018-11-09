@@ -25,7 +25,7 @@ public class ProblemTest {
     private String description;
 
     @Before
-    public void setUp() throws Exception {
+    public void setUp() {
         // Create an instance of the Problem class
         title = "Rash";
         dateStarted = new Date();
@@ -35,22 +35,22 @@ public class ProblemTest {
 
 
     @Test
-    public void getTitle() throws Exception {
+    public void getTitle() {
         assertEquals(problem.getTitle(),"Rash");
     }
 
     @Test
-    public void getDate() throws Exception {
+    public void getDate() {
         assertEquals(problem.getDate(),dateStarted);
     }
 
     @Test
-    public void getDescription() throws Exception {
+    public void getDescription() {
         assertEquals(problem.getDescription(),description);
     }
 
     @Test
-    public void setTitle() throws Exception {
+    public void setTitle() {
         problem.setTitle("Big Rash");
         assertEquals(problem.getTitle(),"Big Rash");
     }
@@ -65,40 +65,40 @@ public class ProblemTest {
     }
 
     @Test
-    public void setDescription() throws Exception {
+    public void setDescription() {
         problem.setDescription("Red spots are gradually diminishing");
         assertEquals(problem.getDescription(),"Red spots are gradually diminishing");
     }
 
     @Test
-    public void countRecord() throws Exception {
+    public void countRecord() {
 
     }
 
     @Test
-    public void getPatientRecords() throws Exception {
+    public void getPatientRecords() {
     }
 
     @Test
-    public void getCareGiverRecords() throws Exception {
-    }
-
-
-    @Test
-    public void addPatientRecord() throws Exception {
-    }
-
-    @Test
-    public void addCareGiverRecord() throws Exception {
+    public void getCareGiverRecords() {
     }
 
 
     @Test
-    public void deleteRecord() throws Exception {
+    public void addPatientRecord() {
     }
 
     @Test
-    public void getNotifications() throws Exception {
+    public void addCareGiverRecord() {
+    }
+
+
+    @Test
+    public void deleteRecord() {
+    }
+
+    @Test
+    public void getNotifications() {
         Notification myNotification = new Notification();
         ArrayList<Notification> notifications = new ArrayList<Notification>();
         notifications.add(myNotification);
@@ -107,7 +107,7 @@ public class ProblemTest {
     }
 
     @Test
-    public void addNotification() throws Exception {
+    public void addNotification() {
         Notification myNotification = new Notification();
         ArrayList<Notification> notifications = new ArrayList<Notification>();
         notifications.add(myNotification);
@@ -116,12 +116,12 @@ public class ProblemTest {
     }
 
     @Test
-    public void deleteNotification() throws Exception {
+    public void deleteNotification() {
 
     }
 
     @Test
-    public void switchNotification() throws Exception {
+    public void switchNotification() {
         Boolean myNotification = problem.notificationStatus();
         switchNotification();
         Boolean myNotification2 = problem.notificationStatus();
@@ -129,20 +129,20 @@ public class ProblemTest {
     }
 
     @Test
-    public void notificationStatus() throws Exception {
+    public void notificationStatus() {
         
     }
 
 
     @Test
-    public void getPatient() throws Exception{
+    public void getPatient() {
         Patient patient = new Patient("P001","P001","123-456-789","patient1@health.com");
         problem.setPatient(patient);
         assertEquals(problem.getPatient(),patient);
     }
 
     @Test
-    public void setPatient() throws Exception{
+    public void setPatient() {
         Patient newPatient = new Patient("P002","P002","111-222-333","patient2@health.com");
         problem.setPatient(newPatient);
         assertEquals(problem.getPatient(),newPatient);

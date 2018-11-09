@@ -24,7 +24,7 @@ public class PatientRecordTest {
     private PatientRecord patientRecord;
 
     @Before
-    public void setUp() throws Exception {
+    public void setUp() {
         title = "PatientRecord";
         comment = "My finger is hurt.";
         photo = new Photo("file location", new Record());
@@ -38,30 +38,30 @@ public class PatientRecordTest {
 
 
     @Test
-    public void addGeoLocation() throws Exception {
+    public void addGeoLocation() {
 
     }
 
     @Test
-    public void addPhoto() throws Exception {
+    public void addPhoto() {
         int index = 0;
         Photo newPhoto = new Photo("file location 1", new Record());
         patientRecord.addPhoto(newPhoto);
         assertEquals(newPhoto, patientRecord.getPhoto(index));
     }
 
-    public void deleteGeoLocation() throws Exception {
+    public void deleteGeoLocation() {
 
     }
 
-    public void getPhoto() throws Exception{
+    public void getPhoto() {
         int index = 0;
         assertEquals(patientRecord.getPhoto(index),photo);
     }
 
 
     @Test
-    public void deletePhoto() throws Exception {
+    public void deletePhoto() {
         Integer index = 0;
         Photo newPhoto = new Photo("file location", new Record());
         patientRecord.addPhoto(newPhoto);
