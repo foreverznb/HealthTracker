@@ -4,10 +4,13 @@ import android.graphics.Bitmap;
 
 import java.util.List;
 
+import io.searchbox.annotations.JestId;
+
 public abstract class User {
     private String userID;
     private String password;
     private String email;
+    @JestId
     private String phone;
 
     public User(String userID, String password, String phone, String email){
