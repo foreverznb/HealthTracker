@@ -72,6 +72,9 @@
     <string name="back_from_patient_p_view">Back</string>
     <string name="add_record_to_problem">Add Record</string>
     <string name="edit_record_button_text">Edit</string>
+    <string name="webmd">webMD</string>
+    <string name="symptom_checker">Symptom Checker</string>
+    <string name="mayo_clinic">Mayo Clinic</string>
 
 
     <string-array name="searchTypes">
