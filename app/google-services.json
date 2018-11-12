@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "1048280239337",
+    "firebase_url": "https://healthtrackermap.firebaseio.com",
+    "project_id": "healthtrackermap",
+    "storage_bucket": "healthtrackermap.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1048280239337:android:5cc92b432dd1372c",
+        "android_client_info": {
+          "package_name": "com.example.healthtracker"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1048280239337-5dm7qbjpshag2re48vo8f8th5ok1j715.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBWzQ6xJupJffrMeKRNx-E6I7WWRaVioi0"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
