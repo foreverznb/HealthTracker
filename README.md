@@ -1,1 +1,15 @@
 # HealthTracker
+
+HealthTracker allows patients to track a variety of medical issues via documenting problems and attaching records to those problems. CareProvider's are able to use HealthTracker to view patient's they are assigned to and then view these patients documented medical problems.
+
+
+We used knowledge and ideas from several sources when creating our app, they are listed below.
+
+
+EDMT Dev, Android Studio Tutorial - Sliding Image with ViewPager, https://www.youtube.com/watch?v=SX8l9vv-N_4, 2016/07/13, viewed 2018/10/22.
+
+https://www.viralandroid.com/2016/04/google-maps-android-api-getting-started-tutorial.html, 2016/04/24, viewed 2018/10/23
+
+https://www.viralandroid.com/2016/04/get-current-location-google-maps-android-api-tutorial.html, 2016/04/24, viewed 2018/10/23
+
+https://www.viralandroid.com/2016/04/google-maps-android-api-adding-search-bar-part-3.html, 2016/04/25, viewed 2018/10/23

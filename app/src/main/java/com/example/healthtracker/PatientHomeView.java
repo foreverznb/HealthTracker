@@ -1,0 +1,89 @@
+package com.example.healthtracker;
+
+import android.content.Intent;
+import android.os.Build;
+import android.os.Bundle;
+import android.support.annotation.RequiresApi;
+import android.support.v7.app.AppCompatActivity;
+import android.text.Html;
+import android.text.method.LinkMovementMethod;
+import android.view.View;
+import android.widget.TextView;
+
+public class PatientHomeView extends AppCompatActivity {
+
+    @RequiresApi(api = Build.VERSION_CODES.N)
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_patient_home);
+
+        TextView webMDTV = findViewById(R.id.webMDLink);
+        String MDtext = "<a href='https://www.webmd.com/'> WebMD </a>";
+        webMDTV.setMovementMethod(LinkMovementMethod.getInstance());
+        webMDTV.setText(Html.fromHtml(MDtext));
+
+        TextView mayoTV = findViewById(R.id.mayoLink);
+        mayoTV.setMovementMethod(LinkMovementMethod.getInstance());
+        String mayoText = "<a href='https://www.mayoclinic.org/symptom-checker/select-symptom/itt-20009075'> Mayo Clinic </a>";
+        //String mayoText = "<a href='https://www.mayoclinic.org'> Mayo Clinic </a>";
+        mayoTV.setText(Html.fromHtml(mayoText));
+
+        TextView checkTV = findViewById(R.id.checkLink);
+        checkTV.setMovementMethod(LinkMovementMethod.getInstance());
+        String checkText = "<a href='https://symptomchecker.isabelhealthcare.com/suggest_diagnoses_advanced/landing_page'> Symptom Checker </a>";
+        //String checkText = "<a href='https://www.symptomchecker.isabelhealthcare.com'> Symptom Checker </a>";
+        checkTV.setText(Html.fromHtml(checkText, Html.FROM_HTML_MODE_COMPACT));
+    }
+
+    // Method containing the new intent which will bring user to the browse emotions activity and layout screen
+    public void Search(View view) {
+        // Create an intent object containing the bridge to between the two activities
+        Intent intent = new Intent(PatientHomeView.this, SearchActivity.class);
+        // Launch the browse emotions activity
+        startActivity(intent);
+    }
+
+    public void addProblem(View view) {
+        // Create an intent object containing the bridge to between the two activities
+        Intent intent = new Intent(PatientHomeView.this, AddProblemView.class);
+        // Launch the browse emotions activity
+        startActivity(intent);
+    }
+
+    // Method containing the new intent which will bring user to the browse emotions activity and layout screen
+    public void viewMyProblems(View view) {
+
+        // if (problemcount>0){
+            // Create an intent object containing the bridge to between the two activities
+            Intent intent = new Intent(PatientHomeView.this, ViewMyProblems.class);
+            // Launch the ViewMyProblems activity
+            startActivity(intent);
+        //}
+        //else{
+        //  Toast.makeText(this, "No Problems to View", Toast.LENGTH_LONG).show();
+
+    }
+
+    public void ViewUsers(View view) {
+        // Create an intent object containing the bridge to between the two activities
+        Intent intent = new Intent(PatientHomeView.this, ViewUsers.class);
+        // Launch the browse emotions activity
+        startActivity(intent);
+    }
+
+    public void Settings(View view) {
+        // Create an intent object containing the bridge to between the two activities
+        Intent intent = new Intent(PatientHomeView.this, UserSettingsActivity.class);
+        // Launch the browse emotions activity
+        startActivity(intent);
+    }
+
+    public void viewMap(View view) {
+        // Create an intent object containing the bridge to between the two activities
+        Intent intent = new Intent(PatientHomeView.this, MapView.class);
+        // Launch the browse emotions activity
+        startActivity(intent);
+    }
+
+}
