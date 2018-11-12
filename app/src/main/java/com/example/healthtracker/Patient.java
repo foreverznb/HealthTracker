@@ -7,8 +7,8 @@ public class Patient extends User {
 
     private List<Problem> problemList;
 
-    public Patient(String userID, String password, String phone, String email){
-        super(userID, password, phone, email);
+    public Patient(String userID, String password, String phone, String email, String userName){
+        super(userID, password, phone, email, userName);
         this.problemList = new ArrayList<>();
     }
 

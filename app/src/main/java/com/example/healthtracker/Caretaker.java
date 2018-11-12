@@ -7,8 +7,8 @@ public class Caretaker extends User {
 
     private List<Patient> patientList;
 
-    public Caretaker(String userID, String password, String phone, String email){
-        super(userID, password, phone, email);
+    public Caretaker(String userID, String password, String phone, String email, String userName){
+        super(userID, password, phone, email, userName);
         this.patientList = new ArrayList<Patient>();
     }
 
