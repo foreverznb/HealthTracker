@@ -6,29 +6,26 @@
     density="420dpi"
     format="10"
     plugin-version="3.2.1"
-    timestamp="1542067039959"
+    timestamp="1542137687964"
     token="3228296361726906817"
     verifier="FULL_BUILD_REQUESTED" >
 
     <task
         name="javac"
-        duration="209" />
+        duration="5294" />
     <task
         name="instant-run-dex"
         duration="0" />
     <task
         name="instant-run-transform"
-        duration="323" />
+        duration="343" />
     <task
         name="verifier"
-        duration="84" />
+        duration="197" />
 
     <artifact
         location="C:\Users\tyler\AndroidStudioProjects\HealthTracker1\app\build\intermediates\split-apk\debug\slices\slice_3.apk"
         type="SPLIT" />
-    <artifact
-        location="C:\Users\tyler\AndroidStudioProjects\HealthTracker1\app\build\intermediates\instant-run-apk\debug\app-debug.apk"
-        type="SPLIT_MAIN" />
     <artifact
         location="C:\Users\tyler\AndroidStudioProjects\HealthTracker1\app\build\intermediates\split-apk\debug\slices\slice_4.apk"
         type="SPLIT" />
@@ -62,17 +59,17 @@
     <artifact
         location="C:\Users\tyler\AndroidStudioProjects\HealthTracker1\app\build\intermediates\split-apk\debug\slices\slice_9.apk"
         type="SPLIT" />
+    <artifact
+        location="C:\Users\tyler\AndroidStudioProjects\HealthTracker1\app\build\intermediates\instant-run-apk\debug\app-debug.apk"
+        type="SPLIT_MAIN" />
 
     <build
         build-mode="FULL"
-        timestamp="1542067039959"
+        timestamp="1542137687964"
         verifier="FULL_BUILD_REQUESTED" >
         <artifact
             location="C:\Users\tyler\AndroidStudioProjects\HealthTracker1\app\build\intermediates\split-apk\debug\slices\slice_3.apk"
             type="SPLIT" />
-        <artifact
-            location="C:\Users\tyler\AndroidStudioProjects\HealthTracker1\app\build\intermediates\instant-run-apk\debug\app-debug.apk"
-            type="SPLIT_MAIN" />
         <artifact
             location="C:\Users\tyler\AndroidStudioProjects\HealthTracker1\app\build\intermediates\split-apk\debug\slices\slice_4.apk"
             type="SPLIT" />
@@ -106,6 +103,9 @@
         <artifact
             location="C:\Users\tyler\AndroidStudioProjects\HealthTracker1\app\build\intermediates\split-apk\debug\slices\slice_9.apk"
             type="SPLIT" />
+        <artifact
+            location="C:\Users\tyler\AndroidStudioProjects\HealthTracker1\app\build\intermediates\instant-run-apk\debug\app-debug.apk"
+            type="SPLIT_MAIN" />
     </build>
 
 </instant-run>
