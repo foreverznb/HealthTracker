@@ -1,8 +1,8 @@
 package com.example.healthtracker;
 
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Toast;
 
@@ -17,7 +17,7 @@ public class UserSettingsActivity extends AppCompatActivity {
     public void Logout(View view) {
         // Create an intent object containing the bridge to between the two activities
         Intent intent = new Intent(UserSettingsActivity.this, LoginActivity.class);
-        // Launch the login activity
+        // Launch the browse emotions activity
         startActivity(intent);
     }
 

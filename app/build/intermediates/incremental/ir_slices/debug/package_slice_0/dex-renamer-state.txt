@@ -1,0 +1,4 @@
+#Sun Nov 11 22:04:04 MST 2018
+base.0=C\:\\Users\\tyler\\AndroidStudioProjects\\HealthTracker1\\app\\build\\intermediates\\transforms\\dexMerger\\debug\\0
+path.0=classes.dex
+renamed.0=classes.dex

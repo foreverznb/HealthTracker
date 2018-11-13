@@ -1,6 +1,7 @@
 package com.example.healthtracker;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -17,6 +18,7 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.auth.UserProfileChangeRequest;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
@@ -26,12 +28,12 @@ public class CreateAccountActivity extends AppCompatActivity {
 
     private static final String TAG = "CreateAccountActivity";
     private FirebaseAuth.AuthStateListener mAuthListener;
-    private EditText mEmail, mName,mPassword;
+    private EditText mEmail, mPassword, mPhone, mUsername;
     private Button mRegister;
 
 
     private CreateAccountActivity mContext;
-    private String email, name, password;
+    private String email, password, phone, username;
     private User mUser;
 
 
@@ -40,13 +42,11 @@ public class CreateAccountActivity extends AppCompatActivity {
         Intent intent = new Intent(CreateAccountActivity.this, LoginActivity.class);
         // Launch the browse emotions activity
         startActivity(intent);
-        finish();
     }
 
     @RequiresApi(api = Build.VERSION_CODES.KITKAT)
     public void Save(View view) {
         addNewUser();
-        finish();
         // Display a brief message on screen upon the browse emotions button being clicked
         Toast.makeText(this, "Account Created", Toast.LENGTH_SHORT).show();
         // Create an intent object containing the bridge to between the two activities
@@ -62,7 +62,8 @@ public class CreateAccountActivity extends AppCompatActivity {
         mRegister = findViewById(R.id.create_new_account_button);
         mEmail = findViewById(R.id.email);
         mPassword = findViewById(R.id.new_password);
-        mName = findViewById(R.id.Name);
+        mPhone = findViewById(R.id.phone_number);
+        mUsername = findViewById(R.id.username);
         mContext = CreateAccountActivity.this;
         mUser = new User();
         Log.d(TAG, "onCreate: started");
@@ -75,10 +76,11 @@ public class CreateAccountActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 email = mEmail.getText().toString();
-                name = mName.getText().toString();
                 password = mPassword.getText().toString();
+                phone = mPhone.getText().toString();
+                username = mUsername.getText().toString();
 
-                if (checkInputs(email, name, password)) {
+                if (checkInputs(email, username, password, phone)) {
                     registerNewEmail(email, password);}
                 else{
                     Toast.makeText(mContext, "All fields must be filled", Toast.LENGTH_SHORT).show();
@@ -94,11 +96,12 @@ public class CreateAccountActivity extends AppCompatActivity {
      * @param email
      * @param username
      * @param password
+     * @param phone
      * @return
      */
-    private boolean checkInputs(String email, String username, String password){
+    private boolean checkInputs(String email, String username, String password, String phone){
         Log.d(TAG, "checkInputs: checking inputs for null values");
-        if(email.equals("") || username.equals("") || password.equals("")){
+        if(email.equals("") || username.equals("") || password.equals("") || phone.equals("")){
             Toast.makeText(mContext, "All fields must be filled out", Toast.LENGTH_SHORT).show();
             return false;
         }
@@ -151,14 +154,16 @@ public class CreateAccountActivity extends AppCompatActivity {
 
                         if (task.isSuccessful()){
                             //add user details to firebase database
+                            Toast.makeText(mContext, "Account created.",
+                                    Toast.LENGTH_SHORT).show();
                             addNewUser();
                         }
                         if (!task.isSuccessful()) {
-                            Toast.makeText(mContext, "Someone with that email already exists",
+                            Toast.makeText(mContext, "Email or password are invalid.",
                                     Toast.LENGTH_SHORT).show();
-
+                            // email taken, email invalid, or password too short end up here
                         }
-
+                        // TODO: check for valid phone#, possibly set restrictions on password length
                     }
                 });
     }
@@ -173,16 +178,16 @@ public class CreateAccountActivity extends AppCompatActivity {
         String userid = Objects.requireNonNull(FirebaseAuth.getInstance().getCurrentUser()).getUid();
 
         Log.d(TAG, "addNewUser: Adding new User: \n user_id:" + userid);
-        mUser.setUserName(name);
+        mUser.setUserName(username);
         mUser.setUserID(userid);
         mUser.setEmail(email);
+        mUser.setPhone(phone);
+
 
         DatabaseReference reference = FirebaseDatabase.getInstance().getReference();
 
         //insert into users node
-        reference.child(getString(R.string.track_users))
-                .child(userid)
-                .setValue(mUser);
+        reference.child("users").child(username).setValue(mUser);
 
         FirebaseAuth.getInstance().signOut();
     }
