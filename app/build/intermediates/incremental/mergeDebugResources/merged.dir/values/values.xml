@@ -2400,12 +2400,20 @@
     <string name="create_account">Create Account</string>
     <string name="date_started">Date Started</string>
     <string name="date_started_care_view">Date Started</string>
+    <string name="default_web_client_id" translatable="false">1048280239337-5dm7qbjpshag2re48vo8f8th5ok1j715.apps.googleusercontent.com</string>
     <string name="description_care_view">Description</string>
     <string name="edit_problem_button">Edit</string>
     <string name="edit_record_button_text">Edit</string>
+    <string name="email">Email Address</string>
     <string name="email_settings">Email</string>
     <string name="fab_transformation_scrim_behavior" translatable="false">android.support.design.transformation.FabTransformationScrimBehavior</string>
     <string name="fab_transformation_sheet_behavior" translatable="false">android.support.design.transformation.FabTransformationSheetBehavior</string>
+    <string name="firebase_database_url" translatable="false">https://healthtrackermap.firebaseio.com</string>
+    <string name="gcm_defaultSenderId" translatable="false">1048280239337</string>
+    <string name="google_api_key" translatable="false">AIzaSyBWzQ6xJupJffrMeKRNx-E6I7WWRaVioi0</string>
+    <string name="google_app_id" translatable="false">1:1048280239337:android:5cc92b432dd1372c</string>
+    <string name="google_crash_reporting_api_key" translatable="false">AIzaSyBWzQ6xJupJffrMeKRNx-E6I7WWRaVioi0</string>
+    <string name="google_storage_bucket" translatable="false">healthtrackermap.appspot.com</string>
     <string name="hide_bottom_view_on_scroll_behavior" translatable="false">android.support.design.behavior.HideBottomViewOnScrollBehavior</string>
     <string name="home">Home</string>
     <string name="home_from_userlist">Home</string>
@@ -2416,6 +2424,9 @@
     <string name="max_title_length">Enter Title(Max 30 chars)</string>
     <string name="mayo_clinic">Mayo Clinic</string>
     <string name="mtrl_chip_close_icon_content_description">Remove %1$s</string>
+    <string name="name_hint">Name</string>
+    <string name="password_hint">Password</string>
+    <string name="password_login_hint">Password</string>
     <string name="password_toggle_content_description">Show password</string>
     <string name="path_password_eye" translatable="false">M12,4.5C7,4.5 2.73,7.61 1,12c1.73,4.39 6,7.5 11,7.5s9.27,-3.11 11,-7.5c-1.73,-4.39 -6,-7.5 -11,-7.5zM12,17c-2.76,0 -5,-2.24 -5,-5s2.24,-5 5,-5 5,2.24 5,5 -2.24,5 -5,5zM12,9c-1.66,0 -3,1.34 -3,3s1.34,3 3,3 3,-1.34 3,-3 -1.34,-3 -3,-3z</string>
     <string name="path_password_eye_mask_strike_through" translatable="false">M2,4.27 L19.73,22 L22.27,19.46 L4.54,1.73 L4.54,1 L23,1 L23,23 L1,23 L1,4.27 Z</string>
@@ -2427,6 +2438,7 @@
     <string name="phone_settings">Phone</string>
     <string name="problem_description">Description</string>
     <string name="problem_title">Title</string>
+    <string name="project_id" translatable="false">healthtrackermap</string>
     <string name="prompt_email">Email</string>
     <string name="prompt_username">Username</string>
     <string name="provider_add_comment">Add Comment</string>
@@ -2450,7 +2462,9 @@
     <string name="symptom_checker">Symptom Checker</string>
     <string name="test_login_checkbox">Care Provider</string>
     <string name="title_care_view">Title</string>
+    <string name="track_users"/>
     <string name="user_id_settings">User ID</string>
+    <string name="username">Username(email address)</string>
     <string name="view_map">View Map</string>
     <string name="view_myproblems">View Problems</string>
     <string name="view_patients">View Patients</string>
