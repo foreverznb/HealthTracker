@@ -18,7 +18,7 @@ public class NotificationControllerTest {
     private Date startDate;
 
     @Before
-    public void setUp() throws Exception {
+    public void setUp() {
         java.util.Date ud = new java.util.Date();
         startDate = new Date(ud.getTime());
         java.util.Date ud_time = new java.util.Date();
@@ -30,52 +30,52 @@ public class NotificationControllerTest {
     }
 
     @Test
-    public void getStartDate() throws Exception{
+    public void getStartDate() {
 
     }
 
     @Test
-    public void getTime()throws Exception{
+    public void getTime() {
 
     }
 
     @Test
-    public void getRepeatType()throws Exception{
+    public void getRepeatType() {
 
     }
 
     @Test
-    public void setStartDate(Date newDate) throws Exception{
+    public void setStartDate(Date newDate) {
 
     }
 
     @Test
-    public void setTime(Time newTime)throws Exception{
+    public void setTime(Time newTime) {
 
     }
 
     @Test
-    public void setRepeatType(String newRepeatType)throws Exception{
+    public void setRepeatType(String newRepeatType) {
 
     }
 
     @Test
-    public void turnOff()throws Exception{
+    public void turnOff() {
 
     }
 
     @Test
-    public void turnOn()throws Exception{
+    public void turnOn() {
 
     }
 
     @Test
-    public void getProblem()throws Exception{
+    public void getProblem() {
 
     }
 
     @Test
-    public void notificationStatus()throws Exception{
+    public void notificationStatus() {
 
     }
 

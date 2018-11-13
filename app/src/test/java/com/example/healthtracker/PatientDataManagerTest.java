@@ -14,26 +14,26 @@ public class PatientDataManagerTest {
     private PatientDataManager patientDataManager;
 
     @Before
-    public void setUp() throws Exception {
+    public void setUp() {
 
         ArrayList<Problem> problems = new ArrayList<Problem>();
         patientDataManager = new PatientDataManager(problems);
     }
 
     @Test
-    public void elasticLoadProblems() throws Exception {
+    public void elasticLoadProblems() {
     }
 
     @Test
-    public void localLoadProblems() throws Exception {
+    public void localLoadProblems() {
     }
 
     @Test
-    public void saveProblemList() throws Exception {
+    public void saveProblemList() {
     }
 
     @Test
-    public void elasticSearch() throws Exception {
+    public void elasticSearch() {
     }
 
 }

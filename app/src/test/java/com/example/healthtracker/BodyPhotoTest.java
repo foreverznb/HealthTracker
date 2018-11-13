@@ -8,32 +8,31 @@ import static org.junit.Assert.assertEquals;
 public class BodyPhotoTest {
 
     private String fileLocation;
-    private Record parentRecord;
+    private PatientRecord parentRecord;
     private BodyPhoto bodyPhoto;
 
     @Before
-    public void setUp() throws Exception {
+    public void setUp() {
         fileLocation = "file location";
-        parentRecord = new Record();
-        bodyPhoto = new BodyPhoto(fileLocation,parentRecord);
+        bodyPhoto = new BodyPhoto(fileLocation);
     }
 
     @Test
-    public void setName() throws Exception{
+    public void setName() {
         String new_name = "name";
         bodyPhoto.setName(new_name);
         assertEquals(bodyPhoto.getName(),new_name);
     }
 
     @Test
-    public void getName() throws Exception{
+    public void getName() {
         String new_name = "name";
         bodyPhoto.setName(new_name);
         assertEquals(bodyPhoto.getName(),new_name);
     }
 
     @Test
-    public void setPinLocation()throws Exception{
+    public void setPinLocation() {
         int new_pinXLocation = 10;
         int new_pinYLocation = 11;
         bodyPhoto.setPinLocation(new_pinXLocation,new_pinYLocation);
@@ -42,7 +41,7 @@ public class BodyPhotoTest {
     }
 
     @Test
-    public void getPinXLocation() throws Exception{
+    public void getPinXLocation() {
         int new_pinXLocation = 10;
         int new_pinYLocation = 11;
         bodyPhoto.setPinLocation(new_pinXLocation,new_pinYLocation);
@@ -51,7 +50,7 @@ public class BodyPhotoTest {
     }
 
     @Test
-    public void getPinYLocation()throws Exception{
+    public void getPinYLocation() {
         int new_pinXLocation = 10;
         int new_pinYLocation = 11;
         bodyPhoto.setPinLocation(new_pinXLocation,new_pinYLocation);
@@ -59,7 +58,7 @@ public class BodyPhotoTest {
     }
 
     @Test
-    public  void removePin()throws Exception{
+    public  void removePin() {
         int new_pinXLocation = 10;
         int new_pinYLocation = 11;
         bodyPhoto.setPinLocation(new_pinXLocation,new_pinYLocation);

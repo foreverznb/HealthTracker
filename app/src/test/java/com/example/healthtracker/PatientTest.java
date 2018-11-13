@@ -14,10 +14,12 @@ import static org.junit.Assert.*;
 
 public class PatientTest {
     String userID;
+    String userName;
     String password;
     String phone;
     String email;
     String userID2;
+    String userName2;
     String password2;
     String phone2;
     String email2;
@@ -29,12 +31,14 @@ public class PatientTest {
     String description2;
 
     @Before
-    public void setUp() throws Exception {
-        userID = "Nick";
+    public void setUp() {
+        userName = "Nick";
+        userID = "001";
         password = "nickB";
         phone = "780-777-2342";
         email = "nick@aol.ca";
-        userID2 = "Sara";
+        userID2 = "002";
+        userName2 = "Sara";
         password2 = "password123";
         phone2 = "780-777-5555";
         email2 = "sara@hotmail.ca";
@@ -48,7 +52,7 @@ public class PatientTest {
 
     @Test
     public void createPatientTest(){
-        Patient p = new Patient(userID, password, phone, email);
+        Patient p = new Patient(userID, password, phone, email, userName);
         assertEquals(userID, p.getUserID());
         assertEquals(password, p.getPassword());
         assertEquals(phone, p.getPhone());
@@ -57,7 +61,7 @@ public class PatientTest {
 
     @Test
     public void editProfileTest(){
-        Patient p = new Patient(userID2, password2, phone2, email2);
+        Patient p = new Patient(userID2, password2, phone2, email2, userName2);
         p.setEmail(email);
         p.setPassword(password);
         p.setPhone(phone);
@@ -70,7 +74,7 @@ public class PatientTest {
 
     @Test
     public void add_Remove_GetList_ProblemTest(){
-        Patient p = new Patient(userID, password, phone, email);
+        Patient p = new Patient(userID, password, phone, email, userName);
         Problem p1 = new Problem(title, date, description);
         p.addProblem(p1);
         assertEquals(p.getProblemList().get(0), p1);
@@ -81,7 +85,7 @@ public class PatientTest {
 
     @Test
     public void testPatientSearch(){
-        Patient p = new Patient(userID, password, phone, email);
+        Patient p = new Patient(userID, password, phone, email, userName);
         Problem p1 = new Problem(title, date, description);
         p.addProblem(p1);
         Problem p2 = new Problem(title2, date2, description2);
@@ -95,7 +99,7 @@ public class PatientTest {
 
     @Test
     public void testPatientMap(){
-        Patient p = new Patient(userID, password, phone, email);
+        Patient p = new Patient(userID, password, phone, email, userName);
         Problem p1 = new Problem(title, date, description);
         p.addProblem(p1);
         Problem p2 = new Problem(title2, date2, description2);
