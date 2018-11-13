@@ -7,8 +7,8 @@ public class Patient extends User {
 
     private List<Problem> problemList;
 
-    public Patient(String userID, String password, String phone, String email, String userName){
-        super(userID, password, phone, email, userName);
+    public Patient(String userID, String phone, String email, String userName){
+        super(userID, phone, email, userName);
         this.problemList = new ArrayList<>();
     }
 
@@ -22,6 +22,7 @@ public class Patient extends User {
 
     public void addProblem(Problem newProblem){
         this.problemList.add(newProblem);
+        newProblem.setPatient(this);
     }
 
     public void deleteProblem(Problem problem){

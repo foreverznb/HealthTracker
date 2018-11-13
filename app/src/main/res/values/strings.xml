@@ -2,7 +2,7 @@
     <string name="app_name">HealthTracker</string>
     <!-- Strings related to login -->
     <string name="prompt_email">Email</string>
-    <string name="prompt_username">Username</string>
+    <string name="prompt_username">Email Address</string>
     <string name="create_account">Create Account</string>
     <string name="login">Login</string>
     <string name="view_patients">View Patients</string>

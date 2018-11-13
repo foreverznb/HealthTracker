@@ -1089,7 +1089,6 @@ id ALT
 id CTRL
 id FUNCTION
 id META
-id Name
 id SHIFT
 id SYM
 id ViewPager
