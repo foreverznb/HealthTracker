@@ -22,6 +22,7 @@ public class Patient extends User {
 
     public void addProblem(Problem newProblem){
         this.problemList.add(newProblem);
+        newProblem.setPatient(this);
     }
 
     public void deleteProblem(Problem problem){

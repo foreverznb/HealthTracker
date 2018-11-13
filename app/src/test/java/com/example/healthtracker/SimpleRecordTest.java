@@ -3,6 +3,9 @@ package com.example.healthtracker;
 import org.junit.Before;
 import org.junit.Test;
 
+
+import java.util.Date;
+
 import static org.junit.Assert.*;
 
 /**
@@ -10,13 +13,15 @@ import static org.junit.Assert.*;
  */
 public class SimpleRecordTest {
     private String comment;
+    private Problem parentProblem;
     private SimpleRecord simpleRecord;
     private String title;
     @Before
     public void setUp() {
         title = "Rash";
         comment = "Get a rash after eating some seafood";
-        simpleRecord = new SimpleRecord(title,comment);
+        parentProblem = new Problem(title, new Date(), comment);
+        simpleRecord = new SimpleRecord("Allergy", "Stay away from seafood", parentProblem);
     }
 
     @Test

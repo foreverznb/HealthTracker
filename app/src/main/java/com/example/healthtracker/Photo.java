@@ -8,10 +8,12 @@ public class Photo {
     private String fileLocation;
     private PatientRecord parentRecord;
 
-    public Photo(String fileLocation,PatientRecord parentRecord){
-        this.parentRecord = parentRecord;
+    public Photo(String fileLocation){
         this.fileLocation = fileLocation;
+    }
 
+    public void setParentRecord(PatientRecord parentRecord){
+        this.parentRecord = parentRecord;
     }
 
     public String getFile(){
