@@ -2,24 +2,22 @@
 package com.example.healthtracker;
 
 import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
+import android.support.annotation.RequiresApi;
 import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
 import android.view.View;
+import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
+import android.widget.Toast;
 
-import com.google.gson.Gson;
-import com.google.gson.reflect.TypeToken;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.AuthResult;
+import com.google.firebase.auth.FirebaseAuth;
 
-import java.io.BufferedReader;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.io.OutputStreamWriter;
-import java.lang.reflect.Type;
 import java.util.ArrayList;
 
 // extends
@@ -27,12 +25,46 @@ public class LoginActivity extends AppCompatActivity {
     private static final String FILENAME = "file.sav";
     private ArrayList<User> userList =new ArrayList<User>();
 
+    FirebaseAuth mAuth;
+    private EditText Email, Password;
+    private Button Login;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         // set screen to layout specified in activity_main
         setContentView(R.layout.activity_login);
+        //mRegister = (TextView) findViewById(R.id.link_register);
+
+        Email = findViewById(R.id.username);
+        Password = findViewById(R.id.login_password);
+        Login = findViewById(R.id.login_button);
+        mAuth = FirebaseAuth.getInstance();
+    }
+
+
+    public void UserLogin(View view) {
+        if (!isEmpty(Email.getText().toString()) && !isEmpty(Password.getText().toString())) {
+            mAuth.signInWithEmailAndPassword(Email.getText().toString(), Password.getText().toString()).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+                @RequiresApi(api = Build.VERSION_CODES.KITKAT)
+                @Override
+                public void onComplete(@NonNull Task<AuthResult> task) {
+                    if (task.isSuccessful()) {
+                        Login();
+                    } else {
+                        Toast.makeText(LoginActivity.this, "Authentication Failed", Toast.LENGTH_SHORT).show();
+                    }
+                }
+            });
+        } else {
+            Toast.makeText(LoginActivity.this, "You didn't fill in all the fields.", Toast.LENGTH_SHORT).show();
+        }
+    }
+
+
+    private boolean isEmpty(String string){
+        return string.equals("");
     }
 
     // Method containing the new intent which will bring user to the browse emotions activity and layout screen
@@ -43,7 +75,8 @@ public class LoginActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
-    public void Login(View view) {
+
+    public void Login() {
         CheckBox checkBox = findViewById(R.id.checkBox);
         EditText userId=findViewById(R.id.username);
         String username=userId.getText().toString();
@@ -61,54 +94,6 @@ public class LoginActivity extends AppCompatActivity {
             Intent intent2 = new Intent(LoginActivity.this, PatientHomeView.class);
             // Launch the browse emotions activity
             startActivity(intent2);
-        }
-    }
-
-    @Override
-    protected void onStart() {
-        // TODO Auto-generated method stub
-        super.onStart();
-        //loadFromFile(); // TODO replace this with elastic search
-
-        ElasticSearch.GetUser getUser = new ElasticSearch.GetUser();
-        getUser.execute("");
-
-        try {
-            userList = getUser.get();
-        } catch (Exception e) {
-            Log.i("Error", "Failed to get the tweets from the async object");
-        }
-    }
-
-
-    private void loadFromFile() {
-        try {
-            FileInputStream fis = openFileInput(FILENAME);
-            BufferedReader in = new BufferedReader(new InputStreamReader(fis));
-            Gson gson = new Gson();
-            //Code taken from http://stackoverflow.com/questions/12384064/gson-convert-from-json-to-a-typed-arraylistt Sept.22,2016
-            Type listType = new TypeToken<ArrayList<User>>(){}.getType();
-            userList = gson.fromJson(in, listType);
-        } catch (FileNotFoundException e) {
-            // TODO Auto-generated catch block
-            userList = new ArrayList<User>();
-        }
-    }
-
-
-    private void saveInFile() {
-        try {
-            FileOutputStream fos = openFileOutput(FILENAME,0);
-            OutputStreamWriter writer = new OutputStreamWriter(fos);
-            Gson gson = new Gson();
-            gson.toJson(userList, writer);
-            writer.flush();
-        } catch (FileNotFoundException e) {
-            // TODO Auto-generated catch block
-            throw new RuntimeException();
-        } catch (IOException e) {
-            // TODO Auto-generated catch block
-            throw new RuntimeException();
         }
     }
 }

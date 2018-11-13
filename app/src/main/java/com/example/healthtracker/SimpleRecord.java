@@ -27,7 +27,7 @@ public class SimpleRecord {
         return this.title;
     }
 
-    public String getComment(Integer index){ //This is different from Jori's UML
+    public String getComment(){ //This is different from Jori's UML
         return comment;
     }
 

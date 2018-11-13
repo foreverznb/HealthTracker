@@ -10,6 +10,7 @@ android {
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        multiDexEnabled true
     }
     buildTypes {
         release {
@@ -37,5 +38,18 @@ dependencies {
     implementation 'com.squareup.picasso:picasso:2.5.2'
     implementation 'com.google.android.gms:play-services-maps:16.0.0'
     implementation files('src/jest-droid-2.0.1-SNAPSHOT.jar')
+    implementation 'com.google.firebase:firebase-core:16.0.5'
+    //Firebase Authentication
+    implementation 'com.google.firebase:firebase-auth:16.0.5'
 
+    //Cloud Firestore
+    implementation 'com.google.firebase:firebase-database:16.0.5'
+
+    //Firebase Storage
+    implementation 'com.google.firebase:firebase-storage:16.0.5'
+    implementation 'com.android.support:multidex:1.0.3'
+
+    implementation 'com.google.firebase:firebase-auth:16.0.5'
 }
+
+apply plugin: 'com.google.gms.google-services'

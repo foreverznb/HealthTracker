@@ -85,5 +85,4 @@ public class PatientHomeView extends AppCompatActivity {
         // Launch the browse emotions activity
         startActivity(intent);
     }
-
 }
