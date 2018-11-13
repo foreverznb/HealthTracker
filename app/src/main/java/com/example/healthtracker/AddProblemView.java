@@ -81,12 +81,17 @@ public class AddProblemView extends AppCompatActivity {
         } else if (!testDate(date.getText().toString())) {
             Toast.makeText(this, "Improper Date Format", Toast.LENGTH_LONG).show();
         } else {
+            saveProblem();
             Toast.makeText(this, "Problem Added", Toast.LENGTH_SHORT).show();
             // Create an intent object containing the bridge to between the two activities
             Intent intent = new Intent(AddProblemView.this, PatientHomeView.class);
             // Launch the browse emotions activity
             startActivity(intent);
         }
+    }
+
+    public void saveProblem(){
+
     }
 
     public void addRecordFromAdd(View view) {
