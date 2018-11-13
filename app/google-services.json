@@ -15,6 +15,22 @@
       },
       "oauth_client": [
         {
+          "client_id": "1048280239337-hg07o9pvltdosn56nnh442s8dne3c9u8.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.healthtracker",
+            "certificate_hash": "042b5705044772a9305ab3e6abb63df523a6e236"
+          }
+        },
+        {
+          "client_id": "1048280239337-2lh1p120renhr98g6hbkiht75bou0sog.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.healthtracker",
+            "certificate_hash": "9de27cb94a315ad030404500085443978a0412d1"
+          }
+        },
+        {
           "client_id": "1048280239337-5dm7qbjpshag2re48vo8f8th5ok1j715.apps.googleusercontent.com",
           "client_type": 3
         }
@@ -29,8 +45,13 @@
           "status": 1
         },
         "appinvite_service": {
-          "status": 1,
-          "other_platform_oauth_client": []
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1048280239337-5dm7qbjpshag2re48vo8f8th5ok1j715.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
         },
         "ads_service": {
           "status": 2

@@ -40,13 +40,11 @@ public class CreateAccountActivity extends AppCompatActivity {
         Intent intent = new Intent(CreateAccountActivity.this, LoginActivity.class);
         // Launch the browse emotions activity
         startActivity(intent);
-        finish();
     }
 
     @RequiresApi(api = Build.VERSION_CODES.KITKAT)
     public void Save(View view) {
         addNewUser();
-        finish();
         // Display a brief message on screen upon the browse emotions button being clicked
         Toast.makeText(this, "Account Created", Toast.LENGTH_SHORT).show();
         // Create an intent object containing the bridge to between the two activities
