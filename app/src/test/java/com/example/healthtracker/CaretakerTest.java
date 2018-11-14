@@ -2,8 +2,6 @@ package com.example.healthtracker;
 
 import android.graphics.Bitmap;
 
-import com.google.android.gms.maps.GoogleMap;
-
 import org.junit.Before;
 import org.junit.Test;
 
@@ -15,16 +13,19 @@ import java.util.List;
 import static org.junit.Assert.*;
 
 
-public class CaretakerTest {
+public class CaregiverTest {
     String userID;
+    String userName;
     String password;
     String phone;
     String email;
     String userID2;
+    String userName2;
     String password2;
     String phone2;
     String email2;
     String userID3;
+    String userName3;
     String password3;
     String email3;
     String phone3;
@@ -37,11 +38,14 @@ public class CaretakerTest {
 
     @Before
     public void setUp() {
-        userID = "Nick";
+
+        userName = "Nick";
+        userID = "001";
         password = "nickB";
         phone = "780-777-2342";
         email = "nick@aol.ca";
-        userID2 = "Sara";
+        userName2 = "Sara";
+        userID2 = "001";
         password2 = "password123";
         phone2 = "780-777-5555";
         email2 = "sara@hotmail.ca";
@@ -51,14 +55,15 @@ public class CaretakerTest {
         title2 = "Rash";
         date2 = new Date();
         description2 = "Uncomfortable rash on my arm.";
-        userID3 = "Dr. Dave";
+        userName3 = "Dr. Dave";
+        userID3 = "003";
         password3 = "Dave123";
         phone3 = "780-777-777";
         email3 = "Dave@ualberta.ca";
     }
     @Test
     public void createAccountTest(){
-        Caretaker c = new Caretaker(userID3, password3, phone3, email3);
+        Caregiver c = new Caregiver(userID3, password3, phone3, email3, userName3);
         assertEquals(userID, c.getUserID());
         assertEquals(password, c.getPassword());
         assertEquals(phone, c.getPhone());
@@ -67,7 +72,7 @@ public class CaretakerTest {
 
     @Test
     public void editProfileTest(){
-        Caretaker c = new Caretaker(userID3, password3, phone3, email3);
+        Caregiver c = new Caregiver(userID3, password3, phone3, email3, userName3);
         c.setEmail(email);
         c.setPassword(password);
         c.setPhone(phone);
@@ -80,8 +85,8 @@ public class CaretakerTest {
 
     @Test
     public void addPatient_GetPatients(){
-        Caretaker c = new Caretaker(userID3, password3, phone3, email3);
-        Patient p = new Patient(userID2, password2, phone2, email2);
+        Caregiver c = new Caregiver(userID3, password3, phone3, email3, userName3);
+        Patient p = new Patient(userID2, password2, phone2, email2, userName2);
         assertEquals(c.getPatientList().size(), 0);
         c.addPatient(p);
         assertEquals(c.getPatientList().size(), 1);
@@ -90,11 +95,11 @@ public class CaretakerTest {
 
     @Test
     public void testCaretakerMap(){
-        Caretaker c = new Caretaker(userID3, password3, phone3, email3);
-        Patient patient1 = new Patient(userID2, password2, phone2, email2);
+        Caregiver c = new Caregiver(userID3, password3, phone3, email3, userName3);
+        Patient patient1 = new Patient(userID2, password2, phone2, email2, userName2);
         Problem p1 = new Problem(title, date, description);
         patient1.addProblem(p1);
-        Patient patient2 = new Patient(userID3, password3, phone3, email3);
+        Patient patient2 = new Patient(userID3, password3, phone3, email3, userName3);
         Problem p2 = new Problem(title2, date2, description2);
         patient2.addProblem(p2);
         PatientRecord r1 = new PatientRecord("Day1", "Bruise is small", p1, new Timestamp(date.getTime()).toString(), new ArrayList<Bitmap>());
@@ -107,9 +112,9 @@ public class CaretakerTest {
 
     @Test
     public void testCaretakerSearch(){
-        Caretaker c = new Caretaker(userID3, password3, phone3, email3);
-        Patient patient1 = new Patient(userID, password, phone, email);
-        Patient patient2 = new Patient(userID2, password2, phone2, email2);
+        Caregiver c = new Caregiver(userID3, password3, phone3, email3, userName3);
+        Patient patient1 = new Patient(userID, password, phone, email, userName);
+        Patient patient2 = new Patient(userID2, password2, phone2, email2, userName2);
         Problem p1 = new Problem(title, date, description);
         Problem p2 = new Problem(title2, date2, description2);
         patient2.addProblem(p2);

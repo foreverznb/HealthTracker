@@ -5,12 +5,41 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
+
+import java.util.List;
+
 public class ViewMyProblems extends AppCompatActivity {
+
+    User currentUser;
+    String username;
+    List<Problem> userProblems;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_view_my_problems);
+
+
+        // update problems if they are ever changed
+        DatabaseReference ref = FirebaseDatabase.getInstance().getReference();
+        DatabaseReference problemRef = ref.child("users").child(username).child("problems");
+
+        problemRef.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                userProblems = dataSnapshot.getValue(List.class);
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+
+            }
+        });
 
 
         /*
@@ -67,10 +96,6 @@ public class ViewMyProblems extends AppCompatActivity {
         // Launch the browse emotions activity
         startActivity(intent);
     }
-
-
-
-
 
 
 
