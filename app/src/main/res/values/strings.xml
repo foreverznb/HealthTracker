@@ -1,8 +1,8 @@
 <resources>
     <string name="app_name">HealthTracker</string>
     <!-- Strings related to login -->
-    <string name="prompt_email">Email</string>
-    <string name="prompt_username">Email Address</string>
+    <string name="prompt_email">Email Address</string>
+    <string name="prompt_username">Username</string>
     <string name="create_account">Create Account</string>
     <string name="login">Login</string>
     <string name="view_patients">View Patients</string>
@@ -24,8 +24,8 @@
     <string name="back_from_settings">Back</string>
     <string name="save_settings">Save</string>
     <string name="user_id_settings">User ID</string>
-    <string name="email_settings">Email</string>
-    <string name="phone_settings">Phone</string>
+    <string name="email_settings">Email Address</string>
+    <string name="phone_settings">Phone Settings</string>
     <string name="back_from_problem_view">Back</string>
     <string name="back_from_problem">Back</string>
     <string name="provider_add_comment">Add Comment</string>

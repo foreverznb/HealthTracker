@@ -66,14 +66,11 @@ public class LoginActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
-
     public void Login() {
         CheckBox checkBox = findViewById(R.id.checkBox);
-        EditText userId=findViewById(R.id.username);
-        String username=userId.getText().toString();
-        ElasticSearch.GetUser getUser = new ElasticSearch.GetUser();
-        getUser.execute(username);
+        finish();
         if (checkBox.isChecked()) {
+            finish();
             // Create an intent object containing the bridge to between the two activities
             Intent intent = new Intent(LoginActivity.this, CareProviderHomeView.class);
             // Launch the browse emotions activity
@@ -81,10 +78,26 @@ public class LoginActivity extends AppCompatActivity {
         }
 
         else {
+            finish();
             // Create an intent object containing the bridge to between the two activities
             Intent intent2 = new Intent(LoginActivity.this, PatientHomeView.class);
             // Launch the browse emotions activity
             startActivity(intent2);
         }
     }
+
+    /*
+    // handle if user is already logged in to bypass the login screen
+    @Override
+    protected void onStart(){
+        super.onStart();
+        if (mAuth.getCurrentUser() !=null){
+            //finish();
+            // if user is a patient
+
+            // if user is a care provider
+        }
+    }*/
+
+
 }

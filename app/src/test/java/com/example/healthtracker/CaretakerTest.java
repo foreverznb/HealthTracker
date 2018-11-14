@@ -13,7 +13,7 @@ import java.util.List;
 import static org.junit.Assert.*;
 
 
-public class CaregiverTest {
+public class CaretakerTest {
     String userID;
     String userName;
     String password;
@@ -63,7 +63,7 @@ public class CaregiverTest {
     }
     @Test
     public void createAccountTest(){
-        Caregiver c = new Caregiver(userID3, password3, phone3, email3, userName3);
+        Caretaker c = new Caretaker(userID3, password3, phone3, email3, userName3);
         assertEquals(userID, c.getUserID());
         assertEquals(password, c.getPassword());
         assertEquals(phone, c.getPhone());
@@ -72,7 +72,7 @@ public class CaregiverTest {
 
     @Test
     public void editProfileTest(){
-        Caregiver c = new Caregiver(userID3, password3, phone3, email3, userName3);
+        Caretaker c = new Caretaker(userID3, password3, phone3, email3, userName3);
         c.setEmail(email);
         c.setPassword(password);
         c.setPhone(phone);
@@ -85,7 +85,7 @@ public class CaregiverTest {
 
     @Test
     public void addPatient_GetPatients(){
-        Caregiver c = new Caregiver(userID3, password3, phone3, email3, userName3);
+        Caretaker c = new Caretaker(userID3, password3, phone3, email3, userName3);
         Patient p = new Patient(userID2, password2, phone2, email2, userName2);
         assertEquals(c.getPatientList().size(), 0);
         c.addPatient(p);
@@ -95,7 +95,7 @@ public class CaregiverTest {
 
     @Test
     public void testCaretakerMap(){
-        Caregiver c = new Caregiver(userID3, password3, phone3, email3, userName3);
+        Caretaker c = new Caretaker(userID3, password3, phone3, email3, userName3);
         Patient patient1 = new Patient(userID2, password2, phone2, email2, userName2);
         Problem p1 = new Problem(title, date, description);
         patient1.addProblem(p1);
@@ -112,7 +112,7 @@ public class CaregiverTest {
 
     @Test
     public void testCaretakerSearch(){
-        Caregiver c = new Caregiver(userID3, password3, phone3, email3, userName3);
+        Caretaker c = new Caretaker(userID3, password3, phone3, email3, userName3);
         Patient patient1 = new Patient(userID, password, phone, email, userName);
         Patient patient2 = new Patient(userID2, password2, phone2, email2, userName2);
         Problem p1 = new Problem(title, date, description);

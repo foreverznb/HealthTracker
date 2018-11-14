@@ -1,8 +1,5 @@
 package com.example.healthtracker;
 
-import java.util.ArrayList;
-import java.util.Iterator;
-
 /**
  * Created by caochenlin on 2018/10/28.
  */

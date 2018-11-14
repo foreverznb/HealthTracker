@@ -1171,11 +1171,13 @@ id dimensions
 id direct
 id disableHome
 id editText
-id editText3
 id editText4
+id edit_email
+id edit_phone
 id edit_problem_button
 id edit_query
 id edit_record_button
+id edit_userid
 id email
 id end
 id end_padder
