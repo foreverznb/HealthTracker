@@ -39,7 +39,7 @@ public class LoginActivity extends AppCompatActivity {
     private EditText Email, Password;
     private Button Login;
     private String isCaregiver;
-    DatabaseReference isCaregiverRef;
+    DatabaseReference userRef;
 
 
     @Override
@@ -90,29 +90,50 @@ public class LoginActivity extends AppCompatActivity {
 
 
     public void Login() {
+        // firebase set up
         FirebaseUser user = mAuth.getCurrentUser();
         final String userid = user.getUid();
         final DatabaseReference reference = FirebaseDatabase.getInstance().getReference("users");
 
-        isCaregiverRef = reference.child(userid).child("isCaregiver");
+        // access data of current user
+        userRef = reference.child(userid);
 
-        isCaregiverRef.addValueEventListener(new ValueEventListener() {
+        // managers to cache data locally
+        final PatientDataManager patientManager = new PatientDataManager(this);
+        final CareProviderDataManager providerDataManager = new CareProviderDataManager(this);
+
+
+        userRef.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                isCaregiver = dataSnapshot.getValue().toString();
+                // verify is user is a caregiver or patient
+                for (DataSnapshot childSnap : dataSnapshot.getChildren()) {
+                    if(childSnap.getKey().equals("isCaregiver")){
+                        isCaregiver = childSnap.getValue().toString();
+                    }
+                }
                 if (isCaregiver.equals("true")) {
+                    // get user data and save locally
+                    CareProvider activeCareProvider = dataSnapshot.getValue(CareProvider.class);
+                    providerDataManager.saveCareProviderLocally(activeCareProvider);
+
                     // Create an intent object containing the bridge to between the two activities
                     Intent intent = new Intent(LoginActivity.this, CareProviderHomeView.class);
-                    // Launch the browse emotions activity
+                    // Launch the activity
                     startActivity(intent);
                 }
 
                 else {
+                    // get user data and save locally
+                    Patient activePatient = dataSnapshot.getValue(Patient.class);
+                    patientManager.savePatientLocally(activePatient);
+
                     // Create an intent object containing the bridge to between the two activities
                     Intent intent2 = new Intent(LoginActivity.this, PatientHomeView.class);
-                    // Launch the browse emotions activity
+                    // Launch the activity
                     startActivity(intent2);
                 }
+
             }
 
             @Override

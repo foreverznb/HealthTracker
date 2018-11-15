@@ -1,9 +1,10 @@
 package com.example.healthtracker;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Patient extends User {
+public class Patient extends User implements Serializable {
 
     private List<Problem> problemList;
 
@@ -11,6 +12,8 @@ public class Patient extends User {
         super(userID, phone, email, userName);
         this.problemList = new ArrayList<>();
     }
+
+    public Patient(){};
 
     public List<Problem> getProblemList() {
         return this.problemList;

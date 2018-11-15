@@ -1,7 +1,6 @@
 package com.example.healthtracker;
 
 import android.content.Intent;
-import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -19,7 +18,6 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
-import com.google.firebase.auth.UserProfileChangeRequest;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
@@ -82,7 +80,7 @@ public class CreateAccountActivity extends AppCompatActivity {
 
                 if (checkInputs(email, username, password, phone)) {
                     registerNewEmail(email, password);
-                    finish();}
+                    }
                 else{
                     Toast.makeText(mContext, "All fields must be filled", Toast.LENGTH_SHORT).show();
                 }
@@ -158,6 +156,7 @@ public class CreateAccountActivity extends AppCompatActivity {
                             Toast.makeText(mContext, "Account created.",
                                     Toast.LENGTH_SHORT).show();
                             addNewUser();
+                            finish();
                         }
                         if (!task.isSuccessful()) {
                             Toast.makeText(mContext, "Email or password are invalid.",
@@ -182,18 +181,15 @@ public class CreateAccountActivity extends AppCompatActivity {
 
 
         CheckBox checkBox = findViewById(R.id.caregiver_checkbox);
-        User mUser;
         DatabaseReference reference = FirebaseDatabase.getInstance().getReference();
 
         // create patient or caregiver account
         if(checkBox.isChecked()){
-            mUser = new Caregiver(userid, phone, email, username);
-            reference.child("users").child(userid).setValue(mUser);
-            reference.child("users").child(userid).child("isCaregiver").setValue("true");
+            CareProvider mUser = new CareProvider(userid, phone, email, username);
+            new CareProviderDataManager(this).saveCareProviderToDatabase(mUser);
         } else{
-            mUser = new Patient(userid, phone, email, username);
-            reference.child("users").child(userid).setValue(mUser);
-            reference.child("users").child(userid).child("isCaregiver").setValue("false");
+            Patient mUser = new Patient(userid, phone, email, username);
+            new PatientDataManager(this).savePatientToDatabase(mUser);
         }
 
         FirebaseAuth.getInstance().signOut();

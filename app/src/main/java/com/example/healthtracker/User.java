@@ -2,11 +2,12 @@ package com.example.healthtracker;
 
 import android.graphics.Bitmap;
 
+import java.io.Serializable;
 import java.util.List;
 
 import io.searchbox.annotations.JestId;
 
-public class User {
+public class User implements Serializable {
     private String userID;
     private String email;
     @JestId
