@@ -9,6 +9,11 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Locale;
@@ -21,6 +26,10 @@ public class EditProblem extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_edit_problem);
+
+        Intent intent = getIntent();
+
+
         initial_entry = getEntry();
     }
 
@@ -38,9 +47,9 @@ public class EditProblem extends AppCompatActivity {
     }
 
     private String getEntry() {
-        EditText title = findViewById(R.id.title_text);
-        EditText date = findViewById(R.id.date_started_editable);
-        EditText description= findViewById(R.id.problem_description_edit);
+        EditText title = findViewById(R.id.title_text_editscreen);
+        EditText date = findViewById(R.id.date_started_editscreen);
+        EditText description= findViewById(R.id.problem_description_editscreen);
         return title.getText().toString() + " -- " + date.getText().toString() + "\n" + description.getText().toString();
     }
 
@@ -94,6 +103,16 @@ public class EditProblem extends AppCompatActivity {
             // Launch the browse emotions activity
             startActivity(intent);
         }
+
+        // Update the current editing problem
+
+        // Retrieve the data from node "problems "
+        // Get the current user id
+        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+        String uid = user.getUid();
+        String problem_path = "problem_" + String.valueOf(index);
+        DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference().child("problems").child(uid).
+
     }
 
     public void addRecordFromEdit(View view) {

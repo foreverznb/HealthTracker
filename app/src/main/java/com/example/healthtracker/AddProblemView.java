@@ -5,10 +5,13 @@ import android.content.Intent;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
@@ -21,6 +24,7 @@ import java.util.Locale;
 public class AddProblemView extends AppCompatActivity {
 
     private DatabaseReference mDatabaseReference;
+    public static Integer counter = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -97,13 +101,20 @@ public class AddProblemView extends AppCompatActivity {
         mDatabaseReference = FirebaseDatabase.getInstance().getReference();
 
         // Create a reference problems and insert data
-        String key = title.getText().toString();
+
+        // The key is the patient's ID
+
+        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+        String uid = user.getUid();
+
+
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-mm-dd",Locale.CANADA);
         String dateString = date.getText().toString();
         try {
             Date dateStarted = sdf.parse(dateString);
             Problem mProblem = new Problem(title.getText().toString(),dateStarted,description.getText().toString());
-            mDatabaseReference.child("problems").child(key).setValue(mProblem);
+            mDatabaseReference.child("problems").child(uid).child("problem_"+String.valueOf(counter)).setValue(mProblem);
+            counter += 1;
         }catch (ParseException e){
             // do nothing
         }

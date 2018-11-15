@@ -5,11 +5,15 @@ import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -19,6 +23,11 @@ import com.google.firebase.database.ValueEventListener;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
+
+import android.view.ContextMenu;
+import android.view.ContextMenu.ContextMenuInfo;
+import android.widget.Toast;
+import android.widget.AdapterView.AdapterContextMenuInfo;
 
 public class ViewMyProblems extends AppCompatActivity {
 
@@ -36,7 +45,7 @@ public class ViewMyProblems extends AppCompatActivity {
         setContentView(R.layout.activity_view_my_problems);
 
         // Create an instance of an array adapter
-        final ArrayAdapter<Problem> mArrayAdapter = new ArrayAdapter<Problem>(this, android.R.layout.simple_list_item_1,mProblems);
+        final ArrayAdapter<Problem> mArrayAdapter = new ArrayAdapter<Problem>(this, android.R.layout.simple_list_item_1, mProblems);
 
         // Set an adapter for the list view
         ListView mListView = (ListView) findViewById(R.id.problem_list_view);
@@ -46,16 +55,20 @@ public class ViewMyProblems extends AppCompatActivity {
 
         // Retrieve an instance of the database
         FirebaseDatabase firebaseDatabase = FirebaseDatabase.getInstance();
-        // Getting root reference
-        DatabaseReference databaseReference = firebaseDatabase.getReference("problems");
+        // Getting reference
+
+        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+        String uid = user.getUid();
+
+        DatabaseReference databaseReference = firebaseDatabase.getReference().child("problems").child(uid);
 
         // Read from the database
         databaseReference.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                for(DataSnapshot dss:dataSnapshot.getChildren()) {
+                for (DataSnapshot dss : dataSnapshot.getChildren()) {
                     mProblems.add(dss.getValue(Problem.class));
-                    Log.d("my problem",dss.getValue(Problem.class).toString());
+                    Log.d("my problem", dss.getValue(Problem.class).toString());
                     mArrayAdapter.notifyDataSetChanged();
                 }
             }
@@ -66,19 +79,38 @@ public class ViewMyProblems extends AppCompatActivity {
             }
         });
 
-
-
+        // Create a context menu to permit users to select and edit a problem
+        registerForContextMenu(mListView);
+        mListView.setOnCreateContextMenuListener(this);
 
     }
 
+    @Override
+    public void onCreateContextMenu(ContextMenu menu,View v,ContextMenu.ContextMenuInfo menuInfo){
+        super.onCreateContextMenu(menu,v,menuInfo);
+        MenuInflater menuInflater = getMenuInflater();
+        menuInflater.inflate(R.menu.my_menu, menu);
+        menu.setHeaderTitle("Select an action");
+    }
 
+    @Override
+    public boolean onContextItemSelected(MenuItem item) {
+        Log.d("message","aaaa");
+        AdapterContextMenuInfo info = (AdapterContextMenuInfo) item.getMenuInfo();
+        int index = info.position;
+        Problem mProblem = mProblems.get(index);
+        if(item.getItemId() == R.id.editProblem){
+            Log.d("message","bbbbb");
+            Toast.makeText(getApplicationContext(),"edit a problem",Toast.LENGTH_LONG);
+            Intent intent = new Intent(ViewMyProblems.this,EditProblem.class);
+            startActivity(intent);
+        }
+        return true;
+    }
 
+    /*
 
-
-
-
-
-
+        */
 /*
         // update problems if they are ever changed
         DatabaseReference ref = FirebaseDatabase.getInstance().getReference();
