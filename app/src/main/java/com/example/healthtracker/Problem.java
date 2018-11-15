@@ -2,6 +2,10 @@ package com.example.healthtracker;
 
 import android.app.Notification;
 
+import java.text.DateFormat;
+import java.text.FieldPosition;
+import java.text.ParsePosition;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 
@@ -20,10 +24,21 @@ public class Problem {
     private ArrayList<PatientRecord> patientRecords;
     private ArrayList<SimpleRecord> caregiverRecords;
 
+    public Problem(){
+
+    }
+
     public Problem(String title,Date dateStarted,String description){
         this.title = title;
         this.dateStarted = dateStarted;
         this.description = description;
+    }
+
+    public String toString(){
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+        String dateStr = sdf.format(dateStarted);
+
+        return "title: "+title+"\n"+"start date: "+dateStr+"\n"+"description: "+description;
     }
 
     public String getTitle(){

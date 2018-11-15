@@ -19,6 +19,8 @@ import io.searchbox.core.SearchResult;
 public class ElasticSearch {
     private static JestDroidClient client;
 
+    /*
+
     // TODO we need a function which adds users to elastic search
     public static class AddUser extends AsyncTask<User, Void, Void> {
 
@@ -100,4 +102,5 @@ public class ElasticSearch {
             client = (JestDroidClient) factory.getObject();
         }
     }
+    */
 }

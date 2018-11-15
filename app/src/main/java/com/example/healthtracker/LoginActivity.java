@@ -80,8 +80,8 @@ public class LoginActivity extends AppCompatActivity {
         CheckBox checkBox = findViewById(R.id.checkBox);
         EditText userId=findViewById(R.id.username);
         String username=userId.getText().toString();
-        ElasticSearch.GetUser getUser = new ElasticSearch.GetUser();
-        getUser.execute(username);
+        //ElasticSearch.GetUser getUser = new ElasticSearch.GetUser();
+        //getUser.execute(username);
         if (checkBox.isChecked()) {
             // Create an intent object containing the bridge to between the two activities
             Intent intent = new Intent(LoginActivity.this, CareProviderHomeView.class);

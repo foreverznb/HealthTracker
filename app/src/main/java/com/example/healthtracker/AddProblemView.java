@@ -9,13 +9,18 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.Locale;
 
 
 public class AddProblemView extends AppCompatActivity {
 
+    private DatabaseReference mDatabaseReference;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -87,6 +92,23 @@ public class AddProblemView extends AppCompatActivity {
             // Launch the browse emotions activity
             startActivity(intent);
         }
+
+        // Retrieve the root of the real time database
+        mDatabaseReference = FirebaseDatabase.getInstance().getReference();
+
+        // Create a reference problems and insert data
+        String key = title.getText().toString();
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-mm-dd",Locale.CANADA);
+        String dateString = date.getText().toString();
+        try {
+            Date dateStarted = sdf.parse(dateString);
+            Problem mProblem = new Problem(title.getText().toString(),dateStarted,description.getText().toString());
+            mDatabaseReference.child("problems").child(key).setValue(mProblem);
+        }catch (ParseException e){
+            // do nothing
+        }
+
+
     }
 
     public void addRecordFromAdd(View view) {
