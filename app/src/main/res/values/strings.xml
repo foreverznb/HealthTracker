@@ -25,7 +25,7 @@
     <string name="save_settings">Save</string>
     <string name="user_id_settings">User ID</string>
     <string name="email_settings">Email Address</string>
-    <string name="phone_settings">Phone Settings</string>
+    <string name="phone_settings">Phone Number</string>
     <string name="back_from_problem_view">Back</string>
     <string name="back_from_problem">Back</string>
     <string name="provider_add_comment">Add Comment</string>

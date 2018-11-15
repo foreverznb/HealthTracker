@@ -23,8 +23,10 @@ import java.util.List;
 import java.util.Objects;
 
 public class UserSettingsActivity extends AppCompatActivity {
-    String username;
+    private static final String TAG = "Settings";
+    String email;
     FirebaseAuth mAuth;
+    private User mUser;
     List<User> userInfo;
 
     @Override
@@ -33,6 +35,7 @@ public class UserSettingsActivity extends AppCompatActivity {
         setContentView(R.layout.activity_user_settings);// update problems if they are ever changed
         mAuth = FirebaseAuth.getInstance();
         loadUserProfileData();
+
     }
 
     @Override
@@ -46,14 +49,16 @@ public class UserSettingsActivity extends AppCompatActivity {
 
     public void loadUserProfileData(){
         final EditText userName = findViewById(R.id.edit_userid);
-        EditText email = findViewById(R.id.edit_email);
+        EditText uemail = findViewById(R.id.edit_email);
         final EditText phone = findViewById(R.id.edit_phone);
 
 
         FirebaseUser user = mAuth.getCurrentUser();
         assert user != null;
         final String uEmail = user.getEmail();
-        email.setText(uEmail);
+        uemail.setText(uEmail);
+        email=user.getEmail();
+
 
 
         FirebaseDatabase ref = FirebaseDatabase.getInstance();
@@ -64,8 +69,8 @@ public class UserSettingsActivity extends AppCompatActivity {
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 for (DataSnapshot childSnap : dataSnapshot.getChildren()) {
                     if (Objects.equals(childSnap.child("email").getValue(), uEmail)){
-                        userName.setText(Objects.requireNonNull(childSnap.child("phone").getValue()).toString());
-                        phone.setText(Objects.requireNonNull(childSnap.child("userName").getValue()).toString());
+                        phone.setText(Objects.requireNonNull(childSnap.child("phone").getValue()).toString());
+                       userName.setText(Objects.requireNonNull(childSnap.child("userName").getValue()).toString());
                     }
                     // These are just allowing you to see what the system is getting from the data base. Can see the result by
                     // looking in the log cat under the verbose tab and typing tmz into the search bar
@@ -82,6 +87,7 @@ public class UserSettingsActivity extends AppCompatActivity {
 
             }
         });
+
     }
 
     public void Logout(View view) {
@@ -93,7 +99,44 @@ public class UserSettingsActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
+
+    @RequiresApi(api = Build.VERSION_CODES.KITKAT)
+    public void editUserInfo(){
+        final EditText userName = findViewById(R.id.edit_userid);
+        final EditText aemail = findViewById(R.id.edit_email);
+        final EditText phone = findViewById(R.id.edit_phone);
+
+
+        FirebaseUser user = mAuth.getCurrentUser();
+        assert user != null;
+        user.updateEmail(aemail.getText().toString());
+
+
+        FirebaseDatabase ref = FirebaseDatabase.getInstance();
+        DatabaseReference userDataRef = ref.getReference("users");
+        userDataRef.addValueEventListener(new ValueEventListener() {
+            @RequiresApi(api = Build.VERSION_CODES.KITKAT)
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                for (DataSnapshot childSnap : dataSnapshot.getChildren()) {
+                    if (Objects.equals(childSnap.child("email").getValue(), email)) {
+                        childSnap.getRef().child("phone").setValue(phone.getText().toString());
+                        childSnap.getRef().child("userName").setValue(userName.getText().toString());
+                        childSnap.getRef().child("email").setValue(aemail.getText().toString());
+                    }
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+        });
+    }
+
+    @RequiresApi(api = Build.VERSION_CODES.KITKAT)
     public void saveSettings(View view) {
+        editUserInfo();
         Toast.makeText(this, "Settings Saved", Toast.LENGTH_SHORT).show();
         // Create an intent object containing the bridge to between the two activities
         Intent intent = new Intent(UserSettingsActivity.this, CareProviderHomeView.class);

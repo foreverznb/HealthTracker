@@ -2157,7 +2157,8 @@
     <string name="description_care_view">Description</string>
     <string name="edit_problem_button">Edit</string>
     <string name="edit_record_button_text">Edit</string>
-    <string name="email_settings">Email</string>
+    <string name="email">Email Address</string>
+    <string name="email_settings">Email Address</string>
     <string name="fab_transformation_scrim_behavior" translatable="false">android.support.design.transformation.FabTransformationScrimBehavior</string>
     <string name="fab_transformation_sheet_behavior" translatable="false">android.support.design.transformation.FabTransformationSheetBehavior</string>
     <string name="firebase_database_url" translatable="false">https://healthtrackermap.firebaseio.com</string>
@@ -2187,12 +2188,12 @@
     <string name="patient_id">Patient ID</string>
     <string name="patient_id_strict">Patient ID</string>
     <string name="phone_number">Phone Number</string>
-    <string name="phone_settings">Phone</string>
+    <string name="phone_settings">Phone Number</string>
     <string name="problem_description">Description</string>
     <string name="problem_title">Title</string>
     <string name="project_id" translatable="false">healthtrackermap</string>
-    <string name="prompt_email">Email</string>
-    <string name="prompt_username">Email Address</string>
+    <string name="prompt_email">Email Address</string>
+    <string name="prompt_username">Username</string>
     <string name="provider_add_comment">Add Comment</string>
     <string name="record_strict_care_view">Records</string>
     <string name="record_view_body_location">Body Location</string>
@@ -2216,6 +2217,7 @@
     <string name="title_care_view">Title</string>
     <string name="track_users"/>
     <string name="user_id_settings">User ID</string>
+    <string name="username">Username(email address)</string>
     <string name="view_map">View Map</string>
     <string name="view_myproblems">View Problems</string>
     <string name="view_patients">View Patients</string>
