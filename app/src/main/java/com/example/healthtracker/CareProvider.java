@@ -22,4 +22,10 @@ public class CareProvider extends User implements Serializable {
     public void addPatient(Patient newPatient){
         this.patientList.add(newPatient);
     }
+
+    public void updateUserInfo(String phone, String email, String userName){
+        super.setEmail(email);
+        super.setPhone(phone);
+        super.setUserName(userName);
+    }
 }

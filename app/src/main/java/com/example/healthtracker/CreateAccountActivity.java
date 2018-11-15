@@ -73,7 +73,7 @@ public class CreateAccountActivity extends AppCompatActivity {
         mRegister.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                email = mEmail.getText().toString();
+                email = mEmail.getText().toString().toLowerCase();
                 password = mPassword.getText().toString();
                 phone = mPhone.getText().toString();
                 username = mUsername.getText().toString();

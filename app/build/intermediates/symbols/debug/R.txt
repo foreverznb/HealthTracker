@@ -1634,11 +1634,12 @@ int string title_care_view 0x7f0e0097
 int string track_users 0x7f0e0098
 int string user_id_settings 0x7f0e0099
 int string username 0x7f0e009a
-int string view_map 0x7f0e009b
-int string view_myproblems 0x7f0e009c
-int string view_patients 0x7f0e009d
-int string view_users 0x7f0e009e
-int string webmd 0x7f0e009f
+int string usernameSettings 0x7f0e009b
+int string view_map 0x7f0e009c
+int string view_myproblems 0x7f0e009d
+int string view_patients 0x7f0e009e
+int string view_users 0x7f0e009f
+int string webmd 0x7f0e00a0
 int style AlertDialog_AppCompat 0x7f0f0000
 int style AlertDialog_AppCompat_Light 0x7f0f0001
 int style Animation_AppCompat_Dialog 0x7f0f0002

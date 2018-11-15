@@ -31,12 +31,9 @@ import java.util.concurrent.Semaphore;
 // extends
 public class LoginActivity extends AppCompatActivity {
     private static final String FILENAME = "file.sav";
-    private ArrayList<User> userList =new ArrayList<User>();
-    User activeUser;
 
     FirebaseAuth mAuth;
     private EditText Email, Password;
-    private Button Login;
     private String isCaregiver;
     DatabaseReference userRef;
 
@@ -57,7 +54,7 @@ public class LoginActivity extends AppCompatActivity {
 
     public void UserLogin(View view) {
         if (!isEmpty(Email.getText().toString()) && !isEmpty(Password.getText().toString())) {
-            mAuth.signInWithEmailAndPassword(Email.getText().toString(), Password.getText().toString()).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+            mAuth.signInWithEmailAndPassword(Email.getText().toString().toLowerCase(), Password.getText().toString()).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                 @RequiresApi(api = Build.VERSION_CODES.KITKAT)
                 @Override
                 public void onComplete(@NonNull Task<AuthResult> task) {
@@ -100,7 +97,7 @@ public class LoginActivity extends AppCompatActivity {
         final CareProviderDataManager providerDataManager = new CareProviderDataManager(this);
 
 
-        userRef.addValueEventListener(new ValueEventListener() {
+        userRef.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 // verify is user is a caregiver or patient

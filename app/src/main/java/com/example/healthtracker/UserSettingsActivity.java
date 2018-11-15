@@ -25,9 +25,15 @@ import java.util.Objects;
 public class UserSettingsActivity extends AppCompatActivity {
     private static final String TAG = "Settings";
     String email;
+    String phoneString;
+    String userNameString;
+    String isCaregiver;
     FirebaseAuth mAuth;
     private User mUser;
     List<User> userInfo;
+    EditText userName;
+    EditText uemail;
+    EditText phone;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,42 +41,50 @@ public class UserSettingsActivity extends AppCompatActivity {
         setContentView(R.layout.activity_user_settings);// update problems if they are ever changed
         mAuth = FirebaseAuth.getInstance();
         loadUserProfileData();
+        //DatabaseReference ref = FirebaseDatabase.getInstance().getReference();
+        //ref.orderByChild("users").startAt("someUser");
+
 
     }
 
     @Override
     protected void onStart(){
         super.onStart();
-        if (mAuth.getCurrentUser() ==null){
-            finish();
+        /*if (mAuth.getCurrentUser() ==null){
+            // might need to change this later
             startActivity(new Intent(this, LoginActivity.class));
-        }
+        }*/
     }
 
     public void loadUserProfileData(){
-        final EditText userName = findViewById(R.id.edit_userid);
-        EditText uemail = findViewById(R.id.edit_email);
-        final EditText phone = findViewById(R.id.edit_phone);
+
+        //TODO add load from local instead if offline
+
+        userName = findViewById(R.id.edit_userid);
+        uemail = findViewById(R.id.edit_email);
+        phone = findViewById(R.id.edit_phone);
 
 
         FirebaseUser user = mAuth.getCurrentUser();
         assert user != null;
-        final String uEmail = user.getEmail();
-        uemail.setText(uEmail);
         email=user.getEmail();
+        uemail.setText(email);
 
 
 
-        FirebaseDatabase ref = FirebaseDatabase.getInstance();
-        DatabaseReference userDataRef = ref.getReference("users");
-        userDataRef.addValueEventListener(new ValueEventListener() {
+        DatabaseReference userDataRef = FirebaseDatabase.getInstance().getReference("users");
+        userDataRef.addListenerForSingleValueEvent(new ValueEventListener() {
             @RequiresApi(api = Build.VERSION_CODES.KITKAT)
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 for (DataSnapshot childSnap : dataSnapshot.getChildren()) {
-                    if (Objects.equals(childSnap.child("email").getValue(), uEmail)){
-                        phone.setText(Objects.requireNonNull(childSnap.child("phone").getValue()).toString());
-                       userName.setText(Objects.requireNonNull(childSnap.child("userName").getValue()).toString());
+                    if (Objects.equals(childSnap.child("email").getValue(), email)){
+                        phoneString = childSnap.child("phone").getValue().toString();
+                        userNameString = childSnap.child("userName").getValue().toString();
+                        isCaregiver = childSnap.child("isCaregiver").getValue().toString();
+                        // display data
+                        phone.setText(phoneString);
+                        userName.setText(userNameString);
                     }
                     // These are just allowing you to see what the system is getting from the data base. Can see the result by
                     // looking in the log cat under the verbose tab and typing tmz into the search bar
@@ -92,46 +106,42 @@ public class UserSettingsActivity extends AppCompatActivity {
 
     @RequiresApi(api = Build.VERSION_CODES.KITKAT)
     public void editUserInfo(){
-        final EditText userName = findViewById(R.id.edit_userid);
-        final EditText aemail = findViewById(R.id.edit_email);
-        final EditText phone = findViewById(R.id.edit_phone);
-
 
         FirebaseUser user = mAuth.getCurrentUser();
         assert user != null;
-        user.updateEmail(aemail.getText().toString());
+
+        email = uemail.getText().toString().toLowerCase();
+        String userID = user.getUid();
+
+        // save locally
+        if(isCaregiver.equals("true")){
+            CareProviderDataManager dataManager = new CareProviderDataManager(this);
+            CareProvider localUser = dataManager.loadCareProviderLocally();
+            localUser.updateUserInfo(phoneString, email, userNameString);
+            dataManager.saveCareProviderLocally(localUser);
+        } else{
+            PatientDataManager dataManager = new PatientDataManager(this);
+            Patient localUser = dataManager.loadPatientLocally();
+            localUser.updateUserInfo(phoneString, email, userNameString);
+            dataManager.savePatientLocally(localUser);
+        }
+
+        //TODO add check for empty fields
 
 
-        FirebaseDatabase ref = FirebaseDatabase.getInstance();
-        DatabaseReference userDataRef = ref.getReference("users");
-        userDataRef.addValueEventListener(new ValueEventListener() {
-            @RequiresApi(api = Build.VERSION_CODES.KITKAT)
-            @Override
-            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                for (DataSnapshot childSnap : dataSnapshot.getChildren()) {
-                    if (Objects.equals(childSnap.child("email").getValue(), email)) {
-                        childSnap.getRef().child("phone").setValue(phone.getText().toString());
-                        childSnap.getRef().child("userName").setValue(userName.getText().toString());
-                        childSnap.getRef().child("email").setValue(aemail.getText().toString());
-                    }
-                }
-            }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError databaseError) {
-
-            }
-        });
+        // save to dataBase
+        DatabaseReference userDataRef = FirebaseDatabase.getInstance().getReference("users");
+        user.updateEmail(email);
+        userDataRef.child(userID).child("phone").setValue(phone.getText().toString());
+        userDataRef.child(userID).child("userName").setValue(userName.getText().toString());
+        userDataRef.child(userID).child("email").setValue(uemail.getText().toString().toLowerCase());
     }
 
     @RequiresApi(api = Build.VERSION_CODES.KITKAT)
     public void saveSettings(View view) {
         editUserInfo();
         Toast.makeText(this, "Settings Saved", Toast.LENGTH_SHORT).show();
-        // Create an intent object containing the bridge to between the two activities
-        Intent intent = new Intent(UserSettingsActivity.this, CareProviderHomeView.class);
-        // Launch the browse emotions activity
-        startActivity(intent);
+        finish();
     }
 
 }

@@ -32,4 +32,10 @@ public class Patient extends User implements Serializable {
         this.problemList.remove(problem);
     }
 
+    public void updateUserInfo(String phone, String email, String userName){
+        super.setEmail(email);
+        super.setPhone(phone);
+        super.setUserName(userName);
+    }
+
 }

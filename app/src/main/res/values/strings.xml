@@ -81,6 +81,7 @@
     <string name="password_login_hint">Password</string>
     <string name="username">Username(email address)</string>
     <string name="email">Email Address</string>
+    <string name="usernameSettings">Username</string>
 
 
     <string-array name="searchTypes">

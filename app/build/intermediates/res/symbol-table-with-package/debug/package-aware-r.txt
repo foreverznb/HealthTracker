@@ -1635,6 +1635,7 @@ string title_care_view
 string track_users
 string user_id_settings
 string username
+string usernameSettings
 string view_map
 string view_myproblems
 string view_patients
