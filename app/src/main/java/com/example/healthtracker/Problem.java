@@ -1,6 +1,7 @@
 package com.example.healthtracker;
 
 import android.app.Notification;
+import android.util.Log;
 
 import java.text.DateFormat;
 import java.text.FieldPosition;
@@ -32,13 +33,14 @@ public class Problem {
         this.title = title;
         this.dateStarted = dateStarted;
         this.description = description;
+        this.numOfRecords = 0;          // Refer to the number of records created by the patient
     }
 
     public String toString(){
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
         String dateStr = sdf.format(dateStarted);
-
-        return "title: "+title+"\n"+"start date: "+dateStr+"\n"+"description: "+description;
+        Log.d("number of records: ",String.valueOf(numOfRecords));
+        return "title: "+title+"\n"+"start date: "+dateStr+"\n"+"description: "+description+"\n"+"number of records: "+String.valueOf(numOfRecords);
     }
 
     public String getTitle(){
@@ -85,6 +87,7 @@ public class Problem {
 
     public void addPatientRecord(PatientRecord patientRecord){
         patientRecords.add(patientRecord);
+        numOfRecords += 1;
     }
 
     public void addCareGiverRecord(SimpleRecord caregiverRecord){
@@ -93,6 +96,7 @@ public class Problem {
 
     public void deletePatientRecord(Integer index){
         patientRecords.remove(patientRecords.get(index));
+        numOfRecords -= 1;
     }
 
     public void deleteCareGiverRecord(Integer index){
