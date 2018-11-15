@@ -31,6 +31,10 @@ public class CareProviderHomeView extends AppCompatActivity {
         startActivity(intent);
     }
 
+    public void Logout(View view){
+        finish();
+    }
+
     // Method containing the new intent which will bring user to the browse emotions activity and layout screen
     public void ViewPatients(View view) {
         // Create an intent object containing the bridge to between the two activities

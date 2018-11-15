@@ -14,12 +14,6 @@ public class UserSettingsActivity extends AppCompatActivity {
         setContentView(R.layout.activity_user_settings);
     }
 
-    public void Logout(View view) {
-        // Create an intent object containing the bridge to between the two activities
-        Intent intent = new Intent(UserSettingsActivity.this, LoginActivity.class);
-        // Launch the browse emotions activity
-        startActivity(intent);
-    }
 
     public void saveSettings(View view) {
         Toast.makeText(this, "Settings Saved", Toast.LENGTH_SHORT).show();

@@ -1219,6 +1219,7 @@ id list_item
 id login_button
 id login_password
 id logout_button
+id logout_button2
 id map
 id masked
 id mayoLink
