@@ -135,8 +135,6 @@ public class LoginActivity extends AppCompatActivity {
 
             }
         });
-        // get user
-
 
     }
 

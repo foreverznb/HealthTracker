@@ -2,21 +2,27 @@ package com.example.healthtracker;
 
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.support.annotation.NonNull;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 import java.util.Date;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.Locale;
 
 
@@ -25,6 +31,13 @@ public class AddProblemView extends AppCompatActivity {
     public EditText titleText;
     public EditText dateText;
     public EditText descriptionText;
+    private DatabaseReference mDatabaseReference;
+    public static Integer counter = 0;
+    String title;
+    String dateString;
+    String description;
+    Date date;
+    PatientDataManager dataManager;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,6 +46,7 @@ public class AddProblemView extends AppCompatActivity {
         titleText = findViewById(R.id.title_text);
         dateText = findViewById(R.id.date_started_editable);
         descriptionText = findViewById(R.id.problem_description_edit);
+        dataManager = new PatientDataManager(this);
     }
 
     private static boolean testDate(String date) {
@@ -102,17 +116,44 @@ public class AddProblemView extends AppCompatActivity {
 
     public void saveProblem(){
 
-        String title = titleText.getText().toString();
-        String dateString = dateText.getText().toString();
-        String description = descriptionText.getText().toString();
-        Date date = null;
+        // get Problem info
+        title = titleText.getText().toString();
+        dateString = dateText.getText().toString();
+        description = descriptionText.getText().toString();
         try{
             date = new SimpleDateFormat("yyyy-MM-dd").parse(dateString);
         } catch (ParseException e){
             Toast.makeText(this, "Improper Date Format", Toast.LENGTH_LONG).show();
         }
-        Problem problem = new Problem(title, date, description);
-        DatabaseReference reference = FirebaseDatabase.getInstance().getReference();
+
+
+        //download user if online or get locally if online here
+        //only online implemented for now
+        String userID = FirebaseAuth.getInstance().getCurrentUser().getUid();
+        DatabaseReference UserDataRef = FirebaseDatabase.getInstance().getReference("users").child(userID);
+        UserDataRef.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                // get data
+                Patient currentUser = dataSnapshot.getValue(Patient.class);
+
+                // add data
+                currentUser.addProblem(new Problem(title, date, description));
+
+                // save locally
+                dataManager.savePatientLocally(currentUser);
+
+                // save to database
+                dataManager.savePatientToDatabase(currentUser);
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+        });
+
+
     }
 
 

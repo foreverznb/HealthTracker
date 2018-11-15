@@ -1,10 +1,10 @@
 {
     "logs": [
         {
-            "outputFile": "C:\\Users\\mikey\\AndroidStudioProjects\\HealthTracker\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-v23\\values-v23.xml",
+            "outputFile": "/Users/caochenlin/Desktop/CMPUT301_intro_to_software_engineering/HealthTracker/app/build/intermediates/incremental/mergeDebugResources/merged.dir/values-v23/values-v23.xml",
             "map": [
                 {
-                    "source": "C:\\Users\\mikey\\.gradle\\caches\\transforms-1\\files-1.1\\cardview-v7-28.0.0.aar\\fcc6f171c1713d474c331de35dcd3036\\res\\values-v23\\values-v23.xml",
+                    "source": "/Users/caochenlin/.gradle/caches/transforms-1/files-1.1/cardview-v7-28.0.0.aar/52660b6e66ca19141cb92fe6c1056264/res/values-v23/values-v23.xml",
                     "from": {
                         "startLines": "2",
                         "startColumns": "4",
@@ -23,7 +23,7 @@
                     }
                 },
                 {
-                    "source": "C:\\Users\\mikey\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-28.0.0.aar\\12237ca012bd756b7a7dbd142f7d67f1\\res\\values-v23\\values-v23.xml",
+                    "source": "/Users/caochenlin/.gradle/caches/transforms-1/files-1.1/appcompat-v7-28.0.0.aar/69436087b36212e5a746ac6db4226019/res/values-v23/values-v23.xml",
                     "from": {
                         "startLines": "2,3,4,5,6,19,32,33,34,35,36",
                         "startColumns": "4,4,4,4,4,4,4,4,4,4,4",
