@@ -90,16 +90,6 @@ public class UserSettingsActivity extends AppCompatActivity {
 
     }
 
-    public void Logout(View view) {
-        finish();
-        // Create an intent object containing the bridge to between the two activities
-        Intent intent = new Intent(UserSettingsActivity.this, LoginActivity.class);
-        intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
-        // Launch the browse emotions activity
-        startActivity(intent);
-    }
-
-
     @RequiresApi(api = Build.VERSION_CODES.KITKAT)
     public void editUserInfo(){
         final EditText userName = findViewById(R.id.edit_userid);

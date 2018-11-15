@@ -1,8 +1,14 @@
 #Internal package file, do not edit.
+<<<<<<< HEAD
 #Wed Nov 14 16:08:40 MST 2018
 4.path=classes.dex
 8.set=DEX
 6.path=classes.dex
+=======
+#Wed Nov 14 22:53:03 MST 2018
+1.base=C\:\\Users\\mikey\\AndroidStudioProjects\\HealthTracker\\app\\build\\intermediates\\transforms\\dexMerger\\debug\\1
+2.path=classes.dex
+>>>>>>> develop
 0.baseType=DIRECTORY
 10.path=classes.dex
 5.baseType=DIRECTORY

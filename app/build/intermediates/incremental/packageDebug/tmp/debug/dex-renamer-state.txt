@@ -1,4 +1,9 @@
+<<<<<<< HEAD
 #Wed Nov 14 16:08:40 MST 2018
+=======
+#Wed Nov 14 22:53:03 MST 2018
+path.2=classes2.dex
+>>>>>>> develop
 path.1=classes.dex
 path.0=classes.dex
 renamed.10=classes11.dex
