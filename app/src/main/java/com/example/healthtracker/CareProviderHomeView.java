@@ -11,6 +11,9 @@ public class CareProviderHomeView extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_careprovider_home);
+
+        CareProviderDataManager dataManager = new CareProviderDataManager(this);
+        CareProvider careProvider = dataManager.loadCareProviderLocally();
     }
 
     // Method containing the new intent which will bring user to the browse emotions activity and layout screen
@@ -26,6 +29,10 @@ public class CareProviderHomeView extends AppCompatActivity {
         Intent intent = new Intent(CareProviderHomeView.this, AddPatientView.class);
         // Launch the browse emotions activity
         startActivity(intent);
+    }
+
+    public void Logout(View view){
+        finish();
     }
 
     // Method containing the new intent which will bring user to the browse emotions activity and layout screen
