@@ -17,17 +17,29 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
+import java.util.List;
+import java.util.Objects;
+import java.util.concurrent.Semaphore;
 
 // extends
 public class LoginActivity extends AppCompatActivity {
     private static final String FILENAME = "file.sav";
     private ArrayList<User> userList =new ArrayList<User>();
+    User activeUser;
 
     FirebaseAuth mAuth;
     private EditText Email, Password;
     private Button Login;
+    private String isCaregiver;
+    DatabaseReference isCaregiverRef;
 
 
     @Override
@@ -41,6 +53,7 @@ public class LoginActivity extends AppCompatActivity {
         Password = findViewById(R.id.login_password);
         Login = findViewById(R.id.login_button);
         mAuth = FirebaseAuth.getInstance();
+
     }
 
 
@@ -77,23 +90,38 @@ public class LoginActivity extends AppCompatActivity {
 
 
     public void Login() {
-        CheckBox checkBox = findViewById(R.id.checkBox);
-        EditText userId=findViewById(R.id.username);
-        String username=userId.getText().toString();
-        ElasticSearch.GetUser getUser = new ElasticSearch.GetUser();
-        getUser.execute(username);
-        if (checkBox.isChecked()) {
-            // Create an intent object containing the bridge to between the two activities
-            Intent intent = new Intent(LoginActivity.this, CareProviderHomeView.class);
-            // Launch the browse emotions activity
-            startActivity(intent);
-        }
+        FirebaseUser user = mAuth.getCurrentUser();
+        final String userid = user.getUid();
+        final DatabaseReference reference = FirebaseDatabase.getInstance().getReference("users");
 
-        else {
-            // Create an intent object containing the bridge to between the two activities
-            Intent intent2 = new Intent(LoginActivity.this, PatientHomeView.class);
-            // Launch the browse emotions activity
-            startActivity(intent2);
-        }
+        isCaregiverRef = reference.child(userid).child("isCaregiver");
+
+        isCaregiverRef.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                isCaregiver = dataSnapshot.getValue().toString();
+                if (isCaregiver.equals("true")) {
+                    // Create an intent object containing the bridge to between the two activities
+                    Intent intent = new Intent(LoginActivity.this, CareProviderHomeView.class);
+                    // Launch the browse emotions activity
+                    startActivity(intent);
+                }
+
+                else {
+                    // Create an intent object containing the bridge to between the two activities
+                    Intent intent2 = new Intent(LoginActivity.this, PatientHomeView.class);
+                    // Launch the browse emotions activity
+                    startActivity(intent2);
+                }
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+
+            }
+        });
+        // get user
+
+
     }
 }

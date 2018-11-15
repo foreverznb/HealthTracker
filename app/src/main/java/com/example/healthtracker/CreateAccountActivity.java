@@ -10,6 +10,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.Toast;
 
@@ -65,7 +66,6 @@ public class CreateAccountActivity extends AppCompatActivity {
         mPhone = findViewById(R.id.phone_number);
         mUsername = findViewById(R.id.username);
         mContext = CreateAccountActivity.this;
-        mUser = new User();
         Log.d(TAG, "onCreate: started");
         setupFirebaseAuth();
         init();
@@ -81,7 +81,8 @@ public class CreateAccountActivity extends AppCompatActivity {
                 username = mUsername.getText().toString();
 
                 if (checkInputs(email, username, password, phone)) {
-                    registerNewEmail(email, password);}
+                    registerNewEmail(email, password);
+                    finish();}
                 else{
                     Toast.makeText(mContext, "All fields must be filled", Toast.LENGTH_SHORT).show();
                 }
@@ -178,16 +179,22 @@ public class CreateAccountActivity extends AppCompatActivity {
         String userid = Objects.requireNonNull(FirebaseAuth.getInstance().getCurrentUser()).getUid();
 
         Log.d(TAG, "addNewUser: Adding new User: \n user_id:" + userid);
-        mUser.setUserName(username);
-        mUser.setUserID(userid);
-        mUser.setEmail(email);
-        mUser.setPhone(phone);
 
 
+        CheckBox checkBox = findViewById(R.id.caregiver_checkbox);
+        User mUser;
         DatabaseReference reference = FirebaseDatabase.getInstance().getReference();
 
-        //insert into users node
-        reference.child("users").child(username).setValue(mUser);
+        // create patient or caregiver account
+        if(checkBox.isChecked()){
+            mUser = new Caregiver(userid, phone, email, username);
+            reference.child("users").child(userid).setValue(mUser);
+            reference.child("users").child(userid).child("isCaregiver").setValue("true");
+        } else{
+            mUser = new Patient(userid, phone, email, username);
+            reference.child("users").child(userid).setValue(mUser);
+            reference.child("users").child(userid).child("isCaregiver").setValue("false");
+        }
 
         FirebaseAuth.getInstance().signOut();
     }

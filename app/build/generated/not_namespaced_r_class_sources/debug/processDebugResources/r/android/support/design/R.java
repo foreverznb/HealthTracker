@@ -1027,7 +1027,7 @@ public final class R {
         public static final int blocking = 0x7f09002e;
         public static final int bottom = 0x7f09002f;
         public static final int buttonPanel = 0x7f090031;
-        public static final int center = 0x7f090035;
+        public static final int center = 0x7f090036;
         public static final int checkbox = 0x7f09003b;
         public static final int chronometer = 0x7f09003c;
         public static final int container = 0x7f090040;

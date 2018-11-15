@@ -1137,11 +1137,11 @@ int id buttonPanel 0x7f090031
 int id cancel_action 0x7f090032
 int id care_comment 0x7f090033
 int id care_comment_title 0x7f090034
-int id center 0x7f090035
-int id center_horizontal 0x7f090036
-int id center_vertical 0x7f090037
-int id chains 0x7f090038
-int id checkBox 0x7f090039
+int id caregiver_checkbox 0x7f090035
+int id center 0x7f090036
+int id center_horizontal 0x7f090037
+int id center_vertical 0x7f090038
+int id chains 0x7f090039
 int id checkLink 0x7f09003a
 int id checkbox 0x7f09003b
 int id chronometer 0x7f09003c
