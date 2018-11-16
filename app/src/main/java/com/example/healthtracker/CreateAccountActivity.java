@@ -9,6 +9,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.Toast;
 
@@ -63,7 +64,6 @@ public class CreateAccountActivity extends AppCompatActivity {
         mPhone = findViewById(R.id.phone_number);
         mUsername = findViewById(R.id.username);
         mContext = CreateAccountActivity.this;
-        mUser = new User();
         Log.d(TAG, "onCreate: started");
         setupFirebaseAuth();
         init();
@@ -73,13 +73,14 @@ public class CreateAccountActivity extends AppCompatActivity {
         mRegister.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                email = mEmail.getText().toString();
+                email = mEmail.getText().toString().toLowerCase();
                 password = mPassword.getText().toString();
                 phone = mPhone.getText().toString();
                 username = mUsername.getText().toString();
 
                 if (checkInputs(email, username, password, phone)) {
-                    registerNewEmail(email, password);}
+                    registerNewEmail(email, password);
+                    }
                 else{
                     Toast.makeText(mContext, "All fields must be filled", Toast.LENGTH_SHORT).show();
                 }
@@ -155,6 +156,7 @@ public class CreateAccountActivity extends AppCompatActivity {
                             Toast.makeText(mContext, "Account created.",
                                     Toast.LENGTH_SHORT).show();
                             addNewUser();
+                            finish();
                         }
                         if (!task.isSuccessful()) {
                             Toast.makeText(mContext, "Email or password are invalid.",
@@ -176,16 +178,19 @@ public class CreateAccountActivity extends AppCompatActivity {
         String userid = Objects.requireNonNull(FirebaseAuth.getInstance().getCurrentUser()).getUid();
 
         Log.d(TAG, "addNewUser: Adding new User: \n user_id:" + userid);
-        mUser.setUserName(username);
-        mUser.setUserID(userid);
-        mUser.setEmail(email);
-        mUser.setPhone(phone);
 
 
+        CheckBox checkBox = findViewById(R.id.caregiver_checkbox);
         DatabaseReference reference = FirebaseDatabase.getInstance().getReference();
 
-        //insert into users node
-        reference.child("users").child(username).setValue(mUser);
+        // create patient or caregiver account
+        if(checkBox.isChecked()){
+            CareProvider mUser = new CareProvider(userid, phone, email, username);
+            new CareProviderDataManager(this).saveCareProviderToDatabase(mUser);
+        } else{
+            Patient mUser = new Patient(userid, phone, email, username);
+            new PatientDataManager(this).savePatientToDatabase(mUser);
+        }
 
         FirebaseAuth.getInstance().signOut();
     }

@@ -44,6 +44,10 @@ public class PatientHomeView extends AppCompatActivity {
         startActivity(intent);
     }
 
+    public void Logout(View view){
+        finish();
+    }
+
     public void addProblem(View view) {
         // Create an intent object containing the bridge to between the two activities
         Intent intent = new Intent(PatientHomeView.this, AddProblemView.class);
