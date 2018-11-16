@@ -8,8 +8,8 @@ public class CareProvider extends User implements Serializable {
 
     private List<Patient> patientList;
 
-    public CareProvider(String phone, String email, String userName) {
-        super(phone, email, userName);
+    public CareProvider(String phone, String email, String userID) {
+        super(phone, email, userID);
         this.patientList = new ArrayList<Patient>();
     }
 
@@ -24,9 +24,8 @@ public class CareProvider extends User implements Serializable {
         this.patientList.add(newPatient);
     }
 
-    public void updateUserInfo(String phone, String email, String userName){
+    public void updateUserInfo(String phone, String email){
         super.setEmail(email);
         super.setPhone(phone);
-        super.setUserName(userName);
     }
 }

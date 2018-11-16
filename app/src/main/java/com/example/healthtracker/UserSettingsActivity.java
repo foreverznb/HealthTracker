@@ -24,12 +24,10 @@ public class UserSettingsActivity extends AppCompatActivity {
     private static final String TAG = "Settings";
     String email;
     String phoneString;
-    String userNameString;
     String isCaregiver;
     FirebaseAuth mAuth;
     private User mUser;
     List<User> userInfo;
-    EditText userName;
     EditText uemail;
     EditText phone;
 
@@ -58,7 +56,6 @@ public class UserSettingsActivity extends AppCompatActivity {
 
         //TODO add load from local instead if offline
 
-        userName = findViewById(R.id.edit_userid);
         uemail = findViewById(R.id.edit_email);
         phone = findViewById(R.id.edit_phone);
 
@@ -78,11 +75,9 @@ public class UserSettingsActivity extends AppCompatActivity {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 phoneString = dataSnapshot.child("phone").getValue().toString();
-                userNameString = dataSnapshot.child("userName").getValue().toString();
                 isCaregiver = dataSnapshot.child("isCaregiver").getValue().toString();
                 // display data
                 phone.setText(phoneString);
-                userName.setText(userNameString);
 
                 // These are just allowing you to see what the system is getting from the data base. Can see the result by
                 // looking in the log cat under the verbose tab and typing tmz into the search bar
@@ -113,12 +108,10 @@ public class UserSettingsActivity extends AppCompatActivity {
         if(isCaregiver.equals("true")){
             CareProviderDataManager dataManager = new CareProviderDataManager(this);
             CareProvider localUser = dataManager.loadCareProviderLocally();
-            localUser.updateUserInfo(phoneString, email, userNameString);
             dataManager.saveCareProviderLocally(localUser);
         } else{
             PatientDataManager dataManager = new PatientDataManager(this);
             Patient localUser = dataManager.loadPatientLocally();
-            localUser.updateUserInfo(phoneString, email, userNameString);
             dataManager.savePatientLocally(localUser);
         }
 
@@ -129,7 +122,6 @@ public class UserSettingsActivity extends AppCompatActivity {
         DatabaseReference userDataRef = FirebaseDatabase.getInstance().getReference("users");
         user.updateEmail(email);
         userDataRef.child(userID).child("phone").setValue(phone.getText().toString());
-        userDataRef.child(userID).child("userName").setValue(userName.getText().toString());
         userDataRef.child(userID).child("email").setValue(uemail.getText().toString().toLowerCase());
     }
 

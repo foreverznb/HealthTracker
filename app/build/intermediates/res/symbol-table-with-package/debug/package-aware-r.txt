@@ -1087,6 +1087,7 @@ drawable tooltip_frame_dark
 drawable tooltip_frame_light
 id ALT
 id CTRL
+id CareGiverLogin
 id FUNCTION
 id META
 id SHIFT
@@ -1178,7 +1179,6 @@ id edit_phone
 id edit_problem_button
 id edit_query
 id edit_record_button
-id edit_userid
 id email
 id end
 id end_padder
@@ -1364,7 +1364,7 @@ id uniform
 id unlabeled
 id up
 id useLogo
-id username
+id userID
 id view_map
 id view_offset_helper
 id view_patients
@@ -1636,6 +1636,7 @@ string symptom_checker
 string test_login_checkbox
 string title_care_view
 string track_users
+string userID
 string user_id_settings
 string username
 string usernameSettings

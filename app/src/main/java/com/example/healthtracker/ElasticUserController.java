@@ -16,7 +16,7 @@ import io.searchbox.core.Index;
 public class ElasticUserController {
     private static JestDroidClient client;
     private static String server = "http://cmput301.softwareprocess.es:8080";
-    private static String Index = "cmput301f18t13";
+    private static String Index = "cmput301f18t13test";
 
     /*
     // TODO we need a function which gets users from elastic search
@@ -59,7 +59,7 @@ public class ElasticUserController {
             return users;
         }
     }*/
-    // verify the settings for a more inferior elastic search database
+    // verify the settings
     public static void verifySettings() {
         if (client == null) {
             // if the client is not yet created, build the client factory, establish connection to the DB, and finally set the client and its factory
@@ -82,15 +82,13 @@ public class ElasticUserController {
             Index index = new Index.Builder(patient)
                     .index(Index)
                     .type("Patient")
-                    .id(patient.getUserName()).build();
+                    .id(patient.getUserID()).build();
 
             try {
                 // where is the client?
                 DocumentResult result = client.execute(index);
 
-                if (result.isSucceeded()) {
-                    patient.setUserID(result.getId());
-                } else {
+                if (!result.isSucceeded()) {
                     Log.i("Error", "Elasticsearch was not able to add the user");
                 }
             } catch (Exception e) {
@@ -110,15 +108,12 @@ public class ElasticUserController {
             Index index = new Index.Builder(careProvider)
                     .index(Index)
                     .type("Patient")
-                    .id(careProvider.getUserName()).build();
+                    .id(careProvider.getUserID()).build();
 
             try {
                 // where is the client?
                 DocumentResult result = client.execute(index);
-                if (result.isSucceeded()) {
-                    careProvider.setUserID(result.getId());
-                }
-                else {
+                if (!result.isSucceeded()) {
                     Log.i("Error", "Elasticsearch was not able to add the user");
                 }
             }
@@ -150,6 +145,29 @@ public class ElasticUserController {
                 Log.i("Error", "Could not access the server to get the patient");
             }
             return patient;
+        }
+    }
+
+    public static class GetCareProvider extends AsyncTask<String, Void, CareProvider> {
+        @Override
+        protected CareProvider doInBackground(String... id) {
+            verifySettings();
+            CareProvider careProvider = null;
+            Get get = new Get.Builder(Index, id[0])
+                    .type("CareProvider")
+                    .build();
+            try {
+                JestResult result = client.execute(get);
+                if (result.isSucceeded()) {
+                    careProvider = result.getSourceAsObject(CareProvider.class);
+                } else {
+                    Log.i("error", "Search query failed to find any thing =/");
+                }
+            }
+            catch (Exception e) {
+                Log.i("Error", "Could not access the server to get the patient");
+            }
+            return careProvider;
         }
     }
 

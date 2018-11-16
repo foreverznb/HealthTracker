@@ -82,6 +82,7 @@
     <string name="username">Username(email address)</string>
     <string name="email">Email Address</string>
     <string name="usernameSettings">Username</string>
+    <string name="userID">User ID</string>
 
 
     <string-array name="searchTypes">
