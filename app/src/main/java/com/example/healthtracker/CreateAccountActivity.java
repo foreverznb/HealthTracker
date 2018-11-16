@@ -12,6 +12,8 @@ import android.widget.Toast;
 import com.google.firebase.auth.FirebaseAuth;
 import com.searchly.jestdroid.JestDroidClient;
 
+import java.util.concurrent.ExecutionException;
+
 
 public class CreateAccountActivity extends AppCompatActivity {
 
@@ -21,6 +23,7 @@ public class CreateAccountActivity extends AppCompatActivity {
     private FirebaseAuth.AuthStateListener mAuthListener;
     private EditText Email, Password, Phone, UserID;
     private Button Register;
+    private CheckBox checkBox;
 
 
     private CreateAccountActivity Context;
@@ -36,6 +39,7 @@ public class CreateAccountActivity extends AppCompatActivity {
         Password = findViewById(R.id.new_password);
         Phone = findViewById(R.id.phone_number);
         UserID = findViewById(R.id.userID);
+        checkBox = findViewById(R.id.caregiver_checkbox);
         Context = CreateAccountActivity.this;
         Log.d(TAG, "onCreate: started");
         init();
@@ -51,9 +55,19 @@ public class CreateAccountActivity extends AppCompatActivity {
                 userID = UserID.getText().toString();
 
                 if (checkInputs(email, userID, password, phone)) {
-                    addNewUser();
-                    Toast.makeText(Context, "Account created", Toast.LENGTH_SHORT).show();
-                    finish();
+                    try {
+                        if(!userExists(userID)){
+                            addNewUser();
+                            Toast.makeText(Context, "Account created", Toast.LENGTH_SHORT).show();
+                            finish();
+                        } else{
+                            Toast.makeText(Context, "User ID is taken", Toast.LENGTH_SHORT).show();
+                        }
+                    } catch (ExecutionException e) {
+                        e.printStackTrace();
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
                 }
                 else{
                     Toast.makeText(Context, "All fields must be filled", Toast.LENGTH_SHORT).show();
@@ -75,9 +89,33 @@ public class CreateAccountActivity extends AppCompatActivity {
         return true;
     }
 
+    public boolean userExists(String userID) throws ExecutionException, InterruptedException {
+        if(checkBox.isChecked()){
+            CareProvider foundUser;
+            ElasticUserController.GetCareProvider getCareProvider = new ElasticUserController.GetCareProvider();
+            getCareProvider.execute(userID);
+            foundUser = getCareProvider.get();
+            if(foundUser == null){
+                return false;
+            } else{
+                return true;
+            }
+        } else{
+            Patient foundUser;
+            ElasticUserController.GetPatient getPatient = new ElasticUserController.GetPatient();
+            getPatient.execute(userID);
+            foundUser = getPatient.get();
+            if(foundUser == null){
+                return false;
+            } else{
+                return true;
+            }
+        }
+
+    }
+
 
     public void addNewUser(){
-        CheckBox checkBox = findViewById(R.id.caregiver_checkbox);
         // Save new user with elasticsearch
         if(checkBox.isChecked()){
             // save new care provider

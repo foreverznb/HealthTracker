@@ -39,7 +39,7 @@ public class LoginActivity extends AppCompatActivity {
                 getCareProvider.execute(userID);
                 careProvider = getCareProvider.get();
                 if (careProvider != null) {
-                    Intent intent = new Intent(LoginActivity.this, PatientHomeView.class);
+                    Intent intent = new Intent(LoginActivity.this, CareProviderHomeView.class);
                     // Launch the browse emotions activity
                     startActivity(intent);
                 } else {

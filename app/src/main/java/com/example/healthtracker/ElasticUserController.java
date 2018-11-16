@@ -90,6 +90,7 @@ public class ElasticUserController {
 
                 if (!result.isSucceeded()) {
                     Log.i("Error", "Elasticsearch was not able to add the user");
+                    throw new ConnectionError();
                 }
             } catch (Exception e) {
                 Log.i("Error", "The application failed to build and add the patient");
@@ -107,7 +108,7 @@ public class ElasticUserController {
 
             Index index = new Index.Builder(careProvider)
                     .index(Index)
-                    .type("Patient")
+                    .type("CareProvider")
                     .id(careProvider.getUserID()).build();
 
             try {
@@ -115,6 +116,7 @@ public class ElasticUserController {
                 DocumentResult result = client.execute(index);
                 if (!result.isSucceeded()) {
                     Log.i("Error", "Elasticsearch was not able to add the user");
+                    throw new ConnectionError();
                 }
             }
             catch (Exception e) {
@@ -139,6 +141,7 @@ public class ElasticUserController {
                     patient = result.getSourceAsObject(Patient.class);
                 } else {
                     Log.i("error", "Search query failed to find any thing =/");
+                    throw new ConnectionError();
                 }
             }
             catch (Exception e) {
@@ -162,6 +165,7 @@ public class ElasticUserController {
                     careProvider = result.getSourceAsObject(CareProvider.class);
                 } else {
                     Log.i("error", "Search query failed to find any thing =/");
+                    throw new ConnectionError();
                 }
             }
             catch (Exception e) {

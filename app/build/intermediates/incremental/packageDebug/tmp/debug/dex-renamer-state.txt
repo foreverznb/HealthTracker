@@ -1,7 +1,10 @@
-#Fri Nov 16 14:32:31 MST 2018
-base.0=C\:\\Users\\mikey\\AndroidStudioProjects\\HealthTracker\\app\\build\\intermediates\\transforms\\dexMerger\\debug\\0
-path.1=classes2.dex
-renamed.1=classes2.dex
+#Fri Nov 16 15:45:24 MST 2018
+path.2=classes2.dex
+path.1=classes.dex
 path.0=classes.dex
+renamed.2=classes3.dex
+renamed.1=classes2.dex
 renamed.0=classes.dex
-base.1=C\:\\Users\\mikey\\AndroidStudioProjects\\HealthTracker\\app\\build\\intermediates\\transforms\\dexMerger\\debug\\0
+base.2=C\:\\Users\\mikey\\AndroidStudioProjects\\HealthTracker\\app\\build\\intermediates\\transforms\\dexMerger\\debug\\1
+base.1=C\:\\Users\\mikey\\AndroidStudioProjects\\HealthTracker\\app\\build\\intermediates\\transforms\\dexMerger\\debug\\1
+base.0=C\:\\Users\\mikey\\AndroidStudioProjects\\HealthTracker\\app\\build\\intermediates\\transforms\\dexMerger\\debug\\0
