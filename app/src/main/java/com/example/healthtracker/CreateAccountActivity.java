@@ -8,6 +8,7 @@ import android.support.annotation.RequiresApi;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
@@ -20,10 +21,37 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
 
+import java.io.BufferedReader;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.OutputStreamWriter;
+import java.lang.reflect.Type;
+import java.util.ArrayList;
 import java.util.Objects;
 
 public class CreateAccountActivity extends AppCompatActivity {
+
+    private static final String FILENAME = "file.sav";
+    private ArrayList<Patient> patientList = new ArrayList<Patient>();
+    private ArrayAdapter<Patient> adapter;
+
+
+
+
+
+
+
+
+
+
+
+
 
     private static final String TAG = "CreateAccountActivity";
     private FirebaseAuth.AuthStateListener mAuthListener;
@@ -152,6 +180,7 @@ public class CreateAccountActivity extends AppCompatActivity {
                         Log.d(TAG, "registerNewEmail: onComplete: " + task.isSuccessful());
 
                         if (task.isSuccessful()){
+                            test();
                             //add user details to firebase database
                             Toast.makeText(mContext, "Account created.",
                                     Toast.LENGTH_SHORT).show();
@@ -208,6 +237,60 @@ public class CreateAccountActivity extends AppCompatActivity {
         super.onStop();
         if (mAuthListener != null) {
             FirebaseAuth.getInstance().removeAuthStateListener(mAuthListener);
+        }
+    }
+
+    public void test(){
+        EditText email=findViewById(R.id.email);
+        EditText password=findViewById(R.id.new_password);
+        EditText userName=findViewById(R.id.username);
+        EditText phone=findViewById(R.id.phone_number);
+        String nuserName = userName.getText().toString();
+        String nPhone = phone.getText().toString();
+        String nPassword = password.getText().toString();
+        String nemail = email.getText().toString();
+
+        Patient newPatient = new Patient(nPassword,nPhone,nemail,nuserName);
+        patientList.add(newPatient);
+        //adapter.notifyDataSetChanged();
+        //saveInFile(); // TODO replace this with elastic search
+        ElasticSearch.AddUser addNewUser = new ElasticSearch.AddUser();
+        addNewUser.execute(newPatient);
+
+    }
+
+    private void loadFromFile() {
+        try {
+            FileInputStream fis = openFileInput(FILENAME);
+            BufferedReader in = new BufferedReader(new InputStreamReader(fis));
+            Gson gson = new Gson();
+            //Code taken from http://stackoverflow.com/questions/12384064/gson-convert-from-json-to-a-typed-arraylistt Sept.22,2016
+            Type listType = new TypeToken<ArrayList<Patient>>(){}.getType();
+            patientList = gson.fromJson(in, listType);
+        } catch (FileNotFoundException e) {
+            // TODO Auto-generated catch block
+            patientList = new ArrayList<Patient>();
+        } catch (IOException e) {
+            // TODO Auto-generated catch block
+            throw new RuntimeException();
+        }
+    }
+
+
+    private void saveInFile() {
+        try {
+
+            FileOutputStream fos = openFileOutput(FILENAME,0);
+            OutputStreamWriter writer = new OutputStreamWriter(fos);
+            Gson gson = new Gson();
+            gson.toJson(patientList, writer);
+            writer.flush();
+        } catch (FileNotFoundException e) {
+            // TODO Auto-generated catch block
+            throw new RuntimeException();
+        } catch (IOException e) {
+            // TODO Auto-generated catch block
+            throw new RuntimeException();
         }
     }
 }

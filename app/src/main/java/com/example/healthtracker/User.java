@@ -8,9 +8,9 @@ import java.util.List;
 import io.searchbox.annotations.JestId;
 
 public class User implements Serializable {
+    @JestId
     private String userID;
     private String email;
-    @JestId
     private String phone;
     private String userName;
 

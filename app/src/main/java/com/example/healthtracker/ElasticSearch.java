@@ -1,10 +1,25 @@
 package com.example.healthtracker;
 
 
-public class ElasticSearch {/*
+import android.os.AsyncTask;
+import android.util.Log;
+
+import com.searchly.jestdroid.DroidClientConfig;
+import com.searchly.jestdroid.JestClientFactory;
+import com.searchly.jestdroid.JestDroidClient;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import io.searchbox.core.DocumentResult;
+import io.searchbox.core.Index;
+import io.searchbox.core.Search;
+import io.searchbox.core.SearchResult;
+
+public class ElasticSearch {
     private static JestDroidClient client;
 
-    /*
+
 
     // TODO we need a function which adds users to elastic search
     public static class AddUser extends AsyncTask<User, Void, Void> {
@@ -14,13 +29,13 @@ public class ElasticSearch {/*
             verifySettings();
 
             for (User user : users) {
-                Index index = new Index.Builder(user).index("testing").type("user").build();
+                Index index = new Index.Builder(user).index("users").type("user").build();
 
                 try {
                     // where is the client?
                     DocumentResult result = client.execute(index);
                     if (result.isSucceeded()) {
-                        user.setUserID(result.getId());
+                        user.setUserName(result.getId());
 
                     }
                     else {
@@ -79,13 +94,13 @@ public class ElasticSearch {/*
 
     public static void verifySettings() {
         if (client == null) {
-            DroidClientConfig.Builder builder = new DroidClientConfig.Builder("http://cmput301.softwareprocess.es:8080");
+            DroidClientConfig.Builder builder = new DroidClientConfig.Builder("http://cmput301.softwareprocess.es:8080/cmput301f18t13");
             DroidClientConfig config = builder.build();
 
             JestClientFactory factory = new JestClientFactory();
             factory.setDroidClientConfig(config);
             client = (JestDroidClient) factory.getObject();
         }
-    }*/
+    }
 
 }

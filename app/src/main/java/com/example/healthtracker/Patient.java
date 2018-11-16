@@ -1,13 +1,8 @@
 package com.example.healthtracker;
 
-import android.support.annotation.NonNull;
-
 import java.io.Serializable;
 import java.util.ArrayList;
-import java.util.Collection;
-import java.util.Iterator;
 import java.util.List;
-import java.util.ListIterator;
 
 public class Patient extends User implements Serializable {
 
@@ -18,7 +13,7 @@ public class Patient extends User implements Serializable {
         this.problemList = new ArrayList<>();
     }
 
-    public Patient(){};
+    public Patient(){}
 
     public List<Problem> getProblemList() {
         return this.problemList;
