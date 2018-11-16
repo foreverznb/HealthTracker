@@ -1,6 +1,5 @@
 package com.example.healthtracker;
 
-import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -20,7 +19,6 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 import java.util.List;
-import java.util.Objects;
 
 public class UserSettingsActivity extends AppCompatActivity {
     private static final String TAG = "Settings";

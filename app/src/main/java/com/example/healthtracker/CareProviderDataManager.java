@@ -2,6 +2,8 @@ package com.example.healthtracker;
 
 import android.content.Context;
 import android.content.SharedPreferences;
+import android.os.Build;
+import android.support.annotation.RequiresApi;
 import android.util.Base64;
 
 import com.google.firebase.auth.FirebaseAuth;
@@ -83,6 +85,7 @@ public class CareProviderDataManager {
     }
 
 
+    @RequiresApi(api = Build.VERSION_CODES.KITKAT)
     public void saveCareProviderToDatabase(CareProvider careProvider){
         String userid = Objects.requireNonNull(FirebaseAuth.getInstance().getCurrentUser()).getUid();
         DatabaseReference reference = FirebaseDatabase.getInstance().getReference("users");
