@@ -1,19 +1,27 @@
 package com.example.healthtracker;
 
+import android.support.annotation.NonNull;
+
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Date;
+import java.util.HashMap;
+import java.util.Iterator;
 import java.util.List;
+import java.util.ListIterator;
+import java.util.Map;
 
 public class Patient extends User implements Serializable {
 
     private List<Problem> problemList;
 
-    public Patient(String phone, String email, String userName) {
+    public Patient(String phone, String email, String userName){
         super(phone, email, userName);
         this.problemList = new ArrayList<>();
     }
 
-    public Patient(){}
+    public Patient(){};
 
     public List<Problem> getProblemList() {
         return this.problemList;

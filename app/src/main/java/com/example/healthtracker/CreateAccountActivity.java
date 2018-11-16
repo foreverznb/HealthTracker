@@ -1,26 +1,45 @@
 package com.example.healthtracker;
 
+import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
+import android.support.annotation.RequiresApi;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
-import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.searchly.jestdroid.DroidClientConfig;
+import com.searchly.jestdroid.JestClientFactory;
 import com.searchly.jestdroid.JestDroidClient;
 
-import java.util.ArrayList;
+import android.os.AsyncTask;
+import android.util.Log;
+
+import com.searchly.jestdroid.DroidClientConfig;
+import com.searchly.jestdroid.JestClientFactory;
+import com.searchly.jestdroid.JestDroidClient;
+
+import io.searchbox.core.DocumentResult;
+import io.searchbox.core.Index;
+
+import java.util.Objects;
+
+import io.searchbox.client.JestClient;
 
 
 public class CreateAccountActivity extends AppCompatActivity {
-
-
-    private static final String FILENAME = "file.sav";
-    private ArrayList<Patient> patientList = new ArrayList<Patient>();
-    private ArrayAdapter<Patient> adapter;
 
     private static JestDroidClient client;
 
@@ -68,10 +87,10 @@ public class CreateAccountActivity extends AppCompatActivity {
         });
     }
 
-
     /*
-     * Checks all the input fields for null
+     * Checks that all the input fields are filled
      */
+    // need to add more checks for email and password
     private boolean checkInputs(String email, String username, String password, String phone){
         Log.d(TAG, "checkInputs: checking inputs for null values");
         if(email.equals("") || username.equals("") || password.equals("") || phone.equals("")){
@@ -82,56 +101,22 @@ public class CreateAccountActivity extends AppCompatActivity {
     }
 
 
-   /* private void setupFirebaseAuth(){
-
-        mAuthListener = new FirebaseAuth.AuthStateListener() {
-            @Override
-            public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
-                final FirebaseUser user = firebaseAuth.getCurrentUser();
-
-                if (user != null) {
-                    // User is authenticated
-                    Log.d(TAG, "onAuthStateChanged: signed_in: " + user.getUid());
-
-
-                } else {
-                    // User is signed out
-                    Log.d(TAG, "onAuthStateChanged: signed_out");
-
-                }
-                // ...
-            }
-        };
-
-    }*/
-
     public void addNewUser(){
+        CheckBox checkBox = findViewById(R.id.caregiver_checkbox);
+        // Save new user with elasticsearch
+        if(checkBox.isChecked()){
+            // save new care provider
+            CareProvider newCareProvider = new CareProvider(phone, email, username);
+            ElasticUserController.AddCareProvider addCareProviderTask = new ElasticUserController.AddCareProvider();
+            addCareProviderTask.execute(newCareProvider);
+        } else{
+            // save new patient
+            Patient newPatient = new Patient(phone, email, username);
+            ElasticUserController.AddPatient addPatientTask = new ElasticUserController.AddPatient();
+            addPatientTask.execute(newPatient);
+        }
 
-        // just add generic user for now
-        // saves user online...I hope
-        User user = new User(phone, email, username);
-        ElasticUserController.AddUser addUserTask = new ElasticUserController.AddUser();
-        addUserTask.execute(user);
 
-
-    }
-
-    public void test(){
-        EditText email=findViewById(R.id.email);
-        EditText password=findViewById(R.id.new_password);
-        EditText userName=findViewById(R.id.username);
-        EditText phone=findViewById(R.id.phone_number);
-        String nuserName = userName.getText().toString();
-        String nPhone = phone.getText().toString();
-        String nPassword = password.getText().toString();
-        String nemail = email.getText().toString();
-
-        Patient newPatient = new Patient(nPhone, nemail, nuserName);
-        patientList.add(newPatient);
-        //adapter.notifyDataSetChanged();
-        //saveInFile(); // TODO replace this with elastic search
-        ElasticUserController.AddUser addNewUser = new ElasticUserController.AddUser();
-        addNewUser.execute(newPatient);
 
     }
 }

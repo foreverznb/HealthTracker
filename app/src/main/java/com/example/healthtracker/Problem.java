@@ -4,33 +4,32 @@ import android.app.Notification;
 import android.util.Log;
 
 import java.io.Serializable;
-import java.text.DateFormat;
-import java.text.FieldPosition;
-import java.text.ParsePosition;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 import static java.lang.Boolean.FALSE;
 import static java.lang.Boolean.TRUE;
 
 public class Problem implements Serializable {
 
-    private String title;
+    private String ProblemTitle;
     private Date dateStarted;
     private String description;
     private Integer numOfRecords;
-    private ArrayList<Notification> notifications;
+    // if we use the android built in notifications then they cant be here or elastic search will break
+    private List<notifyUser> notifications;
     private Boolean notificationsOn = FALSE;
     private ArrayList<PatientRecord> patientRecords;
-    private ArrayList<SimpleRecord> caregiverRecords;
+    private ArrayList<CareGiverComment> caregiverRecords;
 
     public Problem(){
 
     }
 
     public Problem(String title,Date dateStarted,String description){
-        this.title = title;
+        this.ProblemTitle = title;
         this.dateStarted = dateStarted;
         this.description = description;
         this.numOfRecords = 0;          // Refer to the number of records created by the patient
@@ -40,12 +39,12 @@ public class Problem implements Serializable {
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
         String dateStr = sdf.format(dateStarted);
         Log.d("number of records: ",String.valueOf(numOfRecords));
-        return "title: "+title+"\n"+"start date: "+dateStr+"\n"+"description: "+description+"\n"+"number of records: "+String.valueOf(numOfRecords);
+        return "title: "+ProblemTitle+"\n"+"start date: "+dateStr+"\n"+"description: "+description+"\n"+"number of records: "+String.valueOf(numOfRecords);
     }
 
     public String getTitle(){
 
-        return title;
+        return ProblemTitle;
     }
 
     public Date getDate(){
@@ -59,7 +58,7 @@ public class Problem implements Serializable {
     }
 
     public void setTitle(String newTitle){
-        this.title = newTitle;
+        this.ProblemTitle = newTitle;
 
     }
 
@@ -76,12 +75,12 @@ public class Problem implements Serializable {
         return numOfRecords;
     }
 
-    public ArrayList<PatientRecord> getPatientRecords(){
+   /* public ArrayList<PatientRecord> getPatientRecords(){
         return this.patientRecords;
     }
 
 
-    public ArrayList<SimpleRecord> getCareGiverRecords(){
+    public ArrayList<CareGiverComment> getCareGiverRecords(){
         return caregiverRecords;
     }
 
@@ -90,7 +89,7 @@ public class Problem implements Serializable {
         numOfRecords += 1;
     }
 
-    public void addCareGiverRecord(SimpleRecord caregiverRecord){
+    public void addCareGiverRecord(CareGiverComment caregiverRecord){
         caregiverRecords.add(caregiverRecord);
     }
 
@@ -103,11 +102,11 @@ public class Problem implements Serializable {
         caregiverRecords.remove(caregiverRecords.get(index));
     }
 
-    public ArrayList<Notification> getNotifications(){
+    public ArrayList<notifyUser> getNotifications(){
         return this.notifications;
     }
 
-    public void addNotification(Notification newNotification){
+    public void addNotification(notifyUser newNotification){
         notifications.add(newNotification);
     }
 
@@ -127,6 +126,6 @@ public class Problem implements Serializable {
 
     public Boolean notificationStatus(){
         return notificationsOn;
-    }
+    }*/
 
 }
