@@ -8,16 +8,15 @@ import java.util.List;
 import io.searchbox.annotations.JestId;
 
 public class User implements Serializable {
-    private String userID;
     private String email;
-    @JestId
     private String phone;
     private String userName;
+    @JestId
+    private String userID;
 
-    public User(String userID, String phone, String email, String userName){
+    public User(String phone, String email, String userName){
         this.email = email;
         this.phone = phone;
-        this.userID = userID;
         this.userName = userName;
     }
 
@@ -52,6 +51,8 @@ public class User implements Serializable {
     public void setUserName(String userName) {
         this.userName = userName;
     }
+
+    public void setUserID(String userID){this.userID = userID;}
 
     public List<Problem> search(String keyword, String type){
         //TODO implement
