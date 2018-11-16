@@ -110,8 +110,8 @@ public class EditProblem extends AppCompatActivity {
         // Get the current user id
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
         String uid = user.getUid();
-        String problem_path = "problem_" + String.valueOf(index);
-        DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference().child("problems").child(uid).
+        //String problem_path = "problem_" + String.valueOf(index);
+        DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference().child("problems").child(uid);
 
     }
 

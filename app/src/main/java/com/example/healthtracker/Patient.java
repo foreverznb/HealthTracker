@@ -1,8 +1,13 @@
 package com.example.healthtracker;
 
+import android.support.annotation.NonNull;
+
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Iterator;
 import java.util.List;
+import java.util.ListIterator;
 
 public class Patient extends User implements Serializable {
 
@@ -24,8 +29,10 @@ public class Patient extends User implements Serializable {
     }
 
     public void addProblem(Problem newProblem){
+        if (this.problemList == null){
+            this.problemList = new ArrayList<Problem>();
+        }
         this.problemList.add(newProblem);
-        newProblem.setPatient(this);
     }
 
     public void deleteProblem(Problem problem){

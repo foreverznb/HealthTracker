@@ -1,5 +1,6 @@
 package com.example.healthtracker;
 
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.support.annotation.NonNull;
@@ -38,6 +39,7 @@ public class AddProblemView extends AppCompatActivity {
     String description;
     Date date;
     PatientDataManager dataManager;
+    Context context;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,6 +49,7 @@ public class AddProblemView extends AppCompatActivity {
         dateText = findViewById(R.id.date_started_editable);
         descriptionText = findViewById(R.id.problem_description_edit);
         dataManager = new PatientDataManager(this);
+        context = this;
     }
 
     private static boolean testDate(String date) {
@@ -106,11 +109,6 @@ public class AddProblemView extends AppCompatActivity {
             Toast.makeText(this, "Improper Date Format", Toast.LENGTH_LONG).show();
         } else {
             saveProblem();
-            Toast.makeText(this, "Problem Added", Toast.LENGTH_SHORT).show();
-            // Create an intent object containing the bridge to between the two activities
-            Intent intent = new Intent(AddProblemView.this, PatientHomeView.class);
-            // Launch the browse emotions activity
-            startActivity(intent);
         }
     }
 
@@ -130,7 +128,7 @@ public class AddProblemView extends AppCompatActivity {
         //download user if online or get locally if online here
         //only online implemented for now
         String userID = FirebaseAuth.getInstance().getCurrentUser().getUid();
-        DatabaseReference UserDataRef = FirebaseDatabase.getInstance().getReference("users").child(userID);
+        final DatabaseReference UserDataRef = FirebaseDatabase.getInstance().getReference("users").child(userID);
         UserDataRef.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
@@ -138,13 +136,18 @@ public class AddProblemView extends AppCompatActivity {
                 Patient currentUser = dataSnapshot.getValue(Patient.class);
 
                 // add data
-                currentUser.addProblem(new Problem(title, date, description));
+                Problem problem = new Problem(title, date, description);
+                currentUser.addProblem(problem);
 
                 // save locally
                 dataManager.savePatientLocally(currentUser);
 
                 // save to database
                 dataManager.savePatientToDatabase(currentUser);
+
+                // finish adding problem
+                Toast.makeText(context, "Problem Added", Toast.LENGTH_SHORT).show();
+                finish();
             }
 
             @Override

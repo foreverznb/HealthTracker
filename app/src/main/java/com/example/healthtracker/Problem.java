@@ -3,6 +3,7 @@ package com.example.healthtracker;
 import android.app.Notification;
 import android.util.Log;
 
+import java.io.Serializable;
 import java.text.DateFormat;
 import java.text.FieldPosition;
 import java.text.ParsePosition;
@@ -13,7 +14,7 @@ import java.util.Date;
 import static java.lang.Boolean.FALSE;
 import static java.lang.Boolean.TRUE;
 
-public class Problem {
+public class Problem implements Serializable {
 
     private String title;
     private Date dateStarted;
@@ -21,7 +22,6 @@ public class Problem {
     private Integer numOfRecords;
     private ArrayList<Notification> notifications;
     private Boolean notificationsOn = FALSE;
-    private Patient parentPatient;
     private ArrayList<PatientRecord> patientRecords;
     private ArrayList<SimpleRecord> caregiverRecords;
 
@@ -129,11 +129,4 @@ public class Problem {
         return notificationsOn;
     }
 
-    public void setPatient(Patient parentPatient){
-        this.parentPatient = parentPatient;
-    }
-
-    public Patient getPatient(){
-        return parentPatient;
-    }
 }

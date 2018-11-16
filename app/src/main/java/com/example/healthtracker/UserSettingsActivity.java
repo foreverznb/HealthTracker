@@ -72,28 +72,26 @@ public class UserSettingsActivity extends AppCompatActivity {
 
 
 
-        DatabaseReference userDataRef = FirebaseDatabase.getInstance().getReference("users");
+        DatabaseReference dataBaseRef = FirebaseDatabase.getInstance().getReference();
+        String userID = FirebaseAuth.getInstance().getCurrentUser().getUid();
+        DatabaseReference userDataRef = dataBaseRef.child("users").child(userID);
         userDataRef.addListenerForSingleValueEvent(new ValueEventListener() {
             @RequiresApi(api = Build.VERSION_CODES.KITKAT)
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                for (DataSnapshot childSnap : dataSnapshot.getChildren()) {
-                    if (Objects.equals(childSnap.child("email").getValue(), email)){
-                        phoneString = childSnap.child("phone").getValue().toString();
-                        userNameString = childSnap.child("userName").getValue().toString();
-                        isCaregiver = childSnap.child("isCaregiver").getValue().toString();
-                        // display data
-                        phone.setText(phoneString);
-                        userName.setText(userNameString);
-                    }
-                    // These are just allowing you to see what the system is getting from the data base. Can see the result by
-                    // looking in the log cat under the verbose tab and typing tmz into the search bar
-                    Log.v("tmz1", "" + childSnap.getKey()); //displays the key for the node
-                    Log.v("tmz2", "" + childSnap.child("email").getValue());
-                    Log.v("tmz3", "" + childSnap.child("phone").getValue());
-                    Log.v("tmz4", "" + childSnap.child("userName").getValue()); //gives the value for given keyname
-                }
+                phoneString = dataSnapshot.child("phone").getValue().toString();
+                userNameString = dataSnapshot.child("userName").getValue().toString();
+                isCaregiver = dataSnapshot.child("isCaregiver").getValue().toString();
+                // display data
+                phone.setText(phoneString);
+                userName.setText(userNameString);
 
+                // These are just allowing you to see what the system is getting from the data base. Can see the result by
+                // looking in the log cat under the verbose tab and typing tmz into the search bar
+                Log.v("tmz1", "" + dataSnapshot.getKey()); //displays the key for the node
+                Log.v("tmz2", "" + dataSnapshot.child("email").getValue());
+                Log.v("tmz3", "" + dataSnapshot.child("phone").getValue());
+                Log.v("tmz4", "" + dataSnapshot.child("userName").getValue()); //gives the value for given keyname
             }
 
             @Override
