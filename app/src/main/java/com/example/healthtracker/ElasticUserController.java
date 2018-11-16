@@ -109,7 +109,7 @@ public class ElasticUserController {
 
             Index index = new Index.Builder(careProvider)
                     .index(Index)
-                    .type("Patient")
+                    .type("CareProvider")
                     .id(careProvider.getUserName()).build();
 
             try {
@@ -117,12 +117,10 @@ public class ElasticUserController {
                 DocumentResult result = client.execute(index);
                 if (result.isSucceeded()) {
                     careProvider.setUserID(result.getId());
-                }
-                else {
+                } else {
                     Log.i("Error", "Elasticsearch was not able to add the user");
                 }
-            }
-            catch (Exception e) {
+            } catch (Exception e) {
                 Log.i("Error", "The application failed to build and add the CareProvider");
             }
 
@@ -143,13 +141,35 @@ public class ElasticUserController {
                 if (result.isSucceeded()) {
                     patient = result.getSourceAsObject(Patient.class);
                 } else {
-                    Log.i("error", "Search query failed to find any thing =/");
+                    Log.i("error", "Search query failed to find users");
                 }
-            }
-            catch (Exception e) {
+            } catch (Exception e) {
                 Log.i("Error", "Could not access the server to get the patient");
             }
             return patient;
+        }
+    }
+
+    public static class GetCareProvider extends AsyncTask<String, Void, CareProvider> {
+        @Override
+        protected CareProvider doInBackground(String... id) {
+            verifySettings();
+            CareProvider careProvider = null;
+            Get get = new Get.Builder(Index, id[0])
+                    .type("CareProvider")
+                    .build();
+            try {
+                JestResult result = client.execute(get);
+                if (result.isSucceeded()) {
+                    careProvider = result.getSourceAsObject(CareProvider.class);
+                } else {
+                    Log.i("error", "Search query failed to find users");
+                }
+            }
+            catch (Exception e) {
+                Log.i("Error", "Could not access the server to get the CareProvider");
+            }
+            return careProvider;
         }
     }
 

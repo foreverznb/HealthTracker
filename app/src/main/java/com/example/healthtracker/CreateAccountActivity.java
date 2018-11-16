@@ -1,10 +1,7 @@
 package com.example.healthtracker;
 
-import android.content.Intent;
-import android.os.Build;
+import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
-import android.support.annotation.RequiresApi;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
@@ -13,30 +10,8 @@ import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.Task;
-import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseUser;
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
-import com.searchly.jestdroid.DroidClientConfig;
-import com.searchly.jestdroid.JestClientFactory;
 import com.searchly.jestdroid.JestDroidClient;
-
-import android.os.AsyncTask;
-import android.util.Log;
-
-import com.searchly.jestdroid.DroidClientConfig;
-import com.searchly.jestdroid.JestClientFactory;
-import com.searchly.jestdroid.JestDroidClient;
-
-import io.searchbox.core.DocumentResult;
-import io.searchbox.core.Index;
-
-import java.util.Objects;
-
-import io.searchbox.client.JestClient;
 
 
 public class CreateAccountActivity extends AppCompatActivity {
@@ -106,11 +81,21 @@ public class CreateAccountActivity extends AppCompatActivity {
         // Save new user with elasticsearch
         if(checkBox.isChecked()){
             // save new care provider
+            SharedPreferences pref = getApplicationContext().getSharedPreferences("MyPref", 0); // 0 - for private mode
+            SharedPreferences.Editor editor = pref.edit();
+            editor.putString("username", username); // Storing string
+            editor.apply();
+
             CareProvider newCareProvider = new CareProvider(phone, email, username);
             ElasticUserController.AddCareProvider addCareProviderTask = new ElasticUserController.AddCareProvider();
             addCareProviderTask.execute(newCareProvider);
         } else{
             // save new patient
+            SharedPreferences pref = getApplicationContext().getSharedPreferences("MyPref", 0); // 0 - for private mode
+            SharedPreferences.Editor editor = pref.edit();
+            editor.putString("username", username); // Storing string
+            editor.apply();
+
             Patient newPatient = new Patient(phone, email, username);
             ElasticUserController.AddPatient addPatientTask = new ElasticUserController.AddPatient();
             addPatientTask.execute(newPatient);
