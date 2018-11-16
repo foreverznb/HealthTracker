@@ -8,8 +8,8 @@ public class Patient extends User implements Serializable {
 
     private List<Problem> problemList;
 
-    public Patient(String userID, String phone, String email, String userName){
-        super(userID, phone, email, userName);
+    public Patient(String phone, String email, String userName) {
+        super(phone, email, userName);
         this.problemList = new ArrayList<>();
     }
 

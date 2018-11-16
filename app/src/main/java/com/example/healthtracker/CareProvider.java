@@ -8,12 +8,13 @@ public class CareProvider extends User implements Serializable {
 
     private List<Patient> patientList;
 
-    public CareProvider(String userID, String phone, String email, String userName){
-        super(userID, phone, email, userName);
+    public CareProvider(String phone, String email, String userName) {
+        super(phone, email, userName);
         this.patientList = new ArrayList<Patient>();
     }
 
-    public CareProvider(){};
+    public CareProvider() {
+    }
 
     public List<Patient> getPatientList() {
         return this.patientList;
