@@ -87,11 +87,10 @@ public class CreateAccountActivity extends AppCompatActivity {
         });
     }
 
-
-
     /*
-     * Checks all the input fields for null
+     * Checks that all the input fields are filled
      */
+    // need to add more checks for email and password
     private boolean checkInputs(String email, String username, String password, String phone){
         Log.d(TAG, "checkInputs: checking inputs for null values");
         if(email.equals("") || username.equals("") || password.equals("") || phone.equals("")){
@@ -102,36 +101,21 @@ public class CreateAccountActivity extends AppCompatActivity {
     }
 
 
-   /* private void setupFirebaseAuth(){
-
-        mAuthListener = new FirebaseAuth.AuthStateListener() {
-            @Override
-            public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
-                final FirebaseUser user = firebaseAuth.getCurrentUser();
-
-                if (user != null) {
-                    // User is authenticated
-                    Log.d(TAG, "onAuthStateChanged: signed_in: " + user.getUid());
-
-
-                } else {
-                    // User is signed out
-                    Log.d(TAG, "onAuthStateChanged: signed_out");
-
-                }
-                // ...
-            }
-        };
-
-    }*/
-
     public void addNewUser(){
+        CheckBox checkBox = findViewById(R.id.caregiver_checkbox);
+        // Save new user with elasticsearch
+        if(checkBox.isChecked()){
+            // save new care provider
+            CareProvider newCareProvider = new CareProvider(phone, email, username);
+            ElasticUserController.AddCareProvider addCareProviderTask = new ElasticUserController.AddCareProvider();
+            addCareProviderTask.execute(newCareProvider);
+        } else{
+            // save new patient
+            Patient newPatient = new Patient(phone, email, username);
+            ElasticUserController.AddPatient addPatientTask = new ElasticUserController.AddPatient();
+            addPatientTask.execute(newPatient);
+        }
 
-        // just add generic user for now
-        // saves user online...I hope
-        User user = new User(phone, email, username);
-        ElasticUserController.AddUser addUserTask = new ElasticUserController.AddUser();
-        addUserTask.execute(user);
 
 
     }

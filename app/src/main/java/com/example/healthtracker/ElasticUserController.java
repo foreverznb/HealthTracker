@@ -15,30 +15,57 @@ public class ElasticUserController {
 
     private static JestDroidClient client;
 
-    public static class AddUser extends AsyncTask<User, Void, Void> {
+    public static class AddPatient extends AsyncTask<Patient, Void, Void> {
 
         @Override
-        protected Void doInBackground(User... users) {
+        protected Void doInBackground(Patient... patients) {
             verifySettings();
+            Patient patient = patients[0];
 
-            for (User user : users) {
-                Index index = new Index.Builder(user).index("test").type("user").build();
+            //TODO change when finished testing
+            Index index = new Index.Builder(patient).index("cmput301f18t13test").type("Patient").id("test").build();
 
-                try {
-                    // where is the client?
-                    DocumentResult result = client.execute(index);
-                    if (result.isSucceeded()) {
-                        user.setUserID(result.getId());
-                    }
-                    else {
-                        Log.i("Error", "Elasticsearch was not able to add the user");
-                    }
+            try {
+                // where is the client?
+                DocumentResult result = client.execute(index);
+                if (result.isSucceeded()) {
+                    patient.setUserID(result.getId());
                 }
-                catch (Exception e) {
-                    Log.i("Error", "The application failed to build and send the tweets");
+                else {
+                    Log.i("Error", "Elasticsearch was not able to add the user");
                 }
-
             }
+            catch (Exception e) {
+                Log.i("Error", "The application failed to build and send the tweets");
+            }
+
+            return null;
+        }
+    }
+
+    public static class AddCareProvider extends AsyncTask<CareProvider, Void, Void> {
+
+        @Override
+        protected Void doInBackground(CareProvider... careProviders) {
+            verifySettings();
+            CareProvider careProvider = careProviders[0];
+
+            Index index = new Index.Builder(careProvider).index("cmput301f18t13test").type("CareProvider").id("testC").build();
+
+            try {
+                // where is the client?
+                DocumentResult result = client.execute(index);
+                if (result.isSucceeded()) {
+                    careProvider.setUserID(result.getId());
+                }
+                else {
+                    Log.i("Error", "Elasticsearch was not able to add the user");
+                }
+            }
+            catch (Exception e) {
+                Log.i("Error", "The application failed to build and send the tweets");
+            }
+
             return null;
         }
     }
@@ -87,7 +114,7 @@ public class ElasticUserController {
 
     public static void verifySettings() {
         if (client == null) {
-            DroidClientConfig.Builder builder = new DroidClientConfig.Builder("http://cmput301.softwareprocess.es:8080/cmput301f18t13");
+            DroidClientConfig.Builder builder = new DroidClientConfig.Builder("http://cmput301.softwareprocess.es:8080");
             DroidClientConfig config = builder.build();
             JestClientFactory factory = new JestClientFactory();
             factory.setDroidClientConfig(config);

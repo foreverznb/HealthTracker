@@ -137,7 +137,7 @@ public class AddProblemView extends AppCompatActivity {
 
                 // add data
                 Problem problem = new Problem(title, date, description);
-                currentUser.addProblem(problem);
+            //    currentUser.addProblem(problem);
 
                 // save locally
                 dataManager.savePatientLocally(currentUser);
