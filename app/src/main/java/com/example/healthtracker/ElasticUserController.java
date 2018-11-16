@@ -8,67 +8,15 @@ import com.searchly.jestdroid.DroidClientConfig;
 import com.searchly.jestdroid.JestClientFactory;
 import com.searchly.jestdroid.JestDroidClient;
 
+import io.searchbox.client.JestResult;
 import io.searchbox.core.DocumentResult;
+import io.searchbox.core.Get;
 import io.searchbox.core.Index;
 
 public class ElasticUserController {
-
     private static JestDroidClient client;
-
-    public static class AddPatient extends AsyncTask<Patient, Void, Void> {
-
-        @Override
-        protected Void doInBackground(Patient... patients) {
-            verifySettings();
-            Patient patient = patients[0];
-
-            //TODO change when finished testing
-            Index index = new Index.Builder(patient).index("cmput301f18t13test").type("Patient").id("test").build();
-
-            try {
-                // where is the client?
-                DocumentResult result = client.execute(index);
-                if (result.isSucceeded()) {
-                    patient.setUserID(result.getId());
-                }
-                else {
-                    Log.i("Error", "Elasticsearch was not able to add the user");
-                }
-            }
-            catch (Exception e) {
-                Log.i("Error", "The application failed to build and send the tweets");
-            }
-
-            return null;
-        }
-    }
-
-    public static class AddCareProvider extends AsyncTask<CareProvider, Void, Void> {
-
-        @Override
-        protected Void doInBackground(CareProvider... careProviders) {
-            verifySettings();
-            CareProvider careProvider = careProviders[0];
-
-            Index index = new Index.Builder(careProvider).index("cmput301f18t13test").type("CareProvider").id("testC").build();
-
-            try {
-                // where is the client?
-                DocumentResult result = client.execute(index);
-                if (result.isSucceeded()) {
-                    careProvider.setUserID(result.getId());
-                }
-                else {
-                    Log.i("Error", "Elasticsearch was not able to add the user");
-                }
-            }
-            catch (Exception e) {
-                Log.i("Error", "The application failed to build and send the tweets");
-            }
-
-            return null;
-        }
-    }
+    private static String server = "http://cmput301.softwareprocess.es:8080";
+    private static String Index = "cmput301f18t13";
 
     /*
     // TODO we need a function which gets users from elastic search
@@ -111,14 +59,97 @@ public class ElasticUserController {
             return users;
         }
     }*/
-
+    // verify the settings for a more inferior elastic search database
     public static void verifySettings() {
         if (client == null) {
-            DroidClientConfig.Builder builder = new DroidClientConfig.Builder("http://cmput301.softwareprocess.es:8080");
+            // if the client is not yet created, build the client factory, establish connection to the DB, and finally set the client and its factory
+            DroidClientConfig.Builder builder = new DroidClientConfig.Builder(server);
             DroidClientConfig config = builder.build();
             JestClientFactory factory = new JestClientFactory();
             factory.setDroidClientConfig(config);
             client = (JestDroidClient) factory.getObject();
+        }
+    }
+
+    // add new users to elastic search database
+    public static class AddPatient extends AsyncTask<Patient, Void, Void> {
+        @Override
+        protected Void doInBackground(Patient... patients) {
+            verifySettings();
+            Patient patient = patients[0];
+
+            //TODO change when finished testing
+            Index index = new Index.Builder(patient)
+                    .index(Index)
+                    .type("Patient")
+                    .id(patient.getUserName()).build();
+
+            try {
+                // where is the client?
+                DocumentResult result = client.execute(index);
+
+                if (result.isSucceeded()) {
+                    patient.setUserID(result.getId());
+                } else {
+                    Log.i("Error", "Elasticsearch was not able to add the user");
+                }
+            } catch (Exception e) {
+                Log.i("Error", "The application failed to build and add the patient");
+            }
+            return null;
+        }
+    }
+
+    public static class AddCareProvider extends AsyncTask<CareProvider, Void, Void> {
+
+        @Override
+        protected Void doInBackground(CareProvider... careProviders) {
+            verifySettings();
+            CareProvider careProvider = careProviders[0];
+
+            Index index = new Index.Builder(careProvider)
+                    .index(Index)
+                    .type("Patient")
+                    .id(careProvider.getUserName()).build();
+
+            try {
+                // where is the client?
+                DocumentResult result = client.execute(index);
+                if (result.isSucceeded()) {
+                    careProvider.setUserID(result.getId());
+                }
+                else {
+                    Log.i("Error", "Elasticsearch was not able to add the user");
+                }
+            }
+            catch (Exception e) {
+                Log.i("Error", "The application failed to build and add the CareProvider");
+            }
+
+            return null;
+        }
+    }
+
+    public static class GetPatient extends AsyncTask<String, Void, Patient> {
+        @Override
+        protected Patient doInBackground(String... id) {
+            verifySettings();
+            Patient patient = null;
+            Get get = new Get.Builder(Index, id[0])
+                    .type("Patient")
+                    .build();
+            try {
+                JestResult result = client.execute(get);
+                if (result.isSucceeded()) {
+                    patient = result.getSourceAsObject(Patient.class);
+                } else {
+                    Log.i("error", "Search query failed to find any thing =/");
+                }
+            }
+            catch (Exception e) {
+                Log.i("Error", "Could not access the server to get the patient");
+            }
+            return patient;
         }
     }
 

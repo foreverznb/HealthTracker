@@ -10,8 +10,8 @@ import io.searchbox.annotations.JestId;
 public class User implements Serializable {
     private String email;
     private String phone;
-    private String userName;
     @JestId
+    private String userName;
     private String userID;
 
     public User(String phone, String email, String userName) {

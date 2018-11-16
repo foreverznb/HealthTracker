@@ -7,6 +7,8 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import java.util.concurrent.ExecutionException;
+
 // extends
 public class LoginActivity extends AppCompatActivity {
     private static final String FILENAME = "file.sav";
@@ -24,12 +26,26 @@ public class LoginActivity extends AppCompatActivity {
 
         Email = findViewById(R.id.username);
         Password = findViewById(R.id.login_password);
-
     }
 
 
-    public void UserLogin(View view) {
+    public void UserLogin(View view) throws ExecutionException, InterruptedException {
+        Email = findViewById(R.id.username);
+        String email = Email.getText().toString();
         if (!isEmpty(Email.getText().toString()) && !isEmpty(Password.getText().toString())) {
+            Patient patient;
+            ElasticUserController.GetPatient getPatient = new ElasticUserController.GetPatient();
+            getPatient.execute(email);
+            patient = getPatient.get();
+            if (patient != null) {
+                Intent intent = new Intent(LoginActivity.this, PatientHomeView.class);
+                // Launch the browse emotions activity
+                startActivity(intent);
+            } else {
+                Toast.makeText(LoginActivity.this, "Unknown Account", Toast.LENGTH_SHORT).show();
+            }
+
+
 
         } else {
             Toast.makeText(LoginActivity.this, "You didn't fill in all the fields.", Toast.LENGTH_SHORT).show();
@@ -51,21 +67,6 @@ public class LoginActivity extends AppCompatActivity {
 
     public void Login() {
 
-
     }
-
-    /*
-    // handle if user is already logged in to bypass the login screen
-    @Override
-    protected void onStart(){
-        super.onStart();
-        if (mAuth.getCurrentUser() !=null){
-            //finish();
-            // if user is a patient
-
-            // if user is a care provider
-        }
-    }*/
-
 
 }
