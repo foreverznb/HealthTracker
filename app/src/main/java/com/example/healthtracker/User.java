@@ -95,6 +95,13 @@ public class User implements Serializable {
         this.phone = phone;
     }
 
+    /**
+     *  TODO
+     *  Is this even used?
+     * @param phone phone number
+     * @param email email address
+
+     */
     public void updateUserInfo(String phone, String email){
         this.setEmail(email);
         this.setPhone(phone);

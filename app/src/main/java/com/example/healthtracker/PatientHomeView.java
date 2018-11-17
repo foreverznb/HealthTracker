@@ -95,14 +95,20 @@ public class PatientHomeView extends AppCompatActivity {
      */
     public void viewMyProblems(View view) {
 
-        // if (problemcount>0){
-        // Create an intent object containing the bridge to between the two activities
-        Intent intent = new Intent(PatientHomeView.this, ViewMyProblems.class);
-        // Launch the ViewMyProblems activity
-        startActivity(intent);
-        //}
-        //else{
-        //  Toast.makeText(this, "No Problems to View", Toast.LENGTH_LONG).show();
+        // load current user
+        Patient user = UserDataController.loadPatientData(this);
+
+        // check if there are any problems
+        if(user.noProblemsExist()){
+            // no problems to view
+            Toast.makeText(this, "No problems to view.", Toast.LENGTH_SHORT).show();
+        } else {
+            // Go to problem view activity
+            // Create an intent object containing the bridge to between the two activities
+            Intent intent = new Intent(PatientHomeView.this, ViewMyProblems.class);
+            // Launch the ViewMyProblems activity
+            startActivity(intent);
+        }
 
     }
 

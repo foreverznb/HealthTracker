@@ -1127,7 +1127,6 @@ id all
 id always
 id async
 id auto
-id back_from_myproblems
 id back_from_patient_problem
 id back_from_userlist
 id barrier

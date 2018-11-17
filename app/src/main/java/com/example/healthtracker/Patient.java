@@ -1,6 +1,7 @@
 package com.example.healthtracker;
 
 import java.io.Serializable;
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -13,7 +14,7 @@ import java.util.List;
  */
 public class Patient extends User implements Serializable {
 
-    private List<Problem> problemList;
+    private ArrayList<Problem> problemList = new ArrayList<Problem>();
 
     /**
      * constructor for creating a new Patient user and their appropriate profile information designated by parameter values
@@ -24,7 +25,6 @@ public class Patient extends User implements Serializable {
      */
     public Patient(String phone, String email, String userID){
         super(phone, email, userID);
-        this.problemList = new ArrayList<>();
     }
 
     /**
@@ -38,7 +38,7 @@ public class Patient extends User implements Serializable {
      *
      * @return returns the Patient's problem list
      */
-    public List<Problem> getProblemList() {
+    public ArrayList<Problem> getProblemList() {
         return this.problemList;
     }
 
@@ -50,6 +50,10 @@ public class Patient extends User implements Serializable {
      */
     public void setProblem(String title, Problem modifiedProblem){
         //TODO implement
+    }
+
+    public void setProblems(ArrayList<Problem> problems){
+        this.problemList = problems;
     }
 
     /**
@@ -73,11 +77,7 @@ public class Patient extends User implements Serializable {
         this.problemList.remove(problem);
     }
 
-    /**
-     *  TODO
-     *  Is this even used?
-     * @param phone phone number
-     * @param email email address
-
- */
+    public boolean noProblemsExist(){
+        return problemList.isEmpty();
+    }
 }
