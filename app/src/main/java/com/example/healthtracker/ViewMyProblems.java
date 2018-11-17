@@ -1,16 +1,18 @@
 package com.example.healthtracker;
 
 import android.content.Intent;
+import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 import android.util.Log;
+import android.view.ContextMenu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.AdapterView;
+import android.widget.AdapterView.AdapterContextMenuInfo;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -21,13 +23,6 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
-import java.util.List;
-import java.util.Map;
-
-import android.view.ContextMenu;
-import android.view.ContextMenu.ContextMenuInfo;
-import android.widget.Toast;
-import android.widget.AdapterView.AdapterContextMenuInfo;
 
 public class ViewMyProblems extends AppCompatActivity {
 
@@ -48,7 +43,7 @@ public class ViewMyProblems extends AppCompatActivity {
         final ArrayAdapter<Problem> mArrayAdapter = new ArrayAdapter<Problem>(this, android.R.layout.simple_list_item_1, mProblems);
 
         // Set an adapter for the list view
-        ListView mListView = (ListView) findViewById(R.id.problem_list_view);
+        ListView mListView = findViewById(R.id.problem_list_view);
         mListView.setAdapter(mArrayAdapter);
 
         // Read from the real time database to obtain problems created by the Patient

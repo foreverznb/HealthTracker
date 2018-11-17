@@ -8,17 +8,15 @@ import java.util.List;
 import io.searchbox.annotations.JestId;
 
 public class User implements Serializable {
-    private String userID;
     private String email;
-    @JestId
     private String phone;
-    private String userName;
+    @JestId
+    private String userID;
 
-    public User(String userID, String phone, String email, String userName){
+    public User(String phone, String email, String userID) {
         this.email = email;
         this.phone = phone;
         this.userID = userID;
-        this.userName = userName;
     }
 
     public User(){
@@ -37,10 +35,6 @@ public class User implements Serializable {
         return this.phone;
     }
 
-    public String getUserName() {
-        return this.userName;
-    }
-
     public void setEmail(String email) {
         this.email = email;
     }
@@ -49,8 +43,9 @@ public class User implements Serializable {
         this.phone = phone;
     }
 
-    public void setUserName(String userName) {
-        this.userName = userName;
+
+    public void setUserID(String userID) {
+        this.userID = userID;
     }
 
     public List<Problem> search(String keyword, String type){

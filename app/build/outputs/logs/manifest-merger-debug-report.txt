@@ -1,9 +1,9 @@
 -- Merging decision tree log ---
 manifest
-ADDED from C:\Users\mikey\AndroidStudioProjects\HealthTracker\app\src\main\AndroidManifest.xml:2:1-84:12
-INJECTED from C:\Users\mikey\AndroidStudioProjects\HealthTracker\app\src\main\AndroidManifest.xml:2:1-84:12
-INJECTED from C:\Users\mikey\AndroidStudioProjects\HealthTracker\app\src\main\AndroidManifest.xml:2:1-84:12
-INJECTED from C:\Users\mikey\AndroidStudioProjects\HealthTracker\app\src\main\AndroidManifest.xml:2:1-84:12
+ADDED from C:\Users\mikey\AndroidStudioProjects\HealthTracker\app\src\main\AndroidManifest.xml:2:1-85:12
+INJECTED from C:\Users\mikey\AndroidStudioProjects\HealthTracker\app\src\main\AndroidManifest.xml:2:1-85:12
+INJECTED from C:\Users\mikey\AndroidStudioProjects\HealthTracker\app\src\main\AndroidManifest.xml:2:1-85:12
+INJECTED from C:\Users\mikey\AndroidStudioProjects\HealthTracker\app\src\main\AndroidManifest.xml:2:1-85:12
 MERGED from [com.android.support:multidex:1.0.3] C:\Users\mikey\.gradle\caches\transforms-1\files-1.1\multidex-1.0.3.aar\99cfdca3212ea154829c3e6b969a71be\AndroidManifest.xml:17:1-22:12
 MERGED from [com.android.support:design:28.0.0] C:\Users\mikey\.gradle\caches\transforms-1\files-1.1\design-28.0.0.aar\e9473cb60a63be2e1ca45d11c3451254\AndroidManifest.xml:17:1-24:12
 MERGED from [com.android.support:appcompat-v7:28.0.0] C:\Users\mikey\.gradle\caches\transforms-1\files-1.1\appcompat-v7-28.0.0.aar\12237ca012bd756b7a7dbd142f7d67f1\AndroidManifest.xml:17:1-22:12
@@ -14,9 +14,8 @@ MERGED from [com.google.android.gms:play-services-maps:16.0.0] C:\Users\mikey\.g
 MERGED from [com.google.firebase:firebase-auth:16.0.5] C:\Users\mikey\.gradle\caches\transforms-1\files-1.1\firebase-auth-16.0.5.aar\e3b76f37b1114f9798e41004a5a98dfb\AndroidManifest.xml:17:1-42:12
 MERGED from [com.google.firebase:firebase-database:16.0.5] C:\Users\mikey\.gradle\caches\transforms-1\files-1.1\firebase-database-16.0.5.aar\8c6a401474ec498b76c763f5c083fea9\AndroidManifest.xml:15:1-25:12
 MERGED from [com.google.firebase:firebase-storage:16.0.5] C:\Users\mikey\.gradle\caches\transforms-1\files-1.1\firebase-storage-16.0.5.aar\ac598fc7e204573e9f47646311bc6e97\AndroidManifest.xml:15:1-26:12
-MERGED from [com.android.support:animated-vector-drawable:28.0.0] C:\Users\mikey\.gradle\caches\transforms-1\files-1.1\animated-vector-drawable-28.0.0.aar\cef3539c88bbe2a429f47f2933dc5d24\AndroidManifest.xml:17:1-22:12
-MERGED from [com.android.support:support-vector-drawable:28.0.0] C:\Users\mikey\.gradle\caches\transforms-1\files-1.1\support-vector-drawable-28.0.0.aar\a377c06eec28570952d050e403ca2beb\AndroidManifest.xml:17:1-22:12
 MERGED from [com.android.support:transition:28.0.0] C:\Users\mikey\.gradle\caches\transforms-1\files-1.1\transition-28.0.0.aar\926a2602bfd355cbfc3373b06e10c2c7\AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:cardview-v7:28.0.0] C:\Users\mikey\.gradle\caches\transforms-1\files-1.1\cardview-v7-28.0.0.aar\fcc6f171c1713d474c331de35dcd3036\AndroidManifest.xml:17:1-22:12
 MERGED from [com.android.support:recyclerview-v7:28.0.0] C:\Users\mikey\.gradle\caches\transforms-1\files-1.1\recyclerview-v7-28.0.0.aar\dfce586127b784ea2cf41600c7b91aab\AndroidManifest.xml:17:1-22:12
 MERGED from [com.google.firebase:firebase-measurement-connector-impl:17.0.3] C:\Users\mikey\.gradle\caches\transforms-1\files-1.1\firebase-measurement-connector-impl-17.0.3.aar\b7fdac2fce34f3bb03abea931626593e\AndroidManifest.xml:17:1-34:12
 MERGED from [com.google.firebase:firebase-analytics:16.0.5] C:\Users\mikey\.gradle\caches\transforms-1\files-1.1\firebase-analytics-16.0.5.aar\e2c129fa5d1e7364f4d73a1086e8b04a\AndroidManifest.xml:17:1-55:12
@@ -36,9 +35,11 @@ MERGED from [com.google.android.gms:play-services-ads-identifier:16.0.0] C:\User
 MERGED from [com.google.android.gms:play-services-basement:16.1.0] C:\Users\mikey\.gradle\caches\transforms-1\files-1.1\play-services-basement-16.1.0.aar\2fb2bb509ca588d9072dfab2ad7037a3\AndroidManifest.xml:17:1-28:12
 MERGED from [com.android.support:support-v4:26.1.0] C:\Users\mikey\.gradle\caches\transforms-1\files-1.1\support-v4-26.1.0.aar\90459e192c96d91b8904aad9284fdb1a\AndroidManifest.xml:17:1-31:12
 MERGED from [com.android.support:support-fragment:28.0.0] C:\Users\mikey\.gradle\caches\transforms-1\files-1.1\support-fragment-28.0.0.aar\783ef9b120deb401a5b1642688fea10a\AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:animated-vector-drawable:28.0.0] C:\Users\mikey\.gradle\caches\transforms-1\files-1.1\animated-vector-drawable-28.0.0.aar\cef3539c88bbe2a429f47f2933dc5d24\AndroidManifest.xml:17:1-22:12
 MERGED from [com.android.support:support-core-ui:28.0.0] C:\Users\mikey\.gradle\caches\transforms-1\files-1.1\support-core-ui-28.0.0.aar\398a0826448f07120352583fd2466008\AndroidManifest.xml:17:1-22:12
 MERGED from [com.android.support:support-core-utils:28.0.0] C:\Users\mikey\.gradle\caches\transforms-1\files-1.1\support-core-utils-28.0.0.aar\65571c679418dc6958dbd3e9bca141a0\AndroidManifest.xml:17:1-22:12
 MERGED from [com.android.support:loader:28.0.0] C:\Users\mikey\.gradle\caches\transforms-1\files-1.1\loader-28.0.0.aar\c19dd44de226e19d54d21809b5373a06\AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:support-vector-drawable:28.0.0] C:\Users\mikey\.gradle\caches\transforms-1\files-1.1\support-vector-drawable-28.0.0.aar\a377c06eec28570952d050e403ca2beb\AndroidManifest.xml:17:1-22:12
 MERGED from [com.android.support:support-media-compat:26.1.0] C:\Users\mikey\.gradle\caches\transforms-1\files-1.1\support-media-compat-26.1.0.aar\7118f47a00b6bfbe65842adcaeba72da\AndroidManifest.xml:17:1-31:12
 MERGED from [com.android.support:viewpager:28.0.0] C:\Users\mikey\.gradle\caches\transforms-1\files-1.1\viewpager-28.0.0.aar\910fcabe7df983671c3900d8e9213505\AndroidManifest.xml:17:1-22:12
 MERGED from [com.android.support:coordinatorlayout:28.0.0] C:\Users\mikey\.gradle\caches\transforms-1\files-1.1\coordinatorlayout-28.0.0.aar\a5d2293811a4ac59606b2bb31e8ac705\AndroidManifest.xml:17:1-22:12
@@ -48,35 +49,34 @@ MERGED from [com.android.support:customview:28.0.0] C:\Users\mikey\.gradle\cache
 MERGED from [com.android.support:swiperefreshlayout:28.0.0] C:\Users\mikey\.gradle\caches\transforms-1\files-1.1\swiperefreshlayout-28.0.0.aar\7622fd5aea9e783a72797e1aed29c143\AndroidManifest.xml:17:1-22:12
 MERGED from [com.android.support:asynclayoutinflater:28.0.0] C:\Users\mikey\.gradle\caches\transforms-1\files-1.1\asynclayoutinflater-28.0.0.aar\95d4a046ae5f934a5822a6fb4c968c98\AndroidManifest.xml:17:1-22:12
 MERGED from [com.android.support:support-compat:28.0.0] C:\Users\mikey\.gradle\caches\transforms-1\files-1.1\support-compat-28.0.0.aar\35070c62b0a0ec27fb9d5f20fb859edc\AndroidManifest.xml:17:1-24:12
-MERGED from [com.android.support:versionedparcelable:28.0.0] C:\Users\mikey\.gradle\caches\transforms-1\files-1.1\versionedparcelable-28.0.0.aar\68746e37ecb5fbbbcb187aec5f8301e2\AndroidManifest.xml:17:1-25:12
-MERGED from [com.android.support:cursoradapter:28.0.0] C:\Users\mikey\.gradle\caches\transforms-1\files-1.1\cursoradapter-28.0.0.aar\00a75548279b09deaf631595e782b64b\AndroidManifest.xml:17:1-22:12
-MERGED from [com.android.support:cardview-v7:28.0.0] C:\Users\mikey\.gradle\caches\transforms-1\files-1.1\cardview-v7-28.0.0.aar\fcc6f171c1713d474c331de35dcd3036\AndroidManifest.xml:17:1-22:12
 MERGED from [android.arch.lifecycle:runtime:1.1.1] C:\Users\mikey\.gradle\caches\transforms-1\files-1.1\runtime-1.1.1.aar\fd1efaf333667a1372c83577ebf0c67a\AndroidManifest.xml:17:1-22:12
 MERGED from [android.arch.lifecycle:livedata:1.1.1] C:\Users\mikey\.gradle\caches\transforms-1\files-1.1\livedata-1.1.1.aar\3453df9e0751cc8d9c7c6c2683a1e3ee\AndroidManifest.xml:17:1-22:12
 MERGED from [android.arch.lifecycle:livedata-core:1.1.1] C:\Users\mikey\.gradle\caches\transforms-1\files-1.1\livedata-core-1.1.1.aar\aec02a196e146729835cddd8b28323f5\AndroidManifest.xml:17:1-22:12
 MERGED from [android.arch.core:runtime:1.1.1] C:\Users\mikey\.gradle\caches\transforms-1\files-1.1\runtime-1.1.1.aar\ec49a168efc315e7284bc8eb9a818603\AndroidManifest.xml:17:1-22:12
 MERGED from [android.arch.lifecycle:viewmodel:1.1.1] C:\Users\mikey\.gradle\caches\transforms-1\files-1.1\viewmodel-1.1.1.aar\21abbabb8e3a43df26421a01c0df3131\AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:versionedparcelable:28.0.0] C:\Users\mikey\.gradle\caches\transforms-1\files-1.1\versionedparcelable-28.0.0.aar\68746e37ecb5fbbbcb187aec5f8301e2\AndroidManifest.xml:17:1-25:12
+MERGED from [com.android.support:cursoradapter:28.0.0] C:\Users\mikey\.gradle\caches\transforms-1\files-1.1\cursoradapter-28.0.0.aar\00a75548279b09deaf631595e782b64b\AndroidManifest.xml:17:1-22:12
 MERGED from [com.android.support:documentfile:28.0.0] C:\Users\mikey\.gradle\caches\transforms-1\files-1.1\documentfile-28.0.0.aar\ff120899833a802c53dcf0eefe9d58f7\AndroidManifest.xml:17:1-22:12
 MERGED from [com.android.support:localbroadcastmanager:28.0.0] C:\Users\mikey\.gradle\caches\transforms-1\files-1.1\localbroadcastmanager-28.0.0.aar\859bb8e2612afddab18fad94e65a355f\AndroidManifest.xml:17:1-22:12
 MERGED from [com.android.support:print:28.0.0] C:\Users\mikey\.gradle\caches\transforms-1\files-1.1\print-28.0.0.aar\38f85fecf06b7c857eecd6019a44081e\AndroidManifest.xml:17:1-22:12
 MERGED from [com.android.support:interpolator:28.0.0] C:\Users\mikey\.gradle\caches\transforms-1\files-1.1\interpolator-28.0.0.aar\c9730fe16caef47fd3143fcf5ef1f1ef\AndroidManifest.xml:17:1-22:12
 MERGED from [com.google.firebase:firebase-database-collection:16.0.1] C:\Users\mikey\.gradle\caches\transforms-1\files-1.1\firebase-database-collection-16.0.1.aar\57ae33e20d8bc67e2a024053d3fa5665\AndroidManifest.xml:2:1-7:12
-INJECTED from C:\Users\mikey\AndroidStudioProjects\HealthTracker\app\src\main\AndroidManifest.xml:2:1-84:12
-INJECTED from C:\Users\mikey\AndroidStudioProjects\HealthTracker\app\src\main\AndroidManifest.xml:2:1-84:12
-INJECTED from C:\Users\mikey\AndroidStudioProjects\HealthTracker\app\src\main\AndroidManifest.xml:2:1-84:12
+INJECTED from C:\Users\mikey\AndroidStudioProjects\HealthTracker\app\src\main\AndroidManifest.xml:2:1-85:12
+INJECTED from C:\Users\mikey\AndroidStudioProjects\HealthTracker\app\src\main\AndroidManifest.xml:2:1-85:12
+INJECTED from C:\Users\mikey\AndroidStudioProjects\HealthTracker\app\src\main\AndroidManifest.xml:2:1-85:12
 	package
 		ADDED from C:\Users\mikey\AndroidStudioProjects\HealthTracker\app\src\main\AndroidManifest.xml:4:5-40
 		INJECTED from C:\Users\mikey\AndroidStudioProjects\HealthTracker\app\src\main\AndroidManifest.xml
 		INJECTED from C:\Users\mikey\AndroidStudioProjects\HealthTracker\app\src\main\AndroidManifest.xml
 	android:versionName
 		INJECTED from C:\Users\mikey\AndroidStudioProjects\HealthTracker\app\src\main\AndroidManifest.xml
-		ADDED from C:\Users\mikey\AndroidStudioProjects\HealthTracker\app\src\main\AndroidManifest.xml:2:1-84:12
+		ADDED from C:\Users\mikey\AndroidStudioProjects\HealthTracker\app\src\main\AndroidManifest.xml:2:1-85:12
 		INJECTED from C:\Users\mikey\AndroidStudioProjects\HealthTracker\app\src\main\AndroidManifest.xml
 	xmlns:tools
 		ADDED from C:\Users\mikey\AndroidStudioProjects\HealthTracker\app\src\main\AndroidManifest.xml:3:5-51
 	android:versionCode
 		INJECTED from C:\Users\mikey\AndroidStudioProjects\HealthTracker\app\src\main\AndroidManifest.xml
-		ADDED from C:\Users\mikey\AndroidStudioProjects\HealthTracker\app\src\main\AndroidManifest.xml:2:1-84:12
+		ADDED from C:\Users\mikey\AndroidStudioProjects\HealthTracker\app\src\main\AndroidManifest.xml:2:1-85:12
 		INJECTED from C:\Users\mikey\AndroidStudioProjects\HealthTracker\app\src\main\AndroidManifest.xml
 	xmlns:android
 		ADDED from C:\Users\mikey\AndroidStudioProjects\HealthTracker\app\src\main\AndroidManifest.xml:2:11-69
@@ -153,21 +153,21 @@ ADDED from C:\Users\mikey\AndroidStudioProjects\HealthTracker\app\src\main\Andro
 	android:name
 		ADDED from C:\Users\mikey\AndroidStudioProjects\HealthTracker\app\src\main\AndroidManifest.xml:20:22-95
 uses-permission#android.permission.ACCESS_COARSE_LOCATION
-ADDED from C:\Users\mikey\AndroidStudioProjects\HealthTracker\app\src\main\AndroidManifest.xml:25:5-81
+ADDED from C:\Users\mikey\AndroidStudioProjects\HealthTracker\app\src\main\AndroidManifest.xml:26:5-81
 	android:name
-		ADDED from C:\Users\mikey\AndroidStudioProjects\HealthTracker\app\src\main\AndroidManifest.xml:25:22-78
+		ADDED from C:\Users\mikey\AndroidStudioProjects\HealthTracker\app\src\main\AndroidManifest.xml:26:22-78
 uses-permission#android.permission.ACCESS_FINE_LOCATION
-ADDED from C:\Users\mikey\AndroidStudioProjects\HealthTracker\app\src\main\AndroidManifest.xml:26:5-79
+ADDED from C:\Users\mikey\AndroidStudioProjects\HealthTracker\app\src\main\AndroidManifest.xml:27:5-79
 	android:name
-		ADDED from C:\Users\mikey\AndroidStudioProjects\HealthTracker\app\src\main\AndroidManifest.xml:26:22-76
+		ADDED from C:\Users\mikey\AndroidStudioProjects\HealthTracker\app\src\main\AndroidManifest.xml:27:22-76
 permission#com.example.healthtracker.permission.MAPS_RECEIVE
-ADDED from C:\Users\mikey\AndroidStudioProjects\HealthTracker\app\src\main\AndroidManifest.xml:28:5-30:47
+ADDED from C:\Users\mikey\AndroidStudioProjects\HealthTracker\app\src\main\AndroidManifest.xml:29:5-31:47
 	android:protectionLevel
-		ADDED from C:\Users\mikey\AndroidStudioProjects\HealthTracker\app\src\main\AndroidManifest.xml:30:9-44
+		ADDED from C:\Users\mikey\AndroidStudioProjects\HealthTracker\app\src\main\AndroidManifest.xml:31:9-44
 	android:name
-		ADDED from C:\Users\mikey\AndroidStudioProjects\HealthTracker\app\src\main\AndroidManifest.xml:29:9-73
+		ADDED from C:\Users\mikey\AndroidStudioProjects\HealthTracker\app\src\main\AndroidManifest.xml:30:9-73
 application
-ADDED from C:\Users\mikey\AndroidStudioProjects\HealthTracker\app\src\main\AndroidManifest.xml:32:5-82:19
+ADDED from C:\Users\mikey\AndroidStudioProjects\HealthTracker\app\src\main\AndroidManifest.xml:33:5-83:19
 MERGED from [com.android.support:design:28.0.0] C:\Users\mikey\.gradle\caches\transforms-1\files-1.1\design-28.0.0.aar\e9473cb60a63be2e1ca45d11c3451254\AndroidManifest.xml:22:5-20
 MERGED from [com.android.support:design:28.0.0] C:\Users\mikey\.gradle\caches\transforms-1\files-1.1\design-28.0.0.aar\e9473cb60a63be2e1ca45d11c3451254\AndroidManifest.xml:22:5-20
 MERGED from [com.android.support.constraint:constraint-layout:1.1.3] C:\Users\mikey\.gradle\caches\transforms-1\files-1.1\constraint-layout-1.1.3.aar\112c929745b964f467a1b12465c26915\AndroidManifest.xml:9:5-20
@@ -221,135 +221,135 @@ MERGED from [com.android.support:versionedparcelable:28.0.0] C:\Users\mikey\.gra
 	android:appComponentFactory
 		ADDED from [com.android.support:support-compat:28.0.0] C:\Users\mikey\.gradle\caches\transforms-1\files-1.1\support-compat-28.0.0.aar\35070c62b0a0ec27fb9d5f20fb859edc\AndroidManifest.xml:22:18-91
 	android:supportsRtl
-		ADDED from C:\Users\mikey\AndroidStudioProjects\HealthTracker\app\src\main\AndroidManifest.xml:38:9-35
+		ADDED from C:\Users\mikey\AndroidStudioProjects\HealthTracker\app\src\main\AndroidManifest.xml:39:9-35
 	android:label
-		ADDED from C:\Users\mikey\AndroidStudioProjects\HealthTracker\app\src\main\AndroidManifest.xml:36:9-41
+		ADDED from C:\Users\mikey\AndroidStudioProjects\HealthTracker\app\src\main\AndroidManifest.xml:37:9-41
 	android:fullBackupContent
-		ADDED from C:\Users\mikey\AndroidStudioProjects\HealthTracker\app\src\main\AndroidManifest.xml:34:9-59
+		ADDED from C:\Users\mikey\AndroidStudioProjects\HealthTracker\app\src\main\AndroidManifest.xml:35:9-59
 	tools:ignore
-		ADDED from C:\Users\mikey\AndroidStudioProjects\HealthTracker\app\src\main\AndroidManifest.xml:40:9-48
+		ADDED from C:\Users\mikey\AndroidStudioProjects\HealthTracker\app\src\main\AndroidManifest.xml:41:9-48
 	android:roundIcon
-		ADDED from C:\Users\mikey\AndroidStudioProjects\HealthTracker\app\src\main\AndroidManifest.xml:37:9-54
+		ADDED from C:\Users\mikey\AndroidStudioProjects\HealthTracker\app\src\main\AndroidManifest.xml:38:9-54
 	android:icon
-		ADDED from C:\Users\mikey\AndroidStudioProjects\HealthTracker\app\src\main\AndroidManifest.xml:35:9-43
+		ADDED from C:\Users\mikey\AndroidStudioProjects\HealthTracker\app\src\main\AndroidManifest.xml:36:9-43
 	android:allowBackup
-		ADDED from C:\Users\mikey\AndroidStudioProjects\HealthTracker\app\src\main\AndroidManifest.xml:33:9-35
+		ADDED from C:\Users\mikey\AndroidStudioProjects\HealthTracker\app\src\main\AndroidManifest.xml:34:9-35
 	android:theme
-		ADDED from C:\Users\mikey\AndroidStudioProjects\HealthTracker\app\src\main\AndroidManifest.xml:39:9-40
+		ADDED from C:\Users\mikey\AndroidStudioProjects\HealthTracker\app\src\main\AndroidManifest.xml:40:9-40
 activity#com.example.healthtracker.LoginActivity
-ADDED from C:\Users\mikey\AndroidStudioProjects\HealthTracker\app\src\main\AndroidManifest.xml:41:9-48:20
+ADDED from C:\Users\mikey\AndroidStudioProjects\HealthTracker\app\src\main\AndroidManifest.xml:42:9-49:20
 	android:label
-		ADDED from C:\Users\mikey\AndroidStudioProjects\HealthTracker\app\src\main\AndroidManifest.xml:43:13-45
+		ADDED from C:\Users\mikey\AndroidStudioProjects\HealthTracker\app\src\main\AndroidManifest.xml:44:13-45
 	android:name
-		ADDED from C:\Users\mikey\AndroidStudioProjects\HealthTracker\app\src\main\AndroidManifest.xml:42:13-42
+		ADDED from C:\Users\mikey\AndroidStudioProjects\HealthTracker\app\src\main\AndroidManifest.xml:43:13-42
 intent-filter#action:name:android.intent.action.MAIN+category:name:android.intent.category.LAUNCHER
-ADDED from C:\Users\mikey\AndroidStudioProjects\HealthTracker\app\src\main\AndroidManifest.xml:44:13-47:29
+ADDED from C:\Users\mikey\AndroidStudioProjects\HealthTracker\app\src\main\AndroidManifest.xml:45:13-48:29
 action#android.intent.action.MAIN
-ADDED from C:\Users\mikey\AndroidStudioProjects\HealthTracker\app\src\main\AndroidManifest.xml:45:17-69
+ADDED from C:\Users\mikey\AndroidStudioProjects\HealthTracker\app\src\main\AndroidManifest.xml:46:17-69
 	android:name
-		ADDED from C:\Users\mikey\AndroidStudioProjects\HealthTracker\app\src\main\AndroidManifest.xml:45:25-66
+		ADDED from C:\Users\mikey\AndroidStudioProjects\HealthTracker\app\src\main\AndroidManifest.xml:46:25-66
 category#android.intent.category.LAUNCHER
-ADDED from C:\Users\mikey\AndroidStudioProjects\HealthTracker\app\src\main\AndroidManifest.xml:46:17-77
+ADDED from C:\Users\mikey\AndroidStudioProjects\HealthTracker\app\src\main\AndroidManifest.xml:47:17-77
 	android:name
-		ADDED from C:\Users\mikey\AndroidStudioProjects\HealthTracker\app\src\main\AndroidManifest.xml:46:27-74
+		ADDED from C:\Users\mikey\AndroidStudioProjects\HealthTracker\app\src\main\AndroidManifest.xml:47:27-74
 activity#com.example.healthtracker.CareProviderHomeView
-ADDED from C:\Users\mikey\AndroidStudioProjects\HealthTracker\app\src\main\AndroidManifest.xml:49:9-58
+ADDED from C:\Users\mikey\AndroidStudioProjects\HealthTracker\app\src\main\AndroidManifest.xml:50:9-58
 	android:name
-		ADDED from C:\Users\mikey\AndroidStudioProjects\HealthTracker\app\src\main\AndroidManifest.xml:49:19-55
+		ADDED from C:\Users\mikey\AndroidStudioProjects\HealthTracker\app\src\main\AndroidManifest.xml:50:19-55
 activity#com.example.healthtracker.ViewPatients
-ADDED from C:\Users\mikey\AndroidStudioProjects\HealthTracker\app\src\main\AndroidManifest.xml:50:9-50
+ADDED from C:\Users\mikey\AndroidStudioProjects\HealthTracker\app\src\main\AndroidManifest.xml:51:9-50
 	android:name
-		ADDED from C:\Users\mikey\AndroidStudioProjects\HealthTracker\app\src\main\AndroidManifest.xml:50:19-47
+		ADDED from C:\Users\mikey\AndroidStudioProjects\HealthTracker\app\src\main\AndroidManifest.xml:51:19-47
 activity#com.example.healthtracker.SearchActivity
-ADDED from C:\Users\mikey\AndroidStudioProjects\HealthTracker\app\src\main\AndroidManifest.xml:51:9-52
+ADDED from C:\Users\mikey\AndroidStudioProjects\HealthTracker\app\src\main\AndroidManifest.xml:52:9-52
 	android:name
-		ADDED from C:\Users\mikey\AndroidStudioProjects\HealthTracker\app\src\main\AndroidManifest.xml:51:19-49
+		ADDED from C:\Users\mikey\AndroidStudioProjects\HealthTracker\app\src\main\AndroidManifest.xml:52:19-49
 activity#com.example.healthtracker.SearchResultsView
-ADDED from C:\Users\mikey\AndroidStudioProjects\HealthTracker\app\src\main\AndroidManifest.xml:52:9-55
+ADDED from C:\Users\mikey\AndroidStudioProjects\HealthTracker\app\src\main\AndroidManifest.xml:53:9-55
 	android:name
-		ADDED from C:\Users\mikey\AndroidStudioProjects\HealthTracker\app\src\main\AndroidManifest.xml:52:19-52
+		ADDED from C:\Users\mikey\AndroidStudioProjects\HealthTracker\app\src\main\AndroidManifest.xml:53:19-52
 activity#com.example.healthtracker.AddPatientView
-ADDED from C:\Users\mikey\AndroidStudioProjects\HealthTracker\app\src\main\AndroidManifest.xml:53:9-52
+ADDED from C:\Users\mikey\AndroidStudioProjects\HealthTracker\app\src\main\AndroidManifest.xml:54:9-52
 	android:name
-		ADDED from C:\Users\mikey\AndroidStudioProjects\HealthTracker\app\src\main\AndroidManifest.xml:53:19-49
+		ADDED from C:\Users\mikey\AndroidStudioProjects\HealthTracker\app\src\main\AndroidManifest.xml:54:19-49
 activity#com.example.healthtracker.CreateAccountActivity
-ADDED from C:\Users\mikey\AndroidStudioProjects\HealthTracker\app\src\main\AndroidManifest.xml:54:9-59
+ADDED from C:\Users\mikey\AndroidStudioProjects\HealthTracker\app\src\main\AndroidManifest.xml:55:9-59
 	android:name
-		ADDED from C:\Users\mikey\AndroidStudioProjects\HealthTracker\app\src\main\AndroidManifest.xml:54:19-56
+		ADDED from C:\Users\mikey\AndroidStudioProjects\HealthTracker\app\src\main\AndroidManifest.xml:55:19-56
 activity#com.example.healthtracker.UserSettingsActivity
-ADDED from C:\Users\mikey\AndroidStudioProjects\HealthTracker\app\src\main\AndroidManifest.xml:55:9-58
-	android:name
-		ADDED from C:\Users\mikey\AndroidStudioProjects\HealthTracker\app\src\main\AndroidManifest.xml:55:19-55
-activity#com.example.healthtracker.ViewPatientsProblems
 ADDED from C:\Users\mikey\AndroidStudioProjects\HealthTracker\app\src\main\AndroidManifest.xml:56:9-58
 	android:name
 		ADDED from C:\Users\mikey\AndroidStudioProjects\HealthTracker\app\src\main\AndroidManifest.xml:56:19-55
+activity#com.example.healthtracker.ViewPatientsProblems
+ADDED from C:\Users\mikey\AndroidStudioProjects\HealthTracker\app\src\main\AndroidManifest.xml:57:9-58
+	android:name
+		ADDED from C:\Users\mikey\AndroidStudioProjects\HealthTracker\app\src\main\AndroidManifest.xml:57:19-55
 activity#com.example.healthtracker.CareProviderProblemView
-ADDED from C:\Users\mikey\AndroidStudioProjects\HealthTracker\app\src\main\AndroidManifest.xml:57:9-61
+ADDED from C:\Users\mikey\AndroidStudioProjects\HealthTracker\app\src\main\AndroidManifest.xml:58:9-61
 	android:name
-		ADDED from C:\Users\mikey\AndroidStudioProjects\HealthTracker\app\src\main\AndroidManifest.xml:57:19-58
+		ADDED from C:\Users\mikey\AndroidStudioProjects\HealthTracker\app\src\main\AndroidManifest.xml:58:19-58
 activity#com.example.healthtracker.AddCareProviderCommentView
-ADDED from C:\Users\mikey\AndroidStudioProjects\HealthTracker\app\src\main\AndroidManifest.xml:58:9-64
+ADDED from C:\Users\mikey\AndroidStudioProjects\HealthTracker\app\src\main\AndroidManifest.xml:59:9-64
 	android:name
-		ADDED from C:\Users\mikey\AndroidStudioProjects\HealthTracker\app\src\main\AndroidManifest.xml:58:19-61
+		ADDED from C:\Users\mikey\AndroidStudioProjects\HealthTracker\app\src\main\AndroidManifest.xml:59:19-61
 activity#com.example.healthtracker.ViewUsers
-ADDED from C:\Users\mikey\AndroidStudioProjects\HealthTracker\app\src\main\AndroidManifest.xml:59:9-47
+ADDED from C:\Users\mikey\AndroidStudioProjects\HealthTracker\app\src\main\AndroidManifest.xml:60:9-47
 	android:name
-		ADDED from C:\Users\mikey\AndroidStudioProjects\HealthTracker\app\src\main\AndroidManifest.xml:59:19-44
+		ADDED from C:\Users\mikey\AndroidStudioProjects\HealthTracker\app\src\main\AndroidManifest.xml:60:19-44
 activity#com.example.healthtracker.PatientHomeView
-ADDED from C:\Users\mikey\AndroidStudioProjects\HealthTracker\app\src\main\AndroidManifest.xml:60:9-53
+ADDED from C:\Users\mikey\AndroidStudioProjects\HealthTracker\app\src\main\AndroidManifest.xml:61:9-53
 	android:name
-		ADDED from C:\Users\mikey\AndroidStudioProjects\HealthTracker\app\src\main\AndroidManifest.xml:60:19-50
+		ADDED from C:\Users\mikey\AndroidStudioProjects\HealthTracker\app\src\main\AndroidManifest.xml:61:19-50
 activity#com.example.healthtracker.AddProblemView
-ADDED from C:\Users\mikey\AndroidStudioProjects\HealthTracker\app\src\main\AndroidManifest.xml:61:9-52
-	android:name
-		ADDED from C:\Users\mikey\AndroidStudioProjects\HealthTracker\app\src\main\AndroidManifest.xml:61:19-49
-activity#com.example.healthtracker.ViewMyProblems
 ADDED from C:\Users\mikey\AndroidStudioProjects\HealthTracker\app\src\main\AndroidManifest.xml:62:9-52
 	android:name
 		ADDED from C:\Users\mikey\AndroidStudioProjects\HealthTracker\app\src\main\AndroidManifest.xml:62:19-49
+activity#com.example.healthtracker.ViewMyProblems
+ADDED from C:\Users\mikey\AndroidStudioProjects\HealthTracker\app\src\main\AndroidManifest.xml:63:9-52
+	android:name
+		ADDED from C:\Users\mikey\AndroidStudioProjects\HealthTracker\app\src\main\AndroidManifest.xml:63:19-49
 activity#com.example.healthtracker.EditProblem
-ADDED from C:\Users\mikey\AndroidStudioProjects\HealthTracker\app\src\main\AndroidManifest.xml:63:9-49
+ADDED from C:\Users\mikey\AndroidStudioProjects\HealthTracker\app\src\main\AndroidManifest.xml:64:9-49
 	android:name
-		ADDED from C:\Users\mikey\AndroidStudioProjects\HealthTracker\app\src\main\AndroidManifest.xml:63:19-46
+		ADDED from C:\Users\mikey\AndroidStudioProjects\HealthTracker\app\src\main\AndroidManifest.xml:64:19-46
 activity#com.example.healthtracker.AddorEditRecordView
-ADDED from C:\Users\mikey\AndroidStudioProjects\HealthTracker\app\src\main\AndroidManifest.xml:64:9-57
+ADDED from C:\Users\mikey\AndroidStudioProjects\HealthTracker\app\src\main\AndroidManifest.xml:65:9-57
 	android:name
-		ADDED from C:\Users\mikey\AndroidStudioProjects\HealthTracker\app\src\main\AndroidManifest.xml:64:19-54
+		ADDED from C:\Users\mikey\AndroidStudioProjects\HealthTracker\app\src\main\AndroidManifest.xml:65:19-54
 activity#com.example.healthtracker.PatientProblemView
-ADDED from C:\Users\mikey\AndroidStudioProjects\HealthTracker\app\src\main\AndroidManifest.xml:65:9-56
+ADDED from C:\Users\mikey\AndroidStudioProjects\HealthTracker\app\src\main\AndroidManifest.xml:66:9-56
 	android:name
-		ADDED from C:\Users\mikey\AndroidStudioProjects\HealthTracker\app\src\main\AndroidManifest.xml:65:19-53
+		ADDED from C:\Users\mikey\AndroidStudioProjects\HealthTracker\app\src\main\AndroidManifest.xml:66:19-53
 activity#com.example.healthtracker.SlideShowActivity
-ADDED from C:\Users\mikey\AndroidStudioProjects\HealthTracker\app\src\main\AndroidManifest.xml:66:9-55
+ADDED from C:\Users\mikey\AndroidStudioProjects\HealthTracker\app\src\main\AndroidManifest.xml:67:9-55
 	android:name
-		ADDED from C:\Users\mikey\AndroidStudioProjects\HealthTracker\app\src\main\AndroidManifest.xml:66:19-52
+		ADDED from C:\Users\mikey\AndroidStudioProjects\HealthTracker\app\src\main\AndroidManifest.xml:67:19-52
 activity#com.example.healthtracker.ViewAUser
-ADDED from C:\Users\mikey\AndroidStudioProjects\HealthTracker\app\src\main\AndroidManifest.xml:67:9-47
+ADDED from C:\Users\mikey\AndroidStudioProjects\HealthTracker\app\src\main\AndroidManifest.xml:68:9-47
 	android:name
-		ADDED from C:\Users\mikey\AndroidStudioProjects\HealthTracker\app\src\main\AndroidManifest.xml:67:19-44
+		ADDED from C:\Users\mikey\AndroidStudioProjects\HealthTracker\app\src\main\AndroidManifest.xml:68:19-44
 activity#com.example.healthtracker.MapView
-ADDED from C:\Users\mikey\AndroidStudioProjects\HealthTracker\app\src\main\AndroidManifest.xml:68:9-45
+ADDED from C:\Users\mikey\AndroidStudioProjects\HealthTracker\app\src\main\AndroidManifest.xml:69:9-45
 	android:name
-		ADDED from C:\Users\mikey\AndroidStudioProjects\HealthTracker\app\src\main\AndroidManifest.xml:68:19-42
+		ADDED from C:\Users\mikey\AndroidStudioProjects\HealthTracker\app\src\main\AndroidManifest.xml:69:19-42
 activity#com.example.healthtracker.RecordView
-ADDED from C:\Users\mikey\AndroidStudioProjects\HealthTracker\app\src\main\AndroidManifest.xml:69:9-47
+ADDED from C:\Users\mikey\AndroidStudioProjects\HealthTracker\app\src\main\AndroidManifest.xml:70:9-47
 	android:name
-		ADDED from C:\Users\mikey\AndroidStudioProjects\HealthTracker\app\src\main\AndroidManifest.xml:69:19-45
+		ADDED from C:\Users\mikey\AndroidStudioProjects\HealthTracker\app\src\main\AndroidManifest.xml:70:19-45
 meta-data#com.google.android.gms.version
-ADDED from C:\Users\mikey\AndroidStudioProjects\HealthTracker\app\src\main\AndroidManifest.xml:74:9-76:69
+ADDED from C:\Users\mikey\AndroidStudioProjects\HealthTracker\app\src\main\AndroidManifest.xml:75:9-77:69
 MERGED from [com.google.android.gms:play-services-basement:16.1.0] C:\Users\mikey\.gradle\caches\transforms-1\files-1.1\play-services-basement-16.1.0.aar\2fb2bb509ca588d9072dfab2ad7037a3\AndroidManifest.xml:23:9-25:69
 MERGED from [com.google.android.gms:play-services-basement:16.1.0] C:\Users\mikey\.gradle\caches\transforms-1\files-1.1\play-services-basement-16.1.0.aar\2fb2bb509ca588d9072dfab2ad7037a3\AndroidManifest.xml:23:9-25:69
 	android:value
-		ADDED from C:\Users\mikey\AndroidStudioProjects\HealthTracker\app\src\main\AndroidManifest.xml:76:13-66
+		ADDED from C:\Users\mikey\AndroidStudioProjects\HealthTracker\app\src\main\AndroidManifest.xml:77:13-66
 	android:name
-		ADDED from C:\Users\mikey\AndroidStudioProjects\HealthTracker\app\src\main\AndroidManifest.xml:75:13-58
+		ADDED from C:\Users\mikey\AndroidStudioProjects\HealthTracker\app\src\main\AndroidManifest.xml:76:13-58
 meta-data#com.google.android.maps.v2.API_KEY
-ADDED from C:\Users\mikey\AndroidStudioProjects\HealthTracker\app\src\main\AndroidManifest.xml:78:9-80:71
+ADDED from C:\Users\mikey\AndroidStudioProjects\HealthTracker\app\src\main\AndroidManifest.xml:79:9-81:71
 	android:value
-		ADDED from C:\Users\mikey\AndroidStudioProjects\HealthTracker\app\src\main\AndroidManifest.xml:80:13-68
+		ADDED from C:\Users\mikey\AndroidStudioProjects\HealthTracker\app\src\main\AndroidManifest.xml:81:13-68
 	android:name
-		ADDED from C:\Users\mikey\AndroidStudioProjects\HealthTracker\app\src\main\AndroidManifest.xml:79:13-62
+		ADDED from C:\Users\mikey\AndroidStudioProjects\HealthTracker\app\src\main\AndroidManifest.xml:80:13-62
 uses-sdk
 INJECTED from C:\Users\mikey\AndroidStudioProjects\HealthTracker\app\src\main\AndroidManifest.xml reason: use-sdk injection requested
 INJECTED from C:\Users\mikey\AndroidStudioProjects\HealthTracker\app\src\main\AndroidManifest.xml
@@ -374,12 +374,10 @@ MERGED from [com.google.firebase:firebase-database:16.0.5] C:\Users\mikey\.gradl
 MERGED from [com.google.firebase:firebase-database:16.0.5] C:\Users\mikey\.gradle\caches\transforms-1\files-1.1\firebase-database-16.0.5.aar\8c6a401474ec498b76c763f5c083fea9\AndroidManifest.xml:18:5-20:41
 MERGED from [com.google.firebase:firebase-storage:16.0.5] C:\Users\mikey\.gradle\caches\transforms-1\files-1.1\firebase-storage-16.0.5.aar\ac598fc7e204573e9f47646311bc6e97\AndroidManifest.xml:19:5-21:41
 MERGED from [com.google.firebase:firebase-storage:16.0.5] C:\Users\mikey\.gradle\caches\transforms-1\files-1.1\firebase-storage-16.0.5.aar\ac598fc7e204573e9f47646311bc6e97\AndroidManifest.xml:19:5-21:41
-MERGED from [com.android.support:animated-vector-drawable:28.0.0] C:\Users\mikey\.gradle\caches\transforms-1\files-1.1\animated-vector-drawable-28.0.0.aar\cef3539c88bbe2a429f47f2933dc5d24\AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:animated-vector-drawable:28.0.0] C:\Users\mikey\.gradle\caches\transforms-1\files-1.1\animated-vector-drawable-28.0.0.aar\cef3539c88bbe2a429f47f2933dc5d24\AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:support-vector-drawable:28.0.0] C:\Users\mikey\.gradle\caches\transforms-1\files-1.1\support-vector-drawable-28.0.0.aar\a377c06eec28570952d050e403ca2beb\AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:support-vector-drawable:28.0.0] C:\Users\mikey\.gradle\caches\transforms-1\files-1.1\support-vector-drawable-28.0.0.aar\a377c06eec28570952d050e403ca2beb\AndroidManifest.xml:20:5-44
 MERGED from [com.android.support:transition:28.0.0] C:\Users\mikey\.gradle\caches\transforms-1\files-1.1\transition-28.0.0.aar\926a2602bfd355cbfc3373b06e10c2c7\AndroidManifest.xml:20:5-44
 MERGED from [com.android.support:transition:28.0.0] C:\Users\mikey\.gradle\caches\transforms-1\files-1.1\transition-28.0.0.aar\926a2602bfd355cbfc3373b06e10c2c7\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:cardview-v7:28.0.0] C:\Users\mikey\.gradle\caches\transforms-1\files-1.1\cardview-v7-28.0.0.aar\fcc6f171c1713d474c331de35dcd3036\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:cardview-v7:28.0.0] C:\Users\mikey\.gradle\caches\transforms-1\files-1.1\cardview-v7-28.0.0.aar\fcc6f171c1713d474c331de35dcd3036\AndroidManifest.xml:20:5-44
 MERGED from [com.android.support:recyclerview-v7:28.0.0] C:\Users\mikey\.gradle\caches\transforms-1\files-1.1\recyclerview-v7-28.0.0.aar\dfce586127b784ea2cf41600c7b91aab\AndroidManifest.xml:20:5-44
 MERGED from [com.android.support:recyclerview-v7:28.0.0] C:\Users\mikey\.gradle\caches\transforms-1\files-1.1\recyclerview-v7-28.0.0.aar\dfce586127b784ea2cf41600c7b91aab\AndroidManifest.xml:20:5-44
 MERGED from [com.google.firebase:firebase-measurement-connector-impl:17.0.3] C:\Users\mikey\.gradle\caches\transforms-1\files-1.1\firebase-measurement-connector-impl-17.0.3.aar\b7fdac2fce34f3bb03abea931626593e\AndroidManifest.xml:20:5-44
@@ -418,12 +416,16 @@ MERGED from [com.android.support:support-v4:26.1.0] C:\Users\mikey\.gradle\cache
 MERGED from [com.android.support:support-v4:26.1.0] C:\Users\mikey\.gradle\caches\transforms-1\files-1.1\support-v4-26.1.0.aar\90459e192c96d91b8904aad9284fdb1a\AndroidManifest.xml:21:5-23:54
 MERGED from [com.android.support:support-fragment:28.0.0] C:\Users\mikey\.gradle\caches\transforms-1\files-1.1\support-fragment-28.0.0.aar\783ef9b120deb401a5b1642688fea10a\AndroidManifest.xml:20:5-44
 MERGED from [com.android.support:support-fragment:28.0.0] C:\Users\mikey\.gradle\caches\transforms-1\files-1.1\support-fragment-28.0.0.aar\783ef9b120deb401a5b1642688fea10a\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:animated-vector-drawable:28.0.0] C:\Users\mikey\.gradle\caches\transforms-1\files-1.1\animated-vector-drawable-28.0.0.aar\cef3539c88bbe2a429f47f2933dc5d24\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:animated-vector-drawable:28.0.0] C:\Users\mikey\.gradle\caches\transforms-1\files-1.1\animated-vector-drawable-28.0.0.aar\cef3539c88bbe2a429f47f2933dc5d24\AndroidManifest.xml:20:5-44
 MERGED from [com.android.support:support-core-ui:28.0.0] C:\Users\mikey\.gradle\caches\transforms-1\files-1.1\support-core-ui-28.0.0.aar\398a0826448f07120352583fd2466008\AndroidManifest.xml:20:5-44
 MERGED from [com.android.support:support-core-ui:28.0.0] C:\Users\mikey\.gradle\caches\transforms-1\files-1.1\support-core-ui-28.0.0.aar\398a0826448f07120352583fd2466008\AndroidManifest.xml:20:5-44
 MERGED from [com.android.support:support-core-utils:28.0.0] C:\Users\mikey\.gradle\caches\transforms-1\files-1.1\support-core-utils-28.0.0.aar\65571c679418dc6958dbd3e9bca141a0\AndroidManifest.xml:20:5-44
 MERGED from [com.android.support:support-core-utils:28.0.0] C:\Users\mikey\.gradle\caches\transforms-1\files-1.1\support-core-utils-28.0.0.aar\65571c679418dc6958dbd3e9bca141a0\AndroidManifest.xml:20:5-44
 MERGED from [com.android.support:loader:28.0.0] C:\Users\mikey\.gradle\caches\transforms-1\files-1.1\loader-28.0.0.aar\c19dd44de226e19d54d21809b5373a06\AndroidManifest.xml:20:5-44
 MERGED from [com.android.support:loader:28.0.0] C:\Users\mikey\.gradle\caches\transforms-1\files-1.1\loader-28.0.0.aar\c19dd44de226e19d54d21809b5373a06\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-vector-drawable:28.0.0] C:\Users\mikey\.gradle\caches\transforms-1\files-1.1\support-vector-drawable-28.0.0.aar\a377c06eec28570952d050e403ca2beb\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-vector-drawable:28.0.0] C:\Users\mikey\.gradle\caches\transforms-1\files-1.1\support-vector-drawable-28.0.0.aar\a377c06eec28570952d050e403ca2beb\AndroidManifest.xml:20:5-44
 MERGED from [com.android.support:support-media-compat:26.1.0] C:\Users\mikey\.gradle\caches\transforms-1\files-1.1\support-media-compat-26.1.0.aar\7118f47a00b6bfbe65842adcaeba72da\AndroidManifest.xml:21:5-23:63
 MERGED from [com.android.support:support-media-compat:26.1.0] C:\Users\mikey\.gradle\caches\transforms-1\files-1.1\support-media-compat-26.1.0.aar\7118f47a00b6bfbe65842adcaeba72da\AndroidManifest.xml:21:5-23:63
 MERGED from [com.android.support:viewpager:28.0.0] C:\Users\mikey\.gradle\caches\transforms-1\files-1.1\viewpager-28.0.0.aar\910fcabe7df983671c3900d8e9213505\AndroidManifest.xml:20:5-44
@@ -442,12 +444,6 @@ MERGED from [com.android.support:asynclayoutinflater:28.0.0] C:\Users\mikey\.gra
 MERGED from [com.android.support:asynclayoutinflater:28.0.0] C:\Users\mikey\.gradle\caches\transforms-1\files-1.1\asynclayoutinflater-28.0.0.aar\95d4a046ae5f934a5822a6fb4c968c98\AndroidManifest.xml:20:5-44
 MERGED from [com.android.support:support-compat:28.0.0] C:\Users\mikey\.gradle\caches\transforms-1\files-1.1\support-compat-28.0.0.aar\35070c62b0a0ec27fb9d5f20fb859edc\AndroidManifest.xml:20:5-44
 MERGED from [com.android.support:support-compat:28.0.0] C:\Users\mikey\.gradle\caches\transforms-1\files-1.1\support-compat-28.0.0.aar\35070c62b0a0ec27fb9d5f20fb859edc\AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:versionedparcelable:28.0.0] C:\Users\mikey\.gradle\caches\transforms-1\files-1.1\versionedparcelable-28.0.0.aar\68746e37ecb5fbbbcb187aec5f8301e2\AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:versionedparcelable:28.0.0] C:\Users\mikey\.gradle\caches\transforms-1\files-1.1\versionedparcelable-28.0.0.aar\68746e37ecb5fbbbcb187aec5f8301e2\AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:cursoradapter:28.0.0] C:\Users\mikey\.gradle\caches\transforms-1\files-1.1\cursoradapter-28.0.0.aar\00a75548279b09deaf631595e782b64b\AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:cursoradapter:28.0.0] C:\Users\mikey\.gradle\caches\transforms-1\files-1.1\cursoradapter-28.0.0.aar\00a75548279b09deaf631595e782b64b\AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:cardview-v7:28.0.0] C:\Users\mikey\.gradle\caches\transforms-1\files-1.1\cardview-v7-28.0.0.aar\fcc6f171c1713d474c331de35dcd3036\AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:cardview-v7:28.0.0] C:\Users\mikey\.gradle\caches\transforms-1\files-1.1\cardview-v7-28.0.0.aar\fcc6f171c1713d474c331de35dcd3036\AndroidManifest.xml:20:5-44
 MERGED from [android.arch.lifecycle:runtime:1.1.1] C:\Users\mikey\.gradle\caches\transforms-1\files-1.1\runtime-1.1.1.aar\fd1efaf333667a1372c83577ebf0c67a\AndroidManifest.xml:20:5-44
 MERGED from [android.arch.lifecycle:runtime:1.1.1] C:\Users\mikey\.gradle\caches\transforms-1\files-1.1\runtime-1.1.1.aar\fd1efaf333667a1372c83577ebf0c67a\AndroidManifest.xml:20:5-44
 MERGED from [android.arch.lifecycle:livedata:1.1.1] C:\Users\mikey\.gradle\caches\transforms-1\files-1.1\livedata-1.1.1.aar\3453df9e0751cc8d9c7c6c2683a1e3ee\AndroidManifest.xml:20:5-44
@@ -458,6 +454,10 @@ MERGED from [android.arch.core:runtime:1.1.1] C:\Users\mikey\.gradle\caches\tran
 MERGED from [android.arch.core:runtime:1.1.1] C:\Users\mikey\.gradle\caches\transforms-1\files-1.1\runtime-1.1.1.aar\ec49a168efc315e7284bc8eb9a818603\AndroidManifest.xml:20:5-44
 MERGED from [android.arch.lifecycle:viewmodel:1.1.1] C:\Users\mikey\.gradle\caches\transforms-1\files-1.1\viewmodel-1.1.1.aar\21abbabb8e3a43df26421a01c0df3131\AndroidManifest.xml:20:5-44
 MERGED from [android.arch.lifecycle:viewmodel:1.1.1] C:\Users\mikey\.gradle\caches\transforms-1\files-1.1\viewmodel-1.1.1.aar\21abbabb8e3a43df26421a01c0df3131\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:versionedparcelable:28.0.0] C:\Users\mikey\.gradle\caches\transforms-1\files-1.1\versionedparcelable-28.0.0.aar\68746e37ecb5fbbbcb187aec5f8301e2\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:versionedparcelable:28.0.0] C:\Users\mikey\.gradle\caches\transforms-1\files-1.1\versionedparcelable-28.0.0.aar\68746e37ecb5fbbbcb187aec5f8301e2\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:cursoradapter:28.0.0] C:\Users\mikey\.gradle\caches\transforms-1\files-1.1\cursoradapter-28.0.0.aar\00a75548279b09deaf631595e782b64b\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:cursoradapter:28.0.0] C:\Users\mikey\.gradle\caches\transforms-1\files-1.1\cursoradapter-28.0.0.aar\00a75548279b09deaf631595e782b64b\AndroidManifest.xml:20:5-44
 MERGED from [com.android.support:documentfile:28.0.0] C:\Users\mikey\.gradle\caches\transforms-1\files-1.1\documentfile-28.0.0.aar\ff120899833a802c53dcf0eefe9d58f7\AndroidManifest.xml:20:5-44
 MERGED from [com.android.support:documentfile:28.0.0] C:\Users\mikey\.gradle\caches\transforms-1\files-1.1\documentfile-28.0.0.aar\ff120899833a802c53dcf0eefe9d58f7\AndroidManifest.xml:20:5-44
 MERGED from [com.android.support:localbroadcastmanager:28.0.0] C:\Users\mikey\.gradle\caches\transforms-1\files-1.1\localbroadcastmanager-28.0.0.aar\859bb8e2612afddab18fad94e65a355f\AndroidManifest.xml:20:5-44

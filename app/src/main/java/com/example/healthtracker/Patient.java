@@ -5,16 +5,19 @@ import android.support.annotation.NonNull;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.Date;
+import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
 import java.util.ListIterator;
+import java.util.Map;
 
 public class Patient extends User implements Serializable {
 
     private List<Problem> problemList;
 
-    public Patient(String userID, String phone, String email, String userName){
-        super(userID, phone, email, userName);
+    public Patient(String phone, String email, String userID){
+        super(phone, email, userID);
         this.problemList = new ArrayList<>();
     }
 
@@ -39,10 +42,9 @@ public class Patient extends User implements Serializable {
         this.problemList.remove(problem);
     }
 
-    public void updateUserInfo(String phone, String email, String userName){
+    public void updateUserInfo(String phone, String email){
         super.setEmail(email);
         super.setPhone(phone);
-        super.setUserName(userName);
     }
 
 }
