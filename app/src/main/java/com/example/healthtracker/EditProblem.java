@@ -9,10 +9,6 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseUser;
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -103,15 +99,6 @@ public class EditProblem extends AppCompatActivity {
             // Launch the browse emotions activity
             startActivity(intent);
         }
-
-        // Update the current editing problem
-
-        // Retrieve the data from node "problems "
-        // Get the current user id
-        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
-        String uid = user.getUid();
-        //String problem_path = "problem_" + String.valueOf(index);
-        DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference().child("problems").child(uid);
 
     }
 
