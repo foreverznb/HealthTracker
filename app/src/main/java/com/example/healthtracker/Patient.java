@@ -78,10 +78,6 @@ public class Patient extends User implements Serializable {
      *  Is this even used?
      * @param phone phone number
      * @param email email address
-     */
-    public void updateUserInfo(String phone, String email){
-        super.setEmail(email);
-        super.setPhone(phone);
-    }
 
+ */
 }

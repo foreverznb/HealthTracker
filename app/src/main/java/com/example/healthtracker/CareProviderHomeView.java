@@ -97,6 +97,10 @@ public class CareProviderHomeView extends AppCompatActivity {
         startActivity(intent);
     }
 
+    public void Sync(View view){
+        UserDataController.syncCareProviderData(this);
+    }
+
     /**
      * Method containing the new intent which will bring user to the geo map activity layout
      *

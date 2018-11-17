@@ -1319,6 +1319,7 @@ id stretch
 id submenuarrow
 id submit_area
 id sync_button
+id sync_button2
 id tabMode
 id tag_transition_group
 id tag_unhandled_key_event_manager

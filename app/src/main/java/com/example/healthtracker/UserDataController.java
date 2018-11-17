@@ -94,8 +94,12 @@ public class UserDataController<E extends User> {
     public static void saveCareProviderData(Context context, CareProvider careProvider) {
         // save online if possible
         if (ElasticsearchController.testConnection(context)) {
+            Toast.makeText(context, "Saved changes", Toast.LENGTH_LONG).show();
             ElasticsearchController.AddCareProvider addCareProviderTask = new ElasticsearchController.AddCareProvider();
             addCareProviderTask.execute(careProvider);
+        } else{
+            Toast.makeText(context, "Could not reach server. Changes saved locally.", Toast.LENGTH_LONG).show();
+            Toast.makeText(context, "Sync data when a connection is available to save changes to server.", Toast.LENGTH_LONG).show();
         }
         // save to local cache
         new UserDataController<CareProvider>(context).saveUserLocally(careProvider);
@@ -155,6 +159,16 @@ public class UserDataController<E extends User> {
             // upload cached user data
             Patient user = new UserDataController<Patient>(context).loadUserLocally();
             UserDataController.savePatientData(context, user);
+        } else {
+            Toast.makeText(context, "No internet connection available. Unable to sync.", Toast.LENGTH_LONG).show();
+        }
+    }
+
+    public static void syncCareProviderData(Context context) {
+        if (ElasticsearchController.testConnection(context)) {
+            // upload cached user data
+            CareProvider user = new UserDataController<CareProvider>(context).loadUserLocally();
+            UserDataController.saveCareProviderData(context, user);
         } else {
             Toast.makeText(context, "No internet connection available. Unable to sync.", Toast.LENGTH_LONG).show();
         }

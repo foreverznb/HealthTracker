@@ -178,6 +178,11 @@ class ElasticsearchController {
         }
     }
 
+    /**
+     * testConnection() checks for online connectivity on either wifi or mobile data and returns the connectivity state
+     *
+     * @return returns a boolean object on whether the user is connected to wifi or cellular data for online connectivity checks
+     */
     public static boolean testConnection(Context context) {
         ConnectivityManager connectivityManager = (ConnectivityManager) context.getSystemService(Context.CONNECTIVITY_SERVICE);
         assert connectivityManager != null;

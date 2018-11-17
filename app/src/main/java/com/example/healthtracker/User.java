@@ -95,6 +95,11 @@ public class User implements Serializable {
         this.phone = phone;
     }
 
+    public void updateUserInfo(String phone, String email){
+        this.setEmail(email);
+        this.setPhone(phone);
+    }
+
     /**
      * TODO
      *

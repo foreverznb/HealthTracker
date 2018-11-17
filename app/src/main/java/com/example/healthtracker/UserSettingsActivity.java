@@ -63,70 +63,26 @@ public class UserSettingsActivity extends AppCompatActivity {
     }
 
 
-    public void editUserInfo(){
-        if(profileType.equals("Patient")){
-            patient.updateUserInfo(uemail.getText().toString(), phone.getText().toString());
-            UserDataController.savePatientData(this, patient);
+    public void editUserInfo(View view){
+        String phoneString = phone.getText().toString();
+        String emailString = uemail.getText().toString().toLowerCase();
+        if(!isEmpty(phoneString) && !isEmpty(emailString)){
+            if(profileType.equals("Patient")){
+                patient.updateUserInfo(phoneString, emailString);
+                UserDataController.savePatientData(this, patient);
+            } else{
+                careProvider.updateUserInfo(phoneString, emailString);
+                UserDataController.saveCareProviderData(this, careProvider);
+            }
         } else{
-            careProvider.updateUserInfo(uemail.getText().toString(), phone.getText().toString());
-            UserDataController.saveCareProviderData(this, careProvider);
+            Toast.makeText(this, "All fields must be filled in.", Toast.LENGTH_SHORT).show();
         }
     }
 
-    @RequiresApi(api = Build.VERSION_CODES.KITKAT)
-    public void toHome() {
-        //editUserInfo();
-        Toast.makeText(this, "Settings Saved", Toast.LENGTH_SHORT).show();
-        finish();
-    }
 
-    /*
-    public void loadData() {
-        if (ElasticUserController.testConnection(context)) {
-            if (profileType.equals("CareProvider")) {
-                UserDataController.loadCareProviderData(this);
-            } else {
-                UserDataController.loadPatientData(this);
-            }
-        } else {
-            Toast.makeText(context, "No internet connection available.", Toast.LENGTH_SHORT).show();
-        }
-    }
-
-    public void saveData(View view) {
-        if (ElasticUserController.testConnection(context)) {
-            if (isEmpty(uemail.getText().toString()) && isEmpty(phone.getText().toString())) {
-                // if intent extra was careprovider
-                if (profileType.equals("CareProvider")) {
-                    UserDataController.saveCareProviderData(this, careProvider);
-                    toHome();
-                } else {
-                    UserDataController.savePatientData(this, patient);
-                    toHome();
-
-                }
-            } else {
-                Toast.makeText(UserSettingsActivity.this, "You didn't fill in all the fields.", Toast.LENGTH_SHORT).show();
-            }
-        } else {
-            Toast.makeText(context, "No internet connection available.", Toast.LENGTH_SHORT).show();
-        }
-    }*/
-
-    /**
-     * isEmpty() tests if one of edit account detail features is not filled in
-     *
-     * @param string string provided on method call to be tested if it is blank
-     * @return returns a boolean object on whether the provided string is blank
-     */
     private boolean isEmpty(String string) {
-        return !string.equals("");
+        return string.equals("");
     }
 
-    /**
-     * testConnection() checks for online connectivity on either wifi or mobile data and returns the connectivity state
-     *
-     * @return returns a boolean object on whether the user is connected to wifi or cellular data for online connectivity checks
-     */
 
 }
