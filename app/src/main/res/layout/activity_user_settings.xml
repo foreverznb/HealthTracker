@@ -14,7 +14,7 @@
         android:text="@string/save_settings"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        android:onClick="saveSettings"/>
+        android:onClick="saveData" />
 
     <EditText
         android:id="@+id/edit_email"
