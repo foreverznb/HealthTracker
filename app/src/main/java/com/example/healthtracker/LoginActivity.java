@@ -11,9 +11,6 @@ import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import java.io.IOException;
-import java.net.HttpURLConnection;
-import java.net.URL;
 import java.util.concurrent.ExecutionException;
 
 // extends
@@ -37,37 +34,40 @@ public class LoginActivity extends AppCompatActivity {
     }
 
 
-
-    public void UserLogin(View view) throws ExecutionException, InterruptedException, IOException {
-        String userID = UserID.getText().toString();
-        if (!isEmpty(UserID.getText().toString()) && !isEmpty(Password.getText().toString())) {
-            if(checkBox.isChecked()){
-                CareProvider careProvider;
-                ElasticUserController.GetCareProvider getCareProvider = new ElasticUserController.GetCareProvider();
-                getCareProvider.execute(userID);
-                careProvider = getCareProvider.get();
-                if (careProvider != null) {
-                    Intent intent = new Intent(LoginActivity.this, CareProviderHomeView.class);
-                    // Launch the browse emotions activity
-                    startActivity(intent);
+    public void UserLogin(View view) throws ExecutionException, InterruptedException {
+        if (!testConnection()) {
+            String userID = UserID.getText().toString();
+            if (!isEmpty(UserID.getText().toString()) && !isEmpty(Password.getText().toString())) {
+                if (checkBox.isChecked()) {
+                    CareProvider careProvider;
+                    ElasticUserController.GetCareProvider getCareProvider = new ElasticUserController.GetCareProvider();
+                    getCareProvider.execute(userID);
+                    careProvider = getCareProvider.get();
+                    if (careProvider != null) {
+                        Intent intent = new Intent(LoginActivity.this, CareProviderHomeView.class);
+                        // Launch the browse emotions activity
+                        startActivity(intent);
+                    } else {
+                        Toast.makeText(LoginActivity.this, "Unknown Account", Toast.LENGTH_SHORT).show();
+                    }
                 } else {
-                    Toast.makeText(LoginActivity.this, "Unknown Account", Toast.LENGTH_SHORT).show();
+                    Patient patient;
+                    ElasticUserController.GetPatient getPatient = new ElasticUserController.GetPatient();
+                    getPatient.execute(userID);
+                    patient = getPatient.get();
+                    if (patient != null) {
+                        Intent intent = new Intent(LoginActivity.this, PatientHomeView.class);
+                        // Launch the browse emotions activity
+                        startActivity(intent);
+                    } else {
+                        Toast.makeText(LoginActivity.this, "Account could not be reached", Toast.LENGTH_SHORT).show();
+                    }
                 }
-            } else{
-                Patient patient;
-                ElasticUserController.GetPatient getPatient = new ElasticUserController.GetPatient();
-                getPatient.execute(userID);
-                patient = getPatient.get();
-                if (patient != null) {
-                    Intent intent = new Intent(LoginActivity.this, PatientHomeView.class);
-                    // Launch the browse emotions activity
-                    startActivity(intent);
-                } else {
-                    Toast.makeText(LoginActivity.this, "Account could not be reached", Toast.LENGTH_SHORT).show();
-                }
+            } else {
+                Toast.makeText(LoginActivity.this, "You didn't fill in all the fields.", Toast.LENGTH_SHORT).show();
             }
         } else {
-            Toast.makeText(LoginActivity.this, "You didn't fill in all the fields.", Toast.LENGTH_SHORT).show();
+            Toast.makeText(context, "No fucking internet fuck", Toast.LENGTH_SHORT).show();
         }
     }
 
@@ -81,6 +81,14 @@ public class LoginActivity extends AppCompatActivity {
         // Create an intent object containing the bridge to between the two activities
         Intent intent = new Intent(LoginActivity.this, CreateAccountActivity.class);// Launch the browse emotions activity
         startActivity(intent);
+    }
+
+    public boolean testConnection() {
+        ConnectivityManager connectivityManager = (ConnectivityManager) getSystemService(CONNECTIVITY_SERVICE);
+        //we are connected to a network
+        assert connectivityManager != null;
+        return connectivityManager.getNetworkInfo(ConnectivityManager.TYPE_MOBILE).getState() != NetworkInfo.State.CONNECTED &&
+                connectivityManager.getNetworkInfo(ConnectivityManager.TYPE_WIFI).getState() != NetworkInfo.State.CONNECTED;
     }
 
 

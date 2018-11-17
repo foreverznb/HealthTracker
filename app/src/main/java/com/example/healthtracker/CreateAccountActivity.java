@@ -12,10 +12,8 @@ import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import com.google.firebase.auth.FirebaseAuth;
 import com.searchly.jestdroid.JestDroidClient;
 
-import java.io.IOException;
 import java.util.concurrent.ExecutionException;
 
 
@@ -24,7 +22,6 @@ public class CreateAccountActivity extends AppCompatActivity {
     private static JestDroidClient client;
 
     private static final String TAG = "CreateAccountActivity";
-    private FirebaseAuth.AuthStateListener mAuthListener;
     private EditText Email, Password, Phone, UserID;
     private Button Register;
     private CheckBox checkBox;
@@ -37,6 +34,7 @@ public class CreateAccountActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        Log.d(TAG, "onCreate: started");
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_create_account);
         Register = findViewById(R.id.create_new_account_button);
@@ -46,7 +44,12 @@ public class CreateAccountActivity extends AppCompatActivity {
         UserID = findViewById(R.id.userID);
         checkBox = findViewById(R.id.caregiver_checkbox);
         context = this;
-        Log.d(TAG, "onCreate: started");
+        Log.d(TAG, "Testing Internet Connection");
+        if (testConnection()) {
+            Toast.makeText(context, "No fucking internet fuck", Toast.LENGTH_SHORT).show();
+        } else {
+            Toast.makeText(context, "We gots the wifi", Toast.LENGTH_SHORT).show();
+        }
         init();
     }
 
@@ -64,16 +67,14 @@ public class CreateAccountActivity extends AppCompatActivity {
                             addNewUser();
                             finish();
                         } else{
-                            Toast.makeText(Context, "User ID is taken", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(context, "User ID is taken", Toast.LENGTH_SHORT).show();
                         }
-                    } catch (ExecutionException e) {
-                        e.printStackTrace();
-                    } catch (InterruptedException e) {
+                    } catch (ExecutionException | InterruptedException e) {
                         e.printStackTrace();
                     }
                 }
                 else{
-                    Toast.makeText(Context, "All fields must be filled", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(context, "All fields must be filled", Toast.LENGTH_SHORT).show();
                 }
             }
         });
@@ -86,7 +87,7 @@ public class CreateAccountActivity extends AppCompatActivity {
     private boolean checkInputs(String email, String userID, String password, String phone){
         Log.d(TAG, "checkInputs: checking inputs for null values");
         if(email.equals("") || userID.equals("") || password.equals("") || phone.equals("")){
-            Toast.makeText(Context, "All fields must be filled out", Toast.LENGTH_SHORT).show();
+            Toast.makeText(context, "All fields must be filled out", Toast.LENGTH_SHORT).show();
             return false;
         }
         return true;
@@ -98,27 +99,24 @@ public class CreateAccountActivity extends AppCompatActivity {
             ElasticUserController.GetCareProvider getCareProvider = new ElasticUserController.GetCareProvider();
             getCareProvider.execute(userID);
             foundUser = getCareProvider.get();
-            if(foundUser == null){
-                return false;
-            } else{
-                return true;
-            }
+            return foundUser != null;
         } else{
             Patient foundUser;
             ElasticUserController.GetPatient getPatient = new ElasticUserController.GetPatient();
             getPatient.execute(userID);
             foundUser = getPatient.get();
-            if(foundUser == null){
-                return false;
-            } else{
-                return true;
-            }
+            return foundUser != null;
         }
 
     }
 
 
     public void addNewUser(){
+        if (testConnection()) {
+            Toast.makeText(context, "No fucking internet fuck", Toast.LENGTH_SHORT).show();
+        } else {
+            Toast.makeText(context, "We gots the wifi", Toast.LENGTH_SHORT).show();
+        }
         // Save new user with elasticsearch
         if(checkBox.isChecked()){
             // save new care provider
@@ -134,16 +132,20 @@ public class CreateAccountActivity extends AppCompatActivity {
 
         try {
             if(userExists(userID)){
-                Toast.makeText(Context, "Account created", Toast.LENGTH_SHORT).show();
+                Toast.makeText(context, "Account created", Toast.LENGTH_SHORT).show();
             } else{
-                Toast.makeText(Context, "Failed to create account. Check internet connection.", Toast.LENGTH_SHORT).show();
+                Toast.makeText(context, "Failed to create account. Check internet connection.", Toast.LENGTH_SHORT).show();
             }
-        } catch (ExecutionException e) {
-            e.printStackTrace();
-        } catch (InterruptedException e) {
+        } catch (ExecutionException | InterruptedException e) {
             e.printStackTrace();
         }
+    }
 
-
+    public boolean testConnection() {
+        ConnectivityManager connectivityManager = (ConnectivityManager) getSystemService(CONNECTIVITY_SERVICE);
+        //we are connected to a network
+        assert connectivityManager != null;
+        return connectivityManager.getNetworkInfo(ConnectivityManager.TYPE_MOBILE).getState() != NetworkInfo.State.CONNECTED &&
+                connectivityManager.getNetworkInfo(ConnectivityManager.TYPE_WIFI).getState() != NetworkInfo.State.CONNECTED;
     }
 }
