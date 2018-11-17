@@ -69,7 +69,7 @@ public class PatientHomeView extends AppCompatActivity {
      * @param view the view for the Patient home screen layout included for onClick methods in XML
      */
     public void Sync(View view) {
-        if (ElasticUserController.ElasticsearchController.testConnection(this)) {
+        if (ElasticsearchController.testConnection(this)) {
             // upload cached user data
             Patient user = new UserDataController<Patient>(this).loadUserLocally();
             UserDataController.savePatientData(this, user);
