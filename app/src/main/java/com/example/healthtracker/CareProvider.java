@@ -4,6 +4,13 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * The CareProvider class creates CareProvider objects/users and their data
+ *
+ * @author Michael Boisvert
+ * @version 1.0
+ * @since 2018-10-20
+ */
 public class CareProvider extends User implements Serializable {
 
     private List<Patient> patientList;
@@ -45,6 +52,13 @@ public class CareProvider extends User implements Serializable {
         this.patientList.add(newPatient);
     }
 
+    /**
+     * TODO
+     * Is this used?
+     *
+     * @param phone
+     * @param email
+     */
     public void updateUserInfo(String phone, String email){
         super.setEmail(email);
         super.setPhone(phone);

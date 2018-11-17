@@ -10,6 +10,14 @@ import android.text.method.LinkMovementMethod;
 import android.view.View;
 import android.widget.TextView;
 
+
+/**
+ * PatientHomeView acts as a home screen interface for Patient users to navigate to different app activities.
+ *
+ * @author Tyler Watson
+ * @version 1.0
+ * @since 2018-10-20
+ */
 public class PatientHomeView extends AppCompatActivity {
 
     /**
@@ -83,10 +91,10 @@ public class PatientHomeView extends AppCompatActivity {
     public void viewMyProblems(View view) {
 
         // if (problemcount>0){
-            // Create an intent object containing the bridge to between the two activities
-            Intent intent = new Intent(PatientHomeView.this, ViewMyProblems.class);
-            // Launch the ViewMyProblems activity
-            startActivity(intent);
+        // Create an intent object containing the bridge to between the two activities
+        Intent intent = new Intent(PatientHomeView.this, ViewMyProblems.class);
+        // Launch the ViewMyProblems activity
+        startActivity(intent);
         //}
         //else{
         //  Toast.makeText(this, "No Problems to View", Toast.LENGTH_LONG).show();

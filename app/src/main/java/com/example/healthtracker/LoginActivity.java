@@ -13,7 +13,16 @@ import android.widget.Toast;
 
 import java.util.concurrent.ExecutionException;
 
-// extends
+/**
+ * LoginActivity enables a user to login to their created account. In the case that an unregistered user attempts login, they
+ * will be told that their account is not valid. The user can click the checkbox if they are a CareProvider inorder for them
+ * to be taken to the appropriate home screen otherwise they are brought to the PatientHomeView. Users can navigate to the
+ * CreateAccountActivity from this screen.
+ *
+ * @author Tyler Watson
+ * @version 1.0
+ * @since 2018-10-30
+ */
 public class LoginActivity extends AppCompatActivity {
     private static final String FILENAME = "file.sav";
 

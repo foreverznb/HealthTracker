@@ -16,7 +16,14 @@ import com.searchly.jestdroid.JestDroidClient;
 
 import java.util.concurrent.ExecutionException;
 
-
+/**
+ * CreateAccountActivity enables a user to create a new account for the HealthTracker app by filling in the required account details.
+ * The user's data will be stored in an ElasticSearch database and partially stored locally.
+ *
+ * @author Tyler Watson
+ * @version 1.0
+ * @since 2018-10-30
+ */
 public class CreateAccountActivity extends AppCompatActivity {
 
     private static JestDroidClient client;
@@ -57,7 +64,9 @@ public class CreateAccountActivity extends AppCompatActivity {
     }
 
     /**
-     * Adds a new user with the specified contact information filled in by the user in the
+     * Adds a new user with the specified account information filled in by the user in each specific field. The userId for the new
+     * user will first be checked to see if it already exists. If so account creation will be denied. Additionally each field is
+     * checked to see if it was left empty or not by calling the checkInputs method.
      */
     private void init(){
         Register.setOnClickListener(new View.OnClickListener() {
@@ -130,6 +139,11 @@ public class CreateAccountActivity extends AppCompatActivity {
 
     }
 
+    /**
+     * The addNewUser() method is called by init() when the user attempts to add a new account. If the checkbox is clicked by
+     * the user, a CareProvider account will try to be created. If the checkbox is not checked, a patient account will
+     * attempt to be created. This method utilizes the ElasticUserController, CareProvider, and Patient classes.
+     */
     public void addNewUser(){
         if (testConnection()) {
             Toast.makeText(context, "No internet", Toast.LENGTH_SHORT).show();

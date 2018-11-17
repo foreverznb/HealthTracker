@@ -5,6 +5,14 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 
+
+/**
+ * CareProviderHomeView acts as a home screen interface for CareProvider users to navigate to different app activities.
+ *
+ * @author Tyler Watson
+ * @version 1.0
+ * @since 2018-10-20
+ */
 public class CareProviderHomeView extends AppCompatActivity {
 
 

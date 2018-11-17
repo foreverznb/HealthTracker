@@ -7,6 +7,14 @@ import java.util.List;
 
 import io.searchbox.annotations.JestId;
 
+/**
+ * The User superclass class creates user objects and contains all the constructors, getters, and setters to modify user
+ * objects and promote data access within both CareProvider and Patient subclasses
+ *
+ * @author
+ * @version 1.0
+ * @since 2018-10-20
+ */
 public class User implements Serializable {
     private String email;
     private String phone;

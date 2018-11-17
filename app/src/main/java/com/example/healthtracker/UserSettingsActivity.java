@@ -13,6 +13,15 @@ import android.widget.Toast;
 import java.util.List;
 import java.util.concurrent.ExecutionException;
 
+
+/**
+ * UserSettingsActivity enables users to modify their account information. The changes to their local account are modified in the
+ * ElasticSearch database as well as stored locally after adjustment.
+ *
+ * @author Tyler Watson
+ * @version 1.0
+ * @since 2018-11-12
+ */
 public class UserSettingsActivity extends AppCompatActivity {
     private static final String TAG = "Settings";
     String email;

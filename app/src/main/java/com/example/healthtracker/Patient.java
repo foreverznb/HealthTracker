@@ -4,6 +4,13 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * The Patient class creates Patient objects/users and their data
+ *
+ * @author Michael Boisvert
+ * @version 1.0
+ * @since 2018-10-20
+ */
 public class Patient extends User implements Serializable {
 
     private List<Problem> problemList;

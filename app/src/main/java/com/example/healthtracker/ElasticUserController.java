@@ -1,18 +1,12 @@
 package com.example.healthtracker;
 
 
-import android.content.Context;
-import android.net.ConnectivityManager;
-import android.net.NetworkInfo;
 import android.os.AsyncTask;
 import android.util.Log;
-import android.support.v7.app.AppCompatActivity;
 
 import com.searchly.jestdroid.DroidClientConfig;
 import com.searchly.jestdroid.JestClientFactory;
 import com.searchly.jestdroid.JestDroidClient;
-
-import java.io.IOException;
 
 import io.searchbox.client.JestResult;
 import io.searchbox.core.DocumentResult;
@@ -20,6 +14,13 @@ import io.searchbox.core.Get;
 import io.searchbox.core.Index;
 
 
+/**
+ * ElasticUserController enables a user to communicate with the ElasticSearch database for the purposes of storing and accessing users.
+ *
+ * @author Tyler Watson
+ * @version 1.0
+ * @since 2018-10-30
+ */
 public class ElasticUserController {
     private static JestDroidClient client;
     private static String server = "http://cmput301.softwareprocess.es:8080";
@@ -125,8 +126,7 @@ public class ElasticUserController {
                     Log.i("Error", "Elasticsearch was not able to add the user");
                     throw new ConnectionError();
                 }
-            }
-            catch (Exception e) {
+            } catch (Exception e) {
                 Log.i("Error", "The application failed to build and add the CareProvider");
             }
 
@@ -150,8 +150,7 @@ public class ElasticUserController {
                     Log.i("error", "Search query failed to find any thing =/");
                     throw new ConnectionError();
                 }
-            }
-            catch (Exception e) {
+            } catch (Exception e) {
                 Log.i("Error", "Could not access the server to get the patient");
             }
             return patient;
@@ -174,8 +173,7 @@ public class ElasticUserController {
                     Log.i("error", "Search query failed to find any thing =/");
                     throw new ConnectionError();
                 }
-            }
-            catch (Exception e) {
+            } catch (Exception e) {
                 Log.i("Error", "Could not access the server to get the patient");
             }
             return careProvider;
