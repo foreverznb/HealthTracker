@@ -39,10 +39,11 @@ public class UserSettingsActivity extends AppCompatActivity {
         setContentView(R.layout.activity_user_settings);// update problems if they are ever changed
         uemail = findViewById(R.id.edit_email);
         phone = findViewById(R.id.edit_phone);
+        loadCurrentUserData();
     }
 
     public void loadCurrentUserData(){
-        Patient currentUser = UserDataController.loadPatientData(this);
+        currentUser = UserDataController.loadPatientData(this);
         uemail.setText(currentUser.getEmail());
         phone.setText(currentUser.getPhone());
     }
