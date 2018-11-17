@@ -1,6 +1,9 @@
 package com.example.healthtracker;
 
 
+import android.content.Context;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.os.AsyncTask;
 import android.util.Log;
 
@@ -13,8 +16,6 @@ import io.searchbox.core.DocumentResult;
 import io.searchbox.core.Get;
 import io.searchbox.core.Index;
 
-import static android.content.Context.CONNECTIVITY_SERVICE;
-
 /**
  * ElasticUserController enables a user to communicate with the ElasticSearch database for the purposes of storing and accessing users.
  *
@@ -22,9 +23,7 @@ import static android.content.Context.CONNECTIVITY_SERVICE;
  * @version 1.0
  * @since 2018-10-30
  */
-public class ElasticUserController {
-
-public class ElasticsearchController {
+class ElasticUserController {
     private static JestDroidClient client;
     private static String server = "http://cmput301.softwareprocess.es:8080";
     private static String Index = "cmput301f18t13test";
@@ -180,17 +179,14 @@ public class ElasticsearchController {
     }
 
     public static boolean testConnection(Context context) {
-        ConnectivityManager connectivityManager = (ConnectivityManager) context.getSystemService(context.CONNECTIVITY_SERVICE);
+        ConnectivityManager connectivityManager = (ConnectivityManager) context.getSystemService(Context.CONNECTIVITY_SERVICE);
         assert connectivityManager != null;
-        if(connectivityManager.getNetworkInfo(ConnectivityManager.TYPE_WIFI).getState() == NetworkInfo.State.CONNECTED){
+        if (connectivityManager.getNetworkInfo(ConnectivityManager.TYPE_WIFI).getState() == NetworkInfo.State.CONNECTED) {
             // connected to wifi
-            return  true;
-        } else if (connectivityManager.getNetworkInfo(ConnectivityManager.TYPE_MOBILE).getState() == NetworkInfo.State.CONNECTED){
-            // connected to data
             return true;
-        }
+        } else
+            return connectivityManager.getNetworkInfo(ConnectivityManager.TYPE_MOBILE).getState() == NetworkInfo.State.CONNECTED;
         // not connected
-        return false;
     }
 
 }

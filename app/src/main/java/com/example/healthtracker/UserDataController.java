@@ -2,7 +2,6 @@ package com.example.healthtracker;
 
 import android.content.Context;
 import android.content.SharedPreferences;
-import android.os.CountDownTimer;
 import android.util.Base64;
 import android.widget.Toast;
 
@@ -22,18 +21,86 @@ import java.util.concurrent.ExecutionException;
 public class UserDataController<E extends User> {
 
 
-    private Context context;
     final private static String userKey = "Key";
+    private Context context;
 
-    UserDataController(Context context){
+    UserDataController(Context context) {
         this.context = context;
     }
 
     // save serialized string of user object to shared preferences
     // calls method to convert user object  to serialized string
 
+    public static CareProvider loadCareProviderData(Context context) {
+        if (ElasticsearchController.testConnection(context)) {
+            // Download user data with elastic search
+            SharedPreferences myPrefs = context.getSharedPreferences("prefs", Context.MODE_PRIVATE);
+            String userID = myPrefs.getString("userID", "");
+            ElasticsearchController.GetCareProvider getCareProvider = new ElasticsearchController.GetCareProvider();
+            getCareProvider.execute(userID);
+            CareProvider careProvider = null;
+            try {
+                careProvider = getCareProvider.get();
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            } catch (ExecutionException e) {
+                e.printStackTrace();
+            }
+            return careProvider;
+        } else {
+            // Load local cache of user data
+            return new UserDataController<CareProvider>(context).loadUserLocally();
+        }
+    }
+
+    public static Patient loadPatientData(Context context) {
+        if (ElasticsearchController.testConnection(context)) {
+            // Download user data with elastic search
+            SharedPreferences myPrefs = context.getSharedPreferences("prefs", Context.MODE_PRIVATE);
+            String userID = myPrefs.getString("userID", "");
+            ElasticsearchController.GetPatient getPatient = new ElasticsearchController.GetPatient();
+            getPatient.execute(userID);
+            Patient patient = null;
+            try {
+                patient = getPatient.get();
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            } catch (ExecutionException e) {
+                e.printStackTrace();
+            }
+            return patient;
+        } else {
+            // Load local cache of user data
+            return new UserDataController<Patient>(context).loadUserLocally();
+        }
+    }
+
+    public static void savePatientData(Context context, Patient patient) {
+        // save online if possible
+        if (ElasticsearchController.testConnection(context)) {
+            Toast.makeText(context, "Saved changes", Toast.LENGTH_LONG).show();
+            ElasticsearchController.AddPatient addPatientTask = new ElasticsearchController.AddPatient();
+            addPatientTask.execute(patient);
+        } else {
+            Toast.makeText(context, "Could not reach server. Changes saved locally.", Toast.LENGTH_LONG).show();
+            Toast.makeText(context, "Sync data when a connection is available to save changes to server.", Toast.LENGTH_LONG).show();
+
+        }
+        // save to local cache
+        new UserDataController<Patient>(context).saveUserLocally(patient);
+    }
+
+    public static void saveCareProviderData(Context context, CareProvider careProvider) {
+        // save online if possible
+        if (ElasticsearchController.testConnection(context)) {
+            ElasticsearchController.AddCareProvider addCareProviderTask = new ElasticsearchController.AddCareProvider();
+            addCareProviderTask.execute(careProvider);
+        }
+        // save to local cache
+        new UserDataController<CareProvider>(context).saveUserLocally(careProvider);
+    }
+
     /**
-     *
      * @param user
      */
     public void saveUserLocally(E user) {
@@ -45,11 +112,11 @@ public class UserDataController<E extends User> {
 
     // load serialized string of user from shared preferences
     // call method to convert serialized string back to user object
-    public E loadUserLocally()  {
+    public E loadUserLocally() {
         SharedPreferences myPrefs = context.getSharedPreferences("prefs", Context.MODE_PRIVATE);
         String userString = myPrefs.getString(userKey, "");
         E user = userFromString(userString);
-        if(user == null){
+        if (user == null) {
             return null;
         }
         return user;
@@ -83,77 +150,6 @@ public class UserDataController<E extends User> {
         }
         return user;
     }
-
-    public static CareProvider loadCareProviderData(Context context){
-        if(ElasticsearchController.testConnection(context)){
-            // Download user data with elastic search
-            SharedPreferences myPrefs = context.getSharedPreferences("prefs", Context.MODE_PRIVATE);
-            String userID = myPrefs.getString("userID", "");
-            ElasticsearchController.GetCareProvider getCareProvider = new ElasticsearchController.GetCareProvider();
-            getCareProvider.execute(userID);
-            CareProvider careProvider = null;
-            try {
-                careProvider = getCareProvider.get();
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            } catch (ExecutionException e) {
-                e.printStackTrace();
-            }
-            return careProvider;
-        } else{
-            // Load local cache of user data
-            return new UserDataController<CareProvider>(context).loadUserLocally();
-        }
-    }
-
-    public static Patient loadPatientData(Context context){
-        if(ElasticsearchController.testConnection(context)){
-            // Download user data with elastic search
-            SharedPreferences myPrefs = context.getSharedPreferences("prefs", Context.MODE_PRIVATE);
-            String userID = myPrefs.getString("userID", "");
-            ElasticsearchController.GetPatient getPatient = new ElasticsearchController.GetPatient();
-            getPatient.execute(userID);
-            Patient patient = null;
-            try {
-                patient = getPatient.get();
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            } catch (ExecutionException e) {
-                e.printStackTrace();
-            }
-            return patient;
-        } else{
-            // Load local cache of user data
-            return new UserDataController<Patient>(context).loadUserLocally();
-        }
-    }
-
-    public static void savePatientData(Context context, Patient patient){
-        // save online if possible
-        if(ElasticsearchController.testConnection(context)){
-            Toast.makeText(context, "Saved changes", Toast.LENGTH_LONG).show();
-            ElasticsearchController.AddPatient addPatientTask = new ElasticsearchController.AddPatient();
-            addPatientTask.execute(patient);
-        } else{
-            Toast.makeText(context, "Could not reach server. Changes saved locally.", Toast.LENGTH_LONG).show();
-            Toast.makeText(context, "Sync data when a connection is available to save changes to server.", Toast.LENGTH_LONG).show();
-
-        }
-        // save to local cache
-        new UserDataController<Patient>(context).saveUserLocally(patient);
-    }
-
-
-    public static void saveCareProviderData(Context context, CareProvider careProvider){
-        // save online if possible
-        if(ElasticsearchController.testConnection(context)){
-            ElasticsearchController.AddCareProvider addCareProviderTask = new ElasticsearchController.AddCareProvider();
-            addCareProviderTask.execute(careProvider);
-        }
-        // save to local cache
-        new UserDataController<CareProvider>(context).saveUserLocally(careProvider);
-    }
-
 
 
 }

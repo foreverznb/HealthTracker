@@ -42,7 +42,7 @@ public class UserSettingsActivity extends AppCompatActivity {
         }
     }
 
-    public void loadUserProfileData() throws ExecutionException, InterruptedException {
+    public void loadUserProfileData() {
         //TODO add load from local instead if offline
         uemail = findViewById(R.id.edit_email);
         phone = findViewById(R.id.edit_phone);
