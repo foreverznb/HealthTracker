@@ -32,6 +32,11 @@ public class CreateAccountActivity extends AppCompatActivity {
     private String email, password, phone, userID;
     private User user;
 
+    /**
+     * onCreate launched on activity creation
+     *
+     * @param savedInstanceState SIS
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         Log.d(TAG, "onCreate: started");
@@ -46,13 +51,14 @@ public class CreateAccountActivity extends AppCompatActivity {
         context = this;
         Log.d(TAG, "Testing Internet Connection");
         if (testConnection()) {
-            Toast.makeText(context, "No fucking internet fuck", Toast.LENGTH_SHORT).show();
-        } else {
-            Toast.makeText(context, "We gots the wifi", Toast.LENGTH_SHORT).show();
+            Toast.makeText(context, "No internet", Toast.LENGTH_SHORT).show();
         }
         init();
     }
 
+    /**
+     * Adds a new user with the specified contact information filled in by the user in the
+     */
     private void init(){
         Register.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -72,18 +78,23 @@ public class CreateAccountActivity extends AppCompatActivity {
                     } catch (ExecutionException | InterruptedException e) {
                         e.printStackTrace();
                     }
-                }
-                else{
+                } else{
                     Toast.makeText(context, "All fields must be filled", Toast.LENGTH_SHORT).show();
                 }
             }
         });
     }
 
-    /*
-     * Checks that all the input fields are filled
+    /**
+     * Checks that all the input fields are filled, displaying a toast message if the fields are not filled. The method
+     * returns a boolean object based on whether or not the account info fields are filled.
+     *
+     * @param email input email string to be tested whether it was filled in by the user
+     * @param userID input userID string to be tested whether it was filled in by the user
+     * @param password input password string to be tested whether it was filled in by the user
+     * @param phone input phone string to be tested whether it was filled in by the user
+     * @return returns boolean object on whether an entry field is blank
      */
-    // need to add more checks for email and password
     private boolean checkInputs(String email, String userID, String password, String phone){
         Log.d(TAG, "checkInputs: checking inputs for null values");
         if(email.equals("") || userID.equals("") || password.equals("") || phone.equals("")){
@@ -93,6 +104,15 @@ public class CreateAccountActivity extends AppCompatActivity {
         return true;
     }
 
+    /**
+     * Checks if an account with the provided userID already exists in the system and returns a boolean value based off of the
+     * result of verification testing.
+     *
+     * @param userID userID entered within the method call to be checked for its existence in the database before account creation
+     * @return returns a boolean value determined by the existence of an existing userID
+     * @throws ExecutionException   exception for .get() to catch errors during method execution
+     * @throws InterruptedException exception for .get() to catch interruptions resulting in errors during execution
+     */
     public boolean userExists(String userID) throws ExecutionException, InterruptedException {
         if(checkBox.isChecked()){
             CareProvider foundUser;
@@ -110,12 +130,9 @@ public class CreateAccountActivity extends AppCompatActivity {
 
     }
 
-
     public void addNewUser(){
         if (testConnection()) {
-            Toast.makeText(context, "No fucking internet fuck", Toast.LENGTH_SHORT).show();
-        } else {
-            Toast.makeText(context, "We gots the wifi", Toast.LENGTH_SHORT).show();
+            Toast.makeText(context, "No internet", Toast.LENGTH_SHORT).show();
         }
         // Save new user with elasticsearch
         if(checkBox.isChecked()){
@@ -141,6 +158,11 @@ public class CreateAccountActivity extends AppCompatActivity {
         }
     }
 
+    /**
+     * testConnection() checks for online connectivity on either wifi or mobile data and returns the connectivity state
+     *
+     * @return returns a boolean object on whether the user is connected to wifi or cellular data for online connectivity checks
+     */
     public boolean testConnection() {
         ConnectivityManager connectivityManager = (ConnectivityManager) getSystemService(CONNECTIVITY_SERVICE);
         //we are connected to a network

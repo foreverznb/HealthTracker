@@ -32,7 +32,6 @@ public class CareProviderDataManager {
     CareProviderDataManager(Context context){
         this.context = context;
     }
-
     // save serialized string of CareProvider object to shared preferences
     // calls method to convert CareProvider object  to serialized string
     public void saveCareProviderLocally(CareProvider careProvider) {
@@ -75,9 +74,7 @@ public class CareProviderDataManager {
         try {
             ObjectInputStream oi = new ObjectInputStream(bi);
             careProvider = (CareProvider) oi.readObject();
-        } catch (IOException e1) {
-            e1.printStackTrace();
-        } catch (ClassNotFoundException e1) {
+        } catch (IOException | ClassNotFoundException e1) {
             e1.printStackTrace();
         }
         return careProvider;

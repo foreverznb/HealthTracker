@@ -28,9 +28,7 @@ public class UserSettingsActivity extends AppCompatActivity {
         setContentView(R.layout.activity_user_settings);// update problems if they are ever changed
         try {
             loadUserProfileData();
-        } catch (ExecutionException e) {
-            e.printStackTrace();
-        } catch (InterruptedException e) {
+        } catch (ExecutionException | InterruptedException e) {
             e.printStackTrace();
         }
     }
