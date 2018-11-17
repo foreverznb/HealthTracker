@@ -1,8 +1,6 @@
 package com.example.healthtracker;
 
 import android.content.Context;
-import android.net.ConnectivityManager;
-import android.net.NetworkInfo;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
@@ -80,7 +78,6 @@ public class CreateAccountActivity extends AppCompatActivity {
                     try {
                         if(!userExists(userID)){
                             addNewUser();
-                            finish();
                         } else{
                             Toast.makeText(context, "User ID is taken", Toast.LENGTH_SHORT).show();
                         }
@@ -125,13 +122,13 @@ public class CreateAccountActivity extends AppCompatActivity {
     public boolean userExists(String userID) throws ExecutionException, InterruptedException {
         if(checkBox.isChecked()){
             CareProvider foundUser;
-            ElasticUserController.GetCareProvider getCareProvider = new ElasticUserController.GetCareProvider();
+            ElasticsearchController.GetCareProvider getCareProvider = new ElasticsearchController.GetCareProvider();
             getCareProvider.execute(userID);
             foundUser = getCareProvider.get();
             return foundUser != null;
         } else{
             Patient foundUser;
-            ElasticUserController.GetPatient getPatient = new ElasticUserController.GetPatient();
+            ElasticsearchController.GetPatient getPatient = new ElasticsearchController.GetPatient();
             getPatient.execute(userID);
             foundUser = getPatient.get();
             return foundUser != null;
@@ -145,30 +142,33 @@ public class CreateAccountActivity extends AppCompatActivity {
      * attempt to be created. This method utilizes the ElasticUserController, CareProvider, and Patient classes.
      */
     public void addNewUser(){
-        if (testConnection()) {
-            Toast.makeText(context, "No internet", Toast.LENGTH_SHORT).show();
-        }
-        // Save new user with elasticsearch
-        if(checkBox.isChecked()){
-            // save new care provider
-            CareProvider newCareProvider = new CareProvider(phone, email, userID);
-            ElasticUserController.AddCareProvider addCareProviderTask = new ElasticUserController.AddCareProvider();
-            addCareProviderTask.execute(newCareProvider);
-        } else{
-            // save new patient
-            Patient newPatient = new Patient(phone, email, userID);
-            ElasticUserController.AddPatient addPatientTask = new ElasticUserController.AddPatient();
-            addPatientTask.execute(newPatient);
-        }
-
-        try {
-            if(userExists(userID)){
-                Toast.makeText(context, "Account created", Toast.LENGTH_SHORT).show();
+        if (ElasticsearchController.testConnection(context)) {
+            // Save new user with elasticsearch
+            if(checkBox.isChecked()){
+                // save new care provider
+                CareProvider newCareProvider = new CareProvider(phone, email, userID);
+                ElasticsearchController.AddCareProvider addCareProviderTask = new ElasticsearchController.AddCareProvider();
+                addCareProviderTask.execute(newCareProvider);
             } else{
-                Toast.makeText(context, "Failed to create account. Check internet connection.", Toast.LENGTH_SHORT).show();
+                // save new patient
+                Patient newPatient = new Patient(phone, email, userID);
+                ElasticsearchController.AddPatient addPatientTask = new ElasticsearchController.AddPatient();
+                addPatientTask.execute(newPatient);
             }
-        } catch (ExecutionException | InterruptedException e) {
-            e.printStackTrace();
+
+            try {
+                if(userExists(userID)){
+                    Toast.makeText(context, "Account created", Toast.LENGTH_SHORT).show();
+                    finish();
+                } else{
+                    Toast.makeText(context, "Failed to create account. Check internet connection.", Toast.LENGTH_SHORT).show();
+                }
+            } catch (ExecutionException | InterruptedException e) {
+                e.printStackTrace();
+            }
+
+        } else {
+            Toast.makeText(context, "No internet connection", Toast.LENGTH_SHORT).show();
         }
     }
 

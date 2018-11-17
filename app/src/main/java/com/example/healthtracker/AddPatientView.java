@@ -14,12 +14,6 @@ public class AddPatientView extends AppCompatActivity {
         setContentView(R.layout.activity_add_patient);
     }
 
-    public void Return2(View view) {
-        // Create an intent object containing the bridge to between the two activities
-        Intent intent = new Intent(AddPatientView.this, CareProviderHomeView.class);
-        // Launch the browse emotions activity
-        startActivity(intent);
-    }
 
     public void Add(View view) {
         Toast.makeText(this, "Patient Added", Toast.LENGTH_SHORT).show();

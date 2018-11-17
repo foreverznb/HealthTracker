@@ -14,13 +14,6 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.Toast;
 
-import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseUser;
-import com.google.firebase.database.DataSnapshot;
-import com.google.firebase.database.DatabaseError;
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 
@@ -48,31 +41,6 @@ public class ViewMyProblems extends AppCompatActivity {
 
         // Read from the real time database to obtain problems created by the Patient
 
-        // Retrieve an instance of the database
-        FirebaseDatabase firebaseDatabase = FirebaseDatabase.getInstance();
-        // Getting reference
-
-        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
-        String uid = user.getUid();
-
-        DatabaseReference databaseReference = firebaseDatabase.getReference().child("problems").child(uid);
-
-        // Read from the database
-        databaseReference.addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                for (DataSnapshot dss : dataSnapshot.getChildren()) {
-                    mProblems.add(dss.getValue(Problem.class));
-                    Log.d("my problem", dss.getValue(Problem.class).toString());
-                    mArrayAdapter.notifyDataSetChanged();
-                }
-            }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError databaseError) {
-                Log.w("Failed to read value", databaseError.toException());
-            }
-        });
 
         // Create a context menu to permit users to select and edit a problem
         registerForContextMenu(mListView);

@@ -25,9 +25,6 @@ public class CareProviderHomeView extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_careprovider_home);
-
-        CareProviderDataManager dataManager = new CareProviderDataManager(this);
-        CareProvider careProvider = dataManager.loadCareProviderLocally();
     }
 
     /**

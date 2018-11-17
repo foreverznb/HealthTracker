@@ -51,7 +51,7 @@ public class UserSettingsActivity extends AppCompatActivity {
         String userName2 = pref.getString("username", "error");
 
         // get the info of the patient stored in shared preferences from ElasticSearch
-        ElasticUserController.GetPatient getPatient = new ElasticUserController.GetPatient();
+        ElasticsearchController.GetPatient getPatient = new ElasticsearchController.GetPatient();
         getPatient.execute(userName2);
         patient = getPatient.get();
 
@@ -65,7 +65,7 @@ public class UserSettingsActivity extends AppCompatActivity {
         patient.setPhone(phone.getText().toString());
 
         Patient newPatient = new Patient(phone.getText().toString(), uemail.getText().toString(), userName.getText().toString());
-        ElasticUserController.AddPatient addPatientTask = new ElasticUserController.AddPatient();
+        ElasticsearchController.AddPatient addPatientTask = new ElasticsearchController.AddPatient();
         addPatientTask.execute(newPatient);
 
         /*

@@ -3,12 +3,14 @@ package com.example.healthtracker;
 import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
+import android.os.CountDownTimer;
 import android.support.annotation.RequiresApi;
 import android.support.v7.app.AppCompatActivity;
 import android.text.Html;
 import android.text.method.LinkMovementMethod;
 import android.view.View;
 import android.widget.TextView;
+import android.widget.Toast;
 
 
 /**
@@ -67,6 +69,16 @@ public class PatientHomeView extends AppCompatActivity {
      *
      * @param view the view for the Patient home screen layout included for onClick methods in XML
      */
+    public void Sync(View view){
+        if(ElasticsearchController.testConnection(this)){
+            // upload cached user data
+            Patient user = new UserDataController<Patient>(this).loadUserLocally();
+            UserDataController.savePatientData(this , user);
+        } else{
+            Toast.makeText(this, "No internet connection available. Unable to sync.", Toast.LENGTH_LONG).show();
+        }
+    }
+
     public void Logout(View view){
         finish();
     }
