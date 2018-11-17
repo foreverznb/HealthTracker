@@ -3,6 +3,7 @@ package com.example.healthtracker;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.util.Base64;
+import android.view.View;
 import android.widget.Toast;
 
 import java.io.ByteArrayInputStream;
@@ -32,11 +33,11 @@ public class UserDataController<E extends User> {
     // calls method to convert user object  to serialized string
 
     public static CareProvider loadCareProviderData(Context context) {
-        if (ElasticUserController.testConnection(context)) {
+        if (ElasticsearchController.testConnection(context)) {
             // Download user data with elastic search
             SharedPreferences myPrefs = context.getSharedPreferences("prefs", Context.MODE_PRIVATE);
             String userID = myPrefs.getString("userID", "");
-            ElasticUserController.GetCareProvider getCareProvider = new ElasticUserController.GetCareProvider();
+            ElasticsearchController.GetCareProvider getCareProvider = new ElasticsearchController.GetCareProvider();
             getCareProvider.execute(userID);
             CareProvider careProvider = null;
             try {
@@ -54,11 +55,11 @@ public class UserDataController<E extends User> {
     }
 
     public static Patient loadPatientData(Context context) {
-        if (ElasticUserController.testConnection(context)) {
+        if (ElasticsearchController.testConnection(context)) {
             // Download user data with elastic search
             SharedPreferences myPrefs = context.getSharedPreferences("prefs", Context.MODE_PRIVATE);
             String userID = myPrefs.getString("userID", "");
-            ElasticUserController.GetPatient getPatient = new ElasticUserController.GetPatient();
+            ElasticsearchController.GetPatient getPatient = new ElasticsearchController.GetPatient();
             getPatient.execute(userID);
             Patient patient = null;
             try {
@@ -77,9 +78,9 @@ public class UserDataController<E extends User> {
 
     public static void savePatientData(Context context, Patient patient) {
         // save online if possible
-        if (ElasticUserController.testConnection(context)) {
+        if (ElasticsearchController.testConnection(context)) {
             Toast.makeText(context, "Saved changes", Toast.LENGTH_LONG).show();
-            ElasticUserController.AddPatient addPatientTask = new ElasticUserController.AddPatient();
+            ElasticsearchController.AddPatient addPatientTask = new ElasticsearchController.AddPatient();
             addPatientTask.execute(patient);
         } else {
             Toast.makeText(context, "Could not reach server. Changes saved locally.", Toast.LENGTH_LONG).show();
@@ -92,8 +93,8 @@ public class UserDataController<E extends User> {
 
     public static void saveCareProviderData(Context context, CareProvider careProvider) {
         // save online if possible
-        if (ElasticUserController.testConnection(context)) {
-            ElasticUserController.AddCareProvider addCareProviderTask = new ElasticUserController.AddCareProvider();
+        if (ElasticsearchController.testConnection(context)) {
+            ElasticsearchController.AddCareProvider addCareProviderTask = new ElasticsearchController.AddCareProvider();
             addCareProviderTask.execute(careProvider);
         }
         // save to local cache
@@ -103,7 +104,7 @@ public class UserDataController<E extends User> {
     /**
      * @param user
      */
-    public void saveUserLocally(E user) {
+    private void saveUserLocally(E user) {
         SharedPreferences myPrefs = context.getSharedPreferences("prefs", Context.MODE_PRIVATE);
         SharedPreferences.Editor editor = myPrefs.edit();
         editor.putString(userKey, userToString(user));
@@ -112,7 +113,7 @@ public class UserDataController<E extends User> {
 
     // load serialized string of user from shared preferences
     // call method to convert serialized string back to user object
-    public E loadUserLocally() {
+    private E loadUserLocally() {
         SharedPreferences myPrefs = context.getSharedPreferences("prefs", Context.MODE_PRIVATE);
         String userString = myPrefs.getString(userKey, "");
         E user = userFromString(userString);
@@ -147,6 +148,16 @@ public class UserDataController<E extends User> {
             e1.printStackTrace();
         }
         return user;
+    }
+
+    public static void syncPatientData(Context context) {
+        if (ElasticsearchController.testConnection(context)) {
+            // upload cached user data
+            Patient user = new UserDataController<Patient>(context).loadUserLocally();
+            UserDataController.savePatientData(context, user);
+        } else {
+            Toast.makeText(context, "No internet connection available. Unable to sync.", Toast.LENGTH_LONG).show();
+        }
     }
 
 

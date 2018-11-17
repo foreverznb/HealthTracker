@@ -124,13 +124,13 @@ public class CreateAccountActivity extends AppCompatActivity {
     public boolean userExists(String userID) throws ExecutionException, InterruptedException {
         if(checkBox.isChecked()){
             CareProvider foundUser;
-            ElasticUserController.GetCareProvider getCareProvider = new ElasticUserController.GetCareProvider();
+            ElasticsearchController.GetCareProvider getCareProvider = new ElasticsearchController.GetCareProvider();
             getCareProvider.execute(userID);
             foundUser = getCareProvider.get();
             return foundUser != null;
         } else{
             Patient foundUser;
-            ElasticUserController.GetPatient getPatient = new ElasticUserController.GetPatient();
+            ElasticsearchController.GetPatient getPatient = new ElasticsearchController.GetPatient();
             getPatient.execute(userID);
             foundUser = getPatient.get();
             return foundUser != null;
@@ -141,20 +141,20 @@ public class CreateAccountActivity extends AppCompatActivity {
     /**
      * The addNewUser() method is called by init() when the user attempts to add a new account. If the checkbox is clicked by
      * the user, a CareProvider account will try to be created. If the checkbox is not checked, a patient account will
-     * attempt to be created. This method utilizes the ElasticUserController, CareProvider, and Patient classes.
+     * attempt to be created. This method utilizes the ElasticsearchController, CareProvider, and Patient classes.
      */
     public void addNewUser(){
-        if (ElasticUserController.testConnection(context)) {
+        if (ElasticsearchController.testConnection(context)) {
             // Save new user with elasticsearch
             if (checkBox.isChecked()) {
                 // save new care provider
                 CareProvider newCareProvider = new CareProvider(phone, email, userID);
-                ElasticUserController.AddCareProvider addCareProviderTask = new ElasticUserController.AddCareProvider();
+                ElasticsearchController.AddCareProvider addCareProviderTask = new ElasticsearchController.AddCareProvider();
                 addCareProviderTask.execute(newCareProvider);
             } else {
                 // save new patient
                 Patient newPatient = new Patient(phone, email, userID);
-                ElasticUserController.AddPatient addPatientTask = new ElasticUserController.AddPatient();
+                ElasticsearchController.AddPatient addPatientTask = new ElasticsearchController.AddPatient();
                 addPatientTask.execute(newPatient);
             }
 

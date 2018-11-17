@@ -17,13 +17,13 @@ import io.searchbox.core.Get;
 import io.searchbox.core.Index;
 
 /**
- * ElasticUserController enables a user to communicate with the ElasticSearch database for the purposes of storing and accessing users.
+ * ElasticsearchController enables a user to communicate with the ElasticSearch database for the purposes of storing and accessing users.
  *
  * @author Tyler Watson
  * @version 1.0
  * @since 2018-10-30
  */
-class ElasticUserController {
+class ElasticsearchController {
     private static JestDroidClient client;
     private static String server = "http://cmput301.softwareprocess.es:8080";
     private static String Index = "cmput301f18t13test";

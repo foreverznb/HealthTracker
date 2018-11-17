@@ -58,12 +58,12 @@ public class LoginActivity extends AppCompatActivity {
      * @throws InterruptedException catch exception where ...
      */
     public void UserLogin(View view) throws ExecutionException, InterruptedException {
-        if (ElasticUserController.testConnection(context)) {
+        if (ElasticsearchController.testConnection(context)) {
             String userID = UserID.getText().toString();
             if (isEmpty(UserID.getText().toString()) && isEmpty(Password.getText().toString())) {
                 if (checkBox.isChecked()) {
                     CareProvider careProvider;
-                    ElasticUserController.GetCareProvider getCareProvider = new ElasticUserController.GetCareProvider();
+                    ElasticsearchController.GetCareProvider getCareProvider = new ElasticsearchController.GetCareProvider();
                     getCareProvider.execute(userID);
                     careProvider = getCareProvider.get();
                     if (careProvider != null) {
@@ -79,7 +79,7 @@ public class LoginActivity extends AppCompatActivity {
 
                 } else {
                     Patient patient;
-                    ElasticUserController.GetPatient getPatient = new ElasticUserController.GetPatient();
+                    ElasticsearchController.GetPatient getPatient = new ElasticsearchController.GetPatient();
                     getPatient.execute(userID);
                     patient = getPatient.get();
                     if (patient != null) {

@@ -69,13 +69,7 @@ public class PatientHomeView extends AppCompatActivity {
      * @param view the view for the Patient home screen layout included for onClick methods in XML
      */
     public void Sync(View view) {
-        if (ElasticUserController.testConnection(this)) {
-            // upload cached user data
-            Patient user = new UserDataController<Patient>(this).loadUserLocally();
-            UserDataController.savePatientData(this, user);
-        } else {
-            Toast.makeText(this, "No internet connection available. Unable to sync.", Toast.LENGTH_LONG).show();
-        }
+        UserDataController.syncPatientData(this);
     }
 
     public void Logout(View view){
