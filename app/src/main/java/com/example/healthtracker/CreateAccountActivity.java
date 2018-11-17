@@ -1,5 +1,8 @@
 package com.example.healthtracker;
 
+import android.content.Context;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
@@ -12,6 +15,7 @@ import android.widget.Toast;
 import com.google.firebase.auth.FirebaseAuth;
 import com.searchly.jestdroid.JestDroidClient;
 
+import java.io.IOException;
 import java.util.concurrent.ExecutionException;
 
 
@@ -24,6 +28,7 @@ public class CreateAccountActivity extends AppCompatActivity {
     private EditText Email, Password, Phone, UserID;
     private Button Register;
     private CheckBox checkBox;
+    private Context context;
 
 
     private CreateAccountActivity Context;
@@ -40,7 +45,7 @@ public class CreateAccountActivity extends AppCompatActivity {
         Phone = findViewById(R.id.phone_number);
         UserID = findViewById(R.id.userID);
         checkBox = findViewById(R.id.caregiver_checkbox);
-        Context = CreateAccountActivity.this;
+        context = this;
         Log.d(TAG, "onCreate: started");
         init();
     }
@@ -53,12 +58,10 @@ public class CreateAccountActivity extends AppCompatActivity {
                 password = Password.getText().toString();
                 phone = Phone.getText().toString();
                 userID = UserID.getText().toString();
-
                 if (checkInputs(email, userID, password, phone)) {
                     try {
                         if(!userExists(userID)){
                             addNewUser();
-                            Toast.makeText(Context, "Account created", Toast.LENGTH_SHORT).show();
                             finish();
                         } else{
                             Toast.makeText(Context, "User ID is taken", Toast.LENGTH_SHORT).show();
@@ -129,6 +132,17 @@ public class CreateAccountActivity extends AppCompatActivity {
             addPatientTask.execute(newPatient);
         }
 
+        try {
+            if(userExists(userID)){
+                Toast.makeText(Context, "Account created", Toast.LENGTH_SHORT).show();
+            } else{
+                Toast.makeText(Context, "Failed to create account. Check internet connection.", Toast.LENGTH_SHORT).show();
+            }
+        } catch (ExecutionException e) {
+            e.printStackTrace();
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
 
 
     }
