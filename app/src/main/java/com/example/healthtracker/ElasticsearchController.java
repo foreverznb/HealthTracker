@@ -172,7 +172,7 @@ class ElasticsearchController {
                     Log.i("error", "Search query failed to find any thing =/");
                 }
             } catch (Exception e) {
-                Log.i("Error", "Could not access the server to get the patient");
+                Log.i("Error", "Could not access the server to get the CareProvider");
             }
             return careProvider;
         }

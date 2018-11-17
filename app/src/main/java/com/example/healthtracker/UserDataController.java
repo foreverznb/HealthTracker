@@ -32,11 +32,11 @@ public class UserDataController<E extends User> {
     // calls method to convert user object  to serialized string
 
     public static CareProvider loadCareProviderData(Context context) {
-        if (ElasticsearchController.testConnection(context)) {
+        if (ElasticUserController.testConnection(context)) {
             // Download user data with elastic search
             SharedPreferences myPrefs = context.getSharedPreferences("prefs", Context.MODE_PRIVATE);
             String userID = myPrefs.getString("userID", "");
-            ElasticsearchController.GetCareProvider getCareProvider = new ElasticsearchController.GetCareProvider();
+            ElasticUserController.GetCareProvider getCareProvider = new ElasticUserController.GetCareProvider();
             getCareProvider.execute(userID);
             CareProvider careProvider = null;
             try {
@@ -54,11 +54,11 @@ public class UserDataController<E extends User> {
     }
 
     public static Patient loadPatientData(Context context) {
-        if (ElasticsearchController.testConnection(context)) {
+        if (ElasticUserController.testConnection(context)) {
             // Download user data with elastic search
             SharedPreferences myPrefs = context.getSharedPreferences("prefs", Context.MODE_PRIVATE);
             String userID = myPrefs.getString("userID", "");
-            ElasticsearchController.GetPatient getPatient = new ElasticsearchController.GetPatient();
+            ElasticUserController.GetPatient getPatient = new ElasticUserController.GetPatient();
             getPatient.execute(userID);
             Patient patient = null;
             try {
@@ -77,9 +77,9 @@ public class UserDataController<E extends User> {
 
     public static void savePatientData(Context context, Patient patient) {
         // save online if possible
-        if (ElasticsearchController.testConnection(context)) {
+        if (ElasticUserController.testConnection(context)) {
             Toast.makeText(context, "Saved changes", Toast.LENGTH_LONG).show();
-            ElasticsearchController.AddPatient addPatientTask = new ElasticsearchController.AddPatient();
+            ElasticUserController.AddPatient addPatientTask = new ElasticUserController.AddPatient();
             addPatientTask.execute(patient);
         } else {
             Toast.makeText(context, "Could not reach server. Changes saved locally.", Toast.LENGTH_LONG).show();
@@ -92,8 +92,8 @@ public class UserDataController<E extends User> {
 
     public static void saveCareProviderData(Context context, CareProvider careProvider) {
         // save online if possible
-        if (ElasticsearchController.testConnection(context)) {
-            ElasticsearchController.AddCareProvider addCareProviderTask = new ElasticsearchController.AddCareProvider();
+        if (ElasticUserController.testConnection(context)) {
+            ElasticUserController.AddCareProvider addCareProviderTask = new ElasticUserController.AddCareProvider();
             addCareProviderTask.execute(careProvider);
         }
         // save to local cache
@@ -143,9 +143,7 @@ public class UserDataController<E extends User> {
         try {
             ObjectInputStream oi = new ObjectInputStream(bi);
             user = (E) oi.readObject();
-        } catch (IOException e1) {
-            e1.printStackTrace();
-        } catch (ClassNotFoundException e1) {
+        } catch (IOException | ClassNotFoundException e1) {
             e1.printStackTrace();
         }
         return user;

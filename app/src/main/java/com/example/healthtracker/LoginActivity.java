@@ -60,17 +60,17 @@ public class LoginActivity extends AppCompatActivity {
     public void UserLogin(View view) throws ExecutionException, InterruptedException {
         if (ElasticsearchController.testConnection(context)) {
             String userID = UserID.getText().toString();
-            SharedPreferences myPrefs = context.getSharedPreferences("prefs", Context.MODE_PRIVATE);
-            SharedPreferences.Editor editor = myPrefs.edit();
-            editor.putString("userID", userID);
-            editor.apply();
-            if (!isEmpty(UserID.getText().toString()) && !isEmpty(Password.getText().toString())) {
+            if (isEmpty(UserID.getText().toString()) && isEmpty(Password.getText().toString())) {
                 if (checkBox.isChecked()) {
                     CareProvider careProvider;
                     ElasticsearchController.GetCareProvider getCareProvider = new ElasticsearchController.GetCareProvider();
                     getCareProvider.execute(userID);
                     careProvider = getCareProvider.get();
                     if (careProvider != null) {
+                        SharedPreferences myPrefs = context.getSharedPreferences("prefs", Context.MODE_PRIVATE);
+                        SharedPreferences.Editor editor = myPrefs.edit();
+                        editor.putString("userID", userID);
+                        editor.apply();
                         Intent intent = new Intent(LoginActivity.this, CareProviderHomeView.class);
                         startActivity(intent);
                     } else {
@@ -83,10 +83,14 @@ public class LoginActivity extends AppCompatActivity {
                     getPatient.execute(userID);
                     patient = getPatient.get();
                     if (patient != null) {
+                        SharedPreferences myPrefs = context.getSharedPreferences("prefs", Context.MODE_PRIVATE);
+                        SharedPreferences.Editor editor = myPrefs.edit();
+                        editor.putString("userID", userID);
+                        editor.apply();
                         Intent intent = new Intent(LoginActivity.this, PatientHomeView.class);
                         startActivity(intent);
                     } else {
-                        Toast.makeText(LoginActivity.this, "Account could not be reached.", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(LoginActivity.this, "Unknown Account", Toast.LENGTH_SHORT).show();
                     }
                 }
             } else {

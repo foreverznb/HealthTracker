@@ -26,59 +26,30 @@ public class UserSettingsActivity extends AppCompatActivity {
     private static final String TAG = "Settings";
     String email;
     private Patient patient;
+    String userID;
     List<User> userInfo;
-    EditText userName;
     EditText uemail;
+    private CareProvider careProvider;
     EditText phone;
+    Patient currentUser;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_user_settings);// update problems if they are ever changed
-        try {
-            loadUserProfileData();
-        } catch (ExecutionException | InterruptedException e) {
-            e.printStackTrace();
-        }
-    }
-
-    public void loadUserProfileData() {
-        //TODO add load from local instead if offline
         uemail = findViewById(R.id.edit_email);
         phone = findViewById(R.id.edit_phone);
+    }
 
-        SharedPreferences pref = getSharedPreferences("MyPref", Context.MODE_PRIVATE);
-        String userName2 = pref.getString("username", "error");
-
-        // get the info of the patient stored in shared preferences from ElasticSearch
-        ElasticsearchController.GetPatient getPatient = new ElasticsearchController.GetPatient();
-        getPatient.execute(userName2);
-        try {
-            patient = getPatient.get();
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        } catch (ExecutionException e) {
-            e.printStackTrace();
-        }
-
-        userName.setText(userName2);
-        uemail.setText(patient.getEmail());
-        phone.setText(patient.getPhone());
+    public void loadCurrentUserData(){
+        Patient currentUser = UserDataController.loadPatientData(this);
+        uemail.setText(currentUser.getEmail());
+        phone.setText(currentUser.getPhone());
     }
 
     public void editUserInfo(){
-        patient.setEmail(uemail.getText().toString());
-        patient.setPhone(phone.getText().toString());
-
-        Patient newPatient = new Patient(phone.getText().toString(), uemail.getText().toString(), userName.getText().toString());
-        ElasticsearchController.AddPatient addPatientTask = new ElasticsearchController.AddPatient();
-        addPatientTask.execute(newPatient);
-
-        /*
-        SharedPreferences pref = getApplicationContext().getSharedPreferences("MyPref", 0); // 0 - for private mode
-        SharedPreferences.Editor editor = pref.edit();
-        editor.putString("username", userName.getText().toString()); // Storing string
-        editor.apply();*/
+        currentUser.updateUserInfo(uemail.getText().toString(), phone.getText().toString());
+        UserDataController.savePatientData(this, currentUser);
     }
 
     @RequiresApi(api = Build.VERSION_CODES.KITKAT)
