@@ -92,6 +92,7 @@ public class CareProviderHomeView extends AppCompatActivity {
     public void Settings(View view) {
         // Create an intent object containing the bridge to between the two activities
         Intent intent = new Intent(CareProviderHomeView.this, UserSettingsActivity.class);
+        intent.putExtra("profileType", "CareProvider");
         // Launch the browse emotions activity
         startActivity(intent);
     }
