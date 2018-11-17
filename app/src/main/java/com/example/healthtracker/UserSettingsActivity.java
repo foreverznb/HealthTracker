@@ -37,7 +37,6 @@ public class UserSettingsActivity extends AppCompatActivity {
 
     public void loadUserProfileData() throws ExecutionException, InterruptedException {
         //TODO add load from local instead if offline
-        userName = findViewById(R.id.edit_userid);
         uemail = findViewById(R.id.edit_email);
         phone = findViewById(R.id.edit_phone);
 
@@ -57,7 +56,6 @@ public class UserSettingsActivity extends AppCompatActivity {
     public void editUserInfo(){
         patient.setEmail(uemail.getText().toString());
         patient.setPhone(phone.getText().toString());
-        patient.setUserName(userName.getText().toString());
 
         Patient newPatient = new Patient(phone.getText().toString(), uemail.getText().toString(), userName.getText().toString());
         ElasticUserController.AddPatient addPatientTask = new ElasticUserController.AddPatient();

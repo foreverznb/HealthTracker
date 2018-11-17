@@ -81,16 +81,16 @@ public final class R {
     public static final class id {
         private id() {}
 
-        public static final int action0 = 0x7f090007;
-        public static final int action_container = 0x7f09000f;
-        public static final int action_divider = 0x7f090011;
-        public static final int action_image = 0x7f090012;
-        public static final int action_text = 0x7f090018;
-        public static final int actions = 0x7f090019;
-        public static final int async = 0x7f090027;
-        public static final int blocking = 0x7f09002e;
-        public static final int cancel_action = 0x7f090032;
-        public static final int chronometer = 0x7f09003c;
+        public static final int action0 = 0x7f090008;
+        public static final int action_container = 0x7f090010;
+        public static final int action_divider = 0x7f090012;
+        public static final int action_image = 0x7f090013;
+        public static final int action_text = 0x7f090019;
+        public static final int actions = 0x7f09001a;
+        public static final int async = 0x7f090028;
+        public static final int blocking = 0x7f09002f;
+        public static final int cancel_action = 0x7f090033;
+        public static final int chronometer = 0x7f09003d;
         public static final int end_padder = 0x7f090060;
         public static final int forever = 0x7f09006b;
         public static final int icon = 0x7f090073;

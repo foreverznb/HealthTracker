@@ -11,13 +11,12 @@ public class User implements Serializable {
     private String email;
     private String phone;
     @JestId
-    private String userName;
     private String userID;
 
-    public User(String phone, String email, String userName) {
-        this.phone = phone;
+    public User(String phone, String email, String userID) {
         this.email = email;
-        this.userName = userName;
+        this.phone = phone;
+        this.userID = userID;
     }
 
     public User(){
@@ -36,10 +35,6 @@ public class User implements Serializable {
         return this.phone;
     }
 
-    public String getUserName() {
-        return this.userName;
-    }
-
     public void setEmail(String email) {
         this.email = email;
     }
@@ -48,9 +43,6 @@ public class User implements Serializable {
         this.phone = phone;
     }
 
-    public void setUserName(String userName) {
-        this.userName = userName;
-    }
 
     public void setUserID(String userID) {
         this.userID = userID;

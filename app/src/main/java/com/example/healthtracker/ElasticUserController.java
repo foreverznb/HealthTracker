@@ -1,22 +1,29 @@
 package com.example.healthtracker;
 
 
+import android.content.Context;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.os.AsyncTask;
 import android.util.Log;
+import android.support.v7.app.AppCompatActivity;
 
 import com.searchly.jestdroid.DroidClientConfig;
 import com.searchly.jestdroid.JestClientFactory;
 import com.searchly.jestdroid.JestDroidClient;
+
+import java.io.IOException;
 
 import io.searchbox.client.JestResult;
 import io.searchbox.core.DocumentResult;
 import io.searchbox.core.Get;
 import io.searchbox.core.Index;
 
+
 public class ElasticUserController {
     private static JestDroidClient client;
     private static String server = "http://cmput301.softwareprocess.es:8080";
-    private static String Index = "cmput301f18t13";
+    private static String Index = "cmput301f18t13test";
 
     /*
     // TODO we need a function which gets users from elastic search
@@ -59,7 +66,7 @@ public class ElasticUserController {
             return users;
         }
     }*/
-    // verify the settings for a more inferior elastic search database
+    // verify the settings
     public static void verifySettings() {
         if (client == null) {
             // if the client is not yet created, build the client factory, establish connection to the DB, and finally set the client and its factory
@@ -82,16 +89,15 @@ public class ElasticUserController {
             Index index = new Index.Builder(patient)
                     .index(Index)
                     .type("Patient")
-                    .id(patient.getUserName()).build();
+                    .id(patient.getUserID()).build();
 
             try {
                 // where is the client?
                 DocumentResult result = client.execute(index);
 
-                if (result.isSucceeded()) {
-                    patient.setUserID(result.getId());
-                } else {
+                if (!result.isSucceeded()) {
                     Log.i("Error", "Elasticsearch was not able to add the user");
+                    throw new ConnectionError();
                 }
             } catch (Exception e) {
                 Log.i("Error", "The application failed to build and add the patient");
@@ -110,17 +116,17 @@ public class ElasticUserController {
             Index index = new Index.Builder(careProvider)
                     .index(Index)
                     .type("CareProvider")
-                    .id(careProvider.getUserName()).build();
+                    .id(careProvider.getUserID()).build();
 
             try {
                 // where is the client?
                 DocumentResult result = client.execute(index);
-                if (result.isSucceeded()) {
-                    careProvider.setUserID(result.getId());
-                } else {
+                if (!result.isSucceeded()) {
                     Log.i("Error", "Elasticsearch was not able to add the user");
+                    throw new ConnectionError();
                 }
-            } catch (Exception e) {
+            }
+            catch (Exception e) {
                 Log.i("Error", "The application failed to build and add the CareProvider");
             }
 
@@ -141,9 +147,11 @@ public class ElasticUserController {
                 if (result.isSucceeded()) {
                     patient = result.getSourceAsObject(Patient.class);
                 } else {
-                    Log.i("error", "Search query failed to find users");
+                    Log.i("error", "Search query failed to find any thing =/");
+                    throw new ConnectionError();
                 }
-            } catch (Exception e) {
+            }
+            catch (Exception e) {
                 Log.i("Error", "Could not access the server to get the patient");
             }
             return patient;
@@ -163,11 +171,12 @@ public class ElasticUserController {
                 if (result.isSucceeded()) {
                     careProvider = result.getSourceAsObject(CareProvider.class);
                 } else {
-                    Log.i("error", "Search query failed to find users");
+                    Log.i("error", "Search query failed to find any thing =/");
+                    throw new ConnectionError();
                 }
             }
             catch (Exception e) {
-                Log.i("Error", "Could not access the server to get the CareProvider");
+                Log.i("Error", "Could not access the server to get the patient");
             }
             return careProvider;
         }

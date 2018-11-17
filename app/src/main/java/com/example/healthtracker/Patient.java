@@ -16,8 +16,8 @@ public class Patient extends User implements Serializable {
 
     private List<Problem> problemList;
 
-    public Patient(String phone, String email, String userName){
-        super(phone, email, userName);
+    public Patient(String phone, String email, String userID){
+        super(phone, email, userID);
         this.problemList = new ArrayList<>();
     }
 
@@ -42,10 +42,9 @@ public class Patient extends User implements Serializable {
         this.problemList.remove(problem);
     }
 
-    public void updateUserInfo(String phone, String email, String userName){
+    public void updateUserInfo(String phone, String email){
         super.setEmail(email);
         super.setPhone(phone);
-        super.setUserName(userName);
     }
 
 }
