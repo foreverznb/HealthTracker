@@ -94,4 +94,9 @@ public class Patient extends User implements Serializable {
     public void addCareProvider(CareProvider cProvider){
         this.careProvider = cProvider;
     }
+
+    @Override
+    public String toString() {
+        return "Patient: "+getUserID()+"|care provider: "+getCareProvider();
+    }
 }

@@ -31,27 +31,33 @@ public class AddPatientView extends AppCompatActivity {
 
     }
 
-    public void ValidatePatientId(){
+    public Boolean ValidatePatientId(){
         // Read user input
         String patientId = inputId.getText().toString();
-
+        boolean validID = false;
         // Read from the elastic search database, obtain a list of registered patient Ids
         ElasticsearchController.getAllPatients getAllMyPatients  = new ElasticsearchController.getAllPatients();
         getAllMyPatients.execute();
 
         try {
             patients = getAllMyPatients.get();
-
+            System.out.println(patients);
+            System.out.println("reached here!");
             // Check whether the patient ID exists
-            boolean validID = false;
+
             for(int i=0;i<patients.size();i++){
-                if(patientId == patients.get(i).getUserID()){
+                System.out.println("aaaaaa");
+                System.out.println(patientId);
+                System.out.println(patients.get(i).getUserID());
+                if(patientId.equals(patients.get(i).getUserID())){
                     validID = true;
                     mPatient = patients.get(i);
                 }
             }
-            if (validID == false){
-                Toast.makeText(this,"The patient ID is not valid. Please try again.",Toast.LENGTH_SHORT);
+            System.out.println("patientId is "+validID);
+            if (!validID){
+                Toast.makeText(this,"The patient ID is not valid. Please try again.",Toast.LENGTH_LONG).show();
+                return false;
             }
         }catch (ExecutionException e1){
             Log.i("error","execution exception");
@@ -60,31 +66,42 @@ public class AddPatientView extends AppCompatActivity {
         }
 
         // If valid.
-        // Check whether the patient has already been assigned to another care provider
-        if(mPatient.getCareProvider() == null){
-            // Add a new Care Provider and save it into the elastic search database
+        if (validID) {
+            // Check whether the patient has already been assigned to another care provider
+            if (mPatient.getCareProvider() == null) {
+                System.out.println("ccccccccc");
+                // Add a new Care Provider and save it into the elastic search database
 
-            // Fetch user data
-            CareProvider careProvider = UserDataController.loadCareProviderData(this);
-            // Add Care Provider
-            mPatient.addCareProvider(careProvider);
-            // Save Care Provider
-            UserDataController.saveCareProviderData(this,careProvider);
-        }
-        else{
-            Toast.makeText(this,"This patient has been assigned to a care provider already.",Toast.LENGTH_LONG);
+                // Fetch user data
+                CareProvider careProvider = UserDataController.loadCareProviderData(this);
+                System.out.println(careProvider);
+                // Care Provider Add Patient
+                careProvider.addPatient(mPatient);
+                // Save Care Provider
+                UserDataController.saveCareProviderData(this, careProvider);
+                return true;
+            }
+            else{
+                Toast.makeText(this, "This patient has been assigned to a care provider already.", Toast.LENGTH_LONG).show();
+                return false;
+            }
         }
 
+
+        return true;
     }
 
 
     public void Add(View view) {
-        ValidatePatientId();
-
-        Toast.makeText(this, "Patient Added", Toast.LENGTH_SHORT).show();
-        // Create an intent object containing the bridge to between the two activities
-        Intent intent = new Intent(AddPatientView.this, CareProviderHomeView.class);
-        // Launch the browse emotions activity
-        startActivity(intent);
+        if(ValidatePatientId()) {
+            Toast.makeText(this, "Patient Added", Toast.LENGTH_SHORT).show();
+            // Create an intent object containing the bridge to between the two activities
+            Intent intent = new Intent(AddPatientView.this, CareProviderHomeView.class);
+            // Launch the browse emotions activity
+            startActivity(intent);
+        }
+        else{
+            //Toast.makeText(this, "Patient Not Added", Toast.LENGTH_SHORT).show();
+        }
     }
 }

@@ -225,7 +225,7 @@ class ElasticsearchController {
                     System.out.println("result not null");
                 }
                 patients_list = result.getSourceAsObjectList(Patient.class);
-                System.out.println(patients);
+                System.out.println(patients_list);
                 // Convert patients_list (List) to patients (ArrayList)
                 for(int i=0;i<patients_list.size();i++){
                     patients.add(patients_list.get(i));
