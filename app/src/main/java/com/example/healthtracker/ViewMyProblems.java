@@ -102,7 +102,7 @@ public class ViewMyProblems extends AppCompatActivity {
                 });
 
                 // set a neutral button in the dialog which will open up the edit entry activity to modify the emotion
-                ab.setNeutralButton("Edit", new DialogInterface.OnClickListener() {
+                ab.setNeutralButton("Edit/View", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
                         // Create an intent object containing the bridge to between the two activities
