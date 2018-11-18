@@ -16,6 +16,8 @@ public class ViewPatients extends AppCompatActivity {
 
 
 
+
+
     /*
         // add listener to detect button click on items in listview
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {

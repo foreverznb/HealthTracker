@@ -15,6 +15,7 @@ import java.util.List;
 public class Patient extends User implements Serializable {
 
     private ArrayList<Problem> problemList = new ArrayList<Problem>();
+    private CareProvider careProvider;
 
     /**
      * constructor for creating a new Patient user and their appropriate profile information designated by parameter values
@@ -25,6 +26,7 @@ public class Patient extends User implements Serializable {
      */
     public Patient(String phone, String email, String userID){
         super(phone, email, userID);
+
     }
 
     /**
@@ -83,5 +85,13 @@ public class Patient extends User implements Serializable {
 
     public Problem getProblem(int index){
         return problemList.get(index);
+    }
+
+    public CareProvider getCareProvider(){
+        return this.careProvider;
+    }
+
+    public void addCareProvider(CareProvider cProvider){
+        this.careProvider = cProvider;
     }
 }

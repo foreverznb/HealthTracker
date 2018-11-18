@@ -34,6 +34,12 @@ public class User implements Serializable {
         this.userID = userID;
     }
 
+
+    @Override
+    public String toString() {
+        return "userId: "+userID+"|email: "+email+"|phone: "+phone;
+    }
+
     /**
      * user singleton
      */

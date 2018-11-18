@@ -11,10 +11,16 @@ import com.searchly.jestdroid.DroidClientConfig;
 import com.searchly.jestdroid.JestClientFactory;
 import com.searchly.jestdroid.JestDroidClient;
 
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
+
 import io.searchbox.client.JestResult;
 import io.searchbox.core.DocumentResult;
 import io.searchbox.core.Get;
 import io.searchbox.core.Index;
+import io.searchbox.core.Search;
+import io.searchbox.core.SearchResult;
 
 /**
  * ElasticsearchController enables a user to communicate with the ElasticSearch database for the purposes of storing and accessing users.
@@ -192,6 +198,46 @@ class ElasticsearchController {
         } else
             return connectivityManager.getNetworkInfo(ConnectivityManager.TYPE_MOBILE).getState() == NetworkInfo.State.CONNECTED;
         // not connected
+    }
+
+    public static class getAllPatients extends AsyncTask<Void,Void,ArrayList<Patient>> {
+        @Override
+        protected ArrayList<Patient> doInBackground(Void...params){
+            ArrayList<Patient> patients = new ArrayList<Patient>() ;
+            List<Patient> patients_list;
+            String query = "{\n"+
+                    "           \"size\": 100,"+
+                    "           \"query\": {\n" +
+                    "               \"match_all\": {}\n" +
+                    "             }\n" +
+                    "         }";
+            Log.d("query_string",query);
+            Search search = new Search.Builder(query)
+                            .addIndex(Index)
+                            .addType("Patient")
+                            .build();
+            try {
+                SearchResult result = client.execute(search);
+                if (result == null){
+                    System.out.println("result is null");
+                }
+                else{
+                    System.out.println("result not null");
+                }
+                patients_list = result.getSourceAsObjectList(Patient.class);
+                System.out.println(patients);
+                // Convert patients_list (List) to patients (ArrayList)
+                for(int i=0;i<patients_list.size();i++){
+                    patients.add(patients_list.get(i));
+                }
+
+            }catch(IOException e){
+                Log.i("error","search failed");
+            }
+
+            return patients;
+
+        }
     }
 
 }
