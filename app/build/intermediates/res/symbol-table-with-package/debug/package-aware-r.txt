@@ -1132,6 +1132,7 @@ id back_from_userlist
 id barrier
 id beginning
 id blocking
+id bodylocation_button
 id bottom
 id button
 id buttonPanel
@@ -1162,6 +1163,8 @@ id date_started_editable
 id date_started_editscreen
 id decor_content_parent
 id default_activity_button
+id description_edit_text
+id description_text
 id design_bottom_sheet
 id design_menu_item_action_area
 id design_menu_item_action_area_stub
@@ -1192,6 +1195,7 @@ id fill_vertical
 id filled
 id fixed
 id forever
+id geomap_button
 id ghost_view
 id gone
 id group_divider
@@ -1249,6 +1253,7 @@ id parent_matrix
 id patient_id_string
 id percent
 id phone_number
+id photo_button
 id pin
 id problem_description
 id problem_description_edit
@@ -1259,6 +1264,8 @@ id problem_title
 id progress_circular
 id progress_horizontal
 id radio
+id record_list_addscreen
+id record_list_editscreen
 id record_view_back
 id record_view_bodylocation
 id record_view_comment
@@ -1275,6 +1282,7 @@ id right_side
 id satellite
 id save_image_matrix
 id save_non_transition_alpha
+id save_record_button
 id save_scale_type
 id screen
 id scroll
@@ -1350,6 +1358,8 @@ id textinput_helper_text
 id time
 id title
 id titleDividerNoCustom
+id titleText
+id title_edit_text
 id title_template
 id title_text
 id title_text_editscreen

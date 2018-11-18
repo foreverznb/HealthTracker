@@ -19,7 +19,7 @@ import java.util.concurrent.ExecutionException;
 
 //todo cite student picker
 
-public class UserDataController<E extends User> {
+public class UserDataController<E> {
 
 
     final private static String userKey = "Key";
@@ -56,6 +56,9 @@ public class UserDataController<E extends User> {
 
     public static Patient loadPatientData(Context context) {
         if (ElasticsearchController.testConnection(context)) {
+            // check if local cache and server in sync
+            //if not sync by uploading local cache
+
             // Download user data with elastic search
             SharedPreferences myPrefs = context.getSharedPreferences("prefs", Context.MODE_PRIVATE);
             String userID = myPrefs.getString("userID", "");
@@ -111,7 +114,7 @@ public class UserDataController<E extends User> {
     private void saveUserLocally(E user) {
         SharedPreferences myPrefs = context.getSharedPreferences("prefs", Context.MODE_PRIVATE);
         SharedPreferences.Editor editor = myPrefs.edit();
-        editor.putString(userKey, userToString(user));
+        editor.putString(userKey, objectToString(user));
         editor.apply();
     }
 
@@ -120,19 +123,19 @@ public class UserDataController<E extends User> {
     private E loadUserLocally() {
         SharedPreferences myPrefs = context.getSharedPreferences("prefs", Context.MODE_PRIVATE);
         String userString = myPrefs.getString(userKey, "");
-        E user = userFromString(userString);
+        E user = objectFromString(userString);
         if (user == null) {
             return null;
         }
         return user;
     }
 
-    // convert user object to serialized string
-    private String userToString(E user) {
+    // convert object to serialized string
+    private String objectToString(E data) {
         ByteArrayOutputStream bo = new ByteArrayOutputStream();
         try {
             ObjectOutputStream oo = new ObjectOutputStream(bo);
-            oo.writeObject(user);
+            oo.writeObject(data);
             oo.close();
         } catch (IOException e1) {
             e1.printStackTrace();
@@ -141,9 +144,9 @@ public class UserDataController<E extends User> {
         return Base64.encodeToString(bytes, Base64.DEFAULT);
     }
 
-    // convert serialized string to user object
-    private E userFromString(String userData) {
-        ByteArrayInputStream bi = new ByteArrayInputStream(Base64.decode(userData, Base64.DEFAULT));
+    // convert serialized string to object
+    private E objectFromString(String data) {
+        ByteArrayInputStream bi = new ByteArrayInputStream(Base64.decode(data, Base64.DEFAULT));
         E user = null;
         try {
             ObjectInputStream oi = new ObjectInputStream(bi);
@@ -172,6 +175,14 @@ public class UserDataController<E extends User> {
         } else {
             Toast.makeText(context, "No internet connection available. Unable to sync.", Toast.LENGTH_LONG).show();
         }
+    }
+
+    public static String serializeRecord(Context context, PatientRecord record){
+      return new UserDataController<PatientRecord>(context).objectToString(record);
+    }
+
+    public static PatientRecord unSerializeRecord(Context context, String recordString){
+        return new UserDataController<PatientRecord>(context).objectFromString(recordString);
     }
 
 

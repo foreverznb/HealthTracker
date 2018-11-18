@@ -17,11 +17,10 @@ public class Problem implements Serializable {
     private String ProblemTitle;
     private Date dateStarted;
     private String description;
-    private Integer numOfRecords;
     // if we use the android built in notifications then they cant be here or elastic search will break
     private List<notifyUser> notifications;
     private Boolean notificationsOn = FALSE;
-    private ArrayList<PatientRecord> patientRecords;
+    private ArrayList<PatientRecord> patientRecords = new ArrayList<PatientRecord>();
     private ArrayList<CareGiverComment> caregiverRecords;
 
     public Problem(){
@@ -32,14 +31,13 @@ public class Problem implements Serializable {
         this.ProblemTitle = title;
         this.dateStarted = dateStarted;
         this.description = description;
-        this.numOfRecords = 0;          // Refer to the number of records created by the patient
     }
 
     public String toString(){
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
         String dateStr = sdf.format(dateStarted);
-        Log.d("number of records: ",String.valueOf(numOfRecords));
-        return "title: "+ProblemTitle+"\n"+"start date: "+dateStr+"\n"+"description: "+description+"\n"+"number of records: "+String.valueOf(numOfRecords);
+        return "title: "+ProblemTitle+"\n"+"start date: "+dateStr+"\n"+"description: "+
+                description+"\n"+"number of records: "+String.valueOf(patientRecords.size());
     }
 
     public String getTitle(){
@@ -76,8 +74,16 @@ public class Problem implements Serializable {
         setDescription(description);
     }
 
+    public void setRecords(ArrayList<PatientRecord> records){
+        this.patientRecords = records;
+    }
+
+    public ArrayList<PatientRecord> getRecords(){
+        return this.patientRecords;
+    }
+
     public Integer countRecords(){
-        return numOfRecords;
+        return patientRecords.size();
     }
 
    /* public ArrayList<PatientRecord> getPatientRecords(){
