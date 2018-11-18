@@ -91,12 +91,12 @@ public class Patient extends User implements Serializable {
         return this.careProvider;
     }
 
-    public void addCareProvider(CareProvider cProvider){
+    public void updateCareProvider(CareProvider cProvider){
         this.careProvider = cProvider;
     }
 
     @Override
     public String toString() {
-        return "Patient: "+getUserID()+"|care provider: "+getCareProvider();
+        return "Patient: "+getUserID()+"\nCare provider: "+getCareProvider();
     }
 }

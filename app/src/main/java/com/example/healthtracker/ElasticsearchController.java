@@ -206,7 +206,7 @@ class ElasticsearchController {
             ArrayList<Patient> patients = new ArrayList<Patient>() ;
             List<Patient> patients_list;
             String query = "{\n"+
-                    "           \"size\": 100,"+
+                    "           \"size\": 10000,"+
                     "           \"query\": {\n" +
                     "               \"match_all\": {}\n" +
                     "             }\n" +

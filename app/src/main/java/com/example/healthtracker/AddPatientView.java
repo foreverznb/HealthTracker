@@ -42,13 +42,11 @@ public class AddPatientView extends AppCompatActivity {
         try {
             patients = getAllMyPatients.get();
             System.out.println(patients);
-            System.out.println("reached here!");
+
             // Check whether the patient ID exists
 
             for(int i=0;i<patients.size();i++){
-                System.out.println("aaaaaa");
-                System.out.println(patientId);
-                System.out.println(patients.get(i).getUserID());
+
                 if(patientId.equals(patients.get(i).getUserID())){
                     validID = true;
                     mPatient = patients.get(i);
@@ -69,16 +67,19 @@ public class AddPatientView extends AppCompatActivity {
         if (validID) {
             // Check whether the patient has already been assigned to another care provider
             if (mPatient.getCareProvider() == null) {
-                System.out.println("ccccccccc");
+
                 // Add a new Care Provider and save it into the elastic search database
 
                 // Fetch user data
                 CareProvider careProvider = UserDataController.loadCareProviderData(this);
-                System.out.println(careProvider);
+
                 // Care Provider Add Patient
                 careProvider.addPatient(mPatient);
-                // Save Care Provider
+                //Patient has a Care Provider
+                //mPatient.updateCareProvider(careProvider);
+                // Save Care Provider and Patient
                 UserDataController.saveCareProviderData(this, careProvider);
+                //UserDataController.savePatientData(this,mPatient);
                 return true;
             }
             else{
