@@ -43,13 +43,13 @@ public class Patient extends User implements Serializable {
     }
 
     /**
-     * TODO
+     * Update the problem at the specified index with the modifiedProblem.
      *
-     * @param title
+     * @param index
      * @param modifiedProblem
      */
-    public void setProblem(String title, Problem modifiedProblem){
-        //TODO implement
+    public void setProblem(Problem modifiedProblem, int index){
+        problemList.set(index, modifiedProblem);
     }
 
     public void setProblems(ArrayList<Problem> problems){
@@ -79,5 +79,9 @@ public class Patient extends User implements Serializable {
 
     public boolean noProblemsExist(){
         return problemList.isEmpty();
+    }
+
+    public Problem getProblem(int index){
+        return problemList.get(index);
     }
 }

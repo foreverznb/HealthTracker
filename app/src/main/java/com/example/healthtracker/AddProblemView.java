@@ -83,7 +83,6 @@ public class AddProblemView extends AppCompatActivity {
 
 
     // save button
-    @RequiresApi(api = Build.VERSION_CODES.KITKAT)
     public void addPatientProblem(View view) {
         if (titleText.getText().toString().equals("") || dateText.getText().toString().equals("")
                 || descriptionText.getText().toString().equals("")) {
@@ -95,7 +94,6 @@ public class AddProblemView extends AppCompatActivity {
         }
     }
 
-    @RequiresApi(api = Build.VERSION_CODES.KITKAT)
     public void saveProblem(){
 
         // get Problem info

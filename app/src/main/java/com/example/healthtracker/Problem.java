@@ -57,18 +57,23 @@ public class Problem implements Serializable {
         return description;
     }
 
-    public void setTitle(String newTitle){
+    private void setTitle(String newTitle){
         this.ProblemTitle = newTitle;
 
     }
 
-    public void setDate(Date newDate){
+    private void setDate(Date newDate){
         this.dateStarted = newDate;
     }
 
-    public void setDescription(String newDescription){
+    private void setDescription(String newDescription){
         this.description = newDescription;
+    }
 
+    public void update(String title, Date date, String description){
+        setDate(date);
+        setTitle(title);
+        setDescription(description);
     }
 
     public Integer countRecords(){

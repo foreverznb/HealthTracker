@@ -30,6 +30,8 @@ public class ViewMyProblems extends AppCompatActivity {
     private ArrayList<Problem> mProblems;
     private ListView mListView;
     private Context context;
+    private ArrayAdapter<Problem> mArrayAdapter;
+    private Patient user;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,15 +41,21 @@ public class ViewMyProblems extends AppCompatActivity {
         // get context
         context = this;
 
+    }
+
+    @Override
+    public void onResume(){
+        super.onResume();
+
         // Load patient data
-        Patient user = UserDataController.loadPatientData(this);
+        user = UserDataController.loadPatientData(this);
         mProblems = user.getProblemList();
 
         // Create an instance of an array adapter
-        final ArrayAdapter<Problem> mArrayAdapter = new ArrayAdapter<Problem>(this, android.R.layout.simple_list_item_1, mProblems);
+        mArrayAdapter = new ArrayAdapter<Problem>(this, android.R.layout.simple_list_item_1, mProblems);
 
         // Set an adapter for the list view
-        ListView mListView = findViewById(R.id.problem_list_view);
+        mListView = findViewById(R.id.problem_list_view);
         mListView.setAdapter(mArrayAdapter);
 
         // Create a context menu to permit users to select and edit a problem
@@ -99,6 +107,10 @@ public class ViewMyProblems extends AppCompatActivity {
                     public void onClick(DialogInterface dialog, int which) {
                         // Create an intent object containing the bridge to between the two activities
                         Intent intent = new Intent(ViewMyProblems.this, EditProblem.class);
+
+                        // store problem index
+                        intent.putExtra("Index", position);
+
                         // Launch the browse emotions activity
                         startActivity(intent);
                     }
