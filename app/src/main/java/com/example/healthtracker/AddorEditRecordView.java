@@ -19,6 +19,16 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Locale;
 
+/**
+ * AddorEditRecordView enables a patient to add a new record to one of their problems or edit an
+ * existing record. This activity will finish with a positive result code if a record was successfully
+ * saved. The current Record data will be displayed if a record is being edited. The new
+ * or changed record can be saved by selecting the save button.
+ *
+ * @author Michael Boisvert
+ * @version 1.0
+ * @since 2018-11-15
+ */
 public class AddorEditRecordView extends AppCompatActivity {
 
     public EditText titleText;
@@ -28,10 +38,6 @@ public class AddorEditRecordView extends AppCompatActivity {
     Context context;
     Patient patient;
     PatientRecord record;
-
-    /*TODO cite https://stackoverflow.com/questions/10407159/how-to-manage-startactivityforresult-on-android
-    for start/end intent for result
-    */
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -53,6 +59,11 @@ public class AddorEditRecordView extends AppCompatActivity {
     }
 
     @Override
+    /**
+     * Overrides the android back button in order to warn user that their record will not be saved.
+     * Also sets the result state to RESULT_CANCELED so that the previous activity can determine no
+     * record has been added or edited.
+     */
     public void onBackPressed() {
         AlertDialog.Builder ab = new AlertDialog.Builder(this);
         ab.setMessage("Warning. You are about to go back without saving the record.");
@@ -78,18 +89,13 @@ public class AddorEditRecordView extends AppCompatActivity {
         ab.show();
     }
 
+    /**
+     * When clicked the save button will save or update the record as long as the record at least
+     * has a title.
+     *
+     * @param view The view for the layout included for onClick methods in XML
+     */
     public void saveButton(View view) {
-        addRecord();
-    }
-
-    public void showRecord(){
-        titleText.setText(record.getTitle());
-        descriptionText.setText(record.getComment());
-        //TODO show geomap, photos, bodlocation
-
-    }
-
-    public void addRecord() {
         if (titleText.getText().toString().equals("")) {
             Toast.makeText(this, "Error, a title is required.", Toast.LENGTH_LONG).show();
         } else {
@@ -97,15 +103,26 @@ public class AddorEditRecordView extends AppCompatActivity {
         }
     }
 
-    public void saveRecord(){
+    /**
+     * If a record is being edited this method is called to display its current data.
+     */
+    public void showRecord(){
+        titleText.setText(record.getTitle());
+        descriptionText.setText(record.getComment());
+        //TODO show geomap, photos, bodlocation
+    }
 
+    /**
+     * Update record with user entered data.
+     * Save record by serializing it and setting it as the result of this activity.
+     */
+    public void saveRecord(){
         // get Record info
         title = titleText.getText().toString();
         comment = descriptionText.getText().toString();
 
         // fetch user data
         patient = UserDataController.loadPatientData(context);
-
 
         // add record
         record.setComment(comment);

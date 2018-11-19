@@ -83,6 +83,7 @@
     <string name="email">Email Address</string>
     <string name="usernameSettings">Username</string>
     <string name="userID">User ID</string>
+    <string name="newUserID">User ID(min 8 characters)</string>
 
 
     <string-array name="searchTypes">

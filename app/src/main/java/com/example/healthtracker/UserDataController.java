@@ -14,12 +14,22 @@ import java.io.ObjectOutputStream;
 import java.util.ArrayList;
 import java.util.concurrent.ExecutionException;
 
+
 /**
- * Created by caochenlin on 2018/11/2.
+ * Used to load data from server or local cache as well as save to server and local cache.
+ * Server is saved to and loaded from using elastic search.
+ * Objects are serialized and saved to shared preferences for local cache.
+ *
+ * The methods for serializing Objects and reading and writing serialized objects to shared preferences
+ * are taken from the Student Picker for Android video series by Abram Hindle.
+ * Student Picker for Android by Abram Hindle: https://www.youtube.com/watch?v=5PPD0ncJU1g
+ *
+ * @author caochenlin
+ * @version 1.0
+ * @since 2018/11/2
+ *
+ *
  */
-
-//todo cite student picker
-
 public class UserDataController<E> {
 
 
@@ -33,6 +43,13 @@ public class UserDataController<E> {
     // save serialized string of user object to shared preferences
     // calls method to convert user object  to serialized string
 
+    /**
+     * Retrieves all of the data of the currently logged in CareProvider in the form of
+     * a single CareProvider object
+     *
+     * @param context input context to use to access shared preferences
+     * @return returns CareProvider object corresponding to the currently logged in CareProvider
+     */
     public static CareProvider loadCareProviderData(Context context) {
         if (ElasticsearchController.testConnection(context)) {
             // Download user data with elastic search
@@ -55,10 +72,15 @@ public class UserDataController<E> {
         }
     }
 
+    /**
+     * Retrieves all of the data of the currently logged in Patient in the form of
+     * a single Patient object
+     *
+     * @param context input context to use to access shared preferences
+     * @return returns Patient object corresponding to the currently logged in Patient
+     */
     public static Patient loadPatientData(Context context) {
         if (ElasticsearchController.testConnection(context)) {
-            // check if local cache and server in sync
-            //if not sync by uploading local cache
 
             // Download user data with elastic search
             SharedPreferences myPrefs = context.getSharedPreferences("prefs", Context.MODE_PRIVATE);
@@ -80,7 +102,14 @@ public class UserDataController<E> {
         }
     }
 
-    public static Patient loadMyPatientById(Context context, String ID) {
+    /**
+     * Retrieves a specific patient by inputting their id
+     *
+     * @param context input context to use to access shared preferences
+     * @param ID input the ID of the patient to be returned
+     * @return Patient to who the ID input belongs to
+     */
+    public static Patient loadPatientById(Context context, String ID) {
         if (ElasticsearchController.testConnection(context)) {
 
             // Download user data with elastic search
@@ -101,6 +130,14 @@ public class UserDataController<E> {
         }
     }
 
+    /**
+     * Saves patient object to server if internet is available and the server is reachable. Always
+     * saves patient object locally. Creates toast message to confirm success or failure of saving
+     * patient to server.
+     *
+     * @param context input context needed to access Shared Preferences
+     * @param patient input patient to save
+     */
     public static void savePatientData(Context context, Patient patient) {
         // save online if possible
         if (ElasticsearchController.testConnection(context)) {
@@ -116,6 +153,14 @@ public class UserDataController<E> {
         new UserDataController<Patient>(context).saveUserLocally(patient);
     }
 
+    /**
+     * Saves CareProvider object to server if internet is available and the server is reachable. Always
+     * saves CareProvider object locally. Creates toast message to confirm success or failure of saving
+     * CareProvider to server.
+     *
+     * @param context input context needed to access Shared Preferences
+     * @param careProvider input CareProvider to save
+     */
     public static void saveCareProviderData(Context context, CareProvider careProvider) {
         // save online if possible
         if (ElasticsearchController.testConnection(context)) {
@@ -130,9 +175,8 @@ public class UserDataController<E> {
         new UserDataController<CareProvider>(context).saveUserLocally(careProvider);
     }
 
-    /**
-     * @param user
-     */
+    // Method taken from Abram Hindle's Student Picker for android series: https://www.youtube.com/watch?v=5PPD0ncJU1g
+    // serialize and save object to shared preferences
     private void saveUserLocally(E user) {
         SharedPreferences myPrefs = context.getSharedPreferences("prefs", Context.MODE_PRIVATE);
         SharedPreferences.Editor editor = myPrefs.edit();
@@ -140,6 +184,7 @@ public class UserDataController<E> {
         editor.apply();
     }
 
+    // Method taken from Abram Hindle's Student Picker for android series: https://www.youtube.com/watch?v=5PPD0ncJU1g
     // load serialized string of user from shared preferences
     // call method to convert serialized string back to user object
     private E loadUserLocally() {
@@ -152,6 +197,7 @@ public class UserDataController<E> {
         return user;
     }
 
+    // Method taken from Abram Hindle's Student Picker for android series: https://www.youtube.com/watch?v=5PPD0ncJU1g
     // convert object to serialized string
     private String objectToString(E data) {
         ByteArrayOutputStream bo = new ByteArrayOutputStream();
@@ -166,6 +212,7 @@ public class UserDataController<E> {
         return Base64.encodeToString(bytes, Base64.DEFAULT);
     }
 
+    // Method taken from Abram Hindle's Student Picker for android series: https://www.youtube.com/watch?v=5PPD0ncJU1g
     // convert serialized string to object
     private E objectFromString(String data) {
         ByteArrayInputStream bi = new ByteArrayInputStream(Base64.decode(data, Base64.DEFAULT));
@@ -179,6 +226,12 @@ public class UserDataController<E> {
         return user;
     }
 
+    /**
+     * Replaces server data of current logged in patient with local cache if an internet connection is found. Otherwise simply
+     * creates a toast message indicating failure to sync.
+     *
+     * @param context input context to use to access Shared Preferences
+     */
     public static void syncPatientData(Context context) {
         if (ElasticsearchController.testConnection(context)) {
             // upload cached user data
@@ -189,6 +242,12 @@ public class UserDataController<E> {
         }
     }
 
+    /**
+     * Replaces server data of current logged in CareProvider with local cache if an internet connection is found. Otherwise simply
+     * creates a toast message indicating failure to sync.
+     *
+     * @param context input context to use to access Shared Preferences
+     */
     public static void syncCareProviderData(Context context) {
         if (ElasticsearchController.testConnection(context)) {
             // upload cached user data
@@ -199,10 +258,23 @@ public class UserDataController<E> {
         }
     }
 
+    /**
+     * Serialize record into a string and return that string.
+     *
+     * @param context input context to initialize a new UserDataController
+     * @param record input record to create a serialized string of
+     * @return serialized string of record
+     */
     public static String serializeRecord(Context context, PatientRecord record){
       return new UserDataController<PatientRecord>(context).objectToString(record);
     }
 
+    /**
+     * Convert serialized record string back into a PatientRecord object
+     * @param context input context to initialize a new UserDataController
+     * @param recordString input serialized string of record to convert back into a PatientRecord object
+     * @return PatientRecord object corresponding to serialized record string
+     */
     public static PatientRecord unSerializeRecord(Context context, String recordString){
         return new UserDataController<PatientRecord>(context).objectFromString(recordString);
     }
