@@ -5,27 +5,21 @@ import android.graphics.Bitmap;
 import java.util.ArrayList;
 import java.util.Date;
 
-public class PatientRecord extends SimpleRecord {
+public class PatientRecord{
 
-    //private ArrayList<Photo> photos;
-    private String title;
+    private String RecordTitle;
     private String comment;
-    private Problem parentProblem;
     private String timestamp;
     private ArrayList<Bitmap> geoLocations;
     private ArrayList<Photo> photos;
-    //private int amountOfPhotos;
 
 
-    public PatientRecord(String title, String comment, Problem parentProblem, String timestamp, ArrayList<Bitmap> geoLocations){
-        super(title, comment, parentProblem);
-
-        //this.bodyPart = bodyPart;
-        //this.photos = photos;
-        //this.bodyPhotos = bodyPhotos;
+    public PatientRecord(String title, String comment, String timestamp, ArrayList<Bitmap> geoLocations){
+        this.RecordTitle = title;
+        this.comment = comment;
         this.timestamp = timestamp;
         this.geoLocations = geoLocations;
-
+        this.getTitle();
     }
 
     public void addGeoLocation(Bitmap geoLocation){
@@ -39,6 +33,7 @@ public class PatientRecord extends SimpleRecord {
 
     public void addPhoto(Photo photo){
         photos.add(photo);
+        photo.setParentRecord(this);
     }
 
     public void deletePhoto(int index){
@@ -47,6 +42,22 @@ public class PatientRecord extends SimpleRecord {
 
     public Photo getPhoto(int index){
         return photos.get(index);
+    }
+
+    public void setTitle(String newTitle){
+        this.RecordTitle = newTitle;
+    }
+
+    public String getTitle(){
+        return this.RecordTitle;
+    }
+
+    public String getComment(){ //This is different from Jori's UML
+        return comment;
+    }
+
+    public void setComment(String comment){
+        this.comment = comment;
     }
 
 

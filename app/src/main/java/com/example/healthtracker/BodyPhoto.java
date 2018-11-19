@@ -5,9 +5,8 @@ public class BodyPhoto extends Photo {
     private int pinXLocation;
     private int pinYLocation;
 
-    public BodyPhoto(String fileLocation, PatientRecord parentRecord){
-        super(fileLocation, parentRecord);
-
+    public BodyPhoto(String fileLocation){
+        super(fileLocation);
     }
 
     public void setName(String name){

@@ -1,8 +1,8 @@
 package com.example.healthtracker;
 
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 
 public class ViewPatientsProblems extends AppCompatActivity {
@@ -31,4 +31,7 @@ public class ViewPatientsProblems extends AppCompatActivity {
         // Launch the browse emotions activity
         startActivity(intent);
     }
+
+
+
 }

@@ -27,7 +27,7 @@ public class PatientRecordTest {
     public void setUp() {
         title = "PatientRecord";
         comment = "My finger is hurt.";
-        photo = new Photo("file location", new Record());
+        photo = new Photo("file location");
         Date dateStarted = new Date(( new java.util.Date()).getTime());
         timestamp = "16:00:00";
         parentProblem = new Problem("SaveMyFinger",dateStarted,"I felt bad on my finger.");
@@ -45,7 +45,7 @@ public class PatientRecordTest {
     @Test
     public void addPhoto() {
         int index = 0;
-        Photo newPhoto = new Photo("file location 1", new Record());
+        Photo newPhoto = new Photo("file location 1");
         patientRecord.addPhoto(newPhoto);
         assertEquals(newPhoto, patientRecord.getPhoto(index));
     }
@@ -63,7 +63,7 @@ public class PatientRecordTest {
     @Test
     public void deletePhoto() {
         Integer index = 0;
-        Photo newPhoto = new Photo("file location", new Record());
+        Photo newPhoto = new Photo("file location");
         patientRecord.addPhoto(newPhoto);
         patientRecord.deletePhoto(index);
         assertFalse(patientRecord.getPhoto(index) == newPhoto);

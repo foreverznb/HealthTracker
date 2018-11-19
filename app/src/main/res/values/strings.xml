@@ -1,7 +1,7 @@
 <resources>
     <string name="app_name">HealthTracker</string>
     <!-- Strings related to login -->
-    <string name="prompt_email">Email</string>
+    <string name="prompt_email">Email Address</string>
     <string name="prompt_username">Username</string>
     <string name="create_account">Create Account</string>
     <string name="login">Login</string>
@@ -24,8 +24,8 @@
     <string name="back_from_settings">Back</string>
     <string name="save_settings">Save</string>
     <string name="user_id_settings">User ID</string>
-    <string name="email_settings">Email</string>
-    <string name="phone_settings">Phone</string>
+    <string name="email_settings">Email Address</string>
+    <string name="phone_settings">Phone Number</string>
     <string name="back_from_problem_view">Back</string>
     <string name="back_from_problem">Back</string>
     <string name="provider_add_comment">Add Comment</string>
@@ -75,6 +75,14 @@
     <string name="webmd">webMD</string>
     <string name="symptom_checker">Symptom Checker</string>
     <string name="mayo_clinic">Mayo Clinic</string>
+    <string name="password_hint">Password</string>
+    <string name="name_hint">Name</string>
+    <string name="track_users" />
+    <string name="password_login_hint">Password</string>
+    <string name="username">Username(email address)</string>
+    <string name="email">Email Address</string>
+    <string name="usernameSettings">Username</string>
+    <string name="userID">User ID</string>
 
 
     <string-array name="searchTypes">

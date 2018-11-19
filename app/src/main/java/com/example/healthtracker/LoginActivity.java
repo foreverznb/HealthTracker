@@ -1,114 +1,139 @@
-
 package com.example.healthtracker;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
 import android.view.View;
 import android.widget.CheckBox;
 import android.widget.EditText;
+import android.widget.Toast;
 
-import com.google.gson.Gson;
-import com.google.gson.reflect.TypeToken;
+import java.util.concurrent.ExecutionException;
 
-import java.io.BufferedReader;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.io.OutputStreamWriter;
-import java.lang.reflect.Type;
-import java.util.ArrayList;
-
-// extends
+/**
+ * LoginActivity enables a user to login to their created account. In the case that an unregistered user attempts login, they
+ * will be told that their account is not valid. The user can click the checkbox if they are a CareProvider inorder for them
+ * to be taken to the appropriate home screen otherwise they are brought to the PatientHomeView. Users can navigate to the
+ * CreateAccountActivity from this screen.
+ *
+ * @author Tyler Watson
+ * @version 1.0
+ * @since 2018-10-30
+ */
 public class LoginActivity extends AppCompatActivity {
-    private static final String FILENAME = "file.sav";
-    private ArrayList<User> userList =new ArrayList<User>();
 
+    private EditText UserID, Password;
+    private CheckBox checkBox;
+    private Context context;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         // set screen to layout specified in activity_main
         setContentView(R.layout.activity_login);
+        //mRegister = (TextView) findViewById(R.id.link_register);
+        UserID = findViewById(R.id.userID);
+        Password = findViewById(R.id.login_password);
+        checkBox = findViewById(R.id.CareGiverLogin);
+        context = this;
     }
 
-    // Method containing the new intent which will bring user to the browse emotions activity and layout screen
+
+    /**
+     * UserLogin() is initiated by the user clicking on the login button. If the user leaves a field empty when trying to log in
+     * they will be shown a toast message indicating a field has been left empty. If the user tries to login with an unregistered
+     * account they will be shown a toast message telling them that this account is not valid.
+     * <p>
+     * Upon correct login credentials the user will be brought to the appropriate login screen for patient or care provider
+     * based on if the checkbox indicating which type of user is attempting to login is checked. The app checks elastic search
+     * database for the entered username to see if it has been entered. Additionally when then this method is called it calls
+     * test connection to see if their is an internet connection.
+     *
+     * @param view the view for the login layout included for onClick methods in XML
+     * @throws ExecutionException   catch exception where ...
+     * @throws InterruptedException catch exception where ...
+     */
+    public void UserLogin(View view) throws ExecutionException, InterruptedException {
+        if (ElasticsearchController.testConnection(context)) {
+            String userID = UserID.getText().toString();
+            if (isEmpty(UserID.getText().toString()) && isEmpty(Password.getText().toString())) {
+                if (checkBox.isChecked()) {
+                    CareProvider careProvider;
+                    ElasticsearchController.GetCareProvider getCareProvider = new ElasticsearchController.GetCareProvider();
+                    getCareProvider.execute(userID);
+                    careProvider = getCareProvider.get();
+                    if (careProvider != null) {
+                        SharedPreferences myPrefs = context.getSharedPreferences("prefs", Context.MODE_PRIVATE);
+                        SharedPreferences.Editor editor = myPrefs.edit();
+                        editor.putString("userID", userID);
+                        editor.apply();
+                        Intent intent = new Intent(LoginActivity.this, CareProviderHomeView.class);
+                        startActivity(intent);
+                    } else {
+                        Toast.makeText(LoginActivity.this, "Unknown Account", Toast.LENGTH_SHORT).show();
+                    }
+
+                } else {
+                    Patient patient;
+                    ElasticsearchController.GetPatient getPatient = new ElasticsearchController.GetPatient();
+                    getPatient.execute(userID);
+                    patient = getPatient.get();
+                    if (patient != null) {
+                        SharedPreferences myPrefs = context.getSharedPreferences("prefs", Context.MODE_PRIVATE);
+                        SharedPreferences.Editor editor = myPrefs.edit();
+                        editor.putString("userID", userID);
+                        editor.apply();
+                        Intent intent = new Intent(LoginActivity.this, PatientHomeView.class);
+                        startActivity(intent);
+                    } else {
+                        Toast.makeText(LoginActivity.this, "Unknown Account", Toast.LENGTH_SHORT).show();
+                    }
+                }
+            } else {
+                Toast.makeText(LoginActivity.this, "You didn't fill in all the fields.", Toast.LENGTH_SHORT).show();
+            }
+        } else {
+            Toast.makeText(context, "No internet connection available.", Toast.LENGTH_SHORT).show();
+        }
+    }
+
+    /**
+     * isEmpty() tests if one of the login fields is not filled in
+     *
+     * @param string string provided on method call to be tested if it is blank
+     * @return returns a boolean object on whether the provided string is blank
+     */
+    private boolean isEmpty(String string) {
+        return !string.equals("");
+    }
+
+    /**
+     * Brings the user to the create account screen upon clicking the create
+     *
+     * @param view the view of the login layout included for onClick methods in XML
+     */
     public void CreateAccount(View view) {
         // Create an intent object containing the bridge to between the two activities
-        Intent intent = new Intent(LoginActivity.this, CreateAccountActivity.class);
-        // Launch the browse emotions activity
+        Intent intent = new Intent(LoginActivity.this, CreateAccountActivity.class);// Launch the browse emotions activity
         startActivity(intent);
     }
 
-    public void Login(View view) {
-        CheckBox checkBox = findViewById(R.id.checkBox);
-        EditText userId=findViewById(R.id.username);
-        String username=userId.getText().toString();
-        ElasticSearch.GetUser getUser = new ElasticSearch.GetUser();
-        getUser.execute(username);
-        if (checkBox.isChecked()) {
-            // Create an intent object containing the bridge to between the two activities
-            Intent intent = new Intent(LoginActivity.this, CareProviderHomeView.class);
-            // Launch the browse emotions activity
-            startActivity(intent);
-        }
-
-        else {
-            // Create an intent object containing the bridge to between the two activities
-            Intent intent2 = new Intent(LoginActivity.this, PatientHomeView.class);
-            // Launch the browse emotions activity
-            startActivity(intent2);
-        }
-    }
-
-    @Override
-    protected void onStart() {
-        // TODO Auto-generated method stub
-        super.onStart();
-        //loadFromFile(); // TODO replace this with elastic search
-
-        ElasticSearch.GetUser getUser = new ElasticSearch.GetUser();
-        getUser.execute("");
-
-        try {
-            userList = getUser.get();
-        } catch (Exception e) {
-            Log.i("Error", "Failed to get the tweets from the async object");
-        }
+    /**
+     * testConnection() checks for online connectivity on either wifi or mobile data and returns the connectivity state
+     *
+     * @return returns a boolean object on whether the user is connected to wifi or cellular data for online connectivity checks
+     */
+    public boolean testConnection() {
+        ConnectivityManager connectivityManager = (ConnectivityManager) getSystemService(CONNECTIVITY_SERVICE);
+        //check for network connection
+        assert connectivityManager != null;
+        return connectivityManager.getNetworkInfo(ConnectivityManager.TYPE_MOBILE).getState() != NetworkInfo.State.CONNECTED &&
+                connectivityManager.getNetworkInfo(ConnectivityManager.TYPE_WIFI).getState() != NetworkInfo.State.CONNECTED;
     }
 
 
-    private void loadFromFile() {
-        try {
-            FileInputStream fis = openFileInput(FILENAME);
-            BufferedReader in = new BufferedReader(new InputStreamReader(fis));
-            Gson gson = new Gson();
-            //Code taken from http://stackoverflow.com/questions/12384064/gson-convert-from-json-to-a-typed-arraylistt Sept.22,2016
-            Type listType = new TypeToken<ArrayList<User>>(){}.getType();
-            userList = gson.fromJson(in, listType);
-        } catch (FileNotFoundException e) {
-            // TODO Auto-generated catch block
-            userList = new ArrayList<User>();
-        }
-    }
-
-
-    private void saveInFile() {
-        try {
-            FileOutputStream fos = openFileOutput(FILENAME,0);
-            OutputStreamWriter writer = new OutputStreamWriter(fos);
-            Gson gson = new Gson();
-            gson.toJson(userList, writer);
-            writer.flush();
-        } catch (FileNotFoundException e) {
-            // TODO Auto-generated catch block
-            throw new RuntimeException();
-        } catch (IOException e) {
-            // TODO Auto-generated catch block
-            throw new RuntimeException();
-        }
-    }
 }

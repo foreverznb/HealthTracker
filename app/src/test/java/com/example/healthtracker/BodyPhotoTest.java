@@ -8,14 +8,13 @@ import static org.junit.Assert.assertEquals;
 public class BodyPhotoTest {
 
     private String fileLocation;
-    private Record parentRecord;
+    private PatientRecord parentRecord;
     private BodyPhoto bodyPhoto;
 
     @Before
     public void setUp() {
         fileLocation = "file location";
-        parentRecord = new Record();
-        bodyPhoto = new BodyPhoto(fileLocation,parentRecord);
+        bodyPhoto = new BodyPhoto(fileLocation);
     }
 
     @Test

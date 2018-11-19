@@ -136,14 +136,14 @@ public class ProblemTest {
 
     @Test
     public void getPatient() {
-        Patient patient = new Patient("P001","P001","123-456-789","patient1@health.com");
+        Patient patient = new Patient("P001","P001","123-456-789","patient1@health.com", "Sara");
         problem.setPatient(patient);
         assertEquals(problem.getPatient(),patient);
     }
 
     @Test
     public void setPatient() {
-        Patient newPatient = new Patient("P002","P002","111-222-333","patient2@health.com");
+        Patient newPatient = new Patient("P002","P002","111-222-333","patient2@health.com", "Nick");
         problem.setPatient(newPatient);
         assertEquals(problem.getPatient(),newPatient);
     }
