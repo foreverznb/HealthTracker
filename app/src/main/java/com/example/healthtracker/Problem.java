@@ -21,7 +21,7 @@ public class Problem implements Serializable {
     private List<notifyUser> notifications;
     private Boolean notificationsOn = FALSE;
     private ArrayList<PatientRecord> patientRecords = new ArrayList<PatientRecord>();
-    private ArrayList<CareGiverComment> caregiverRecords;
+    private ArrayList<CareGiverComment> caregiverRecords = new ArrayList<>();
 
     public Problem(){
 

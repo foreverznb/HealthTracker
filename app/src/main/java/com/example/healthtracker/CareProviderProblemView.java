@@ -74,7 +74,9 @@ public class CareProviderProblemView extends AppCompatActivity {
         dateText.setText(dateToString(date));
         desText.setText(des);
 
-        recordText.setText(pProblem.getcaregiverRecords().get(0).getComment());
+        if(pProblem.getcaregiverRecords().size() > 0){
+            recordText.setText(pProblem.getcaregiverRecords().get(0).getComment());
+        }
     }
 /*
     public void returnToProblemsList(View view) {

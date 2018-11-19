@@ -52,6 +52,10 @@ public class CareProvider extends User implements Serializable {
         this.patientList.add(newPatient);
     }
 
+    public void setPatient(Patient updatedPatient, int patientIndex){
+        patientList.set(patientIndex, updatedPatient);
+    }
+
     /**
      * TODO
      * Is this used?

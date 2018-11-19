@@ -1278,8 +1278,6 @@ id record_view_photos
 id record_view_timestamp
 id record_view_title
 id return_from_auser__info_button
-id return_from_problem_view
-id return_to_problem_view
 id right
 id right_icon
 id right_side
@@ -1293,6 +1291,7 @@ id scroll
 id scrollIndicatorDown
 id scrollIndicatorUp
 id scrollView
+id scrollView3
 id scrollable
 id search
 id search_badge

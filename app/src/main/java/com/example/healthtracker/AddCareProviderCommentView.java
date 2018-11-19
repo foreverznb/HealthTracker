@@ -53,9 +53,6 @@ public class AddCareProviderCommentView extends AppCompatActivity {
         titleText = findViewById(R.id.care_comment_title);
         commentText = findViewById(R.id.care_comment);
 
-        title = titleText.getText().toString();
-        comment = commentText.getText().toString();
-
 
     }
 
@@ -83,34 +80,33 @@ public class AddCareProviderCommentView extends AppCompatActivity {
             // show the alert dialog on the screen
             ab.show();
         } else {
-            Intent intent = new Intent(AddCareProviderCommentView.this, CareProviderProblemView.class);
-            Bundle bd = new Bundle();
-            bd.putInt("patientNum", patientNum);
-            bd.putInt("problemNum", problemNum);
-            intent.putExtras(bd);
-            // Launch the browse emotions activity
-            startActivity(intent);
+            finish();
         }
     }
 
     public void saveCareProviderComment(View view) {
+
+        // get data
+        title = titleText.getText().toString();
+        comment = commentText.getText().toString();
+
+        // set data
         newComment.setTitle(title);
         newComment.setComment(comment);
         CareGiverComments.add(newComment);
         pProblem.setCaregiverRecords(CareGiverComments);
+        myPatient.setProblem(pProblem, problemNum);
+        careProvider.setPatient(myPatient, patientNum);
 
+        // notify user
         Toast.makeText(this, "New Comment Added", Toast.LENGTH_LONG).show();
 
+        // save data
         UserDataController.savePatientData(this, myPatient);
         UserDataController.saveCareProviderData(this, careProvider);
 
-        // Create an intent object containing the bridge to between the two activities
-        Intent intent = new Intent(AddCareProviderCommentView.this, CareProviderProblemView.class);
-        Bundle bd = new Bundle();
-        bd.putInt("patientNum", patientNum);
-        bd.putInt("problemNum", problemNum);
-        intent.putExtras(bd);
-        // Launch the browse emotions activity
-        startActivity(intent);
+        // done
+        finish();
+
     }
 }
