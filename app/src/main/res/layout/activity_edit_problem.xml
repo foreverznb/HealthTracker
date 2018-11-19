@@ -94,8 +94,8 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
+        android:onClick="addRecordFromAdd"
         android:text="@string/add_record_from_edit"
-        android:onClick="addRecordFromEdit"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/problem_description_editscreen" />
 

@@ -1127,7 +1127,6 @@ id all
 id always
 id async
 id auto
-id back_from_patient_problem
 id back_from_userlist
 id barrier
 id beginning
@@ -1283,6 +1282,7 @@ id right_side
 id satellite
 id save_image_matrix
 id save_non_transition_alpha
+id save_record_button
 id save_scale_type
 id screen
 id scroll

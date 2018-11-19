@@ -68,9 +68,13 @@
         <activity android:name="com.example.healthtracker.AddCareProviderCommentView" />
         <activity android:name="com.example.healthtracker.ViewUsers" />
         <activity android:name="com.example.healthtracker.PatientHomeView" />
-        <activity android:name="com.example.healthtracker.AddProblemView" />
+        <activity
+            android:name="com.example.healthtracker.AddProblemView"
+            android:windowSoftInputMode="adjustPan" />
         <activity android:name="com.example.healthtracker.ViewMyProblems" />
-        <activity android:name="com.example.healthtracker.EditProblem" />
+        <activity
+            android:name="com.example.healthtracker.EditProblem"
+            android:windowSoftInputMode="adjustPan" />
         <activity android:name="com.example.healthtracker.AddorEditRecordView" />
         <activity android:name="com.example.healthtracker.PatientProblemView" />
         <activity android:name="com.example.healthtracker.SlideShowActivity" />

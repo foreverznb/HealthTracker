@@ -84,11 +84,4 @@ public class ViewPatients extends AppCompatActivity {
                 startActivity(intent);
                 }
             }*/
-
-    public void ReturnHome(View view) {
-        // Create an intent object containing the bridge to between the two activities
-        Intent intent = new Intent(ViewPatients.this, CareProviderHomeView.class);
-        // Launch the browse emotions activity
-        startActivity(intent);
-    }
 }

@@ -59,9 +59,11 @@
         <activity android:name=".AddCareProviderCommentView" />
         <activity android:name=".ViewUsers" />
         <activity android:name=".PatientHomeView" />
-        <activity android:name=".AddProblemView" />
+        <activity android:name=".AddProblemView"
+            android:windowSoftInputMode="adjustPan" />
         <activity android:name=".ViewMyProblems" />
-        <activity android:name=".EditProblem" />
+        <activity android:name=".EditProblem"
+            android:windowSoftInputMode="adjustPan" />
         <activity android:name=".AddorEditRecordView" />
         <activity android:name=".PatientProblemView" />
         <activity android:name=".SlideShowActivity" />
