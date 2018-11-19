@@ -48,9 +48,10 @@ public class ViewPatientsProblems extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 Intent intent = new Intent(ViewPatientsProblems.this,CareProviderProblemView.class);
-                intent.putExtra("patientNum", patientNum);
-                intent.putExtra("problemNum", position);
-
+                Bundle bd = new Bundle();
+                bd.putInt("patientNum", patientNum);
+                bd.putInt("problemNum", position);
+                intent.putExtras(bd);
                 startActivity(intent);
             }
         });
