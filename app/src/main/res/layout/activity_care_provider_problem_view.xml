@@ -56,40 +56,40 @@
                 android:onClick="viewProblemsPhotos"/>
 
             <TextView
-                android:id="@+id/textView8"
+                android:id="@+id/viewTitle"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginStart="100dp"
+                android:layout_marginTop="50dp"
                 android:text="@string/title_care_view"
                 android:textSize="24sp"
-                android:layout_marginTop="50dp"
-                android:layout_marginStart="100dp"
                 tools:layout_editor_absoluteX="50dp"
                 tools:layout_editor_absoluteY="75dp" />
 
             <TextView
-                android:id="@+id/textView9"
+                android:id="@+id/viewDate"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="100dp"
                 android:layout_marginStart="100dp"
+                android:layout_marginTop="100dp"
                 android:text="@string/date_started_care_view"
                 android:textSize="24sp"
                 tools:layout_editor_absoluteX="50dp"
                 tools:layout_editor_absoluteY="75dp" />
 
             <TextView
-                android:id="@+id/textView7"
+                android:id="@+id/viewDes"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="150dp"
                 android:layout_marginStart="100dp"
+                android:layout_marginTop="150dp"
                 android:text="@string/description_care_view"
                 android:textSize="24sp"
                 tools:layout_editor_absoluteX="50dp"
                 tools:layout_editor_absoluteY="32dp" />
 
             <TextView
-                android:id="@+id/textView3"
+                android:id="@+id/viewRecord"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="100dp"
@@ -98,9 +98,10 @@
                 android:textSize="18sp"
                 android:textStyle="bold"
                 tools:layout_editor_absoluteX="124dp"
-                tools:layout_editor_absoluteY="212dp"/>
+                tools:layout_editor_absoluteY="212dp" />
+
             <TextView
-                android:id="@+id/textView4"
+                android:id="@+id/subRecords"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="100dp"
@@ -108,7 +109,7 @@
                 android:text="@string/a_record_care_view"
                 android:textSize="18sp"
                 tools:layout_editor_absoluteX="124dp"
-                tools:layout_editor_absoluteY="212dp"/>
+                tools:layout_editor_absoluteY="212dp" />
         </RelativeLayout>
     </ScrollView>
 </android.support.constraint.ConstraintLayout>

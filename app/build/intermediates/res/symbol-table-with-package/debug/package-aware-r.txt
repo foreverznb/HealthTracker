@@ -1244,6 +1244,7 @@ id notification_background
 id notification_main_column
 id notification_main_column_container
 id outline
+id pProblem_list_view
 id packed
 id parallax
 id parent
@@ -1303,6 +1304,7 @@ id search_src_text
 id search_voice_btn
 id select_dialog_listview
 id selected
+id selected_patient_ID
 id shortcut
 id showCustom
 id showHome
