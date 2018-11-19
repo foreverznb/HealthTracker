@@ -66,20 +66,34 @@ public class AddPatientView extends AppCompatActivity {
         // If valid.
         if (validID) {
             // Check whether the patient has already been assigned to another care provider
-            if (mPatient.getCareProvider() == null) {
+            //System.out.println("patient -> care provider's user ID: "+mPatient.getCareProvider());
+            if (mPatient.getCareProvider().equals("")) {
+                System.out.println("reaches here!!!!!!!!");
 
-                // Add a new Care Provider and save it into the elastic search database
-
-                // Fetch user data
+                // Fetch user data (Care Provider)
                 CareProvider careProvider = UserDataController.loadCareProviderData(this);
 
-                // Care Provider Add Patient
+
+                // Fetch user data (Patient)
+                String mPatientUserID = mPatient.getUserID();
+                ElasticsearchController.GetPatient getPatient = new ElasticsearchController.GetPatient();
+                getPatient.execute(mPatientUserID);
+                try{
+                    mPatient = getPatient.get();
+                }catch (ExecutionException e1){
+
+                }catch (InterruptedException e2){
+
+                }
+
+                mPatient.updateCareProvider(careProvider.getUserID());
+                UserDataController.savePatientData(this,mPatient);
+                //System.out.println("yesyesyesyesyes");
+
                 careProvider.addPatient(mPatient);
-                //Patient has a Care Provider
-                //mPatient.updateCareProvider(careProvider);
-                // Save Care Provider and Patient
                 UserDataController.saveCareProviderData(this, careProvider);
-                //UserDataController.savePatientData(this,mPatient);
+                //System.out.println("reaches here!!!!!!!!");
+
                 return true;
             }
             else{
@@ -87,7 +101,6 @@ public class AddPatientView extends AppCompatActivity {
                 return false;
             }
         }
-
 
         return true;
     }

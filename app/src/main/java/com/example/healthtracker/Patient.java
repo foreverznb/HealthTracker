@@ -1,5 +1,7 @@
 package com.example.healthtracker;
 
+import android.widget.ArrayAdapter;
+
 import java.io.Serializable;
 import java.lang.reflect.Array;
 import java.util.ArrayList;
@@ -15,7 +17,8 @@ import java.util.List;
 public class Patient extends User implements Serializable {
 
     private ArrayList<Problem> problemList = new ArrayList<Problem>();
-    private CareProvider careProvider;
+    // Note: careProviderList only have one element
+    private String careProvider = "";
 
     /**
      * constructor for creating a new Patient user and their appropriate profile information designated by parameter values
@@ -87,16 +90,16 @@ public class Patient extends User implements Serializable {
         return problemList.get(index);
     }
 
-    public CareProvider getCareProvider(){
+    public String getCareProvider(){
         return this.careProvider;
     }
 
-    public void updateCareProvider(CareProvider cProvider){
-        this.careProvider = cProvider;
+    public void updateCareProvider(String cProviderID){
+        this.careProvider = cProviderID;
     }
 
     @Override
     public String toString() {
-        return "Patient: "+getUserID()+"\nCare provider: "+getCareProvider();
+        return "Patient: "+getUserID()+"\nPhone: "+getPhone()+"\nEmail: "+getEmail()+"\nCare Provider: "+getCareProvider();
     }
 }

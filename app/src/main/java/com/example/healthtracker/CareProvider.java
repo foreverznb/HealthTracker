@@ -66,6 +66,9 @@ public class CareProvider extends User implements Serializable {
 
     @Override
     public String toString() {
-        return "Care Provider: "+getUserID()+"|phone: "+getPhone()+"|email: "+getEmail();
+        if(getUserID() == null) {
+            return "";
+        }
+        return "Care Provider: " + getUserID() + "|phone: " + getPhone() + "|email: " + getEmail();
     }
 }
