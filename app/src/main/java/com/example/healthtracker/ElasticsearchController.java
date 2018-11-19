@@ -34,48 +34,14 @@ class ElasticsearchController {
     private static String server = "http://cmput301.softwareprocess.es:8080";
     private static String Index = "cmput301f18t13test";
 
-    /*
-    // TODO we need a function which gets users from elastic search
-    public static class GetUser extends AsyncTask<String, Void, ArrayList<User>> {
-        @Override
-        protected ArrayList<User> doInBackground(String... search_parameters) {
-            verifySettings();
 
-            ArrayList<User> users = new ArrayList<User>();
-
-            // TODO Build the query
-
-            //String query = "{ \"size\": 3, \"query\" : { \"term\" : { \"message\" : \""+ search_parameters[0] + "\"}}}";
-            String query = "{ \"size\": 3, \n" +
-                    "    \"query\" : {\n" +
-                    "        \"term\" : { \"message\" : \"" + search_parameters[0] + "\" }\n" +
-                    "    }\n" +
-                    "}" ;
-
-            Search search = new Search.Builder(query)
-                    .addIndex("testing")
-                    .addType("user")
-                    .build();
-
-            try {
-                // TODO get the results of the query
-                SearchResult result = client.execute(search);
-                if (result.isSucceeded()){
-                    List<User> foundusers = result.getSourceAsObjectList(User.class);
-                    users.addAll(foundusers);
-                }
-                else {
-                    Log.i("Error", "The search query failed to find any users that matched");
-                }
-            }
-            catch (Exception e) {
-                Log.i("Error", "Something went wrong when we tried to communicate with the elasticsearch server!");
-            }
-
-            return users;
-        }
-    }*/
-    // verify the settings
+    /**
+     * Initialize Jest Droid Client if it has not already been done.
+     * Client is initialized with the server that will be saved to with elastic search.
+     *
+     * Method taken from CMPUT301 lab tutorial: https://github.com/watts1/lonelyTwitter.git
+     *
+     */
     public static void verifySettings() {
         if (client == null) {
             // if the client is not yet created, build the client factory, establish connection to the DB, and finally set the client and its factory
@@ -87,7 +53,12 @@ class ElasticsearchController {
         }
     }
 
-    // add new users to elastic search database
+    /**
+     * Add a patient to server using elastic search. Can be used to create patient account or
+     * update patient data.
+     *
+     * Executed using patient ID.
+     */
     public static class AddPatient extends AsyncTask<Patient, Void, Void> {
         @Override
         protected Void doInBackground(Patient... patients) {
@@ -114,6 +85,11 @@ class ElasticsearchController {
         }
     }
 
+    /**
+     * Add a CareProvider to server using elastic search. Can be used to create CareProvider account or
+     * update CareProvider data.
+     * Executed using CareProvider ID.
+     */
     public static class AddCareProvider extends AsyncTask<CareProvider, Void, Void> {
 
         @Override
@@ -140,6 +116,12 @@ class ElasticsearchController {
         }
     }
 
+    /**
+     * Get Patient object from server using elastic search.
+     * Executed using patient ID.
+     *
+     * @return Returns Patient object to who the ID belongs.
+     */
     public static class GetPatient extends AsyncTask<String, Void, Patient> {
         @Override
         protected Patient doInBackground(String... id) {
@@ -162,6 +144,12 @@ class ElasticsearchController {
         }
     }
 
+    /**
+     * Get CareProvider object from server using elastic search.
+     * Executed using CareProvider ID.
+     *
+     * @return Returns CareProvider object to who the ID belongs.
+     */
     public static class GetCareProvider extends AsyncTask<String, Void, CareProvider> {
         @Override
         protected CareProvider doInBackground(String... id) {
@@ -200,6 +188,11 @@ class ElasticsearchController {
         // not connected
     }
 
+    /**
+     * Get all of the patients on the server.
+     *
+     * @return returns an ArrayList of Patient objects containing all patients saved on the server.
+     */
     public static class getAllPatients extends AsyncTask<Void,Void,ArrayList<Patient>> {
         @Override
         protected ArrayList<Patient> doInBackground(Void...params){

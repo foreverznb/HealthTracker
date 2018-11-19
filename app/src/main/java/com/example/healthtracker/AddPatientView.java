@@ -13,6 +13,15 @@ import android.widget.Toast;
 import java.util.ArrayList;
 import java.util.concurrent.ExecutionException;
 
+/**
+ * AddPatientView enables a CareProvider to add a patient to their patient list by entering their
+ * user ID. A user ID is entered into a textview and a button is pressed to add that patient.
+ * Shows a toast message to indicate if the patient was successfully added.
+ *
+ * @author Chenlin
+ * @version 1.0
+ * @since 2018-11-18
+ */
 public class AddPatientView extends AppCompatActivity {
 
     private ArrayList<Patient> patients;
@@ -32,7 +41,7 @@ public class AddPatientView extends AppCompatActivity {
 
     }
 
-    public Boolean ValidatePatientId(){
+    private Boolean ValidatePatientId(){
         // Read user input
         String patientId = inputId.getText().toString();
         boolean validID = false;
@@ -111,7 +120,12 @@ public class AddPatientView extends AppCompatActivity {
         return true;
     }
 
-
+    /**
+     *If the user has entered a valid Patient ID then clicking the save button will add that patient
+     *to the CareProviders patient list.
+     *
+     * @param view The view for the layout included for onClick methods in XML
+     */
     public void Add(View view) {
         if(ValidatePatientId()) {
             Toast.makeText(this, "Patient Added", Toast.LENGTH_SHORT).show();

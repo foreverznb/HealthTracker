@@ -11,6 +11,16 @@ import android.widget.Toast;
 
 import java.util.ArrayList;
 
+/**
+ * AddCareProviderCommentView enables a CareProvider to create a comment record that will be added
+ * to a patients problem. The patient and problem will have been selected before starting this
+ * activity. The careprovider can fill in a title and comment for the record in textviews and save the
+ * record by selecting the save button.
+ *
+ * @author
+ * @version 1.0
+ * @since 2018-10-30
+ */
 public class AddCareProviderCommentView extends AppCompatActivity {
 
     private CareGiverComment newComment;

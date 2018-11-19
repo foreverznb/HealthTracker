@@ -25,7 +25,18 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.Locale;
 
-
+/**
+ * AddProblemView enables a patient to add a new problem to their account. The patient must fill in
+ * the title, description, and date started fields then click the save button to add the problem.
+ * The date started field must be in the proper date format or the problem cannot be added. The
+ * patient may optionally add any number of records to the problem. An individual record can be added
+ * by clicking the add record button. An already added record can be edited or deleted by selecting it.
+ *
+ *
+ * @author Michael Boisvert
+ * @version 1.0
+ * @since 2018-11-15
+ */
 public class AddProblemView extends AppCompatActivity {
 
     public EditText titleText;
@@ -142,6 +153,10 @@ public class AddProblemView extends AppCompatActivity {
     }
 
     @Override
+    /**
+     * Override the android back button so that the user is warned that their problem will be lost
+     * if they go back now.
+     */
     public void onBackPressed() {
         if (!titleText.getText().toString().equals("") || !dateText.getText().toString().equals("")
                 || !descriptionText.getText().toString().equals("")) {
@@ -170,7 +185,13 @@ public class AddProblemView extends AppCompatActivity {
     }
 
 
-    // save button
+    /**
+     * When the save button is clicked the new problem is added to the patient's account. A toast
+     * message will indicate if the problem was added or if it could not be added due to an improper
+     * date format or not every field being filled.
+     *
+     * @param view The view for the layout included for onClick methods in XML
+     */
     public void addPatientProblem(View view) {
         if (titleText.getText().toString().equals("") || dateText.getText().toString().equals("")
                 || descriptionText.getText().toString().equals("")) {
@@ -182,8 +203,7 @@ public class AddProblemView extends AppCompatActivity {
         }
     }
 
-    public void saveProblem(){
-
+    private void saveProblem(){
         // get Problem info
         title = titleText.getText().toString();
         dateString = dateText.getText().toString();
@@ -211,7 +231,12 @@ public class AddProblemView extends AppCompatActivity {
     }
 
 
-    // add record button
+    /**
+     * When the add record button is clicked the AddorEditRecordView activity is started with
+     * request code 1 which indicates that a record is being added and not edited.
+     *
+     * @param view The view for the layout included for onClick methods in XML
+     */
     public void addRecordFromAdd(View view) {
         // Create an intent object containing the bridge to between the two activities
         Intent intent = new Intent(AddProblemView.this, AddorEditRecordView.class);
@@ -220,6 +245,11 @@ public class AddProblemView extends AppCompatActivity {
     }
 
     @Override
+    /**
+     * Override onActivityResult to specify what should be done when the AddorEditRecordView
+     * Activity finishes. If no result was acquired do nothing. Otherwise add the record to the record
+     * list if a new record was added or change an existing record in the list if a record was edited.
+     */
     public void onActivityResult (int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
 
