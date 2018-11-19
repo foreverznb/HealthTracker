@@ -5,23 +5,24 @@
     build-mode="COLD"
     density="420dpi"
     format="10"
+    ir-eligibility="COMPATIBLE"
     plugin-version="3.2.1"
-    timestamp="1542393494979"
+    timestamp="1542484368328"
     token="3228296361726906817"
-    verifier="CLASS_ADDED" >
+    verifier="COLD_SWAP_REQUESTED" >
 
     <task
         name="javac"
-        duration="2345" />
+        duration="2761" />
     <task
         name="instant-run-dex"
         duration="0" />
     <task
         name="instant-run-transform"
-        duration="187" />
+        duration="159" />
     <task
         name="verifier"
-        duration="33" />
+        duration="32" />
 
     <artifact
         location="C:\Users\tyler\AndroidStudioProjects\HealthTracker1\app\build\intermediates\split-apk\debug\slices\slice_3.apk"
@@ -29,7 +30,7 @@
 
     <build
         build-mode="FULL"
-        timestamp="1542390521767"
+        timestamp="1542484122275"
         verifier="FULL_BUILD_REQUESTED" >
         <artifact
             location="C:\Users\tyler\AndroidStudioProjects\HealthTracker1\app\build\intermediates\split-apk\debug\slices\slice_3.apk"
@@ -73,8 +74,9 @@
     </build>
     <build
         build-mode="COLD"
-        timestamp="1542393494979"
-        verifier="CLASS_ADDED" >
+        ir-eligibility="COMPATIBLE"
+        timestamp="1542484368328"
+        verifier="COLD_SWAP_REQUESTED" >
         <artifact
             location="C:\Users\tyler\AndroidStudioProjects\HealthTracker1\app\build\intermediates\split-apk\debug\slices\slice_3.apk"
             type="SPLIT" />

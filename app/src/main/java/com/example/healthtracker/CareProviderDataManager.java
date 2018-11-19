@@ -2,20 +2,13 @@ package com.example.healthtracker;
 
 import android.content.Context;
 import android.content.SharedPreferences;
-import android.os.Build;
-import android.support.annotation.RequiresApi;
 import android.util.Base64;
-
-import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
 
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
-import java.util.Objects;
 
 /**
  * Created by caochenlin on 2018/11/2.
@@ -32,7 +25,6 @@ public class CareProviderDataManager {
     CareProviderDataManager(Context context){
         this.context = context;
     }
-
     // save serialized string of CareProvider object to shared preferences
     // calls method to convert CareProvider object  to serialized string
     public void saveCareProviderLocally(CareProvider careProvider) {
@@ -75,21 +67,10 @@ public class CareProviderDataManager {
         try {
             ObjectInputStream oi = new ObjectInputStream(bi);
             careProvider = (CareProvider) oi.readObject();
-        } catch (IOException e1) {
-            e1.printStackTrace();
-        } catch (ClassNotFoundException e1) {
+        } catch (IOException | ClassNotFoundException e1) {
             e1.printStackTrace();
         }
         return careProvider;
-    }
-
-
-    @RequiresApi(api = Build.VERSION_CODES.KITKAT)
-    public void saveCareProviderToDatabase(CareProvider careProvider){
-        String userid = Objects.requireNonNull(FirebaseAuth.getInstance().getCurrentUser()).getUid();
-        DatabaseReference reference = FirebaseDatabase.getInstance().getReference("users");
-        reference.child(userid).setValue(careProvider);
-        reference.child(userid).child("isCaregiver").setValue("true");
     }
 
     public void elasticSearch(String keyword, String searchType){

@@ -1,10 +1,7 @@
-#Fri Nov 16 17:48:14 MST 2018
-path.2=classes2.dex
+#Sun Nov 18 18:33:48 MST 2018
+base.0=/Users/caochenlin/Desktop/CMPUT301_intro_to_software_engineering/HealthTracker/app/build/intermediates/transforms/dexMerger/debug/1
 path.1=classes.dex
-path.0=classes.dex
-renamed.2=classes3.dex
 renamed.1=classes2.dex
+path.0=classes.dex
 renamed.0=classes.dex
-base.2=C\:\\Users\\mikey\\AndroidStudioProjects\\HealthTracker\\app\\build\\intermediates\\transforms\\dexMerger\\debug\\1
-base.1=C\:\\Users\\mikey\\AndroidStudioProjects\\HealthTracker\\app\\build\\intermediates\\transforms\\dexMerger\\debug\\1
-base.0=C\:\\Users\\mikey\\AndroidStudioProjects\\HealthTracker\\app\\build\\intermediates\\transforms\\dexMerger\\debug\\0
+base.1=/Users/caochenlin/Desktop/CMPUT301_intro_to_software_engineering/HealthTracker/app/build/intermediates/transforms/dexMerger/debug/0
