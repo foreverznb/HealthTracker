@@ -139,4 +139,11 @@ public class Problem implements Serializable {
         return notificationsOn;
     }*/
 
+    public void setCaregiverRecords(ArrayList<CareGiverComment> caregiverRecords){
+        this.caregiverRecords = caregiverRecords;
+    }
+
+    public ArrayList<CareGiverComment> getcaregiverRecords(){
+        return this.caregiverRecords;
+    }
 }

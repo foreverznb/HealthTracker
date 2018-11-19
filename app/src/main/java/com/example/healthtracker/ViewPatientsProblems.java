@@ -48,10 +48,13 @@ public class ViewPatientsProblems extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 Intent intent = new Intent(ViewPatientsProblems.this,CareProviderProblemView.class);
+
                 Bundle bd = new Bundle();
                 bd.putInt("patientNum", patientNum);
                 bd.putInt("problemNum", position);
                 intent.putExtras(bd);
+
+
                 startActivity(intent);
             }
         });
@@ -59,12 +62,6 @@ public class ViewPatientsProblems extends AppCompatActivity {
 
     }
 
-    public void returnToPatientsList(View view) {
-        // Create an intent object containing the bridge to between the two activities
-        Intent intent = new Intent(ViewPatientsProblems.this, ViewPatients.class);
-        // Launch the browse emotions activity
-        startActivity(intent);
-    }
 
 
 

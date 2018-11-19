@@ -29,7 +29,8 @@ public class CareProviderProblemView extends AppCompatActivity {
 
     private Patient myPatient;
     private Problem pProblem;
-
+    private int patientNum;
+    private int problemNum;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,8 +47,8 @@ public class CareProviderProblemView extends AppCompatActivity {
 
         CareProvider careProvider = UserDataController.loadCareProviderData(this);
 
-        int patientNum = bd.getInt("patientNum");
-        int problemNum = bd.getInt("problemNum");
+        patientNum = bd.getInt("patientNum");
+        problemNum = bd.getInt("problemNum");
         myPatient = careProvider.getPatientList().get(patientNum);
         pProblem = myPatient.getProblem(problemNum);
 
@@ -56,7 +57,7 @@ public class CareProviderProblemView extends AppCompatActivity {
         des = pProblem.getDescription();
         records = pProblem.getRecords();
 
-        showProblem(title,date,des,records);
+        showProblem(title,date,des);
 
 
 
@@ -68,23 +69,28 @@ public class CareProviderProblemView extends AppCompatActivity {
         return dateString;
     }
 
-    public void showProblem(String title, Date date, String des, ArrayList<PatientRecord> records) {
+    public void showProblem(String title, Date date, String des) {
         titleText.setText(title);
         dateText.setText(dateToString(date));
         desText.setText(des);
-        //recordText;
-    }
 
+        recordText.setText(pProblem.getcaregiverRecords().get(0).getComment());
+    }
+/*
     public void returnToProblemsList(View view) {
         // Create an intent object containing the bridge to between the two activities
         Intent intent = new Intent(CareProviderProblemView.this, ViewPatientsProblems.class);
         // Launch the browse emotions activity
         startActivity(intent);
     }
-
+*/
     public void addCareProviderComment(View view) {
         // Create an intent object containing the bridge to between the two activities
         Intent intent = new Intent(CareProviderProblemView.this, AddCareProviderCommentView.class);
+        Bundle bd = new Bundle();
+        bd.putInt("patientNum", patientNum);
+        bd.putInt("problemNum", problemNum);
+        intent.putExtras(bd);
         // Launch the browse emotions activity
         startActivity(intent);
     }
