@@ -1,4 +1,4 @@
-#Sun Nov 18 18:33:48 MST 2018
+#Mon Nov 19 13:17:12 MST 2018
 base.0=/Users/caochenlin/Desktop/CMPUT301_intro_to_software_engineering/HealthTracker/app/build/intermediates/transforms/dexMerger/debug/1
 path.1=classes.dex
 renamed.1=classes2.dex

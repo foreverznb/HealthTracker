@@ -105,7 +105,7 @@ class ElasticsearchController {
                 DocumentResult result = client.execute(index);
 
                 if (!result.isSucceeded()) {
-                    Log.i("Error", "Elasticsearch was not able to add the user");
+                    Log.i("Error", "Elasticsearch was not able to add the user(patient)");
                 }
             } catch (Exception e) {
                 Log.i("Error", "The application failed to build and add the patient");
@@ -130,7 +130,7 @@ class ElasticsearchController {
                 // where is the client?
                 DocumentResult result = client.execute(index);
                 if (!result.isSucceeded()) {
-                    Log.i("Error", "Elasticsearch was not able to add the user");
+                    Log.i("Error", "Elasticsearch was not able to add the user(care provider)");
                 }
             } catch (Exception e) {
                 Log.i("Error", "The application failed to build and add the CareProvider");
