@@ -108,6 +108,9 @@ public class CreateAccountActivity extends AppCompatActivity {
         if(email.equals("") || userID.equals("") || password.equals("") || phone.equals("")){
             Toast.makeText(context, "All fields must be filled out", Toast.LENGTH_SHORT).show();
             return false;
+        } else if(userID.length()<8){
+            Toast.makeText(context, "User ID must be at least 8 characters long.", Toast.LENGTH_SHORT).show();
+            return false;
         }
         return true;
     }
