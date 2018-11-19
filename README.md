@@ -13,3 +13,5 @@ https://www.viralandroid.com/2016/04/google-maps-android-api-getting-started-tut
 https://www.viralandroid.com/2016/04/get-current-location-google-maps-android-api-tutorial.html, 2016/04/24, viewed 2018/10/23
 
 https://www.viralandroid.com/2016/04/google-maps-android-api-adding-search-bar-part-3.html, 2016/04/25, viewed 2018/10/23
+
+See more references and reuse at https://github.com/CMPUT301F18T13/HealthTracker/wiki/Reuse-Statement.
