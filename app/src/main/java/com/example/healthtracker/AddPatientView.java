@@ -3,6 +3,7 @@ package com.example.healthtracker;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
@@ -35,7 +36,8 @@ public class AddPatientView extends AppCompatActivity {
         // Read user input
         String patientId = inputId.getText().toString();
         boolean validID = false;
-        // Read from the elastic search database, obtain a list of registered patient Ids
+
+        // Read from the elastic search database, obtain a list of registered patient IDs
         ElasticsearchController.getAllPatients getAllMyPatients  = new ElasticsearchController.getAllPatients();
         getAllMyPatients.execute();
 
@@ -44,17 +46,19 @@ public class AddPatientView extends AppCompatActivity {
             System.out.println(patients);
 
             // Check whether the patient ID exists
-
             for(int i=0;i<patients.size();i++){
-
                 if(patientId.equals(patients.get(i).getUserID())){
                     validID = true;
                     mPatient = patients.get(i);
                 }
             }
-            System.out.println("patientId is "+validID);
+
             if (!validID){
-                Toast.makeText(this,"The patient ID is not valid. Please try again.",Toast.LENGTH_LONG).show();
+                AlertDialog.Builder alertBuilder = new AlertDialog.Builder(AddPatientView.this);
+                alertBuilder.setMessage("The patient ID is not valid. Please try again.");
+                alertBuilder.setPositiveButton("OK",null);
+                AlertDialog alertDialog = alertBuilder.create();
+                alertDialog.show();
                 return false;
             }
         }catch (ExecutionException e1){
@@ -66,13 +70,9 @@ public class AddPatientView extends AppCompatActivity {
         // If valid.
         if (validID) {
             // Check whether the patient has already been assigned to another care provider
-            //System.out.println("patient -> care provider's user ID: "+mPatient.getCareProvider());
             if (mPatient.getCareProvider().equals("")) {
-                System.out.println("reaches here!!!!!!!!");
-
                 // Fetch user data (Care Provider)
                 CareProvider careProvider = UserDataController.loadCareProviderData(this);
-
 
                 // Fetch user data (Patient)
                 String mPatientUserID = mPatient.getUserID();
@@ -86,18 +86,24 @@ public class AddPatientView extends AppCompatActivity {
 
                 }
 
+                // Update Patient data
                 mPatient.updateCareProvider(careProvider.getUserID());
                 UserDataController.savePatientData(this,mPatient);
-                //System.out.println("yesyesyesyesyes");
 
+                // Update Care Provider data
                 careProvider.addPatient(mPatient);
                 UserDataController.saveCareProviderData(this, careProvider);
-                //System.out.println("reaches here!!!!!!!!");
 
                 return true;
             }
             else{
-                Toast.makeText(this, "This patient has been assigned to a care provider already.", Toast.LENGTH_LONG).show();
+                //Toast.makeText(this, "This patient has been assigned to a care provider already.", Toast.LENGTH_LONG).show();
+                AlertDialog.Builder alertBuilder = new AlertDialog.Builder(AddPatientView.this);
+                alertBuilder.setMessage("The patient is already assigned to a care provider.");
+                alertBuilder.setPositiveButton("OK",null);
+                AlertDialog alertDialog = alertBuilder.create();
+                alertDialog.show();
+
                 return false;
             }
         }
@@ -113,9 +119,6 @@ public class AddPatientView extends AppCompatActivity {
             Intent intent = new Intent(AddPatientView.this, CareProviderHomeView.class);
             // Launch the browse emotions activity
             startActivity(intent);
-        }
-        else{
-            //Toast.makeText(this, "Patient Not Added", Toast.LENGTH_SHORT).show();
         }
     }
 }

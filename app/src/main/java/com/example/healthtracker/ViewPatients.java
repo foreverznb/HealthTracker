@@ -27,28 +27,25 @@ public class ViewPatients extends AppCompatActivity {
 
         patientsListView = (ListView) findViewById(R.id.patients_list_view);
         ArrayList<Patient> mPatients = new ArrayList<Patient>();
+
         // Fetch user data
         CareProvider careProvider = UserDataController.loadCareProviderData(this);
 
         // Fetch assigned patients
-
         if(careProvider.getPatientList().size() > 0) {
-            //System.out.println(careProvider.getPatientList());
-            //System.out.println("reached here");
             for (int i = 0; i < careProvider.getPatientList().size(); i++) {
                 mPatient = careProvider.getPatientList().get(i);
                 mPatients.add(mPatient);
-                //System.out.println(mPatients);
             }
 
         }
         else{
-            //Toast.makeText(this,"No Assigned Patients",Toast.LENGTH_LONG).show();
-
             // Create an alert dialog
             AlertDialog.Builder alertBuilder = new AlertDialog.Builder(ViewPatients.this);
             alertBuilder.setMessage("No Patients Assigned!");
-
+            alertBuilder.setPositiveButton("OK",null);
+            AlertDialog alertDialog = alertBuilder.create();
+            alertDialog.show();
         }
 
         // Display all assigned patients
