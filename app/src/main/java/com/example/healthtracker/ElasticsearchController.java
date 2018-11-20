@@ -22,6 +22,11 @@ import io.searchbox.core.Index;
 import io.searchbox.core.Search;
 import io.searchbox.core.SearchResult;
 
+/* General ideas for how to implement basic elastic search features from 
+*CMPUT301W18T17, https://github.com/CMPUT301W18T17/TheProfessionals , 2018/04/09, viewed 2018/10/13* with apache 
+license identified and documented at https://github.com/CMPUT301W18T17/TheProfessionals/blob/master/LICENSE
+*/
+
 /* ElasticSearch functionality licesned from 
 *https://creativecommons.org/licenses/by-nc-nd/3.0/legalcode, viewed 2018/11/14*
 */
