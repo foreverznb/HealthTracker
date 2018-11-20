@@ -1119,6 +1119,7 @@ id add
 id add_comment_button
 id add_comment_title
 id add_patient
+id add_patient_button
 id add_problem
 id add_record_from_add_problem
 id add_record_from_view_problem

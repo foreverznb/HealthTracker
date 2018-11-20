@@ -1,5 +1,5 @@
 #Internal package file, do not edit.
-#Tue Nov 20 10:56:39 MST 2018
+#Tue Nov 20 11:43:34 MST 2018
 1.base=/Users/caochenlin/Desktop/CMPUT301_intro_to_software_engineering/HealthTracker/app/build/intermediates/transforms/dexMerger/debug/1
 0.baseType=DIRECTORY
 1.baseType=DIRECTORY
