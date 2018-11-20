@@ -1,2 +1,2 @@
-# Referenced at C:\Users\Phoeb\Documents\GitHub\301\HealthTracker\app\build\intermediates\merged_manifests\debugAndroidTest\processDebugAndroidTestManifest\merged\AndroidManifest.xml:9
+# Referenced at /Users/caochenlin/Desktop/CMPUT301_intro_to_software_engineering/HealthTracker/app/build/intermediates/merged_manifests/debugAndroidTest/processDebugAndroidTestManifest/merged/AndroidManifest.xml:9
 -keep class android.support.test.runner.AndroidJUnitRunner { <init>(...); }

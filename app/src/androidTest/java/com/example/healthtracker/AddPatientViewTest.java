@@ -20,8 +20,9 @@ import static junit.framework.TestCase.assertTrue;
 public class AddPatientViewTest  {
 
     @Rule
-    public ActivityTestRule<AddPatientView> activityTestRule =
-            new ActivityTestRule<>(AddPatientView.class);
+    public ActivityTestRule<LoginActivity> activityTestRule =
+            new ActivityTestRule<>(LoginActivity.class);
+
 
     private Solo solo;
 

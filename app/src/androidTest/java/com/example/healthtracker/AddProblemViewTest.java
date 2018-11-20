@@ -20,9 +20,8 @@ import static junit.framework.TestCase.assertTrue;
 @RunWith(AndroidJUnit4.class)
 public class AddProblemViewTest {
     @Rule
-    public ActivityTestRule<AddProblemView> activityTestRule =
-            new ActivityTestRule<>(AddProblemView.class);
-
+    public ActivityTestRule<LoginActivity> activityTestRule =
+            new ActivityTestRule<>(LoginActivity.class);
     private Solo solo;
 
     @Before
@@ -41,9 +40,8 @@ public class AddProblemViewTest {
         // First step: Log in
         EditText userID = (EditText) solo.getView("userID");
         EditText password = (EditText) solo.getView("login_password");
-        solo.enterText(userID,"chenlin2");
+        solo.enterText(userID,"chenlinPatient");
         solo.enterText(password,"passwords");
-        solo.clickOnView(solo.getView("CareGiverLogin"));
         solo.clickOnView(solo.getView("login_button"));
 
         // Second step: Add a problem

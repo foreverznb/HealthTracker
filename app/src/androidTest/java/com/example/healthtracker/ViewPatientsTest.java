@@ -19,11 +19,13 @@ import static junit.framework.TestCase.assertTrue;
 
 @RunWith(AndroidJUnit4.class)
 public class ViewPatientsTest {
+
     @Rule
-    public ActivityTestRule<ViewPatients> activityTestRule =
-            new ActivityTestRule<>(ViewPatients.class);
+    public ActivityTestRule<LoginActivity> activityTestRule =
+            new ActivityTestRule<>(LoginActivity.class);
 
     private Solo solo;
+
 
     @Before
     public void setUp() throws Exception {
@@ -38,6 +40,8 @@ public class ViewPatientsTest {
 
     @Test
     public void testViewPatients(){
+
+
         // First step: Log in
         EditText userID = (EditText) solo.getView("userID");
         EditText password = (EditText) solo.getView("login_password");
@@ -46,8 +50,15 @@ public class ViewPatientsTest {
         solo.clickOnView(solo.getView("CareGiverLogin"));
         solo.clickOnView(solo.getView("login_button"));
 
+
         // Second step: Check whether patients assigned to this care provider shows up
         solo.clickOnView(solo.getView(R.id.view_patients));
-        assertTrue("Patient info is not found!",solo.searchText("Patient:"));
+
+        if (solo.searchText("P")) {
+            assertTrue("Patient info is not found!", solo.searchText("Patient:"));
+        }
+        else{
+            assertTrue("Alert message is not displayed!",solo.searchText("No Patients Assigned!"));
+        }
     }
 }
