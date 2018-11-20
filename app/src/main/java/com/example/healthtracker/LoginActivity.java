@@ -71,6 +71,7 @@ public class LoginActivity extends AppCompatActivity {
                         SharedPreferences.Editor editor = myPrefs.edit();
                         editor.putString("userID", userID);
                         editor.apply();
+                        UserDataController.saveCareProviderData(this, careProvider);
                         Intent intent = new Intent(LoginActivity.this, CareProviderHomeView.class);
                         startActivity(intent);
                     } else {
@@ -87,6 +88,7 @@ public class LoginActivity extends AppCompatActivity {
                         SharedPreferences.Editor editor = myPrefs.edit();
                         editor.putString("userID", userID);
                         editor.apply();
+                        UserDataController.savePatientData(this, patient);
                         Intent intent = new Intent(LoginActivity.this, PatientHomeView.class);
                         startActivity(intent);
                     } else {

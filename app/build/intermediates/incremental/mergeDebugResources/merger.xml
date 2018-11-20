@@ -3705,7 +3705,7 @@
         <item>Keywords</item>
         <item>Geo-location</item>
         <item>Body-location</item>
-    </string-array></file><file path="C:\Users\mikey\AndroidStudioProjects\HealthTracker\app\src\main\res\values\styles.xml" qualifiers=""><style name="AppTheme" parent="Base.Theme.AppCompat.Light.DarkActionBar">
+    </string-array><string name="newUserID">User ID(min 8 characters)</string></file><file path="C:\Users\mikey\AndroidStudioProjects\HealthTracker\app\src\main\res\values\styles.xml" qualifiers=""><style name="AppTheme" parent="Base.Theme.AppCompat.Light.DarkActionBar">
         
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>

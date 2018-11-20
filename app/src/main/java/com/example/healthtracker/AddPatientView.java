@@ -62,7 +62,14 @@ public class AddPatientView extends AppCompatActivity {
                 }
             }
 
-            if (!validID){
+            if (ElasticsearchController.testConnection(this)){
+                AlertDialog.Builder alertBuilder = new AlertDialog.Builder(AddPatientView.this);
+                alertBuilder.setMessage("Please connect to a network to add a patient.");
+                alertBuilder.setPositiveButton("OK",null);
+                AlertDialog alertDialog = alertBuilder.create();
+                alertDialog.show();
+                return false;
+            } else if(!validID){
                 AlertDialog.Builder alertBuilder = new AlertDialog.Builder(AddPatientView.this);
                 alertBuilder.setMessage("The patient ID is not valid. Please try again.");
                 alertBuilder.setPositiveButton("OK",null);

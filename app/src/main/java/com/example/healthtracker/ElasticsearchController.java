@@ -32,7 +32,7 @@ import io.searchbox.core.SearchResult;
 class ElasticsearchController {
     private static JestDroidClient client;
     private static String server = "http://cmput301.softwareprocess.es:8080";
-    private static String Index = "cmput301f18t13test";
+    private static String Index = "cmput301f18t13";
 
 
     /**
