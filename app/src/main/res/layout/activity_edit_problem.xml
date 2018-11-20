@@ -79,12 +79,13 @@
         tools:ignore="Autofill,LabelFor" />
 
     <Button
+        android:id="@+id/edit_save"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="8dp"
         android:layout_marginBottom="8dp"
-        android:text="@string/save_edited_problem"
+        android:layout_marginEnd="8dp"
         android:onClick="editPatientProblem"
+        android:text="@string/save_edited_problem"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
 
