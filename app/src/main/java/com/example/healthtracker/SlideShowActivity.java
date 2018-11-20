@@ -4,6 +4,10 @@ import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
+/* Code for testing the ability of a slideshow to operate on the emulator reused from the tutorial by 
+*EDMT Dev, https://www.youtube.com/watch?v=SX8l9vv-N_4, 2016/07/13, viewed 2018/10/20*
+*/
+
 /*
  * SlideShowActivity will enable patients and careproviders to view a slidehsow of all of the photos
  * associated with a problem.
