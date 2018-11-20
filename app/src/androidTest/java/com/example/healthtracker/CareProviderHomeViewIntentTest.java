@@ -50,7 +50,7 @@ public class CareProviderHomeViewIntentTest {
         boolean result_1 = solo.waitForActivity(AddPatientView.class, 2000);
         Assert.assertEquals(true, result_1);
         solo.goBack();
-        solo.clickOnView(solo.getView(R.id.view_patients));
+        solo.clickOnView(solo.getView(R.id.view_problems));
         boolean result_2 = solo.waitForActivity(ViewPatients.class, 2000);
         Assert.assertEquals(true, result_2);
         solo.goBack();

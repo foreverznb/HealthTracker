@@ -19,13 +19,12 @@ import android.widget.Toast;
 
 import java.util.ArrayList;
 
+/*
+ * Enables patients to view a list of their own problems. Selecting a problem from the list will give
+ * the patient the choice to edit/view or delete the problem. Selecting edit/view will initiate the
+ * EditProblem activity.
+ */
 public class ViewMyProblems extends AppCompatActivity {
-
-    /*
-    User currentUser;
-    String username;
-    List<Problem> problems;
-    */
 
     private ArrayList<Problem> mProblems;
     private ListView mListView;
@@ -122,30 +121,4 @@ public class ViewMyProblems extends AppCompatActivity {
         });
 
     }
-
-    /*
-
-    @Override
-    public void onCreateContextMenu(ContextMenu menu,View v,ContextMenu.ContextMenuInfo menuInfo){
-        super.onCreateContextMenu(menu,v,menuInfo);
-        MenuInflater menuInflater = getMenuInflater();
-        menuInflater.inflate(R.menu.my_menu, menu);
-        menu.setHeaderTitle("Select an action");
-    }
-
-    @Override
-    public boolean onContextItemSelected(MenuItem item) {
-        Log.d("message","aaaa");
-        AdapterContextMenuInfo info = (AdapterContextMenuInfo) item.getMenuInfo();
-        int index = info.position;
-        Problem mProblem = mProblems.get(index);
-        if(item.getItemId() == R.id.editProblem){
-            Log.d("message","bbbbb");
-            Toast.makeText(getApplicationContext(),"edit a problem",Toast.LENGTH_LONG);
-            Intent intent = new Intent(ViewMyProblems.this,EditProblem.class);
-            startActivity(intent);
-        }
-        return true;
-    }
-*/
 }

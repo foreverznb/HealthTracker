@@ -1123,6 +1123,7 @@ id add_patient_button
 id add_problem
 id add_problem_button
 id add_record_from_add_problem
+id add_record_from_edit_problem
 id add_record_from_view_problem
 id adjust_height
 id adjust_width
@@ -1131,7 +1132,6 @@ id all
 id always
 id async
 id auto
-id back_from_userlist
 id barrier
 id beginning
 id blocking
@@ -1184,7 +1184,6 @@ id edit_email
 id edit_phone
 id edit_problem_button
 id edit_query
-id edit_record_button
 id edit_save
 id email
 id end
@@ -1275,14 +1274,6 @@ id progress_horizontal
 id radio
 id record_list_addscreen
 id record_list_editscreen
-id record_view_back
-id record_view_bodylocation
-id record_view_comment
-id record_view_geolocation
-id record_view_photos
-id record_view_timestamp
-id record_view_title
-id return_from_auser__info_button
 id right
 id right_icon
 id right_side
@@ -1349,12 +1340,6 @@ id textSpacerNoButtons
 id textSpacerNoTitle
 id textStart
 id textView
-id textView10
-id textView11
-id textView12
-id textView13
-id textView14
-id textView15
 id textView2
 id textView3
 id textView4
@@ -1393,7 +1378,7 @@ id viewRecord
 id viewTitle
 id view_map
 id view_offset_helper
-id view_patients
+id view_problems
 id visible
 id webMDLink
 id wide
@@ -1460,16 +1445,13 @@ layout activity_login
 layout activity_map_view
 layout activity_patient_home
 layout activity_patient_problem_view
-layout activity_record_view
 layout activity_search
 layout activity_search_results
 layout activity_slide_show
 layout activity_user_settings
-layout activity_view_auser
 layout activity_view_my_problems
 layout activity_view_patients
 layout activity_view_patients_problems
-layout activity_view_users
 layout design_bottom_navigation_item
 layout design_bottom_sheet_dialog
 layout design_layout_snackbar

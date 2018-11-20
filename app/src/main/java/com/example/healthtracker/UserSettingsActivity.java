@@ -16,13 +16,9 @@ import android.widget.Toast;
 import java.util.List;
 
 
-/**
+/*
  * UserSettingsActivity enables users to modify their account information. The changes to their local account are modified in the
  * ElasticSearch database as well as stored locally after adjustment.
- *
- * @author Tyler Watson
- * @version 1.0
- * @since 2018-11-12
  */
 public class UserSettingsActivity extends AppCompatActivity {
     private static final String TAG = "Settings";
@@ -50,20 +46,26 @@ public class UserSettingsActivity extends AppCompatActivity {
         }
     }
 
-    public void loadCurrentPatientData(){
+    /*
+     * Get and display the current contact information of the patient.
+     */
+    private void loadCurrentPatientData(){
         patient = UserDataController.loadPatientData(this);
         uemail.setText(patient.getEmail());
         phone.setText(patient.getPhone());
     }
 
-    public void loadCurrentCareProviderData(){
+    /*
+     * Get and display the current contact information of the careprovider.
+     */
+    private void loadCurrentCareProviderData(){
         careProvider = UserDataController.loadCareProviderData(this);
         uemail.setText(careProvider.getEmail());
         phone.setText(careProvider.getPhone());
     }
 
 
-    public void editUserInfo(View view){
+    private void editUserInfo(View view){
         String phoneString = phone.getText().toString();
         String emailString = uemail.getText().toString().toLowerCase();
         if(!isEmpty(phoneString) && !isEmpty(emailString)){

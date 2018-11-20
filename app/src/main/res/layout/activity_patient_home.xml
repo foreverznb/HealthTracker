@@ -21,7 +21,7 @@
         app:layout_constraintTop_toBottomOf="@+id/add_problem" />
 
     <Button
-        android:id="@+id/view_patients"
+        android:id="@+id/view_problems"
         android:layout_width="135dp"
         android:layout_height="wrap_content"
         android:layout_marginEnd="8dp"
@@ -57,19 +57,8 @@
         android:text="@string/view_map"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/view_patients" />
+        app:layout_constraintTop_toBottomOf="@+id/view_problems" />
 
-    <Button
-        android:layout_width="129dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
-        android:onClick="ViewUsers"
-        android:text="@string/view_users"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/view_map" />
 
     <Button
         android:id="@+id/patient_setting"

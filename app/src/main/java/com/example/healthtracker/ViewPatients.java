@@ -14,6 +14,11 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
+/*
+ * ViewPatients enables careproviders to view a list of all of their added patients. Careproviders can
+ * select a patient from the list to then view that patient's problems by initiating the ViewPatients
+ * problems activity.
+ */
 public class ViewPatients extends AppCompatActivity {
 
     private ListView patientsListView;

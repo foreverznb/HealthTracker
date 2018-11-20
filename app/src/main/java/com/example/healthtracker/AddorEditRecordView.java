@@ -19,15 +19,12 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Locale;
 
-/**
+/*
  * AddorEditRecordView enables a patient to add a new record to one of their problems or edit an
  * existing record. This activity will finish with a positive result code if a record was successfully
  * saved. The current Record data will be displayed if a record is being edited. The new
  * or changed record can be saved by selecting the save button.
  *
- * @author Michael Boisvert
- * @version 1.0
- * @since 2018-11-15
  */
 public class AddorEditRecordView extends AppCompatActivity {
 
@@ -59,7 +56,7 @@ public class AddorEditRecordView extends AppCompatActivity {
     }
 
     @Override
-    /**
+    /*
      * Overrides the android back button in order to warn user that their record will not be saved.
      * Also sets the result state to RESULT_CANCELED so that the previous activity can determine no
      * record has been added or edited.
@@ -89,11 +86,9 @@ public class AddorEditRecordView extends AppCompatActivity {
         ab.show();
     }
 
-    /**
+    /*
      * When clicked the save button will save or update the record as long as the record at least
      * has a title.
-     *
-     * @param view The view for the layout included for onClick methods in XML
      */
     public void saveButton(View view) {
         if (titleText.getText().toString().equals("")) {
@@ -103,7 +98,7 @@ public class AddorEditRecordView extends AppCompatActivity {
         }
     }
 
-    /**
+    /*
      * If a record is being edited this method is called to display its current data.
      */
     public void showRecord(){
@@ -112,7 +107,7 @@ public class AddorEditRecordView extends AppCompatActivity {
         //TODO show geomap, photos, bodlocation
     }
 
-    /**
+    /*
      * Update record with user entered data.
      * Save record by serializing it and setting it as the result of this activity.
      */
