@@ -1154,6 +1154,7 @@ id container
 id content
 id contentPanel
 id coordinator
+id create_account
 id create_new_account_button
 id custom
 id customPanel
@@ -1252,6 +1253,7 @@ id parent
 id parentPanel
 id parent_matrix
 id patient_id_string
+id patient_setting
 id patients_list_view
 id percent
 id phone_number
@@ -1297,6 +1299,7 @@ id search_voice_btn
 id select_dialog_listview
 id selected
 id selected_patient_ID
+id setting
 id shortcut
 id showCustom
 id showHome
