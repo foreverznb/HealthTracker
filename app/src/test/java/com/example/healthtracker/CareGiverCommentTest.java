@@ -20,8 +20,8 @@ public class CareGiverCommentTest {
     public void setUp() {
         title = "Rash";
         comment = "Get a rash after eating some seafood";
-        parentProblem = new Problem(title, new Date(), comment);
-        careGiverComment = new CareGiverComment("Allergy", "Stay away from seafood", parentProblem);
+        parentProblem = new Problem("Problem", new Date(), "comment");
+        careGiverComment = new CareGiverComment(title, comment);
     }
 
     @Test

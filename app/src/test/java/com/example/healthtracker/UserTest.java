@@ -20,7 +20,7 @@ public class UserTest {
         userID = "abc";
         password = "abcd";
 
-        u = new User(phone, email, userID, password);
+        u = new User(phone, email, userID);
     }
 
     @Test

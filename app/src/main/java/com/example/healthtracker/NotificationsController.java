@@ -11,7 +11,7 @@ public class NotificationsController {
     private Date startDate;
 
 
-    public void NotificationsController (Date startDate,Time time, String repeatType ){
+    public NotificationsController (Date startDate,Time time, String repeatType ){
         this.startDate = startDate;
         this.time = time;
         this.repeatType = repeatType;

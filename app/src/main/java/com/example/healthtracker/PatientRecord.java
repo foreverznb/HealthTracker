@@ -20,12 +20,16 @@ public class PatientRecord implements Serializable {
         this.RecordTitle = title;
         this.comment = comment;
         this.timestamp = new Timestamp(System.currentTimeMillis());
+        geoLocations = new ArrayList<Bitmap> ();
+        photos = new ArrayList<Photo> ();
     }
 
     public PatientRecord(){
         RecordTitle = "";
         comment = "";
         timestamp = new Timestamp(System.currentTimeMillis());
+        geoLocations = new ArrayList<Bitmap> ();
+        photos = new ArrayList<Photo> ();
     }
 
     public void addGeoLocation(Bitmap geoLocation){

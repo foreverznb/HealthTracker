@@ -60,13 +60,13 @@ public class CareProviderTest {
         password3 = "Dave123";
         phone3 = "780-777-777";
         email3 = "Dave@ualberta.ca";
-        patient1 = new Patient(phone, email, userName, password);
-        patient2 = new Patient(phone2, email2, userName2, password2);
-        patient3 = new Patient(phone3, email3, userName3, password3);
+        patient1 = new Patient(phone, email, userName);
+        patient2 = new Patient(phone2, email2, userName2);
+        patient3 = new Patient(phone3, email3, userName3);
     }
     @Test
     public void addPatient(){
-        CareProvider c = new CareProvider(phone3, email3, userName3, password3);
+        CareProvider c = new CareProvider(phone3, email3, userName3);
 
         c.addPatient(patient2);
 
@@ -79,7 +79,7 @@ public class CareProviderTest {
 
     @Test
     public void getPatientList() {
-        CareProvider c = new CareProvider(phone3, email3, userName3, password3);
+        CareProvider c = new CareProvider(phone3, email3, userName3);
 
         c.addPatient(patient2);
         c.addPatient(patient1);
@@ -97,7 +97,7 @@ public class CareProviderTest {
 
     @Test
     public void setPatient(){
-        CareProvider c = new CareProvider(phone3, email3, userName3, password3);
+        CareProvider c = new CareProvider(phone3, email3, userName3);
 
         c.addPatient(patient2);
         c.addPatient(patient1);
@@ -116,17 +116,16 @@ public class CareProviderTest {
 
     @Test
     public void updateUserInfo(){
-        CareProvider c = new CareProvider(phone3, email3, userName3, password3);
-        c.updateUserInfo(phone2, email2, userName2);
+        CareProvider c = new CareProvider(phone3, email3, userName3);
+        c.updateUserInfo(phone2, email2);
 
         assertEquals(c.getPhone(), phone2);
         assertEquals(c.getEmail(), email2);
-        assertEquals(c.getUserID(), userName2);
     }
 
     @Test
     public void createAccountTest(){
-        CareProvider c = new CareProvider(phone3, email3, userName3, password3);
+        CareProvider c = new CareProvider(phone3, email3, userName3);
         assertEquals(userName3, c.getUserID());
         //assertEquals(password, c.getPassword());
         assertEquals(phone3, c.getPhone());
