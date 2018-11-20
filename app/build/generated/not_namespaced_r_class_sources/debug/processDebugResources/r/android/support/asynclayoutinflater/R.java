@@ -83,6 +83,7 @@ public final class R {
         public static final int action_image = 0x7f090013;
         public static final int action_text = 0x7f090019;
         public static final int actions = 0x7f09001a;
+<<<<<<< HEAD
         public static final int async = 0x7f090029;
         public static final int blocking = 0x7f09002d;
         public static final int chronometer = 0x7f09003c;
@@ -106,6 +107,31 @@ public final class R {
         public static final int text2 = 0x7f0900f6;
         public static final int time = 0x7f090106;
         public static final int title = 0x7f090107;
+=======
+        public static final int async = 0x7f09002a;
+        public static final int blocking = 0x7f09002e;
+        public static final int chronometer = 0x7f09003d;
+        public static final int forever = 0x7f09006e;
+        public static final int icon = 0x7f090077;
+        public static final int icon_group = 0x7f090078;
+        public static final int info = 0x7f09007e;
+        public static final int italic = 0x7f090080;
+        public static final int line1 = 0x7f090087;
+        public static final int line3 = 0x7f090088;
+        public static final int normal = 0x7f09009d;
+        public static final int notification_background = 0x7f09009e;
+        public static final int notification_main_column = 0x7f09009f;
+        public static final int notification_main_column_container = 0x7f0900a0;
+        public static final int right_icon = 0x7f0900bb;
+        public static final int right_side = 0x7f0900bc;
+        public static final int tag_transition_group = 0x7f0900f2;
+        public static final int tag_unhandled_key_event_manager = 0x7f0900f3;
+        public static final int tag_unhandled_key_listeners = 0x7f0900f4;
+        public static final int text = 0x7f0900f6;
+        public static final int text2 = 0x7f0900f7;
+        public static final int time = 0x7f090107;
+        public static final int title = 0x7f090108;
+>>>>>>> 6b3ff246110b0cd89b5d1f356c12fb53aef43123
     }
     public static final class integer {
         private integer() {}

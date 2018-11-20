@@ -1,7 +1,20 @@
+<<<<<<< HEAD
 #Tue Nov 20 14:29:04 MST 2018
+=======
+<<<<<<< HEAD
+#Tue Nov 20 11:31:05 MST 2018
+>>>>>>> 6b3ff246110b0cd89b5d1f356c12fb53aef43123
 base.0=C\:\\Users\\mikey\\AndroidStudioProjects\\HealthTracker\\app\\build\\intermediates\\transforms\\dexMerger\\debug\\0
+=======
+#Tue Nov 20 12:06:49 MST 2018
+base.0=/Users/caochenlin/Desktop/CMPUT301_intro_to_software_engineering/HealthTracker/app/build/intermediates/transforms/dexMerger/debug/1
+>>>>>>> chenlin
 path.1=classes.dex
 renamed.1=classes2.dex
 path.0=classes.dex
 renamed.0=classes.dex
+<<<<<<< HEAD
 base.1=C\:\\Users\\mikey\\AndroidStudioProjects\\HealthTracker\\app\\build\\intermediates\\transforms\\dexMerger\\debug\\1
+=======
+base.1=/Users/caochenlin/Desktop/CMPUT301_intro_to_software_engineering/HealthTracker/app/build/intermediates/transforms/dexMerger/debug/0
+>>>>>>> chenlin
