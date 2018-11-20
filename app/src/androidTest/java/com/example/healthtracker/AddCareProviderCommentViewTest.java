@@ -47,7 +47,7 @@ public class AddCareProviderCommentViewTest {
         solo.clickOnView(solo.getView("login_button"));
 
         // Second step: View patients
-        solo.clickOnView(solo.getView(R.id.view_patients));
+        solo.clickOnView(solo.getView(R.id.view_problems));
 
         // Third step: Click on the first patient shown in the patient list if at least a patient exists
         ListView patientListView = (ListView) solo.getView(R.id.patients_list_view);
