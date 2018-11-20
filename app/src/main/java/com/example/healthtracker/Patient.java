@@ -101,11 +101,9 @@ public class Patient extends User implements Serializable {
     }
 
     /**
-     * Add a new careProvider to the patient.
+     * Add a cProviderID to the patient
      *
-     * This may need to be reworked.
-     *
-     * @param cProviderID the ID of the CareProvder to add.
+     * @param cProviderID the providerId of the care provider assigned to this patient
      */
     public void addToCareProviderString(String cProviderID){
         if(this.careProviders.equals("")){
