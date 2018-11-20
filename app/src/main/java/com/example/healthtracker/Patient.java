@@ -81,16 +81,32 @@ public class Patient extends User implements Serializable {
         this.problemList.remove(problem);
     }
 
+    /**
+     * Checks to see if the patient has any problems.
+     *
+     * @return a boolean indicating wether the patient's problem list is empty or not
+     */
     public boolean noProblemsExist(){
         return problemList.isEmpty();
     }
 
+    /**
+     * Get one of the patient's specific problems
+     *
+     * @param index the index of the desired problem in the patient's problem list
+     * @return the problem corresponding to the index input
+     */
     public Problem getProblem(int index){
         return problemList.get(index);
     }
 
-
-
+    /**
+     * Add a new careProvider to the patient.
+     *
+     * This may need to be reworked.
+     *
+     * @param cProviderID the ID of the CareProvder to add.
+     */
     public void addToCareProviderString(String cProviderID){
         if(this.careProviders.equals("")){
             this.careProviders = cProviderID;
@@ -100,11 +116,22 @@ public class Patient extends User implements Serializable {
         }
     }
 
+    /**
+     * Get a string of all of the patient's CareProviders.
+     *
+     * @return A string of the user id's of all of the patient's CareProviders
+     */
     public String getCareProviderString(){
         return this.careProviders;
     }
 
     @Override
+    /**
+     * Override the toString method to control what will be displayed in the a CareProvder's patient
+     * list.
+     *
+     * @return A string that represents the patient.
+     */
     public String toString() {
         return "Patient: "+getUserID()+"\nPhone: "+getPhone()+"\nEmail: "+getEmail()+"\nCare givers: "+getCareProviderString();
     }

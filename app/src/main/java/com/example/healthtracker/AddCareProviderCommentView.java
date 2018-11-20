@@ -11,20 +11,16 @@ import android.widget.Toast;
 
 import java.util.ArrayList;
 
-/**
+/*
  * AddCareProviderCommentView enables a CareProvider to create a comment record that will be added
  * to a patients problem. The patient and problem will have been selected before starting this
  * activity. The careprovider can fill in a title and comment for the record in textviews and save the
  * record by selecting the save button.
- *
- * @author
- * @version 1.0
- * @since 2018-10-30
  */
 public class AddCareProviderCommentView extends AppCompatActivity {
 
-    private CareGiverComment newComment;
-    private ArrayList<CareGiverComment> CareGiverComments;
+    private CareProviderComment newComment;
+    private ArrayList<CareProviderComment> careProviderComments;
 
     private CareProvider careProvider;
     private Patient myPatient;
@@ -52,12 +48,12 @@ public class AddCareProviderCommentView extends AppCompatActivity {
         pProblem = myPatient.getProblem(problemNum);
 
 
-        CareGiverComments = pProblem.getcaregiverRecords();
-        if (CareGiverComments == null){
-            CareGiverComments = new ArrayList<CareGiverComment>();
+        careProviderComments = pProblem.getcaregiverRecords();
+        if (careProviderComments == null){
+            careProviderComments = new ArrayList<CareProviderComment>();
         }
 
-        newComment = new CareGiverComment();
+        newComment = new CareProviderComment();
 
 
         titleText = findViewById(R.id.care_comment_title);
@@ -103,8 +99,8 @@ public class AddCareProviderCommentView extends AppCompatActivity {
         // set data
         newComment.setTitle(title);
         newComment.setComment(comment);
-        CareGiverComments.add(newComment);
-        pProblem.setCaregiverRecords(CareGiverComments);
+        careProviderComments.add(newComment);
+        pProblem.setCaregiverRecords(careProviderComments);
         myPatient.setProblem(pProblem, problemNum);
         careProvider.setPatient(myPatient, patientNum);
 

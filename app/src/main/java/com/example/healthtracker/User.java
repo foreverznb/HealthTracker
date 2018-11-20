@@ -11,7 +11,7 @@ import io.searchbox.annotations.JestId;
  * The User superclass class creates user objects and contains all the constructors, getters, and setters to modify user
  * objects and promote data access within both CareProvider and Patient subclasses
  *
- * @author
+ * @author Michael Boisvert
  * @version 1.0
  * @since 2018-10-20
  */
@@ -102,37 +102,14 @@ public class User implements Serializable {
     }
 
     /**
-     *  TODO
-     *  Is this even used?
-     * @param phone phone number
-     * @param email email address
+     * Update the user's contact information.
+     *
+     * @param phone A string that will be the user's new listed phone number.
+     * @param email A string that will be the user's new listed email address.
 
      */
     public void updateUserInfo(String phone, String email){
         this.setEmail(email);
         this.setPhone(phone);
-    }
-
-    /**
-     * TODO
-     *
-     * @param keyword keyword associated with the problem for searching?
-     * @param type type of the problem?
-     * @return returns null
-     */
-    public List<Problem> search(String keyword, String type){
-        //TODO implement
-        return null;
-    }
-
-
-    /**
-     * TODO
-     *
-     * @return returns null
-     */
-    public Bitmap createMap(){
-        //TODO implement
-        return null;
     }
 }

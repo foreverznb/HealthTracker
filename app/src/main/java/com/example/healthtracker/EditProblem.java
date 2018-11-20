@@ -19,8 +19,11 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.Locale;
 
+/*
+ * EditProblem enables a patient to alter the details of one of their problems and select any PatientRecord
+ * associated with it to edit. The altered problem is saved by selecting the "save" button.
+ */
 public class EditProblem extends AppCompatActivity {
-
 
     private EditText titleText;
     private EditText dateText;
@@ -139,7 +142,7 @@ public class EditProblem extends AppCompatActivity {
         });
     }
 
-    public void displayData() {
+    private void displayData() {
         titleText.setText(problem.getTitle());
         descriptionText.setText(problem.getDescription());
         date = problem.getDate();
@@ -166,6 +169,9 @@ public class EditProblem extends AppCompatActivity {
     }
 
     @Override
+    /*
+     * Override back button to warn patient that their changes will not be saved.
+     */
     public void onBackPressed() {
         if (!initial_entry.equals(getEntry())) {
             AlertDialog.Builder ab = new AlertDialog.Builder(this);
@@ -191,6 +197,10 @@ public class EditProblem extends AppCompatActivity {
         }
     }
 
+    /*
+     * Clicking save button will save the edited problem as long as all the necessary fields are filled
+     * and the date is in the proper date format.
+     */
     public void editPatientProblem(View view) {
         if (titleText.getText().toString().equals("") || dateText.getText().toString().equals("")
                 || descriptionText.getText().toString().equals("")) {
@@ -222,7 +232,10 @@ public class EditProblem extends AppCompatActivity {
         }
     }
 
-    // add record button
+    /*
+     * Selecting the "add record" button begins the AddorEditRecord activity with request code 1 which
+     * indicates a new problem is being added.
+     */
     public void addRecordFromAdd(View view) {
         // Create an intent object containing the bridge to between the two activities
         Intent intent = new Intent(EditProblem.this, AddorEditRecordView.class);
@@ -231,6 +244,11 @@ public class EditProblem extends AppCompatActivity {
     }
 
     @Override
+    /*
+     * Deal with result of AddorEditRecord. If no result is found (patient backed out of page) do
+     * nothing. If a result is found add or set the record based on the request code. 1 indicates
+     * a record should be added. 2 indicates a record was edited so the record should be set.
+     */
     public void onActivityResult (int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
 

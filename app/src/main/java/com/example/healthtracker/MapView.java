@@ -20,16 +20,12 @@ import com.google.android.gms.maps.model.MarkerOptions;
 import java.io.IOException;
 import java.util.List;
 
+
 /*
-public class MapView extends AppCompatActivity {
-
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_map_view);
-    }
-}*/
-
+ * MapView will allow Patients to view all of the geolocations associated with their problems in
+ * a map. Careproviders can view all of the geolocations associated with their patients'
+ * problems.
+ */
 public class MapView extends FragmentActivity implements OnMapReadyCallback {
 
     private GoogleMap mMap;
@@ -44,6 +40,9 @@ public class MapView extends FragmentActivity implements OnMapReadyCallback {
         mapFragment.getMapAsync(this);
     }
 
+    /*
+     * Search for a location by address.
+     */
     public void onMapSearch(View view) {
         EditText locationSearch = findViewById(R.id.editText);
         String location = locationSearch.getText().toString();
@@ -65,6 +64,9 @@ public class MapView extends FragmentActivity implements OnMapReadyCallback {
     }
 
     @Override
+    /*
+     * Override the onMapReady method in order to set what will apear when the map is initiated.
+     */
     public void onMapReady(GoogleMap googleMap) {
 
         mMap = googleMap;

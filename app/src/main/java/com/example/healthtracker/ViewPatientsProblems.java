@@ -11,6 +11,11 @@ import android.widget.TextView;
 
 import java.util.ArrayList;
 
+/*
+ * ViewPatientsProblems enable careproviders to view a list of all of the problems belonging to a particular
+ * patient. Careproviders can view more details of the problems including their records by selecting
+ * any of the problems from the list.
+ */
 public class ViewPatientsProblems extends AppCompatActivity {
 
     private ArrayList<Problem> pProblems;

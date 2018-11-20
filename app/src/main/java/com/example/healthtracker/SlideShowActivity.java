@@ -4,6 +4,10 @@ import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
+/*
+ * SlideShowActivity will enable patients and careproviders to view a slidehsow of all of the photos
+ * associated with a problem.
+ */
 public class SlideShowActivity extends AppCompatActivity {
 
     private String[] images = {
