@@ -6,6 +6,9 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Spinner;
 
+/**
+ * SearchActivity will enable patients and careproviders to search for problems and records.
+ */
 public class SearchActivity extends AppCompatActivity {
 
     private Spinner spinner;

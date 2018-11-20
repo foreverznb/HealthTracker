@@ -12,20 +12,14 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 
-/**
+/*
  * PatientHomeView acts as a home screen interface for Patient users to navigate to different app activities.
- *
- * @author Tyler Watson
- * @version 1.0
- * @since 2018-10-20
  */
 public class PatientHomeView extends AppCompatActivity {
 
-    /**
+    /*
      * onCreate launched on activity creation. Contains the code for generating links to external medical resources allowing the patient
      * to help identify and better document their medical issues.
-     *
-     * @param savedInstanceState SIS
      */
     @RequiresApi(api = Build.VERSION_CODES.N)
     @Override
@@ -51,10 +45,8 @@ public class PatientHomeView extends AppCompatActivity {
         checkTV.setText(Html.fromHtml(checkText, Html.FROM_HTML_MODE_COMPACT));
     }
 
-    /**
+    /*
      * Method containing the new intent which will bring user to the search activity layout
-     *
-     * @param view the view for the Patient home screen layout included for onClick methods in XML
      */
     public void Search(View view) {
         // Create an intent object containing the bridge to between the two activities
@@ -63,10 +55,8 @@ public class PatientHomeView extends AppCompatActivity {
         startActivity(intent);
     }
 
-    /**
+    /*
      * finish's the current activity and returns the user the main login screen, logging out the user
-     *
-     * @param view the view for the Patient home screen layout included for onClick methods in XML
      */
     public void Sync(View view) {
         UserDataController.syncPatientData(this);
@@ -76,10 +66,8 @@ public class PatientHomeView extends AppCompatActivity {
         finish();
     }
 
-    /**
+    /*
      * Method containing the new intent which will bring the patient to the add problem activity layout
-     *
-     * @param view the view for the Patient home screen layout included for onClick methods in XML
      */
     public void addProblem(View view) {
         // Create an intent object containing the bridge to between the two activities
@@ -112,10 +100,8 @@ public class PatientHomeView extends AppCompatActivity {
 
     }
 
-    /**
+    /*
      * Method containing the new intent which will bring user to the user settings activity layout
-     *
-     * @param view the view for the Patient home screen layout included for onClick methods in XML
      */
     public void Settings(View view) {
         // Create an intent object containing the bridge to between the two activities
@@ -125,10 +111,8 @@ public class PatientHomeView extends AppCompatActivity {
         startActivity(intent);
     }
 
-    /**
+    /*
      * Method containing the new intent which will bring user to the geo map activity layout
-     *
-     * @param view the view for the Patient home screen layout included for onClick methods in XML
      */
     public void viewMap(View view) {
         // Create an intent object containing the bridge to between the two activities

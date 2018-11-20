@@ -16,13 +16,9 @@ import com.searchly.jestdroid.JestDroidClient;
 
 import java.util.concurrent.ExecutionException;
 
-/**
+/*
  * CreateAccountActivity enables a user to create a new account for the HealthTracker app by filling in the required account details.
  * The user's data will be stored in an ElasticSearch database and partially stored locally.
- *
- * @author Tyler Watson
- * @version 1.0
- * @since 2018-10-30
  */
 public class CreateAccountActivity extends AppCompatActivity {
 
@@ -39,10 +35,8 @@ public class CreateAccountActivity extends AppCompatActivity {
     private String email, password, phone, userID;
     private User user;
 
-    /**
+    /*
      * onCreate launched on activity creation
-     *
-     * @param savedInstanceState SIS
      */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -63,7 +57,7 @@ public class CreateAccountActivity extends AppCompatActivity {
         init();
     }
 
-    /**
+    /*
      * Adds a new user with the specified account information filled in by the user in each specific field. The userId for the new
      * user will first be checked to see if it already exists. If so account creation will be denied. Additionally each field is
      * checked to see if it was left empty or not by calling the checkInputs method.
@@ -91,15 +85,9 @@ public class CreateAccountActivity extends AppCompatActivity {
         });
     }
 
-    /**
+    /*
      * Checks that all the input fields are filled, displaying a toast message if the fields are not filled. The method
      * returns a boolean object based on whether or not the account info fields are filled.
-     *
-     * @param email input email string to be tested whether it was filled in by the user
-     * @param userID input userID string to be tested whether it was filled in by the user
-     * @param password input password string to be tested whether it was filled in by the user
-     * @param phone input phone string to be tested whether it was filled in by the user
-     * @return returns boolean object on whether an entry field is blank
      */
     private boolean checkInputs(String email, String userID, String password, String phone){
         Log.d(TAG, "checkInputs: checking inputs for null values");
@@ -113,14 +101,9 @@ public class CreateAccountActivity extends AppCompatActivity {
         return true;
     }
 
-    /**
+    /*
      * Checks if an account with the provided userID already exists in the system and returns a boolean value based off of the
      * result of verification testing.
-     *
-     * @param userID userID entered within the method call to be checked for its existence in the database before account creation
-     * @return returns a boolean value determined by the existence of an existing userID
-     * @throws ExecutionException   exception for .get() to catch errors during method execution
-     * @throws InterruptedException exception for .get() to catch interruptions resulting in errors during execution
      */
     public boolean userExists(String userID) throws ExecutionException, InterruptedException {
         if(checkBox.isChecked()){
@@ -139,7 +122,7 @@ public class CreateAccountActivity extends AppCompatActivity {
 
     }
 
-    /**
+    /*
      * The addNewUser() method is called by init() when the user attempts to add a new account. If the checkbox is clicked by
      * the user, a CareProvider account will try to be created. If the checkbox is not checked, a patient account will
      * attempt to be created. This method utilizes the ElasticsearchController, CareProvider, and Patient classes.
@@ -175,10 +158,8 @@ public class CreateAccountActivity extends AppCompatActivity {
         }
     }
 
-    /**
+    /*
      * testConnection() checks for online connectivity on either wifi or mobile data and returns the connectivity state
-     *
-     * @return returns a boolean object on whether the user is connected to wifi or cellular data for online connectivity checks
      */
     public boolean testConnection() {
         ConnectivityManager connectivityManager = (ConnectivityManager) getSystemService(CONNECTIVITY_SERVICE);

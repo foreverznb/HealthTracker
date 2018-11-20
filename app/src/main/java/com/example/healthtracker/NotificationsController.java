@@ -6,6 +6,10 @@ import java.sql.Time;
 /**
  * NotificationController handles alerting a Patient of when they should add another record to
  * one of their problems based on the notifications added to problems by the Patient.
+ *
+ * @author Michael Boisvert
+ * @version 1.0
+ * @since 2018-10-20
  */
 public class NotificationsController {
     private Boolean isOn;

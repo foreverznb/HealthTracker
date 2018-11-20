@@ -13,7 +13,7 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.Locale;
 
-/**
+/*
  * CareProviderProblemView enables a careprovider to view the current details of a patient's problems
  * including title, date, description and records. From this activity a careprovider can select
  * the "Add Comment" button to initiate the AddCareProvderCommentView activity.
@@ -82,12 +82,10 @@ public class CareProviderProblemView extends AppCompatActivity {
         }
     }
 
-    /**
+    /*
      * Clicking the "Add Comment" button initiates a new AddCareProviderComment activity and
      * sends the patient and problem index numbers to that activity. This allows the CareProvider
      * to then add a comment record to the problem in the AddCareProviderComment activity.
-     *
-     * @param view the view for the layout included for onClick methods in XML
      */
     public void addCareProviderComment(View view) {
         // Create an intent object containing the bridge to between the two activities
@@ -100,11 +98,8 @@ public class CareProviderProblemView extends AppCompatActivity {
         startActivity(intent);
     }
 
-    /**
+    /*
      * Initiate a slidshow of all of the photos associated with the currently viewed problem.
-     *
-     * @param view the view for the layout included for onClick methods in XML
-     *
      */
     public void viewProblemsPhotos(View view) {
         // Create an intent object containing the bridge to between the two activities

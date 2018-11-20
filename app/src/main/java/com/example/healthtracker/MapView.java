@@ -21,7 +21,7 @@ import java.io.IOException;
 import java.util.List;
 
 
-/**
+/*
  * MapView will allow Patients to view all of the geolocations associated with their problems in
  * a map. Careproviders can view all of the geolocations associated with their patients'
  * problems.
@@ -40,10 +40,8 @@ public class MapView extends FragmentActivity implements OnMapReadyCallback {
         mapFragment.getMapAsync(this);
     }
 
-    /**
+    /*
      * Search for a location by address.
-     *
-     * @param view the view for the layout included for onClick methods in XML
      */
     public void onMapSearch(View view) {
         EditText locationSearch = findViewById(R.id.editText);
@@ -66,10 +64,8 @@ public class MapView extends FragmentActivity implements OnMapReadyCallback {
     }
 
     @Override
-    /**
+    /*
      * Override the onMapReady method in order to set what will apear when the map is initiated.
-     *
-     * @param googleMap the GPS map that will be displayed to the user
      */
     public void onMapReady(GoogleMap googleMap) {
 
