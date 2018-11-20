@@ -1121,6 +1121,7 @@ id add_comment_title
 id add_patient
 id add_problem
 id add_record_from_add_problem
+id add_record_from_edit_problem
 id add_record_from_view_problem
 id adjust_height
 id adjust_width
@@ -1375,7 +1376,7 @@ id viewRecord
 id viewTitle
 id view_map
 id view_offset_helper
-id view_patients
+id view_problems
 id visible
 id webMDLink
 id wide

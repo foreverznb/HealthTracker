@@ -3,7 +3,6 @@ package com.example.healthtracker;
 import android.support.test.InstrumentationRegistry;
 import android.support.test.rule.ActivityTestRule;
 import android.support.test.runner.AndroidJUnit4;
-import android.view.View;
 import android.widget.EditText;
 
 import com.robotium.solo.Solo;
@@ -44,7 +43,7 @@ public class PatientProblemViewIntentTest {
         solo.enterText(name, "foreverznb");
         solo.enterText(pwd, "ZHUNINGBO1234");
         solo.clickOnView(solo.getView("login_button"));
-        solo.clickOnView(solo.getView(R.id.view_patients));
+        solo.clickOnView(solo.getView(R.id.view_problems));
         solo.clickInList(1);
         solo.waitForDialogToOpen(1000);
         solo.clickOnButton("Edit/View");

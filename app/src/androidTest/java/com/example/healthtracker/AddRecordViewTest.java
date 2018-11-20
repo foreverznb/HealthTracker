@@ -3,14 +3,10 @@ package com.example.healthtracker;
 import android.support.test.InstrumentationRegistry;
 import android.support.test.runner.AndroidJUnit4;
 import android.support.test.rule.ActivityTestRule;
-import android.widget.Button;
-import android.widget.CheckBox;
 import android.widget.EditText;
 
 import com.robotium.solo.Solo;
 
-import org.junit.After;
-import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Rule;
 import org.junit.Test;
@@ -37,7 +33,7 @@ public class AddRecordViewTest {
         solo.enterText(name, "foreverznb");
         solo.enterText(pwd, "ZHUNINGBO1234");
         solo.clickOnView(solo.getView("login_button"));
-        solo.clickOnView(solo.getView(R.id.view_patients));
+        solo.clickOnView(solo.getView(R.id.view_problems));
         solo.clickInList(1);
         solo.waitForDialogToOpen(1000);
         solo.clickOnButton("Edit/View");
