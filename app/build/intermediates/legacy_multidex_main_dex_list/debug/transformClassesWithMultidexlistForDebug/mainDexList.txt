@@ -83,6 +83,7 @@ android/support/multidex/ZipUtil$CentralDirectory.class
 android/support/multidex/ZipUtil.class
 android/support/test/InstrumentationRegistry.class
 android/support/test/annotation/Beta.class
+android/support/test/annotation/UiThreadTest.class
 android/support/test/filters/FlakyTest.class
 android/support/test/filters/LargeTest.class
 android/support/test/filters/MediumTest.class
