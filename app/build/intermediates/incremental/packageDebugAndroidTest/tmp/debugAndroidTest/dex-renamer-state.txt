@@ -1,0 +1,7 @@
+#Tue Nov 20 03:15:43 MST 2018
+base.0=C\:\\Users\\ningbo\\Documents\\GitHub\\HealthTracker\\app\\build\\intermediates\\transforms\\dexMerger\\androidTest\\debug\\0
+path.1=classes.dex
+renamed.1=classes2.dex
+path.0=classes.dex
+renamed.0=classes.dex
+base.1=C\:\\Users\\ningbo\\Documents\\GitHub\\HealthTracker\\app\\build\\intermediates\\transforms\\dexMerger\\androidTest\\debug\\1
