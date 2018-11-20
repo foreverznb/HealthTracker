@@ -7,37 +7,28 @@
     tools:context=".AddCareProviderCommentView">
 
     <Button
-        android:layout_width="wrap_content"
+        android:layout_width="217dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginBottom="8dp"
-        android:text="@string/back_from_careprovider_comment"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        android:onClick="returnToProblem"/>
-
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="8dp"
-        android:layout_marginBottom="8dp"
+        android:layout_marginBottom="40dp"
+        android:onClick="saveCareProviderComment"
         android:text="@string/save_care_comment"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        android:onClick="saveCareProviderComment"/>
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <EditText
         android:id="@+id/care_comment_title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="64dp"
         android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="112dp"
         android:ems="10"
         android:hint="@string/care_comment_title"
         android:inputType="textPersonName"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.496"
+        app:layout_constraintHorizontal_bias="0.503"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         tools:ignore="Autofill" />
@@ -46,9 +37,9 @@
         android:id="@+id/care_comment"
         android:layout_width="215dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="76dp"
         android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="100dp"
         android:ems="10"
         android:hint="@string/care_comment"
         android:inputType="textPersonName"
@@ -63,7 +54,7 @@
         android:layout_width="wrap_content"
         android:layout_height="23dp"
         android:layout_marginStart="84dp"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="72dp"
         android:text="@string/care_title_strict"
         android:textSize="18sp"
         android:textStyle="bold"
@@ -75,7 +66,7 @@
         android:layout_width="wrap_content"
         android:layout_height="23dp"
         android:layout_marginStart="84dp"
-        android:layout_marginTop="152dp"
+        android:layout_marginTop="216dp"
         android:text="@string/care_comment_strict"
         android:textSize="18sp"
         android:textStyle="bold"

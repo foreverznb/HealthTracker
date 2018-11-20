@@ -1,11 +1,11 @@
 #Internal package file, do not edit.
-#Sun Nov 18 00:44:58 MST 2018
-1.base=/Users/caochenlin/Desktop/CMPUT301_intro_to_software_engineering/HealthTracker/app/build/intermediates/transforms/dexMerger/debug/1
+#Tue Nov 20 04:20:11 MST 2018
+1.base=C\:\\Users\\Phoeb\\Documents\\GitHub\\301\\HealthTracker\\app\\build\\intermediates\\transforms\\dexMerger\\debug\\0
 0.baseType=DIRECTORY
 1.baseType=DIRECTORY
 count=2
 1.set=DEX
 0.path=classes.dex
 0.set=DEX
-0.base=/Users/caochenlin/Desktop/CMPUT301_intro_to_software_engineering/HealthTracker/app/build/intermediates/transforms/dexMerger/debug/0
+0.base=C\:\\Users\\Phoeb\\Documents\\GitHub\\301\\HealthTracker\\app\\build\\intermediates\\transforms\\dexMerger\\debug\\1
 1.path=classes.dex

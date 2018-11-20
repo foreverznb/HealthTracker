@@ -76,7 +76,7 @@ public class ViewMyProblems extends AppCompatActivity {
                 final int fPosition = position;
 
 
-                // set a negative button for deleting emotion entries on click via the listener
+                // set a negative button for deleting problem
                 ab.setPositiveButton("Delete", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
@@ -101,7 +101,7 @@ public class ViewMyProblems extends AppCompatActivity {
                     }
                 });
 
-                // set a neutral button in the dialog which will open up the edit entry activity to modify the emotion
+                // set a neutral button in the dialog which will open up the edit activity to edit problem
                 ab.setNeutralButton("Edit/View", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {

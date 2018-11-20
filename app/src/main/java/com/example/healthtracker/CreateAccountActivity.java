@@ -78,16 +78,14 @@ public class CreateAccountActivity extends AppCompatActivity {
                 userID = UserID.getText().toString();
                 if (checkInputs(email, userID, password, phone)) {
                     try {
-                        if(!userExists(userID)){
+                        if (!userExists(userID)) {
                             addNewUser();
-                        } else{
+                        } else {
                             Toast.makeText(context, "User ID is taken", Toast.LENGTH_SHORT).show();
                         }
                     } catch (ExecutionException | InterruptedException e) {
                         e.printStackTrace();
                     }
-                } else{
-                    Toast.makeText(context, "All fields must be filled", Toast.LENGTH_SHORT).show();
                 }
             }
         });
@@ -107,6 +105,9 @@ public class CreateAccountActivity extends AppCompatActivity {
         Log.d(TAG, "checkInputs: checking inputs for null values");
         if(email.equals("") || userID.equals("") || password.equals("") || phone.equals("")){
             Toast.makeText(context, "All fields must be filled out", Toast.LENGTH_SHORT).show();
+            return false;
+        } else if(userID.length()<8){
+            Toast.makeText(context, "User ID must be at least 8 characters long.", Toast.LENGTH_SHORT).show();
             return false;
         }
         return true;

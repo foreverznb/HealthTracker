@@ -2,24 +2,30 @@ package com.example.healthtracker;
 
 import android.graphics.Bitmap;
 
+import java.io.Serializable;
+import java.sql.Timestamp;
 import java.util.ArrayList;
 import java.util.Date;
 
-public class PatientRecord{
+public class PatientRecord implements Serializable {
 
     private String RecordTitle;
     private String comment;
-    private String timestamp;
+    private Timestamp timestamp;
     private ArrayList<Bitmap> geoLocations;
     private ArrayList<Photo> photos;
 
 
-    public PatientRecord(String title, String comment, String timestamp, ArrayList<Bitmap> geoLocations){
+    public PatientRecord(String title, String comment){
         this.RecordTitle = title;
         this.comment = comment;
-        this.timestamp = timestamp;
-        this.geoLocations = geoLocations;
-        this.getTitle();
+        this.timestamp = new Timestamp(System.currentTimeMillis());
+    }
+
+    public PatientRecord(){
+        RecordTitle = "";
+        comment = "";
+        timestamp = new Timestamp(System.currentTimeMillis());
     }
 
     public void addGeoLocation(Bitmap geoLocation){
@@ -58,6 +64,15 @@ public class PatientRecord{
 
     public void setComment(String comment){
         this.comment = comment;
+    }
+
+    public void setTimestamp(){
+        this.timestamp = new Timestamp(System.currentTimeMillis());
+    }
+
+    @Override
+    public String toString(){
+        return " Title: " + getTitle() + "\n Comment: " + getComment() + "\n Timestamp: " + timestamp.toString();
     }
 
 
