@@ -22,6 +22,10 @@ import io.searchbox.core.Index;
 import io.searchbox.core.Search;
 import io.searchbox.core.SearchResult;
 
+/* ElasticSearch functionality licesned from 
+*https://creativecommons.org/licenses/by-nc-nd/3.0/legalcode, viewed 2018/11/14*
+*/
+
 /**
  * ElasticsearchController enables a user to communicate with the ElasticSearch database for the purposes of storing and accessing users.
  *
