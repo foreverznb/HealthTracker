@@ -37,10 +37,10 @@ public class CreateAccountViewIntentTest {
                 activityTestRule.getActivity());
         solo.clickOnButton(0);
         boolean result_2 = solo.waitForActivity(CreateAccountActivity.class, 1000);
-        userID = (EditText) solo.getView("userID");
-        email = (EditText) solo.getView("email");
-        phone = (EditText) solo.getView("phone_number");
-        password = (EditText) solo.getView("new_password");
+        userID = solo.getEditText(0);
+        email = solo.getEditText(1);
+        phone = solo.getEditText(2);
+        password = solo.getEditText(3);
         checkBox = (CheckBox) solo.getView("caregiver_checkbox");
         createAccount = (Button) solo.getView("create_new_account_button");
     }
@@ -52,10 +52,86 @@ public class CreateAccountViewIntentTest {
 
     @Test
     public void textDisplayedByUserID() {
-        solo.enterText(userID, "jro");
-        solo.getEditText(0);
-        Assert.assertEquals(solo.getEditText(0).getText(), "jro");
+        solo.enterText(userID, "jromans1");
+        String text = userID.getText().toString();
+
+        Assert.assertTrue(text.equals("jromans1"));
     }
+
+    @Test
+    public void textDisplayedByPhone() {
+        solo.enterText(phone, "7801234567");
+        String text = phone.getText().toString();
+
+        Assert.assertTrue(text.equals("7801234567"));
+    }
+
+    @Test
+    public void textDisplayedByEmail() {
+        solo.enterText(email, "abc@gmail.com");
+        String text = email.getText().toString();
+
+        Assert.assertTrue(text.equals("abc@gmail.com"));
+    }
+
+    @Test
+    public void textDisplayedByPassword() {
+        solo.enterText(password, "abc");
+        String text = password.getText().toString();
+
+        Assert.assertTrue(text.equals("abc"));
+    }
+
+    @Test
+    public void selectCheckBox() {
+        solo.clickOnCheckBox(0);
+
+        Assert.assertTrue(solo.isCheckBoxChecked(0));
+    }
+
+    @Test
+    public void unselectCheckBox() {
+        solo.clickOnCheckBox(0);
+        solo.clickOnCheckBox(0);
+
+        Assert.assertFalse(solo.isCheckBoxChecked(0));
+    }
+
+    @Test
+    public void checkUnfilledFields() {
+        boolean result;
+
+        solo.enterText(userID, "jromans1");
+        solo.enterText(phone, "7801234567");
+        solo.enterText(email, "abc@gmail.com");
+        solo.enterText(password, "abc");
+
+        solo.clearEditText(userID);
+        solo.clickOnButton(0);
+        result = solo.searchText("All fields must be filled out");
+        Assert.assertEquals(result, true);
+        solo.enterText(userID, "jromans1");
+
+        solo.clearEditText(phone);
+        solo.clickOnButton(0);
+        result = solo.searchText("All fields must be filled out");
+        Assert.assertEquals(result, true);
+        solo.enterText(phone, "7801234567");
+
+        solo.clearEditText(email);
+        solo.clickOnButton(0);
+        result = solo.searchText("All fields must be filled out");
+        Assert.assertEquals(result, true);
+        solo.enterText(email, "abc@gmail.com");
+
+        solo.clearEditText(password);
+        solo.clickOnButton(0);
+        result = solo.searchText("All fields must be filled out");
+        Assert.assertEquals(result, true);
+        solo.enterText(password, "abc");
+
+    }
+
 
     /*@Test
     public void testEditProblem() throws Exception {
