@@ -20,6 +20,14 @@ import com.google.android.gms.maps.model.MarkerOptions;
 import java.io.IOException;
 import java.util.List;
 
+/* Code for testing the functionality of google maps within our program reused from a
+3-part tutorial from 
+*https://www.viralandroid.com/2016/04/google-maps-android-api-getting-started-tutorial.html, Apr 24, 2016, viewed: Oct 23, 2018* & 
+*https://www.viralandroid.com/2016/04/get-current-location-google-maps-android-api-tutorial.html, posted: Apr 24, 2016, viewed: Oct 23, 2018* & 
+*https://www.viralandroid.com/2016/04/google-maps-android-api-adding-search-bar-part-3.html, 
+posted: Apr 25, 2016, viewed: Oct 23, 2018*
+*/
+
 
 /*
  * MapView will allow Patients to view all of the geolocations associated with their problems in
