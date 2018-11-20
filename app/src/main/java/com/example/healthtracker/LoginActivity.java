@@ -14,6 +14,11 @@ import android.widget.Toast;
 
 import java.util.concurrent.ExecutionException;
 
+/* Idea and implemented code for testing interent connection from *binnyb(user:416412),   
+https://stackoverflow.com/questions/5474089/how-to-check-currently-internet-connection-is-available-or-not-in-android, 
+2011/03/29, viewed 2018/11/16*
+*/
+
 /*
  * LoginActivity enables a user to login to their created account. In the case that an unregistered user attempts login, they
  * will be told that their account is not valid. The user can click the checkbox if they are a CareProvider inorder for them
