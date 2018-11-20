@@ -60,35 +60,12 @@ public class ViewPatients extends AppCompatActivity {
         patientsListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                Intent intent = new Intent(ViewPatients.this,PatientProblemView.class);
+                Intent intent = new Intent(ViewPatients.this,ViewPatientsProblems.class);
+                intent.putExtra("patientNum", position);
                 startActivity(intent);
             }
         });
 
 
-    }
-
-
-
-
-
-
-    /*
-        // add listener to detect button click on items in listview
-        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            // method to initiate after listener detects click
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                // Create an intent object containing the bridge to between the two activities
-                Intent intent = new Intent(ViewPatients.this, ViewPatientProblems.class);
-                // Launch the browse emotions activity
-                startActivity(intent);
-                }
-            }*/
-
-    public void ReturnHome(View view) {
-        // Create an intent object containing the bridge to between the two activities
-        Intent intent = new Intent(ViewPatients.this, CareProviderHomeView.class);
-        // Launch the browse emotions activity
-        startActivity(intent);
     }
 }

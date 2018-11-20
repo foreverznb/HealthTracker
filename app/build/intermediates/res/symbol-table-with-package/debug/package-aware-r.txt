@@ -1034,6 +1034,7 @@ drawable abc_textfield_search_activated_mtrl_alpha
 drawable abc_textfield_search_default_mtrl_alpha
 drawable abc_textfield_search_material
 drawable abc_vector_test
+drawable add32
 drawable avd_hide_password
 drawable avd_show_password
 drawable common_full_open_on_phone
@@ -1083,6 +1084,7 @@ drawable notification_template_icon_bg
 drawable notification_template_icon_low_bg
 drawable notification_tile_bg
 drawable notify_panel_notification_icon_bg
+drawable pic32
 drawable tooltip_frame_dark
 drawable tooltip_frame_light
 id ALT
@@ -1117,7 +1119,9 @@ id add
 id add_comment_button
 id add_comment_title
 id add_patient
+id add_patient_button
 id add_problem
+id add_problem_button
 id add_record_from_add_problem
 id add_record_from_view_problem
 id adjust_height
@@ -1127,7 +1131,6 @@ id all
 id always
 id async
 id auto
-id back_from_patient_problem
 id back_from_userlist
 id barrier
 id beginning
@@ -1154,6 +1157,7 @@ id container
 id content
 id contentPanel
 id coordinator
+id create_account
 id create_new_account_button
 id custom
 id customPanel
@@ -1181,6 +1185,7 @@ id edit_phone
 id edit_problem_button
 id edit_query
 id edit_record_button
+id edit_save
 id email
 id end
 id end_padder
@@ -1208,6 +1213,7 @@ id icon_group
 id icon_only
 id ifRoom
 id image
+id imageButton2
 id imageView
 id info
 id invisible
@@ -1245,12 +1251,14 @@ id notification_background
 id notification_main_column
 id notification_main_column_container
 id outline
+id pProblem_list_view
 id packed
 id parallax
 id parent
 id parentPanel
 id parent_matrix
 id patient_id_string
+id patient_setting
 id patients_list_view
 id percent
 id phone_number
@@ -1275,20 +1283,20 @@ id record_view_photos
 id record_view_timestamp
 id record_view_title
 id return_from_auser__info_button
-id return_from_problem_view
-id return_to_problem_view
 id right
 id right_icon
 id right_side
 id satellite
 id save_image_matrix
 id save_non_transition_alpha
+id save_record_button
 id save_scale_type
 id screen
 id scroll
 id scrollIndicatorDown
 id scrollIndicatorUp
 id scrollView
+id scrollView3
 id scrollable
 id search
 id search_badge
@@ -1303,6 +1311,8 @@ id search_src_text
 id search_voice_btn
 id select_dialog_listview
 id selected
+id selected_patient_ID
+id setting
 id shortcut
 id showCustom
 id showHome
@@ -1323,6 +1333,7 @@ id standard
 id start
 id status_bar_latest_event_content
 id stretch
+id subRecords
 id submenuarrow
 id submit_area
 id sync_button
@@ -1376,6 +1387,10 @@ id unlabeled
 id up
 id useLogo
 id userID
+id viewDate
+id viewDes
+id viewRecord
+id viewTitle
 id view_map
 id view_offset_helper
 id view_patients
@@ -1609,6 +1624,7 @@ string max_title_length
 string mayo_clinic
 string mtrl_chip_close_icon_content_description
 string name_hint
+string newUserID
 string password_hint
 string password_login_hint
 string password_toggle_content_description

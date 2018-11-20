@@ -1,11 +1,13 @@
 package com.example.healthtracker;
 
+import java.io.Serializable;
+
 /**
  * Created by caochenlin on 2018/10/28.
  */
 
 
-public class CareGiverComment {
+public class CareGiverComment implements Serializable{
 
     private String messageTitle;
     private String message;
@@ -13,6 +15,11 @@ public class CareGiverComment {
     public CareGiverComment(String title, String comment){
         this.messageTitle = title;
         this.message = comment;
+    }
+
+    public CareGiverComment(){
+        messageTitle = "";
+        message = "";
     }
 
     public void setTitle(String newTitle){

@@ -90,7 +90,6 @@ public class Patient extends User implements Serializable {
     }
 
 
-
     public void addToCareProviderString(String cProviderID){
         if(this.careProviders.equals("")){
             this.careProviders = cProviderID;
