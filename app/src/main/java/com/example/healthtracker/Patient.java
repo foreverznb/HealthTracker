@@ -17,8 +17,7 @@ import java.util.List;
 public class Patient extends User implements Serializable {
 
     private ArrayList<Problem> problemList = new ArrayList<Problem>();
-    // Note: careProviderList only have one element
-    private String careProvider = "";
+    private String careProviders = "";
 
     /**
      * constructor for creating a new Patient user and their appropriate profile information designated by parameter values
@@ -90,16 +89,23 @@ public class Patient extends User implements Serializable {
         return problemList.get(index);
     }
 
-    public String getCareProvider(){
-        return this.careProvider;
+
+
+    public void addToCareProviderString(String cProviderID){
+        if(this.careProviders.equals("")){
+            this.careProviders = cProviderID;
+        }
+        else {
+            this.careProviders = this.careProviders + " | " + cProviderID;
+        }
     }
 
-    public void updateCareProvider(String cProviderID){
-        this.careProvider = cProviderID;
+    public String getCareProviderString(){
+        return this.careProviders;
     }
 
     @Override
     public String toString() {
-        return "Patient: "+getUserID()+"\nPhone: "+getPhone()+"\nEmail: "+getEmail()+"\nCare Provider: "+getCareProvider();
+        return "Patient: "+getUserID()+"\nPhone: "+getPhone()+"\nEmail: "+getEmail()+"\nCare givers: "+getCareProviderString();
     }
 }
