@@ -1,7 +1,7 @@
-#Tue Nov 20 04:41:20 MST 2018
-base.0=C\:\\Users\\Phoeb\\Documents\\GitHub\\301\\HealthTracker\\app\\build\\intermediates\\transforms\\dexMerger\\androidTest\\debug\\1
+#Tue Nov 20 11:31:22 MST 2018
+base.0=C\:\\Users\\mikey\\AndroidStudioProjects\\HealthTracker\\app\\build\\intermediates\\transforms\\dexMerger\\androidTest\\debug\\1
 path.1=classes.dex
 renamed.1=classes2.dex
 path.0=classes.dex
 renamed.0=classes.dex
-base.1=C\:\\Users\\Phoeb\\Documents\\GitHub\\301\\HealthTracker\\app\\build\\intermediates\\transforms\\dexMerger\\androidTest\\debug\\0
+base.1=C\:\\Users\\mikey\\AndroidStudioProjects\\HealthTracker\\app\\build\\intermediates\\transforms\\dexMerger\\androidTest\\debug\\0
