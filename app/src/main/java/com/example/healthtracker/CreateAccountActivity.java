@@ -16,6 +16,11 @@ import com.searchly.jestdroid.JestDroidClient;
 
 import java.util.concurrent.ExecutionException;
 
+/* Idea and implemented code for testing interent connection from *binnyb(user:416412),   
+https://stackoverflow.com/questions/5474089/how-to-check-currently-internet-connection-is-available-or-not-in-android, 
+2011/03/29, viewed 2018/11/16*
+*/
+
 /*
  * CreateAccountActivity enables a user to create a new account for the HealthTracker app by filling in the required account details.
  * The user's data will be stored in an ElasticSearch database and partially stored locally.
