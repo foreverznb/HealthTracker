@@ -65,7 +65,7 @@ public class UserSettingsActivity extends AppCompatActivity {
     }
 
 
-    private void editUserInfo(View view){
+    public void editUserInfo(View view){
         String phoneString = phone.getText().toString();
         String emailString = uemail.getText().toString().toLowerCase();
         if(!isEmpty(phoneString) && !isEmpty(emailString)){

@@ -1282,6 +1282,7 @@ id save_image_matrix
 id save_non_transition_alpha
 id save_record_button
 id save_scale_type
+id save_user_settings
 id screen
 id scroll
 id scrollIndicatorDown

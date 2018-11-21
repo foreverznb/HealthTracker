@@ -56,7 +56,7 @@ public class CreateAccountActivity extends AppCompatActivity {
         checkBox = findViewById(R.id.caregiver_checkbox);
         context = this;
         Log.d(TAG, "Testing Internet Connection");
-        if (testConnection()) {
+        if (!ElasticsearchController.testConnection(this)) {
             Toast.makeText(context, "No internet", Toast.LENGTH_SHORT).show();
         }
         init();
@@ -163,14 +163,4 @@ public class CreateAccountActivity extends AppCompatActivity {
         }
     }
 
-    /*
-     * testConnection() checks for online connectivity on either wifi or mobile data and returns the connectivity state
-     */
-    public boolean testConnection() {
-        ConnectivityManager connectivityManager = (ConnectivityManager) getSystemService(CONNECTIVITY_SERVICE);
-        //we are connected to a network
-        assert connectivityManager != null;
-        return connectivityManager.getNetworkInfo(ConnectivityManager.TYPE_MOBILE).getState() != NetworkInfo.State.CONNECTED &&
-                connectivityManager.getNetworkInfo(ConnectivityManager.TYPE_WIFI).getState() != NetworkInfo.State.CONNECTED;
-    }
 }
