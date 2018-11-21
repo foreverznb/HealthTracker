@@ -63,14 +63,4 @@ public class UserTest {
         assertEquals(u.getPhone(), "7804567890");
         assertEquals(u.getEmail(), "def@gmail.com");
     }
-
-    @Test
-    public void search() {
-        //TODO
-    }
-
-    @Test
-    public void createMap() {
-        //TODO
-    }
 }

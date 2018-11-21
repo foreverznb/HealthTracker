@@ -107,8 +107,8 @@ public class ProblemTest {
 
     @Test
     public void setCaregiverRecords() {
-        ArrayList<CareGiverComment> careGiverRecords = new ArrayList<CareGiverComment> ();
-        careGiverRecords.add(new CareGiverComment("Record", "I'm a record"));
+        ArrayList<CareProviderComment> careGiverRecords = new ArrayList<CareProviderComment> ();
+        careGiverRecords.add(new CareProviderComment("Record", "I'm a record"));
         problem.setCaregiverRecords(careGiverRecords);
 
         assertArrayEquals(careGiverRecords.toArray(), problem.getcaregiverRecords().toArray());
@@ -116,7 +116,7 @@ public class ProblemTest {
 
     @Test
     public void getCaregiverRecords() {
-        ArrayList<CareGiverComment> careGiverRecords = new ArrayList<CareGiverComment> ();
+        ArrayList<CareProviderComment> careGiverRecords = new ArrayList<CareProviderComment> ();
 
         assertArrayEquals(careGiverRecords.toArray(), problem.getcaregiverRecords().toArray());
     }

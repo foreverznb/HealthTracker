@@ -79,7 +79,7 @@ public class Problem implements Serializable {
      *
      * @param newTitle A string that will be the new title of the Problem.
      */
-    private void setTitle(String newTitle){
+    public void setTitle(String newTitle){
         this.ProblemTitle = newTitle;
     }
 
@@ -88,7 +88,7 @@ public class Problem implements Serializable {
      *
      * @param newDate The new Date that will indicate when the Problem began.
      */
-    private void setDate(Date newDate){
+    public void setDate(Date newDate){
         this.dateStarted = newDate;
     }
 
@@ -97,7 +97,7 @@ public class Problem implements Serializable {
      *
      * @param newDescription A string that will be the new description of the problem.
      */
-    private void setDescription(String newDescription){
+    public void setDescription(String newDescription){
         this.description = newDescription;
     }
 
