@@ -137,6 +137,10 @@ public class PatientRecord implements Serializable {
         this.timestamp = new Timestamp(System.currentTimeMillis());
     }
 
+    public Timestamp getTimestamp(){
+        return this.timestamp;
+    }
+
     @Override
     /**
      * Display the record as a string. Will be used in listviews.

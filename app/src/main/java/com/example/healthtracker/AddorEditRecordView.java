@@ -9,6 +9,7 @@ import android.os.Bundle;
 import android.util.Base64;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import java.io.ByteArrayOutputStream;
@@ -28,10 +29,9 @@ import java.util.Locale;
  */
 public class AddorEditRecordView extends AppCompatActivity {
 
-    public EditText titleText;
-    public EditText descriptionText;
-    String title;
-    String comment;
+    private EditText titleText, descriptionText;
+    private TextView timestampText;
+    private String title, comment;
     Context context;
     Patient patient;
     PatientRecord record;
@@ -42,6 +42,7 @@ public class AddorEditRecordView extends AppCompatActivity {
         setContentView(R.layout.activity_addor_edit_record);
         titleText = findViewById(R.id.title_edit_text);
         descriptionText = findViewById(R.id.description_edit_text);
+        timestampText = findViewById(R.id.patient_record_timestamp);
         context = this;
         record = new PatientRecord();
 
@@ -52,6 +53,9 @@ public class AddorEditRecordView extends AppCompatActivity {
             String recordString = intent.getStringExtra("Record");
             record = UserDataController.unSerializeRecord(this, recordString);
             showRecord();
+        } else{
+            record.setTimestamp();
+            timestampText.setText(record.getTimestamp().toString());
         }
     }
 
@@ -104,6 +108,7 @@ public class AddorEditRecordView extends AppCompatActivity {
     public void showRecord(){
         titleText.setText(record.getTitle());
         descriptionText.setText(record.getComment());
+        timestampText.setText(record.getTimestamp().toString());
         //TODO show geomap, photos, bodlocation
     }
 
@@ -122,7 +127,7 @@ public class AddorEditRecordView extends AppCompatActivity {
         // add record
         record.setComment(comment);
         record.setTitle(title);
-        record.setTimestamp();
+
         // TODO set photos, geomap, bodylocation once they are implemented
 
         // return to add problem with record result

@@ -89,6 +89,16 @@
             android:name="com.google.android.maps.v2.API_KEY"
             android:value="AIzaSyDppOAUxXEBGrsc_gg8bw392b4QdyzlzYw" />
 
+        <activity
+            android:name="com.example.healthtracker.ViewCareProviderComments"
+            android:label="@string/title_activity_view_care_provider_comments" />
+        <activity
+            android:name="com.example.healthtracker.CareProviderRecordView"
+            android:label="@string/title_activity_care_provider_record_view" />
+        <activity
+            android:name="com.example.healthtracker.ViewComments"
+            android:label="@string/title_activity_view_comments" />
+
         <provider
             android:name="android.arch.lifecycle.ProcessLifecycleOwnerInitializer"
             android:authorities="com.example.healthtracker.lifecycle-trojan"

@@ -30,14 +30,14 @@ public class CreateAccountActivity extends AppCompatActivity {
     private static JestDroidClient client;
 
     private static final String TAG = "CreateAccountActivity";
-    private EditText Email, Password, Phone, UserID;
+    private EditText Email, Phone, UserID;
     private Button Register;
     private CheckBox checkBox;
     private Context context;
 
 
     private CreateAccountActivity Context;
-    private String email, password, phone, userID;
+    private String email, phone, userID;
     private User user;
 
     /*
@@ -50,7 +50,6 @@ public class CreateAccountActivity extends AppCompatActivity {
         setContentView(R.layout.activity_create_account);
         Register = findViewById(R.id.create_new_account_button);
         Email = findViewById(R.id.email);
-        Password = findViewById(R.id.new_password);
         Phone = findViewById(R.id.phone_number);
         UserID = findViewById(R.id.userID);
         checkBox = findViewById(R.id.caregiver_checkbox);
@@ -72,10 +71,9 @@ public class CreateAccountActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 email = Email.getText().toString().toLowerCase();
-                password = Password.getText().toString();
                 phone = Phone.getText().toString();
                 userID = UserID.getText().toString();
-                if (checkInputs(email, userID, password, phone)) {
+                if (checkInputs(email, userID, phone)) {
                     try {
                         if (!userExists(userID)) {
                             addNewUser();
@@ -94,9 +92,9 @@ public class CreateAccountActivity extends AppCompatActivity {
      * Checks that all the input fields are filled, displaying a toast message if the fields are not filled. The method
      * returns a boolean object based on whether or not the account info fields are filled.
      */
-    private boolean checkInputs(String email, String userID, String password, String phone){
+    private boolean checkInputs(String email, String userID, String phone){
         Log.d(TAG, "checkInputs: checking inputs for null values");
-        if(email.equals("") || userID.equals("") || password.equals("") || phone.equals("")){
+        if(email.equals("") || userID.equals("") || phone.equals("")){
             Toast.makeText(context, "All fields must be filled out", Toast.LENGTH_SHORT).show();
             return false;
         } else if(userID.length()<8){

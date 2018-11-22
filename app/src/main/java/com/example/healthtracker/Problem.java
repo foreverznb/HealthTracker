@@ -159,6 +159,10 @@ public class Problem implements Serializable {
         return this.caregiverRecords;
     }
 
+    public PatientRecord getPatientRecord(int Index){
+        return patientRecords.get(Index);
+    }
+
     @Override
     /**
      * Override the toString method to set what a string representation of a problem is.
@@ -169,6 +173,6 @@ public class Problem implements Serializable {
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
         String dateStr = sdf.format(dateStarted);
         return "title: "+ProblemTitle+"\n"+"start date: "+dateStr+"\n"+"description: "+
-                description+"\n"+"number of records: "+String.valueOf(patientRecords.size());
+                description+"\n"+"number of records: "+String.valueOf(patientRecords.size() + caregiverRecords.size());
     }
 }

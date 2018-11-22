@@ -91,6 +91,10 @@
         <item>Geo-location</item>
         <item>Body-location</item>
     </string-array>
+    <string name="title_activity_view_care_provider_comments">ViewCareProviderComments</string>
+    <string name="title_activity_care_provider_record_view">CareProviderRecordView</string>
+    <string name="title_activity_view_comments">ViewComments</string>
+    <string name="timestamp">Timestamp</string>
 
 
 </resources>

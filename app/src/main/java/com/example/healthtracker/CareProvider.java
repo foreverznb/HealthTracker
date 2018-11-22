@@ -1,5 +1,6 @@
 package com.example.healthtracker;
 
+import java.io.ObjectOutputStream;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
@@ -13,7 +14,7 @@ import java.util.List;
  */
 public class CareProvider extends User implements Serializable {
 
-    private List<Patient> patientList;
+    private ArrayList<Patient> patientList;
 
 
     /**
@@ -39,7 +40,7 @@ public class CareProvider extends User implements Serializable {
      *
      * @return returns the CareProviders patient list
      */
-    public List<Patient> getPatientList() {
+    public ArrayList<Patient> getPatientList() {
         return this.patientList;
     }
 
@@ -54,6 +55,14 @@ public class CareProvider extends User implements Serializable {
 
     public void setPatient(Patient updatedPatient, int patientIndex){
         patientList.set(patientIndex, updatedPatient);
+    }
+
+    public void setPatientList(ArrayList<Patient> patientList){
+        this.patientList = patientList;
+    }
+
+    public Patient getPatient(int Index){
+        return patientList.get(Index);
     }
 
     /**
@@ -73,6 +82,6 @@ public class CareProvider extends User implements Serializable {
         if(getUserID() == null) {
             return "";
         }
-        return "Care Provider: " + getUserID() + "|phone: " + getPhone() + "|email: " + getEmail();
+        return "  ID: " + getUserID() + "\n    phone: " + getPhone() + "\n    email: " + getEmail();
     }
 }
