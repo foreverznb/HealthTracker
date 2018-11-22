@@ -137,6 +137,11 @@ public class PatientRecord implements Serializable {
         this.timestamp = new Timestamp(System.currentTimeMillis());
     }
 
+    /**
+     * Get the Timestamp currently associated with the PatientRecord.
+     *
+     * @return The current PatientRecord TimeStamp.
+     */
     public Timestamp getTimestamp(){
         return this.timestamp;
     }

@@ -1,5 +1,7 @@
 package com.example.healthtracker;
 
+import android.graphics.Bitmap;
+
 import java.io.ObjectOutputStream;
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -53,30 +55,44 @@ public class CareProvider extends User implements Serializable {
         this.patientList.add(newPatient);
     }
 
+    /**
+     * Update one of the CareProvider's patients.
+     *
+     * @param updatedPatient Patient to replace previous Patient object
+     * @param patientIndex The index of the Patient to be replace in the PatientList
+     */
     public void setPatient(Patient updatedPatient, int patientIndex){
         patientList.set(patientIndex, updatedPatient);
     }
 
+    /**
+     * Update the CareProvider's entire PatientList with a new list.
+     *
+     * @param patientList The new Patient list.
+     */
     public void setPatientList(ArrayList<Patient> patientList){
         this.patientList = patientList;
     }
 
+    /**
+     * Get a specific one of the CareProvider's patients.
+     *
+     * @param Index The index of the patient to return in the PatientList.
+     * @return The patient corresponding to the Index input.
+     */
     public Patient getPatient(int Index){
         return patientList.get(Index);
     }
 
     /**
-     * TODO
-     * Is this used?
+     * Create map visual of all the geolocation records for a patient.
      *
-     * @param phone
-     * @param email
+     * @param patient The patient whose geolocation records will appear on the map.
+     * @return byte code of map visual.
      */
-    public void updateUserInfo(String phone, String email){
-        super.setEmail(email);
-        super.setPhone(phone);
+    public Bitmap createMap(Patient patient){
+        return null;
     }
-
     @Override
     public String toString() {
         if(getUserID() == null) {

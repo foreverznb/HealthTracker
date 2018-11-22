@@ -62,10 +62,10 @@ public class PatientTest {
 
     @Test
     public void addToCareProviderString() {
-        patient.addToCareProviderString("Care Provider 1");
+        patient.addToCareProviderString(new CareProvider("", "", "Care Provider 1"));
         assertEquals(patient.getCareProviderString(), "Care Provider 1");
 
-        patient.addToCareProviderString("Care Provider 2");
+        patient.addToCareProviderString(new CareProvider("", "", "Care Provider 2"));
         assertEquals(patient.getCareProviderString(), "Care Provider 1 | Care Provider 2");
     }
 
@@ -73,7 +73,7 @@ public class PatientTest {
     public void getCareProviderString() {
         assertEquals(patient.getCareProviderString(), "");
 
-        patient.addToCareProviderString("Care Provider 1");
+        patient.addToCareProviderString(new CareProvider("", "", "Care Provider 1"));
         assertEquals(patient.getCareProviderString(), "Care Provider 1");
     }
 }

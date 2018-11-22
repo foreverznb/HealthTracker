@@ -159,6 +159,12 @@ public class Problem implements Serializable {
         return this.caregiverRecords;
     }
 
+    /**
+     * Get a specific one of the PatientRecords belonging to the Problem.
+     *
+     * @param Index The index of the desired PatientRecord in the patientRecords list.
+     * @return The PatienRecord corresponding to the Index input.
+     */
     public PatientRecord getPatientRecord(int Index){
         return patientRecords.get(Index);
     }

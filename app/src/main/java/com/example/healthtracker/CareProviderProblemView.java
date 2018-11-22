@@ -51,30 +51,29 @@ public class CareProviderProblemView extends AppCompatActivity {
         Intent intent = getIntent();
         bd = intent.getExtras();
 
-        CareProvider careProvider = UserDataController.loadCareProviderData(this);
-
         patientNum = bd.getInt("patientNum");
         problemNum = bd.getInt("problemNum");
-        myPatient = careProvider.getPatientList().get(patientNum);
-        pProblem = myPatient.getProblem(problemNum);
-
-        String title = pProblem.getTitle();
-        Date date = pProblem.getDate();
-        String des = pProblem.getDescription();
-        records = pProblem.getRecords();
-
-        ArrayAdapter<PatientRecord> adapter = new ArrayAdapter<PatientRecord>
-                (this, android.R.layout.simple_list_item_1, records);
-        recordList.setAdapter(adapter);
-
-
-
-        showProblem(title,date,des);
     }
 
     @Override
     public void onResume(){
         super.onResume();
+
+        CareProvider careProvider = UserDataController.loadCareProviderData(this);
+        myPatient = careProvider.getPatientList().get(patientNum);
+        pProblem = myPatient.getProblem(problemNum);
+        records = pProblem.getRecords();
+
+        String title = pProblem.getTitle();
+        Date date = pProblem.getDate();
+        String des = pProblem.getDescription();
+
+        showProblem(title,date,des);
+
+        ArrayAdapter<PatientRecord> adapter = new ArrayAdapter<PatientRecord>
+                (this, android.R.layout.simple_list_item_1, records);
+        recordList.setAdapter(adapter);
+
 
         // Add listener to detect button click on items in listview
         recordList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
