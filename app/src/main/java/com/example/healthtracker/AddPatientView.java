@@ -113,7 +113,7 @@ public class AddPatientView extends AppCompatActivity {
             if (careProviderExist == false) {
 
                 // Update Patient data
-                mPatient.addToCareProviderString(careProvider.getUserID());
+                mPatient.addToCareProviderString(careProvider);
                 UserDataController.savePatientData(this, mPatient);
 
                 // Update Care Provider data

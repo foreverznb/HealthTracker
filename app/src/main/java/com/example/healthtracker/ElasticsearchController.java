@@ -242,5 +242,9 @@ class ElasticsearchController {
         }
     }
 
+    public static List<Problem> search(String searchType, String keyword){
+        return null;
+    }
+
 
 }

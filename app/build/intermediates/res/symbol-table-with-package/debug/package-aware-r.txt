@@ -1124,7 +1124,6 @@ id add_problem
 id add_problem_button
 id add_record_from_add_problem
 id add_record_from_edit_problem
-id add_record_from_view_problem
 id adjust_height
 id adjust_width
 id alertTitle
@@ -1142,6 +1141,10 @@ id buttonPanel
 id cancel_action
 id care_comment
 id care_comment_title
+id care_record_comment
+id care_record_list
+id care_record_timestamp
+id care_record_title
 id caregiver_checkbox
 id center
 id center_horizontal
@@ -1153,6 +1156,7 @@ id chronometer
 id clip_horizontal
 id clip_vertical
 id collapseActionView
+id comment_list
 id container
 id content
 id contentPanel
@@ -1182,7 +1186,6 @@ id editText
 id editText4
 id edit_email
 id edit_phone
-id edit_problem_button
 id edit_query
 id edit_save
 id email
@@ -1201,6 +1204,7 @@ id fixed
 id forever
 id geomap_button
 id ghost_view
+id go_to_comments
 id gone
 id group_divider
 id groups
@@ -1228,7 +1232,6 @@ id line3
 id listMode
 id list_item
 id login_button
-id login_password
 id logout_button
 id logout_button2
 id map
@@ -1243,7 +1246,6 @@ id mtrl_internal_children_alpha_tag
 id multiply
 id navigation_header_container
 id never
-id new_password
 id none
 id normal
 id notification_background
@@ -1256,7 +1258,10 @@ id parallax
 id parent
 id parentPanel
 id parent_matrix
+id patient_email
 id patient_id_string
+id patient_phone
+id patient_record_timestamp
 id patient_setting
 id patients_list_view
 id percent
@@ -1267,7 +1272,6 @@ id problem_description
 id problem_description_edit
 id problem_description_editscreen
 id problem_list_view
-id problem_photos
 id problem_title
 id progress_circular
 id progress_horizontal
@@ -1282,6 +1286,7 @@ id save_image_matrix
 id save_non_transition_alpha
 id save_record_button
 id save_scale_type
+id save_user_settings
 id screen
 id scroll
 id scrollIndicatorDown
@@ -1324,7 +1329,6 @@ id standard
 id start
 id status_bar_latest_event_content
 id stretch
-id subRecords
 id submenuarrow
 id submit_area
 id sync_button
@@ -1339,14 +1343,8 @@ id text2
 id textSpacerNoButtons
 id textSpacerNoTitle
 id textStart
-id textView
-id textView2
-id textView3
-id textView4
+id textTimestamp
 id textView6
-id textView7
-id textView8
-id textView9
 id text_input_password_toggle
 id textinput_counter
 id textinput_error
@@ -1376,6 +1374,7 @@ id viewDate
 id viewDes
 id viewRecord
 id viewTitle
+id view_comments
 id view_map
 id view_offset_helper
 id view_problems
@@ -1438,17 +1437,18 @@ layout activity_add_patient
 layout activity_add_problem
 layout activity_addor_edit_record
 layout activity_care_provider_problem_view
+layout activity_care_provider_record_view
 layout activity_careprovider_home
 layout activity_create_account
 layout activity_edit_problem
 layout activity_login
 layout activity_map_view
 layout activity_patient_home
-layout activity_patient_problem_view
 layout activity_search
 layout activity_search_results
 layout activity_slide_show
 layout activity_user_settings
+layout activity_view_care_provider_comments
 layout activity_view_my_problems
 layout activity_view_patients
 layout activity_view_patients_problems
@@ -1643,6 +1643,10 @@ string startdate_edit
 string status_bar_notification_info_overflow
 string symptom_checker
 string test_login_checkbox
+string timestamp
+string title_activity_care_provider_record_view
+string title_activity_view_care_provider_comments
+string title_activity_view_comments
 string title_care_view
 string track_users
 string userID

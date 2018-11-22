@@ -101,16 +101,16 @@ public class Patient extends User implements Serializable {
     }
 
     /**
-     * Add a cProviderID to the patient
+     * Add details of CareProvider assigned to the patient
      *
-     * @param cProviderID the providerId of the care provider assigned to this patient
+     * @param careProvider A CareProvider who has been assigned the patient
      */
-    public void addToCareProviderString(String cProviderID){
+    public void addToCareProviderString(CareProvider careProvider){
         if(this.careProviders.equals("")){
-            this.careProviders = cProviderID;
+            this.careProviders = careProvider.toString();
         }
         else {
-            this.careProviders = this.careProviders + " | " + cProviderID;
+            this.careProviders = this.careProviders + "\n" + careProvider.toString();
         }
     }
 
@@ -131,6 +131,6 @@ public class Patient extends User implements Serializable {
      * @return A string that represents the patient.
      */
     public String toString() {
-        return "Patient: "+getUserID()+"\nPhone: "+getPhone()+"\nEmail: "+getEmail()+"\nCare givers: "+getCareProviderString();
+        return "Patient: "+getUserID()+"\nPhone: "+getPhone()+"\nEmail: "+getEmail()+"\nCare Providers: \n"+getCareProviderString();
     }
 }

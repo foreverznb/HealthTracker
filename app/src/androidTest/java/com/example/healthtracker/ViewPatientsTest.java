@@ -52,7 +52,7 @@ public class ViewPatientsTest {
 
 
         // Second step: Check whether patients assigned to this care provider shows up
-        solo.clickOnView(solo.getView(R.id.view_patients));
+        solo.clickOnView(solo.getView(R.id.view_problems));
 
         if (solo.searchText("P")) {
             assertTrue("Patient info is not found!", solo.searchText("Patient:"));

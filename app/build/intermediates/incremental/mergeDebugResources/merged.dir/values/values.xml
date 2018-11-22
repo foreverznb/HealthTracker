@@ -2462,6 +2462,10 @@
     <string name="status_bar_notification_info_overflow">999+</string>
     <string name="symptom_checker">Symptom Checker</string>
     <string name="test_login_checkbox">Care Provider</string>
+    <string name="timestamp">Timestamp</string>
+    <string name="title_activity_care_provider_record_view">CareProviderRecordView</string>
+    <string name="title_activity_view_care_provider_comments">ViewCareProviderComments</string>
+    <string name="title_activity_view_comments">ViewComments</string>
     <string name="title_care_view">Title</string>
     <string name="track_users"/>
     <string name="userID">User ID</string>
