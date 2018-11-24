@@ -14,6 +14,7 @@ import com.searchly.jestdroid.JestDroidClient;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 
 import io.searchbox.client.JestResult;
 import io.searchbox.core.DocumentResult;
@@ -26,6 +27,10 @@ import io.searchbox.core.SearchResult;
 *CMPUT301W18T17, https://github.com/CMPUT301W18T17/TheProfessionals , 2018/04/09, viewed 2018/10/13* with apache 
 license identified and documented at https://github.com/CMPUT301W18T17/TheProfessionals/blob/master/LICENSE
 */
+
+
+/* ElasticSearch code implementation ideas for verifySettings from the ElasticLab search code discussed in Lab 5 on Oct 4, 2018*/
+
 
 /* ElasticSearch functionality licesned from 
 *https://creativecommons.org/licenses/by-nc-nd/3.0/legalcode, viewed 2018/11/14*
@@ -245,6 +250,4 @@ class ElasticsearchController {
     public static List<Problem> search(String searchType, String keyword){
         return null;
     }
-
-
 }

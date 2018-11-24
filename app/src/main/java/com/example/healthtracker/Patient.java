@@ -25,9 +25,11 @@ public class Patient extends User implements Serializable {
      * @param phone  the phone number provided by the Patient which is associated with their account
      * @param email  the email address provided by the Patient which is associated with their account
      * @param userID the userID generated for the Patient which is associated with their account
+     * @param code the code generated for the Patient which is associated with their specific account
+     *
      */
-    public Patient(String phone, String email, String userID){
-        super(phone, email, userID);
+    public Patient(String phone, String email, String userID, String code){
+        super(phone, email, userID, code);
 
     }
 

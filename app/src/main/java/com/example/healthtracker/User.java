@@ -20,6 +20,7 @@ public class User implements Serializable {
     private String phone;
     @JestId
     private String userID;
+    private String code;
 
     /**
      * a constructor for the user that takes several parameters that detail the user information
@@ -27,17 +28,19 @@ public class User implements Serializable {
      * @param phone  the phone number provided by the user which is associated with their account
      * @param email  the email address provided by the user which is associated with their account
      * @param userID the userID generated for the user which is associated with their account
+     * @param code the code generated for the user which is associated with their specific account
      */
-    public User(String phone, String email, String userID) {
+    public User(String phone, String email, String userID, String code) {
         this.email = email;
         this.phone = phone;
         this.userID = userID;
+        this.code = code;
     }
 
 
     @Override
     public String toString() {
-        return "userId: "+userID+"|email: "+email+"|phone: "+phone;
+        return "userId: "+userID+"|email: "+email+"|phone: "+phone+"|code: "+code;
     }
 
     /**
@@ -45,6 +48,10 @@ public class User implements Serializable {
      */
     public User(){
 
+    }
+
+    public String getCode(){
+        return this.code;
     }
 
     /**

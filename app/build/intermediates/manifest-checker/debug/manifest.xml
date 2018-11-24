@@ -68,9 +68,13 @@
         <activity android:name="com.example.healthtracker.AddCareProviderCommentView" />
         <activity android:name="com.example.healthtracker.ViewUsers" />
         <activity android:name="com.example.healthtracker.PatientHomeView" />
-        <activity android:name="com.example.healthtracker.AddProblemView" />
+        <activity
+            android:name="com.example.healthtracker.AddProblemView"
+            android:windowSoftInputMode="adjustPan" />
         <activity android:name="com.example.healthtracker.ViewMyProblems" />
-        <activity android:name="com.example.healthtracker.EditProblem" />
+        <activity
+            android:name="com.example.healthtracker.EditProblem"
+            android:windowSoftInputMode="adjustPan" />
         <activity android:name="com.example.healthtracker.AddorEditRecordView" />
         <activity android:name="com.example.healthtracker.PatientProblemView" />
         <activity android:name="com.example.healthtracker.SlideShowActivity" />
@@ -84,6 +88,16 @@
         <meta-data
             android:name="com.google.android.maps.v2.API_KEY"
             android:value="AIzaSyDppOAUxXEBGrsc_gg8bw392b4QdyzlzYw" />
+
+        <activity
+            android:name="com.example.healthtracker.ViewCareProviderComments"
+            android:label="@string/title_activity_view_care_provider_comments" />
+        <activity
+            android:name="com.example.healthtracker.CareProviderRecordView"
+            android:label="@string/title_activity_care_provider_record_view" />
+        <activity
+            android:name="com.example.healthtracker.ViewComments"
+            android:label="@string/title_activity_view_comments" />
 
         <provider
             android:name="android.arch.lifecycle.ProcessLifecycleOwnerInitializer"

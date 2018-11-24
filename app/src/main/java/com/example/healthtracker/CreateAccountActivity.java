@@ -14,6 +14,7 @@ import android.widget.Toast;
 
 import com.searchly.jestdroid.JestDroidClient;
 
+import java.util.Random;
 import java.util.concurrent.ExecutionException;
 
 /* Idea and implemented code for testing interent connection from *binnyb(user:416412),   
@@ -135,12 +136,12 @@ public class CreateAccountActivity extends AppCompatActivity {
             // Save new user with elasticsearch
             if (checkBox.isChecked()) {
                 // save new care provider
-                CareProvider newCareProvider = new CareProvider(phone, email, userID);
+                CareProvider newCareProvider = new CareProvider(phone, email, userID, createCode());
                 ElasticsearchController.AddCareProvider addCareProviderTask = new ElasticsearchController.AddCareProvider();
                 addCareProviderTask.execute(newCareProvider);
             } else {
                 // save new patient
-                Patient newPatient = new Patient(phone, email, userID);
+                Patient newPatient = new Patient(phone, email, userID, createCode());
                 ElasticsearchController.AddPatient addPatientTask = new ElasticsearchController.AddPatient();
                 addPatientTask.execute(newPatient);
             }
@@ -159,6 +160,22 @@ public class CreateAccountActivity extends AppCompatActivity {
         } else {
             Toast.makeText(context, "No internet connection", Toast.LENGTH_SHORT).show();
         }
+    }
+
+    /* Code for random string generation from * SURESH ATTA(user:1927832),
+    https://stackoverflow.com/questions/20536566/creating-a-random-string-with-a-z-and-0-9-in-java, 2013/12/12,
+    viewed 2018/11/23* */
+
+    // Generates a 5 character long random string containing alphanumeric characters to serve as an account code
+    protected String createCode() {
+        String chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890";
+        StringBuilder salt = new StringBuilder();
+        Random rnd = new Random();
+        while (salt.length() < 5) { // length of the random string.
+            int index = (int) (rnd.nextFloat() * chars.length());
+            salt.append(chars.charAt(index));
+        }
+        return salt.toString();
     }
 
 }

@@ -1155,6 +1155,7 @@ id checkbox
 id chronometer
 id clip_horizontal
 id clip_vertical
+id code
 id collapseActionView
 id comment_list
 id container
