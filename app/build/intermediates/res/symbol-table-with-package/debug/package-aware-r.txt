@@ -25,6 +25,7 @@ animator mtrl_fab_hide_motion_spec
 animator mtrl_fab_show_motion_spec
 animator mtrl_fab_transformation_sheet_collapse_spec
 animator mtrl_fab_transformation_sheet_expand_spec
+array body_location_options
 array searchTypes
 attr actionBarDivider
 attr actionBarItemBackground
@@ -1134,6 +1135,7 @@ id auto
 id barrier
 id beginning
 id blocking
+id body_location_options
 id bodylocation_button
 id bottom
 id button
@@ -1532,8 +1534,11 @@ string abc_searchview_description_voice
 string abc_shareactionprovider_share_with
 string abc_shareactionprovider_share_with_application
 string abc_toolbar_collapse_description
+string add_body_location_button
+string add_geo_location_button
 string add_new_problem
 string add_patient
+string add_photo_button
 string add_problem
 string add_record_from_add
 string add_record_from_edit
@@ -1553,6 +1558,7 @@ string back_from_problem
 string back_from_problem_view
 string back_from_record_view
 string back_from_settings
+string bodyLocation
 string bottom_sheet_behavior
 string cancel_problem_edit
 string care_comment
@@ -1635,6 +1641,7 @@ string records_care_provider
 string save
 string save_care_comment
 string save_edited_problem
+string save_record_button
 string save_settings
 string search
 string searchType
