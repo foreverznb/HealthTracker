@@ -3,6 +3,8 @@ package com.example.healthtracker;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.graphics.drawable.Drawable;
+import android.provider.MediaStore;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -13,6 +15,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import java.io.ByteArrayOutputStream;
+import java.io.File;
 import java.io.IOException;
 import java.io.ObjectOutputStream;
 import java.text.ParseException;
@@ -34,6 +37,7 @@ public class AddorEditRecordView extends AppCompatActivity {
     private String title, comment;
     Context context;
     Patient patient;
+    File capturedImages;
     PatientRecord record;
 
     @Override
@@ -136,7 +140,10 @@ public class AddorEditRecordView extends AppCompatActivity {
                 .serializeRecord(AddorEditRecordView.this, record));
         setResult(RESULT_OK, intent);
         finish();
-
     }
 
+    public void addPhoto(View view) {
+        Intent intent = new Intent(AddorEditRecordView.this, TakePhotoActivity.class);
+        startActivity(intent);
+    }
 }

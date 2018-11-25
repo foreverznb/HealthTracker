@@ -1119,6 +1119,7 @@ id activity_chooser_view_content
 id add
 id add_comment_button
 id add_comment_title
+id add_notify_button
 id add_patient
 id add_patient_button
 id add_problem
@@ -1219,6 +1220,7 @@ id icon_group
 id icon_only
 id ifRoom
 id image
+id imageButton
 id imageButton2
 id imageView
 id info
@@ -1269,7 +1271,7 @@ id patient_setting
 id patients_list_view
 id percent
 id phone_number
-id photo_button
+id photo_from_library_button
 id pin
 id problem_description
 id problem_description_edit
@@ -1340,6 +1342,7 @@ id tabMode
 id tag_transition_group
 id tag_unhandled_key_event_manager
 id tag_unhandled_key_listeners
+id take_photo_button
 id terrain
 id text
 id text2
@@ -1450,6 +1453,7 @@ layout activity_patient_home
 layout activity_search
 layout activity_search_results
 layout activity_slide_show
+layout activity_take_photo
 layout activity_user_settings
 layout activity_view_care_provider_comments
 layout activity_view_my_problems
@@ -1543,6 +1547,7 @@ string add_problem
 string add_record_from_add
 string add_record_from_edit
 string add_record_to_problem
+string add_reminder
 string app_name
 string appbar_scrolling_view_behavior
 string back

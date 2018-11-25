@@ -121,6 +121,7 @@
     <string name="add_body_location_button">Add Body-Location</string>
     <string name="add_geo_location_button">Add Geo-Location</string>
     <string name="add_photo_button">Add Photo</string>
+    <string name="add_reminder">Add Reminder</string>
 
 
 </resources>
