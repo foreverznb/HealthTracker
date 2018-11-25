@@ -6,11 +6,10 @@ import org.junit.Before;
 import org.junit.Test;
 
 import java.util.ArrayList;
-import java.sql.Date;
-//import java.util.Date;
+import java.util.Date;
 
-import static org.junit.Assert.*;
-
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotEquals;
 
 public class PatientRecordTest {
 
@@ -31,15 +30,8 @@ public class PatientRecordTest {
         Date dateStarted = new Date(( new java.util.Date()).getTime());
         timestamp = "16:00:00";
         parentProblem = new Problem("SaveMyFinger",dateStarted,"I felt bad on my finger.");
-        geoLocations = new ArrayList<Bitmap>();
-        patientRecord = new PatientRecord(title,comment,parentProblem,timestamp, geoLocations);
 
-    }
-
-
-    @Test
-    public void addGeoLocation() {
-
+        patientRecord = new PatientRecord(title, comment);
     }
 
     @Test
@@ -50,24 +42,56 @@ public class PatientRecordTest {
         assertEquals(newPhoto, patientRecord.getPhoto(index));
     }
 
-    public void deleteGeoLocation() {
-
-    }
-
+    @Test
     public void getPhoto() {
-        int index = 0;
-        assertEquals(patientRecord.getPhoto(index),photo);
+        Photo newPhoto = new Photo("file location 1");
+        patientRecord.addPhoto(newPhoto);
+
+        Photo newPhoto2 = new Photo("file location 2");
+        patientRecord.addPhoto(newPhoto2);
+        assertEquals(patientRecord.getPhoto(1),newPhoto2);
     }
 
 
     @Test
     public void deletePhoto() {
-        Integer index = 0;
-        Photo newPhoto = new Photo("file location");
+        Photo newPhoto = new Photo("file location 1");
         patientRecord.addPhoto(newPhoto);
-        patientRecord.deletePhoto(index);
-        assertFalse(patientRecord.getPhoto(index) == newPhoto);
+
+        Photo newPhoto2 = new Photo("file location 2");
+        patientRecord.addPhoto(newPhoto2);
+
+        patientRecord.deletePhoto(0);
+        assertEquals(patientRecord.getPhoto(0), newPhoto2);
     }
+
+
+    @Test
+    public void getTitle() {
+        assertEquals(title, patientRecord.getTitle());
+    }
+
+    @Test
+    public void setTitle() {
+        patientRecord.setTitle("New title");
+
+        assertNotEquals(title, patientRecord.getTitle());
+        assertEquals("New title", patientRecord.getTitle());
+    }
+
+    @Test
+    public void getComment() {
+        assertEquals(comment, patientRecord.getComment());
+    }
+
+    @Test
+    public void setComment() {
+        patientRecord.setComment("New Comment");
+
+        assertNotEquals(comment, patientRecord.getComment());
+        assertEquals("New Comment", patientRecord.getComment());
+    }
+
 
 
 }

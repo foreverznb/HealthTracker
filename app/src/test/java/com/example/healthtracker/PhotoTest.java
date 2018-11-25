@@ -1,12 +1,9 @@
 package com.example.healthtracker;
 
-import android.graphics.Bitmap;
 
 import org.junit.Before;
 import org.junit.Test;
 
-import java.sql.Timestamp;
-import java.util.ArrayList;
 import java.util.Date;
 
 import static org.junit.Assert.assertEquals;
@@ -21,8 +18,7 @@ public class PhotoTest {
     public void setUp() {
         fileLocation = "file location";
         Problem p1 = new Problem("Rash", new Date(),"Uncomfortable rash on arm.");
-        PatientRecord r1 = new PatientRecord("Day1", "Bruise is small", p1, new Timestamp(new Date().getTime()).toString(), new ArrayList<Bitmap>());
-        photo = new Photo(fileLocation,parentRecord);
+        photo = new Photo(fileLocation);
     }
     @Test
     public void getFile() {
@@ -39,7 +35,7 @@ public class PhotoTest {
 
     @Test
     public void getRecord() {
-        assertEquals(photo.getRecord(), parentRecord);
+
     }
 
 

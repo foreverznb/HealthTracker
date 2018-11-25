@@ -11,7 +11,7 @@ import io.searchbox.annotations.JestId;
  * The User superclass class creates user objects and contains all the constructors, getters, and setters to modify user
  * objects and promote data access within both CareProvider and Patient subclasses
  *
- * @author
+ * @author Michael Boisvert
  * @version 1.0
  * @since 2018-10-20
  */
@@ -20,6 +20,7 @@ public class User implements Serializable {
     private String phone;
     @JestId
     private String userID;
+    private String code;
 
     /**
      * a constructor for the user that takes several parameters that detail the user information
@@ -27,18 +28,30 @@ public class User implements Serializable {
      * @param phone  the phone number provided by the user which is associated with their account
      * @param email  the email address provided by the user which is associated with their account
      * @param userID the userID generated for the user which is associated with their account
+     * @param code the code generated for the user which is associated with their specific account
      */
-    public User(String phone, String email, String userID) {
+    public User(String phone, String email, String userID, String code) {
         this.email = email;
         this.phone = phone;
         this.userID = userID;
+        this.code = code;
+    }
+
+
+    @Override
+    public String toString() {
+        return "userId: "+userID+"|email: "+email+"|phone: "+phone+"|code: "+code;
     }
 
     /**
-     * user singleton
+     * user constructor that requires no parameters
      */
     public User(){
 
+    }
+
+    public String getCode(){
+        return this.code;
     }
 
     /**
@@ -96,25 +109,14 @@ public class User implements Serializable {
     }
 
     /**
-     * TODO
+     * Update the user's contact information.
      *
-     * @param keyword keyword associated with the problem for searching?
-     * @param type type of the problem?
-     * @return returns null
-     */
-    public List<Problem> search(String keyword, String type){
-        //TODO implement
-        return null;
-    }
+     * @param phone A string that will be the user's new listed phone number.
+     * @param email A string that will be the user's new listed email address.
 
-
-    /**
-     * TODO
-     *
-     * @return returns null
      */
-    public Bitmap createMap(){
-        //TODO implement
-        return null;
+    public void updateUserInfo(String phone, String email){
+        this.setEmail(email);
+        this.setPhone(phone);
     }
 }

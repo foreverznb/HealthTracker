@@ -5,6 +5,9 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 
+/**
+ * SearchResultsView enables patients and careproviders to view the results of their search queries.
+ */
 public class SearchResultsView extends AppCompatActivity {
 
     @Override

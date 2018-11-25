@@ -1,6 +1,9 @@
 package com.example.healthtracker;
 
+import android.widget.ArrayAdapter;
+
 import java.io.Serializable;
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -13,7 +16,8 @@ import java.util.List;
  */
 public class Patient extends User implements Serializable {
 
-    private List<Problem> problemList;
+    private ArrayList<Problem> problemList = new ArrayList<Problem>();
+    private String careProviders = "";
 
     /**
      * constructor for creating a new Patient user and their appropriate profile information designated by parameter values
@@ -21,10 +25,12 @@ public class Patient extends User implements Serializable {
      * @param phone  the phone number provided by the Patient which is associated with their account
      * @param email  the email address provided by the Patient which is associated with their account
      * @param userID the userID generated for the Patient which is associated with their account
+     * @param code the code generated for the Patient which is associated with their specific account
+     *
      */
-    public Patient(String phone, String email, String userID){
-        super(phone, email, userID);
-        this.problemList = new ArrayList<>();
+    public Patient(String phone, String email, String userID, String code){
+        super(phone, email, userID, code);
+
     }
 
     /**
@@ -38,18 +44,22 @@ public class Patient extends User implements Serializable {
      *
      * @return returns the Patient's problem list
      */
-    public List<Problem> getProblemList() {
+    public ArrayList<Problem> getProblemList() {
         return this.problemList;
     }
 
     /**
-     * TODO
+     * Update the problem at the specified index with the modifiedProblem.
      *
-     * @param title
+     * @param index
      * @param modifiedProblem
      */
-    public void setProblem(String title, Problem modifiedProblem){
-        //TODO implement
+    public void setProblem(Problem modifiedProblem, int index){
+        problemList.set(index, modifiedProblem);
+    }
+
+    public void setProblems(ArrayList<Problem> problems){
+        this.problemList = problems;
     }
 
     /**
@@ -74,14 +84,55 @@ public class Patient extends User implements Serializable {
     }
 
     /**
-     *  TODO
-     *  Is this even used?
-     * @param phone phone number
-     * @param email email address
+     * Checks to see if the patient has any problems.
+     *
+     * @return a boolean indicating wether the patient's problem list is empty or not
      */
-    public void updateUserInfo(String phone, String email){
-        super.setEmail(email);
-        super.setPhone(phone);
+    public boolean noProblemsExist(){
+        return problemList.isEmpty();
     }
 
+    /**
+     * Get one of the patient's specific problems
+     *
+     * @param index the index of the desired problem in the patient's problem list
+     * @return the problem corresponding to the index input
+     */
+    public Problem getProblem(int index){
+        return problemList.get(index);
+    }
+
+    /**
+     * Add details of CareProvider assigned to the patient
+     *
+     * @param careProvider A CareProvider who has been assigned the patient
+     */
+    public void addToCareProviderString(CareProvider careProvider){
+        if(this.careProviders.equals("")){
+            this.careProviders = careProvider.toString();
+        }
+        else {
+            this.careProviders = this.careProviders + "\n" + careProvider.toString();
+        }
+    }
+
+    /**
+     * Get a string of all of the patient's CareProviders.
+     *
+     * @return A string of the user id's of all of the patient's CareProviders
+     */
+    public String getCareProviderString(){
+        return this.careProviders;
+    }
+
+    @Override
+    /**
+     * Override the toString method to control what will be displayed in the a CareProvder's patient
+     * list.
+     *
+     * @return A string that represents the patient.
+     */
+    public String toString() {
+        return "Patient: "+getUserID()+"\nPhone: "+getPhone()+"\nEmail: "+getEmail()+"\nCare Providers: \n"+getCareProviderString();
+    }
 }

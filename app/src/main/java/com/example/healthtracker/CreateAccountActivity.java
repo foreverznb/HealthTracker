@@ -14,35 +14,35 @@ import android.widget.Toast;
 
 import com.searchly.jestdroid.JestDroidClient;
 
+import java.util.Random;
 import java.util.concurrent.ExecutionException;
 
-/**
+/* Idea and implemented code for testing interent connection from *binnyb(user:416412),   
+https://stackoverflow.com/questions/5474089/how-to-check-currently-internet-connection-is-available-or-not-in-android, 
+2011/03/29, viewed 2018/11/16*
+*/
+
+/*
  * CreateAccountActivity enables a user to create a new account for the HealthTracker app by filling in the required account details.
  * The user's data will be stored in an ElasticSearch database and partially stored locally.
- *
- * @author Tyler Watson
- * @version 1.0
- * @since 2018-10-30
  */
 public class CreateAccountActivity extends AppCompatActivity {
 
     private static JestDroidClient client;
 
     private static final String TAG = "CreateAccountActivity";
-    private EditText Email, Password, Phone, UserID;
+    private EditText Email, Phone, UserID;
     private Button Register;
     private CheckBox checkBox;
     private Context context;
 
 
     private CreateAccountActivity Context;
-    private String email, password, phone, userID;
+    private String email, phone, userID;
     private User user;
 
-    /**
+    /*
      * onCreate launched on activity creation
-     *
-     * @param savedInstanceState SIS
      */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -51,19 +51,18 @@ public class CreateAccountActivity extends AppCompatActivity {
         setContentView(R.layout.activity_create_account);
         Register = findViewById(R.id.create_new_account_button);
         Email = findViewById(R.id.email);
-        Password = findViewById(R.id.new_password);
         Phone = findViewById(R.id.phone_number);
         UserID = findViewById(R.id.userID);
         checkBox = findViewById(R.id.caregiver_checkbox);
         context = this;
         Log.d(TAG, "Testing Internet Connection");
-        if (testConnection()) {
+        if (!ElasticsearchController.testConnection(this)) {
             Toast.makeText(context, "No internet", Toast.LENGTH_SHORT).show();
         }
         init();
     }
 
-    /**
+    /*
      * Adds a new user with the specified account information filled in by the user in each specific field. The userId for the new
      * user will first be checked to see if it already exists. If so account creation will be denied. Additionally each field is
      * checked to see if it was left empty or not by calling the checkInputs method.
@@ -73,53 +72,42 @@ public class CreateAccountActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 email = Email.getText().toString().toLowerCase();
-                password = Password.getText().toString();
                 phone = Phone.getText().toString();
                 userID = UserID.getText().toString();
-                if (checkInputs(email, userID, password, phone)) {
+                if (checkInputs(email, userID, phone)) {
                     try {
-                        if(!userExists(userID)){
+                        if (!userExists(userID)) {
                             addNewUser();
-                        } else{
+                        } else {
                             Toast.makeText(context, "User ID is taken", Toast.LENGTH_SHORT).show();
                         }
                     } catch (ExecutionException | InterruptedException e) {
                         e.printStackTrace();
                     }
-                } else{
-                    Toast.makeText(context, "All fields must be filled", Toast.LENGTH_SHORT).show();
                 }
             }
         });
     }
 
-    /**
+    /*
      * Checks that all the input fields are filled, displaying a toast message if the fields are not filled. The method
      * returns a boolean object based on whether or not the account info fields are filled.
-     *
-     * @param email input email string to be tested whether it was filled in by the user
-     * @param userID input userID string to be tested whether it was filled in by the user
-     * @param password input password string to be tested whether it was filled in by the user
-     * @param phone input phone string to be tested whether it was filled in by the user
-     * @return returns boolean object on whether an entry field is blank
      */
-    private boolean checkInputs(String email, String userID, String password, String phone){
+    private boolean checkInputs(String email, String userID, String phone){
         Log.d(TAG, "checkInputs: checking inputs for null values");
-        if(email.equals("") || userID.equals("") || password.equals("") || phone.equals("")){
+        if(email.equals("") || userID.equals("") || phone.equals("")){
             Toast.makeText(context, "All fields must be filled out", Toast.LENGTH_SHORT).show();
+            return false;
+        } else if(userID.length()<8){
+            Toast.makeText(context, "User ID must be at least 8 characters long.", Toast.LENGTH_SHORT).show();
             return false;
         }
         return true;
     }
 
-    /**
+    /*
      * Checks if an account with the provided userID already exists in the system and returns a boolean value based off of the
      * result of verification testing.
-     *
-     * @param userID userID entered within the method call to be checked for its existence in the database before account creation
-     * @return returns a boolean value determined by the existence of an existing userID
-     * @throws ExecutionException   exception for .get() to catch errors during method execution
-     * @throws InterruptedException exception for .get() to catch interruptions resulting in errors during execution
      */
     public boolean userExists(String userID) throws ExecutionException, InterruptedException {
         if(checkBox.isChecked()){
@@ -138,7 +126,7 @@ public class CreateAccountActivity extends AppCompatActivity {
 
     }
 
-    /**
+    /*
      * The addNewUser() method is called by init() when the user attempts to add a new account. If the checkbox is clicked by
      * the user, a CareProvider account will try to be created. If the checkbox is not checked, a patient account will
      * attempt to be created. This method utilizes the ElasticsearchController, CareProvider, and Patient classes.
@@ -148,12 +136,12 @@ public class CreateAccountActivity extends AppCompatActivity {
             // Save new user with elasticsearch
             if (checkBox.isChecked()) {
                 // save new care provider
-                CareProvider newCareProvider = new CareProvider(phone, email, userID);
+                CareProvider newCareProvider = new CareProvider(phone, email, userID, createCode());
                 ElasticsearchController.AddCareProvider addCareProviderTask = new ElasticsearchController.AddCareProvider();
                 addCareProviderTask.execute(newCareProvider);
             } else {
                 // save new patient
-                Patient newPatient = new Patient(phone, email, userID);
+                Patient newPatient = new Patient(phone, email, userID, createCode());
                 ElasticsearchController.AddPatient addPatientTask = new ElasticsearchController.AddPatient();
                 addPatientTask.execute(newPatient);
             }
@@ -174,16 +162,20 @@ public class CreateAccountActivity extends AppCompatActivity {
         }
     }
 
-    /**
-     * testConnection() checks for online connectivity on either wifi or mobile data and returns the connectivity state
-     *
-     * @return returns a boolean object on whether the user is connected to wifi or cellular data for online connectivity checks
-     */
-    public boolean testConnection() {
-        ConnectivityManager connectivityManager = (ConnectivityManager) getSystemService(CONNECTIVITY_SERVICE);
-        //we are connected to a network
-        assert connectivityManager != null;
-        return connectivityManager.getNetworkInfo(ConnectivityManager.TYPE_MOBILE).getState() != NetworkInfo.State.CONNECTED &&
-                connectivityManager.getNetworkInfo(ConnectivityManager.TYPE_WIFI).getState() != NetworkInfo.State.CONNECTED;
+    /* Code for random string generation from * SURESH ATTA(user:1927832),
+    https://stackoverflow.com/questions/20536566/creating-a-random-string-with-a-z-and-0-9-in-java, 2013/12/12,
+    viewed 2018/11/23* */
+
+    // Generates a 5 character long random string containing alphanumeric characters to serve as an account code
+    protected String createCode() {
+        String chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890";
+        StringBuilder salt = new StringBuilder();
+        Random rnd = new Random();
+        while (salt.length() < 5) { // length of the random string.
+            int index = (int) (rnd.nextFloat() * chars.length());
+            salt.append(chars.charAt(index));
+        }
+        return salt.toString();
     }
+
 }
