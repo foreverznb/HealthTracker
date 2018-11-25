@@ -1344,6 +1344,7 @@ id tag_unhandled_key_event_manager
 id tag_unhandled_key_listeners
 id take_photo_button
 id terrain
+id test
 id text
 id text2
 id textSpacerNoButtons
