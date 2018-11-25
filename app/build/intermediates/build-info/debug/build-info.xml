@@ -6,30 +6,30 @@
     density="420dpi"
     format="10"
     plugin-version="3.2.1"
-    timestamp="1543176594041"
+    timestamp="1543181546812"
     token="3228296361726906817"
     verifier="COMPATIBLE" >
 
     <task
         name="javac"
-        duration="0" />
+        duration="2658" />
     <task
         name="instant-run-dex"
-        duration="0" />
+        duration="823" />
     <task
         name="instant-run-transform"
-        duration="0" />
+        duration="489" />
     <task
         name="verifier"
-        duration="0" />
+        duration="49" />
 
     <artifact
-        location="C:\Users\tyler\AndroidStudioProjects\HealthTracker1\app\build\intermediates\resources\instant-run\debug\resources-debug.apk"
-        type="SPLIT" />
+        location="C:\Users\tyler\AndroidStudioProjects\HealthTracker1\app\build\intermediates\reload-dex\debug\classes.dex"
+        type="RELOAD_DEX" />
 
     <build
         build-mode="FULL"
-        timestamp="1543172506209"
+        timestamp="1543181098084"
         verifier="FULL_BUILD_REQUESTED" >
         <artifact
             location="C:\Users\tyler\AndroidStudioProjects\HealthTracker1\app\build\intermediates\split-apk\debug\slices\slice_3.apk"
@@ -72,29 +72,12 @@
             type="SPLIT_MAIN" />
     </build>
     <build
-        build-mode="COLD"
-        ir-eligibility="COMPATIBLE"
-        timestamp="1543176066538"
-        verifier="COLD_SWAP_REQUESTED" >
-        <artifact
-            location="C:\Users\tyler\AndroidStudioProjects\HealthTracker1\app\build\intermediates\split-apk\debug\slices\slice_3.apk"
-            type="SPLIT" />
-    </build>
-    <build
         build-mode="HOT_WARM"
-        timestamp="1543176309302"
+        timestamp="1543181546812"
         verifier="COMPATIBLE" >
         <artifact
-            location="C:\Users\tyler\AndroidStudioProjects\HealthTracker1\app\build\intermediates\builds\debug\1543176309302\classes.dex"
+            location="C:\Users\tyler\AndroidStudioProjects\HealthTracker1\app\build\intermediates\reload-dex\debug\classes.dex"
             type="RELOAD_DEX" />
-    </build>
-    <build
-        build-mode="HOT_WARM"
-        timestamp="1543176594041"
-        verifier="COMPATIBLE" >
-        <artifact
-            location="C:\Users\tyler\AndroidStudioProjects\HealthTracker1\app\build\intermediates\resources\instant-run\debug\resources-debug.apk"
-            type="SPLIT" />
     </build>
 
 </instant-run>

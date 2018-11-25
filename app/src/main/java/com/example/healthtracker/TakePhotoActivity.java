@@ -70,7 +70,7 @@ public class TakePhotoActivity extends AppCompatActivity {
         }
 
         String imageFilePath = folder + "/" + String.valueOf(System.currentTimeMillis()) + "jpg";
-        File imageFile = new File(folder, "test"+number+".jpg");
+        File imageFile = new File(folder, "test1.jpg");
         imageFileUri = Uri.fromFile(imageFile);
         textTargetUri.setText(imageFileUri.toString());
         intent.putExtra(MediaStore.EXTRA_OUTPUT, imageFileUri);
