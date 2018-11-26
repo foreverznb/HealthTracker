@@ -110,6 +110,7 @@
             android:label="@string/title_activity_care_provider_record_view" />
         <activity android:name="com.example.healthtracker.TakePhotoActivity" >
         </activity>
+        <activity android:name="com.example.healthtracker.PhotoController" />
 
         <provider
             android:name="android.arch.lifecycle.ProcessLifecycleOwnerInitializer"
