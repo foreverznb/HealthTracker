@@ -21,6 +21,10 @@ import android.widget.Toast;
 
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.Locale;
 import java.util.Objects;
 
 public class TakePhotoActivity extends AppCompatActivity {
@@ -28,6 +32,7 @@ public class TakePhotoActivity extends AppCompatActivity {
     Uri imageFileUri;
     TextView textTargetUri;
     ImageView imageView;
+    String imageName;
     Integer number = 0;
 
     @Override
@@ -69,10 +74,10 @@ public class TakePhotoActivity extends AppCompatActivity {
             folderF.mkdir();
         }
 
-        String imageFilePath = folder + "/" + String.valueOf(System.currentTimeMillis()) + "jpg";
-        File imageFile = new File(folder, "test1.jpg");
+        String timeStamp = new SimpleDateFormat("yyyyMMdd_HHmmss",Locale.CANADA).format(new Date());
+        imageName = "test_"+timeStamp+".jpg";
+        File imageFile = new File(folder, imageName);
         imageFileUri = Uri.fromFile(imageFile);
-        textTargetUri.setText(imageFileUri.toString());
         intent.putExtra(MediaStore.EXTRA_OUTPUT, imageFileUri);
         startActivityForResult(intent, CAPTURE_IMAGE_ACTIVITY_REQUEST_CODE);
     }
@@ -89,6 +94,13 @@ public class TakePhotoActivity extends AppCompatActivity {
         if (requestCode == 100) {
             // Can't display the photo in a text view for whatever reason
             if (resultCode == RESULT_OK) {
+
+                String folder = Environment.getExternalStorageDirectory().getAbsolutePath() + "/Download";
+                File imageFile = new File(folder, imageName);
+                imageFileUri = Uri.fromFile(imageFile);
+
+                // update photo galleries
+                sendBroadcast(new Intent(Intent.ACTION_MEDIA_SCANNER_SCAN_FILE, Uri.fromFile(imageFile)));
                 Toast.makeText(this, "Photo Saved", Toast.LENGTH_SHORT).show();
             } else if (resultCode == RESULT_CANCELED) {
                 Toast.makeText(this, "Photo Cancelled", Toast.LENGTH_SHORT).show();
@@ -100,7 +112,6 @@ public class TakePhotoActivity extends AppCompatActivity {
             if (resultCode == RESULT_OK) {
                 Uri targetUri = data.getData();
                 assert targetUri != null;
-                //textTargetUri.setText(targetUri.toString());
                 Bitmap bitmap;
 
                 try {
