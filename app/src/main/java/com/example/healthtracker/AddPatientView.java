@@ -10,6 +10,11 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.example.healthtracker.Contollers.ElasticsearchController;
+import com.example.healthtracker.Contollers.UserDataController;
+import com.example.healthtracker.EntityObjects.CareProvider;
+import com.example.healthtracker.EntityObjects.Patient;
+
 import java.util.ArrayList;
 import java.util.concurrent.ExecutionException;
 
@@ -34,7 +39,7 @@ public class AddPatientView extends AppCompatActivity {
         // Get context
         context = this;
 
-        inputId = (EditText) findViewById(R.id.editText4);
+        inputId = findViewById(R.id.editText4);
 
     }
 
@@ -95,9 +100,7 @@ public class AddPatientView extends AppCompatActivity {
             getPatient.execute(mPatientUserID);
             try{
                 mPatient = getPatient.get();
-            }catch (ExecutionException e1){
-
-            }catch (InterruptedException e2) {
+            }catch (ExecutionException | InterruptedException ignored){
 
             }
 
@@ -110,7 +113,7 @@ public class AddPatientView extends AppCompatActivity {
 
 
             System.out.println("careProviderExist"+careProviderExist);
-            if (careProviderExist == false) {
+            if (!careProviderExist) {
 
                 // Update Patient data
                 mPatient.addToCareProviderString(careProvider);

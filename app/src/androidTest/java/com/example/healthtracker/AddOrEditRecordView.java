@@ -21,13 +21,13 @@ public class AddOrEditRecordView {
     private EditText description;
 
     @Rule
-    public ActivityTestRule<LoginActivity> activityTestRule =
+    public final ActivityTestRule<LoginActivity> activityTestRule =
             new ActivityTestRule<>(LoginActivity.class);
 
     private Solo solo;
 
     @Before
-    public void setUp() throws Exception {
+    public void setUp() {
         solo = new Solo(InstrumentationRegistry.getInstrumentation(),
                 activityTestRule.getActivity());
 
@@ -40,12 +40,12 @@ public class AddOrEditRecordView {
     }
 
     @After
-    public void tearDown() throws Exception {
+    public void tearDown() {
         solo.finishOpenedActivities();
     }
 
     @Test
-    public void testAddAndEditRecordWhileAddingProblem() throws Exception {
+    public void testAddAndEditRecordWhileAddingProblem() {
 
         solo.clickOnView(solo.getView("add_problem"));
 

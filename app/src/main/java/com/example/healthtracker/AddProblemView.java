@@ -3,12 +3,9 @@ package com.example.healthtracker;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
-import android.os.Build;
 import android.os.Bundle;
-import android.support.annotation.RequiresApi;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
-import android.util.Base64;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -16,9 +13,10 @@ import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.Toast;
 
-import java.io.ByteArrayInputStream;
-import java.io.IOException;
-import java.io.ObjectInputStream;
+import com.example.healthtracker.Contollers.UserDataController;
+import com.example.healthtracker.EntityObjects.Patient;
+import com.example.healthtracker.EntityObjects.Problem;
+
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -35,19 +33,19 @@ import java.util.Locale;
  */
 public class AddProblemView extends AppCompatActivity {
 
-    public EditText titleText;
-    public EditText dateText;
-    public EditText descriptionText;
+    private EditText titleText;
+    private EditText dateText;
+    private EditText descriptionText;
     public static Integer counter = 0;
-    String title;
-    String dateString;
-    String description;
-    Date date;
-    Context context;
-    ArrayList<PatientRecord> recordList;
-    ArrayAdapter<PatientRecord> adapter;
-    ListView mListView;
-    int index;
+    private String title;
+    private String dateString;
+    private String description;
+    private Date date;
+    private Context context;
+    private ArrayList<PatientRecord> recordList;
+    private ArrayAdapter<PatientRecord> adapter;
+    private ListView mListView;
+    private int index;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -60,7 +58,7 @@ public class AddProblemView extends AppCompatActivity {
         recordList = new ArrayList<PatientRecord>();
     }
 
-    public static boolean testDate(String date) {
+    private static boolean testDate(String date) {
         // establish the date format and make the format non lenient, include a parse catch and try clause
         SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd", Locale.CANADA);
         format.setLenient(false);
@@ -149,10 +147,6 @@ public class AddProblemView extends AppCompatActivity {
     }
 
     @Override
-    /**
-     * Override the android back button so that the user is warned that their problem will be lost
-     * if they go back now.
-     */
     public void onBackPressed() {
         if (!titleText.getText().toString().equals("") || !dateText.getText().toString().equals("")
                 || !descriptionText.getText().toString().equals("")) {
@@ -203,7 +197,7 @@ public class AddProblemView extends AppCompatActivity {
         dateString = dateText.getText().toString();
         description = descriptionText.getText().toString();
         try{
-            date = new SimpleDateFormat("yyyy-MM-dd").parse(dateString);
+            date = new SimpleDateFormat("yyyy-MM-dd",Locale.CANADA).parse(dateString);
         } catch (ParseException e){
             Toast.makeText(this, "Improper Date Format", Toast.LENGTH_LONG).show();
         }

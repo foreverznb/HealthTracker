@@ -103,7 +103,7 @@
 
         <activity android:name=".TakePhotoActivity">
         </activity>
-        <activity android:name=".PhotoController" />
+        <activity android:name=".Contollers.PhotoController" />
     </application>
 
 </manifest>

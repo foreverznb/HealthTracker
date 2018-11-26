@@ -6,13 +6,17 @@ import android.app.Activity;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
+import com.example.healthtracker.Contollers.UserDataController;
+import com.example.healthtracker.EntityObjects.CareProvider;
+import com.example.healthtracker.EntityObjects.Patient;
+
 import java.util.ArrayList;
 
 public class ViewCareProviderComments extends Activity {
 
-    Patient patient;
-    CareProvider careProvider;
-    ArrayList<CareProviderComment> comments;
+    private Patient patient;
+    private CareProvider careProvider;
+    private ArrayList<CareProviderComment> comments;
 
 
     @Override

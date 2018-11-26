@@ -1,8 +1,6 @@
 package com.example.healthtracker;
 
 import android.content.Context;
-import android.net.ConnectivityManager;
-import android.net.NetworkInfo;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
@@ -12,6 +10,10 @@ import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.example.healthtracker.Contollers.ElasticsearchController;
+import com.example.healthtracker.EntityObjects.CareProvider;
+import com.example.healthtracker.EntityObjects.Patient;
+import com.example.healthtracker.EntityObjects.User;
 import com.searchly.jestdroid.JestDroidClient;
 
 import java.util.Random;
@@ -109,7 +111,7 @@ public class CreateAccountActivity extends AppCompatActivity {
      * Checks if an account with the provided userID already exists in the system and returns a boolean value based off of the
      * result of verification testing.
      */
-    public boolean userExists(String userID) throws ExecutionException, InterruptedException {
+    private boolean userExists(String userID) throws ExecutionException, InterruptedException {
         if(checkBox.isChecked()){
             CareProvider foundUser;
             ElasticsearchController.GetCareProvider getCareProvider = new ElasticsearchController.GetCareProvider();
@@ -131,7 +133,7 @@ public class CreateAccountActivity extends AppCompatActivity {
      * the user, a CareProvider account will try to be created. If the checkbox is not checked, a patient account will
      * attempt to be created. This method utilizes the ElasticsearchController, CareProvider, and Patient classes.
      */
-    public void addNewUser(){
+    private void addNewUser(){
         if (ElasticsearchController.testConnection(context)) {
             // Save new user with elasticsearch
             if (checkBox.isChecked()) {
@@ -167,7 +169,7 @@ public class CreateAccountActivity extends AppCompatActivity {
     viewed 2018/11/23* */
 
     // Generates a 5 character long random string containing alphanumeric characters to serve as an account code
-    protected String createCode() {
+    private String createCode() {
         String chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890";
         StringBuilder salt = new StringBuilder();
         Random rnd = new Random();

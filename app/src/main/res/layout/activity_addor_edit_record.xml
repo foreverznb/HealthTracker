@@ -7,7 +7,6 @@
     tools:context=".AddorEditRecordView">
 
     <TextView
-        android:id="@+id/titleText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="28dp"
@@ -26,10 +25,10 @@
         android:hint="@string/max_title_length"
         android:inputType="textPersonName"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="Autofill" />
 
     <TextView
-        android:id="@+id/description_text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
@@ -50,10 +49,10 @@
         android:maxEms="46"
         android:singleLine="false"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="Autofill" />
 
     <Button
-        android:id="@+id/geomap_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
@@ -73,7 +72,6 @@
         app:layout_constraintTop_toBottomOf="@+id/description_edit_text" />
 
     <Button
-        android:id="@+id/save_record_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="10dp"
@@ -84,7 +82,6 @@
         app:layout_constraintEnd_toEndOf="parent" />
 
     <TextView
-        android:id="@+id/textTimestamp"
         android:layout_width="77dp"
         android:layout_height="17dp"
         android:layout_marginStart="28dp"
@@ -103,7 +100,6 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <Spinner
-        android:id="@+id/body_location_options"
         android:layout_width="176dp"
         android:layout_height="37dp"
         android:layout_marginStart="8dp"
@@ -118,7 +114,6 @@
         tools:ignore="HardcodedText" />
 
     <ImageButton
-        android:id="@+id/imageButton"
         android:layout_width="54dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
@@ -126,6 +121,7 @@
         android:onClick="addPhoto"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/add32" />
+        app:srcCompat="@drawable/add32"
+        tools:ignore="ContentDescription" />
 
 </android.support.constraint.ConstraintLayout>

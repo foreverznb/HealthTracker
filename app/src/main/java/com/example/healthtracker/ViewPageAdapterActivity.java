@@ -20,8 +20,8 @@ import com.squareup.picasso.Picasso;
 
 
 class ViewPageAdapterActivity extends PagerAdapter {
-    private Activity activity;
-    private String[] images;
+    private final Activity activity;
+    private final String[] images;
 
     public ViewPageAdapterActivity(Activity activity, String[] images){
         this.activity = activity;

@@ -8,11 +8,12 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
-import android.widget.Toast;
+
+import com.example.healthtracker.Contollers.UserDataController;
+import com.example.healthtracker.EntityObjects.CareProvider;
+import com.example.healthtracker.EntityObjects.Patient;
 
 import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
 
 /*
  * ViewPatients enables careproviders to view a list of all of their added patients. Careproviders can
@@ -30,7 +31,7 @@ public class ViewPatients extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_view_patients);
 
-        patientsListView = (ListView) findViewById(R.id.patients_list_view);
+        patientsListView = findViewById(R.id.patients_list_view);
         ArrayList<Patient> mPatients = new ArrayList<Patient>();
 
         // Fetch user data

@@ -21,24 +21,24 @@ public class EditProblemIntentTest {
 
 
     @Rule
-    public ActivityTestRule<LoginActivity> activityTestRule =
+    public final ActivityTestRule<LoginActivity> activityTestRule =
             new ActivityTestRule<>(LoginActivity.class);
 
     private Solo solo;
 
     @Before
-    public void setUp() throws Exception {
+    public void setUp() {
         solo = new Solo(InstrumentationRegistry.getInstrumentation(),
                 activityTestRule.getActivity());
     }
 
     @After
-    public void tearDown() throws Exception {
+    public void tearDown() {
         solo.finishOpenedActivities();
     }
 
     @Test
-    public void testEditProblem() throws Exception {
+    public void testEditProblem() {
         EditText name = (EditText) solo.getView("userID");
         EditText pwd = (EditText) solo.getView("login_password");
         solo.enterText(name, "");

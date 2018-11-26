@@ -3,25 +3,18 @@ package com.example.healthtracker;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
-import android.graphics.drawable.Drawable;
-import android.provider.MediaStore;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Base64;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import java.io.ByteArrayOutputStream;
+import com.example.healthtracker.Contollers.UserDataController;
+import com.example.healthtracker.EntityObjects.Patient;
+
 import java.io.File;
-import java.io.IOException;
-import java.io.ObjectOutputStream;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.util.Date;
-import java.util.Locale;
 
 /*
  * AddorEditRecordView enables a patient to add a new record to one of their problems or edit an
@@ -35,10 +28,10 @@ public class AddorEditRecordView extends AppCompatActivity {
     private EditText titleText, descriptionText;
     private TextView timestampText;
     private String title, comment;
-    Context context;
-    Patient patient;
+    private Context context;
+    private Patient patient;
     File capturedImages;
-    PatientRecord record;
+    private PatientRecord record;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -109,7 +102,7 @@ public class AddorEditRecordView extends AppCompatActivity {
     /*
      * If a record is being edited this method is called to display its current data.
      */
-    public void showRecord(){
+    private void showRecord(){
         titleText.setText(record.getTitle());
         descriptionText.setText(record.getComment());
         timestampText.setText(record.getTimestamp().toString());
@@ -120,7 +113,7 @@ public class AddorEditRecordView extends AppCompatActivity {
      * Update record with user entered data.
      * Save record by serializing it and setting it as the result of this activity.
      */
-    public void saveRecord(){
+    private void saveRecord(){
         // get Record info
         title = titleText.getText().toString();
         comment = descriptionText.getText().toString();

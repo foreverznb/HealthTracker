@@ -11,6 +11,9 @@ import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.healthtracker.Contollers.UserDataController;
+import com.example.healthtracker.EntityObjects.Patient;
+
 /* Idea and implemented code for learning how to make a textview clickable to bring to an
 external website from *Bebin T.N (user:1485235),  
 https://stackoverflow.com/questions/2734270/how-do-i-make-links-in-a-textview-clickable, 2013/06/18, viewed 2018/11/03*

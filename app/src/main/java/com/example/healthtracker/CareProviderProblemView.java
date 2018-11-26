@@ -6,10 +6,14 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
-import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import com.example.healthtracker.Contollers.UserDataController;
+import com.example.healthtracker.EntityObjects.CareProvider;
+import com.example.healthtracker.EntityObjects.Patient;
+import com.example.healthtracker.EntityObjects.Problem;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -91,8 +95,7 @@ public class CareProviderProblemView extends AppCompatActivity {
 
     private String dateToString(Date date){
         SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd", Locale.CANADA);
-        String dateString = format.format(date);
-        return dateString;
+        return format.format(date);
     }
 
     private void showProblem(String title, Date date, String des) {

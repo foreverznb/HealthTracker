@@ -5,6 +5,8 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 
+import com.example.healthtracker.Contollers.UserDataController;
+
 
 /*
  * CareProviderHomeView acts as a home screen interface for CareProvider users to navigate to different app activities.

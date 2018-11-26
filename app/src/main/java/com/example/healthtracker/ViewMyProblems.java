@@ -6,16 +6,14 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
-import android.view.ContextMenu;
-import android.view.MenuInflater;
-import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
-import android.widget.AdapterView.AdapterContextMenuInfo;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
-import android.widget.Toast;
+
+import com.example.healthtracker.Contollers.UserDataController;
+import com.example.healthtracker.EntityObjects.Patient;
+import com.example.healthtracker.EntityObjects.Problem;
 
 import java.util.ArrayList;
 
@@ -72,7 +70,6 @@ public class ViewMyProblems extends AppCompatActivity {
                 ab.setMessage("Problem Options:" + mProblems.get(position).toString() + "\n");
                 // set the dialog to be cancelable outside of box
                 ab.setCancelable(true);
-                final int fPosition = position;
 
 
                 // set a negative button for deleting problem

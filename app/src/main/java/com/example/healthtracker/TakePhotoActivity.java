@@ -1,21 +1,14 @@
 package com.example.healthtracker;
 
-import android.content.Context;
-import android.content.ContextWrapper;
 import android.content.Intent;
-import android.database.Cursor;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Matrix;
-import android.graphics.drawable.Drawable;
-import android.media.Image;
 import android.net.Uri;
-import android.os.Environment;
 import android.os.StrictMode;
 import android.provider.MediaStore;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Base64;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
@@ -23,22 +16,16 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import java.io.ByteArrayOutputStream;
-import java.io.File;
-import java.io.FileInputStream;
+import com.example.healthtracker.Contollers.PhotoController;
+
 import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.text.SimpleDateFormat;
-import java.util.Date;
-import java.util.Locale;
 import java.util.Objects;
 
 public class TakePhotoActivity extends AppCompatActivity {
 
     Uri imageFileUri;
-    TextView textTargetUri;
-    ImageView imageView;
+    private TextView textTargetUri;
+    private ImageView imageView;
     String imageName;
     String pathTaken;
     String pathLoaded;
@@ -70,12 +57,12 @@ public class TakePhotoActivity extends AppCompatActivity {
     }
 
     private static final int CAPTURE_IMAGE_ACTIVITY_REQUEST_CODE = 100;
-    public void takeAPhoto() {
+    private void takeAPhoto() {
         Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
         startActivityForResult(intent, CAPTURE_IMAGE_ACTIVITY_REQUEST_CODE);
     }
 
-    public void loadAPhoto() {
+    private void loadAPhoto() {
         Intent intent = new Intent(Intent.ACTION_PICK, android.provider.MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
         startActivityForResult(intent, 50);
     }

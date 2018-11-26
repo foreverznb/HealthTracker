@@ -1,5 +1,6 @@
 package com.example.healthtracker;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -12,6 +13,10 @@ import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.Toast;
+
+import com.example.healthtracker.Contollers.UserDataController;
+import com.example.healthtracker.EntityObjects.Patient;
+import com.example.healthtracker.EntityObjects.Problem;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -35,11 +40,12 @@ public class EditProblem extends AppCompatActivity {
     private Patient user;
     private Problem problem;
     private int index;
-    Context context;
-    ArrayList<PatientRecord> recordList;
-    ArrayAdapter<PatientRecord> adapter;
-    ListView mListView;
+    private Context context;
+    private ArrayList<PatientRecord> recordList;
+    private ArrayAdapter<PatientRecord> adapter;
+    private ListView mListView;
 
+    @SuppressLint("Assert")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -151,7 +157,7 @@ public class EditProblem extends AppCompatActivity {
         dateText.setText(dateString);
     }
 
-    public static boolean testDate(String date) {
+    private static boolean testDate(String date) {
         // establish the date format and make the format non lenient, include a parse catch and try clause
         SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd", Locale.CANADA);
         format.setLenient(false);

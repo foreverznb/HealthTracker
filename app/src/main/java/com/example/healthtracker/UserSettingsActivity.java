@@ -2,17 +2,17 @@ package com.example.healthtracker;
 
 import android.content.Context;
 import android.content.Intent;
-import android.content.SharedPreferences;
-import android.net.ConnectivityManager;
-import android.net.NetworkInfo;
-import android.os.Build;
 import android.os.Bundle;
-import android.support.annotation.RequiresApi;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import com.example.healthtracker.Contollers.UserDataController;
+import com.example.healthtracker.EntityObjects.CareProvider;
+import com.example.healthtracker.EntityObjects.Patient;
+import com.example.healthtracker.EntityObjects.User;
 
 import java.util.List;
 
@@ -24,11 +24,11 @@ import java.util.List;
 public class UserSettingsActivity extends AppCompatActivity {
     private static final String TAG = "Settings";
     String userID;
-    String profileType;
+    private String profileType;
     List<User> userInfo;
-    EditText uemail;
-    EditText phone;
-    TextView code;
+    private EditText uemail;
+    private EditText phone;
+    private TextView code;
     private Patient patient;
     private CareProvider careProvider;
     private Context context;

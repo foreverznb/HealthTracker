@@ -4,14 +4,15 @@ ADDED from C:\Users\tyler\AndroidStudioProjects\HealthTracker1\app\src\main\Andr
 INJECTED from C:\Users\tyler\AndroidStudioProjects\HealthTracker1\app\src\main\AndroidManifest.xml:2:1-109:12
 INJECTED from C:\Users\tyler\AndroidStudioProjects\HealthTracker1\app\src\main\AndroidManifest.xml:2:1-109:12
 INJECTED from C:\Users\tyler\AndroidStudioProjects\HealthTracker1\app\src\main\AndroidManifest.xml:2:1-109:12
-MERGED from [com.android.support.test:rules:1.0.1] C:\Users\tyler\.gradle\caches\transforms-1\files-1.1\rules-1.0.1.aar\d8c8f2f0e08b6ced079a47c481e17fcd\AndroidManifest.xml:17:1-21:12
-MERGED from [com.android.support.test:runner:1.0.1] C:\Users\tyler\.gradle\caches\transforms-1\files-1.1\runner-1.0.1.aar\be46b00b05aee6d3987d4f45cdad27b5\AndroidManifest.xml:17:1-21:12
+MERGED from [com.android.support.test:rules:1.0.2] C:\Users\tyler\.gradle\caches\transforms-1\files-1.1\rules-1.0.2.aar\f21e3a42769e2f989ab68dd7c0f08373\AndroidManifest.xml:17:1-24:12
+MERGED from [com.android.support.test:runner:1.0.2] C:\Users\tyler\.gradle\caches\transforms-1\files-1.1\runner-1.0.2.aar\1477c6d40e1c8ff1255a7bcea190a6b7\AndroidManifest.xml:17:1-24:12
 MERGED from [com.android.support:multidex:1.0.2] C:\Users\tyler\.gradle\caches\transforms-1\files-1.1\multidex-1.0.2.aar\fa85bc68be6ed8f3e8336b3f3770b4bf\AndroidManifest.xml:17:1-22:12
 MERGED from [com.android.support:design:28.0.0] C:\Users\tyler\.gradle\caches\transforms-1\files-1.1\design-28.0.0.aar\d8aa778db67327851be6d1ae1dab44f1\AndroidManifest.xml:17:1-24:12
 MERGED from [com.android.support:appcompat-v7:28.0.0] C:\Users\tyler\.gradle\caches\transforms-1\files-1.1\appcompat-v7-28.0.0.aar\c3d8e9bcb521f41c855cf722fa94624b\AndroidManifest.xml:17:1-22:12
 MERGED from [com.android.support.constraint:constraint-layout:1.1.3] C:\Users\tyler\.gradle\caches\transforms-1\files-1.1\constraint-layout-1.1.3.aar\adadbed0c92a9206f030552b0a1e8f55\AndroidManifest.xml:2:1-11:12
 MERGED from [android.arch.lifecycle:extensions:1.1.1] C:\Users\tyler\.gradle\caches\transforms-1\files-1.1\extensions-1.1.1.aar\c9a22c51255e0eab7483a2c0b9699a6a\AndroidManifest.xml:17:1-30:12
 MERGED from [com.google.android.gms:play-services-maps:16.0.0] C:\Users\tyler\.gradle\caches\transforms-1\files-1.1\play-services-maps-16.0.0.aar\cd102c4dcf512303a6b0363f56f81d6f\AndroidManifest.xml:17:1-32:12
+MERGED from [com.android.support.test:monitor:1.0.2] C:\Users\tyler\.gradle\caches\transforms-1\files-1.1\monitor-1.0.2.aar\3ce953efbe1d64ccd363a2d15cb8d32a\AndroidManifest.xml:17:1-24:12
 MERGED from [com.android.support:transition:28.0.0] C:\Users\tyler\.gradle\caches\transforms-1\files-1.1\transition-28.0.0.aar\82d4dcd05758777aecabd7e969154637\AndroidManifest.xml:17:1-22:12
 MERGED from [com.android.support:cardview-v7:28.0.0] C:\Users\tyler\.gradle\caches\transforms-1\files-1.1\cardview-v7-28.0.0.aar\c850b2172e7553aa0ee38ffe32e8ddcb\AndroidManifest.xml:17:1-22:12
 MERGED from [com.android.support:recyclerview-v7:28.0.0] C:\Users\tyler\.gradle\caches\transforms-1\files-1.1\recyclerview-v7-28.0.0.aar\c070d70e36f243727d9a142dd9305b16\AndroidManifest.xml:17:1-22:12
@@ -314,18 +315,18 @@ activity#com.example.healthtracker.TakePhotoActivity
 ADDED from C:\Users\tyler\AndroidStudioProjects\HealthTracker1\app\src\main\AndroidManifest.xml:104:9-105:20
 	android:name
 		ADDED from C:\Users\tyler\AndroidStudioProjects\HealthTracker1\app\src\main\AndroidManifest.xml:104:19-52
-activity#com.example.healthtracker.PhotoController
-ADDED from C:\Users\tyler\AndroidStudioProjects\HealthTracker1\app\src\main\AndroidManifest.xml:106:9-53
+activity#com.example.healthtracker.Contollers$PhotoController
+ADDED from C:\Users\tyler\AndroidStudioProjects\HealthTracker1\app\src\main\AndroidManifest.xml:106:9-64
 	android:name
-		ADDED from C:\Users\tyler\AndroidStudioProjects\HealthTracker1\app\src\main\AndroidManifest.xml:106:19-50
+		ADDED from C:\Users\tyler\AndroidStudioProjects\HealthTracker1\app\src\main\AndroidManifest.xml:106:19-61
 uses-sdk
 INJECTED from C:\Users\tyler\AndroidStudioProjects\HealthTracker1\app\src\main\AndroidManifest.xml reason: use-sdk injection requested
 INJECTED from C:\Users\tyler\AndroidStudioProjects\HealthTracker1\app\src\main\AndroidManifest.xml
 INJECTED from C:\Users\tyler\AndroidStudioProjects\HealthTracker1\app\src\main\AndroidManifest.xml
-MERGED from [com.android.support.test:rules:1.0.1] C:\Users\tyler\.gradle\caches\transforms-1\files-1.1\rules-1.0.1.aar\d8c8f2f0e08b6ced079a47c481e17fcd\AndroidManifest.xml:19:5-72
-MERGED from [com.android.support.test:rules:1.0.1] C:\Users\tyler\.gradle\caches\transforms-1\files-1.1\rules-1.0.1.aar\d8c8f2f0e08b6ced079a47c481e17fcd\AndroidManifest.xml:19:5-72
-MERGED from [com.android.support.test:runner:1.0.1] C:\Users\tyler\.gradle\caches\transforms-1\files-1.1\runner-1.0.1.aar\be46b00b05aee6d3987d4f45cdad27b5\AndroidManifest.xml:19:5-72
-MERGED from [com.android.support.test:runner:1.0.1] C:\Users\tyler\.gradle\caches\transforms-1\files-1.1\runner-1.0.1.aar\be46b00b05aee6d3987d4f45cdad27b5\AndroidManifest.xml:19:5-72
+MERGED from [com.android.support.test:rules:1.0.2] C:\Users\tyler\.gradle\caches\transforms-1\files-1.1\rules-1.0.2.aar\f21e3a42769e2f989ab68dd7c0f08373\AndroidManifest.xml:20:5-22:41
+MERGED from [com.android.support.test:rules:1.0.2] C:\Users\tyler\.gradle\caches\transforms-1\files-1.1\rules-1.0.2.aar\f21e3a42769e2f989ab68dd7c0f08373\AndroidManifest.xml:20:5-22:41
+MERGED from [com.android.support.test:runner:1.0.2] C:\Users\tyler\.gradle\caches\transforms-1\files-1.1\runner-1.0.2.aar\1477c6d40e1c8ff1255a7bcea190a6b7\AndroidManifest.xml:20:5-22:41
+MERGED from [com.android.support.test:runner:1.0.2] C:\Users\tyler\.gradle\caches\transforms-1\files-1.1\runner-1.0.2.aar\1477c6d40e1c8ff1255a7bcea190a6b7\AndroidManifest.xml:20:5-22:41
 MERGED from [com.android.support:multidex:1.0.2] C:\Users\tyler\.gradle\caches\transforms-1\files-1.1\multidex-1.0.2.aar\fa85bc68be6ed8f3e8336b3f3770b4bf\AndroidManifest.xml:20:5-43
 MERGED from [com.android.support:multidex:1.0.2] C:\Users\tyler\.gradle\caches\transforms-1\files-1.1\multidex-1.0.2.aar\fa85bc68be6ed8f3e8336b3f3770b4bf\AndroidManifest.xml:20:5-43
 MERGED from [com.android.support:design:28.0.0] C:\Users\tyler\.gradle\caches\transforms-1\files-1.1\design-28.0.0.aar\d8aa778db67327851be6d1ae1dab44f1\AndroidManifest.xml:20:5-44
@@ -338,6 +339,8 @@ MERGED from [android.arch.lifecycle:extensions:1.1.1] C:\Users\tyler\.gradle\cac
 MERGED from [android.arch.lifecycle:extensions:1.1.1] C:\Users\tyler\.gradle\caches\transforms-1\files-1.1\extensions-1.1.1.aar\c9a22c51255e0eab7483a2c0b9699a6a\AndroidManifest.xml:20:5-44
 MERGED from [com.google.android.gms:play-services-maps:16.0.0] C:\Users\tyler\.gradle\caches\transforms-1\files-1.1\play-services-maps-16.0.0.aar\cd102c4dcf512303a6b0363f56f81d6f\AndroidManifest.xml:20:5-44
 MERGED from [com.google.android.gms:play-services-maps:16.0.0] C:\Users\tyler\.gradle\caches\transforms-1\files-1.1\play-services-maps-16.0.0.aar\cd102c4dcf512303a6b0363f56f81d6f\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support.test:monitor:1.0.2] C:\Users\tyler\.gradle\caches\transforms-1\files-1.1\monitor-1.0.2.aar\3ce953efbe1d64ccd363a2d15cb8d32a\AndroidManifest.xml:20:5-22:41
+MERGED from [com.android.support.test:monitor:1.0.2] C:\Users\tyler\.gradle\caches\transforms-1\files-1.1\monitor-1.0.2.aar\3ce953efbe1d64ccd363a2d15cb8d32a\AndroidManifest.xml:20:5-22:41
 MERGED from [com.android.support:transition:28.0.0] C:\Users\tyler\.gradle\caches\transforms-1\files-1.1\transition-28.0.0.aar\82d4dcd05758777aecabd7e969154637\AndroidManifest.xml:20:5-44
 MERGED from [com.android.support:transition:28.0.0] C:\Users\tyler\.gradle\caches\transforms-1\files-1.1\transition-28.0.0.aar\82d4dcd05758777aecabd7e969154637\AndroidManifest.xml:20:5-44
 MERGED from [com.android.support:cardview-v7:28.0.0] C:\Users\tyler\.gradle\caches\transforms-1\files-1.1\cardview-v7-28.0.0.aar\c850b2172e7553aa0ee38ffe32e8ddcb\AndroidManifest.xml:20:5-44

@@ -2,10 +2,11 @@ package com.example.healthtracker;
 
 import android.graphics.Bitmap;
 
+import com.example.healthtracker.EntityObjects.Photo;
+
 import java.io.Serializable;
 import java.sql.Timestamp;
 import java.util.ArrayList;
-import java.util.Date;
 
 /**
  * The patient record is a record added to a problem by a patient.
@@ -19,8 +20,8 @@ public class PatientRecord implements Serializable {
     private String RecordTitle;
     private String comment;
     private Timestamp timestamp;
-    private ArrayList<Bitmap> geoLocations;
-    private ArrayList<Photo> photos;
+    private final ArrayList<Bitmap> geoLocations;
+    private final ArrayList<Photo> photos;
 
     /**
      * Constructor for PatientRecord that sets the record title and comment.
@@ -146,10 +147,10 @@ public class PatientRecord implements Serializable {
         return this.timestamp;
     }
 
-    @Override
     /**
      * Display the record as a string. Will be used in listviews.
      */
+    @Override
     public String toString(){
         return " Title: " + getTitle() + "\n Comment: " + getComment() + "\n Timestamp: " + timestamp.toString();
     }

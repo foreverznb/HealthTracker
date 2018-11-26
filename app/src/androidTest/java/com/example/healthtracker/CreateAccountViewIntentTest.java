@@ -20,7 +20,7 @@ import org.junit.runner.RunWith;
 public class CreateAccountViewIntentTest {
 
     @Rule
-    public ActivityTestRule<LoginActivity> activityTestRule =
+    public final ActivityTestRule<LoginActivity> activityTestRule =
             new ActivityTestRule<>(LoginActivity.class);
 
     private Solo solo;
@@ -32,7 +32,7 @@ public class CreateAccountViewIntentTest {
     private Button createAccount;
 
     @Before
-    public void setUp() throws Exception {
+    public void setUp() {
         solo = new Solo(InstrumentationRegistry.getInstrumentation(),
                 activityTestRule.getActivity());
         solo.clickOnButton(0);
@@ -46,7 +46,7 @@ public class CreateAccountViewIntentTest {
     }
 
     @After
-    public void tearDown() throws Exception {
+    public void tearDown() {
         solo.finishOpenedActivities();
     }
 

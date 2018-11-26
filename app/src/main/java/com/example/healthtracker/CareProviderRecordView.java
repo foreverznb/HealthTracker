@@ -1,13 +1,19 @@
 package com.example.healthtracker;
 
+import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.app.Activity;
 import android.widget.TextView;
 
+import com.example.healthtracker.Contollers.UserDataController;
+import com.example.healthtracker.EntityObjects.CareProvider;
+
 public class CareProviderRecordView extends Activity {
 
-    TextView titleText, desText, timestampText;
-    PatientRecord record;
+    private TextView titleText;
+    private TextView desText;
+    private TextView timestampText;
+    private PatientRecord record;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,6 +37,7 @@ public class CareProviderRecordView extends Activity {
         displayRecord();
     }
 
+    @SuppressLint("SetTextI18n")
     private void displayRecord(){
         desText.setText("Comment: \n" + record.getComment());
         titleText.setText("Title: \n" + record.getTitle());

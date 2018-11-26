@@ -12,6 +12,11 @@ import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.example.healthtracker.Contollers.ElasticsearchController;
+import com.example.healthtracker.Contollers.UserDataController;
+import com.example.healthtracker.EntityObjects.CareProvider;
+import com.example.healthtracker.EntityObjects.Patient;
+
 import java.util.concurrent.ExecutionException;
 
 /* Idea and implemented code for testing interent connection from *binnyb(user:416412),   
