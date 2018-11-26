@@ -61,7 +61,6 @@ class ViewPageAdapterActivity extends PagerAdapter {
                     .error(R.mipmap.ic_launcher)
                     .into(image);
         } catch (Exception ignored) {
-
         }
 
         container.addView(itemView);
