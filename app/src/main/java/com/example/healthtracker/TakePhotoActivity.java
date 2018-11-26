@@ -15,6 +15,7 @@ import android.os.StrictMode;
 import android.provider.MediaStore;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Base64;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
@@ -154,7 +155,7 @@ public class TakePhotoActivity extends AppCompatActivity {
 
     private void loadImageFromStorage(String path) {
         try {
-            File f=new File(path, "profile.jpg");
+            File f=new File(path, imageName);
             Bitmap b = BitmapFactory.decodeStream(new FileInputStream(f));
             ImageView img=findViewById(R.id.imageView);
             img.setImageBitmap(b);
@@ -163,6 +164,28 @@ public class TakePhotoActivity extends AppCompatActivity {
         {
             e.printStackTrace();
         }
+    }
+
+    private String imageToString(String path, String imageName){
+        String filepath = path+imageName;
+        File imagefile = new File(filepath);
+        FileInputStream fis = null;
+        try {
+            fis = new FileInputStream(imagefile);
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }
+
+        Bitmap bm = BitmapFactory.decodeStream(fis);
+        ByteArrayOutputStream baos = new ByteArrayOutputStream();
+        bm.compress(Bitmap.CompressFormat.JPEG, 100 , baos);
+        byte[] b = baos.toByteArray();
+        return Base64.encodeToString(b, Base64.DEFAULT);
+    }
+
+    private Bitmap stringToImage(String encodedImage){
+        byte[] decodedString = Base64.decode(encodedImage, Base64.DEFAULT);
+        return BitmapFactory.decodeByteArray(decodedString, 0, decodedString.length);
     }
 }
 
