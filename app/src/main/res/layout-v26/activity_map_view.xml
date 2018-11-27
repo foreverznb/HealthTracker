@@ -3,6 +3,7 @@
 
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
 
     android:orientation="vertical">
 
@@ -12,7 +13,8 @@
         android:layout_height="wrap_content"
         android:layout_margin="5dp"
 
-        android:orientation="horizontal">
+        android:orientation="horizontal"
+        tools:context=".MapView" >
 
         <EditText
             android:id="@+id/editText"
@@ -41,6 +43,6 @@
         android:name="com.google.android.gms.maps.SupportMapFragment"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context="com.viralandroid.googlemapsandroidapi.MapsActivity" />
+        />
 
 </LinearLayout>
