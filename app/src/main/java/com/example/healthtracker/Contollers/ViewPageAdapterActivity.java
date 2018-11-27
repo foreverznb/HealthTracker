@@ -1,4 +1,4 @@
-package com.example.healthtracker;
+package com.example.healthtracker.Contollers;
 
 import android.app.Activity;
 import android.content.Context;
@@ -10,6 +10,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 
+import com.example.healthtracker.R;
 import com.squareup.picasso.Picasso;
 
 /* Code for testing the ability of a slideshow to operate on the emulator reused from the tutorial by 
@@ -19,7 +20,7 @@ import com.squareup.picasso.Picasso;
 // ViewPageAdapterActivity helps handle the slide show activities and behaviour
 
 
-class ViewPageAdapterActivity extends PagerAdapter {
+public class ViewPageAdapterActivity extends PagerAdapter {
     private final Activity activity;
     private final String[] images;
 

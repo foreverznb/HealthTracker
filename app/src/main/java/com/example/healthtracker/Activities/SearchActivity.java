@@ -1,10 +1,14 @@
-package com.example.healthtracker;
+package com.example.healthtracker.Activities;
 
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Spinner;
+
+import com.example.healthtracker.R;
+import com.example.healthtracker.View.SearchResultsView;
+import com.example.healthtracker.View.CareProviderHomeView;
 
 /**
  * SearchActivity will enable patients and careproviders to search for problems and records.

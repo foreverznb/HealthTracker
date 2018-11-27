@@ -2,9 +2,7 @@ package com.example.healthtracker.EntityObjects;
 
 import android.support.annotation.NonNull;
 
-import com.example.healthtracker.CareProviderComment;
 import com.example.healthtracker.Contollers.NotificationsController;
-import com.example.healthtracker.PatientRecord;
 
 import java.io.Serializable;
 import java.text.SimpleDateFormat;

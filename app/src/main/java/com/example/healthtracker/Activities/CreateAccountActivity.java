@@ -1,4 +1,4 @@
-package com.example.healthtracker;
+package com.example.healthtracker.Activities;
 
 import android.content.Context;
 import android.os.Bundle;
@@ -14,6 +14,7 @@ import com.example.healthtracker.Contollers.ElasticsearchController;
 import com.example.healthtracker.EntityObjects.CareProvider;
 import com.example.healthtracker.EntityObjects.Patient;
 import com.example.healthtracker.EntityObjects.User;
+import com.example.healthtracker.R;
 import com.searchly.jestdroid.JestDroidClient;
 
 import java.util.Random;

@@ -1,4 +1,4 @@
-package com.example.healthtracker;
+package com.example.healthtracker.View;
 
 import android.annotation.SuppressLint;
 import android.os.Bundle;
@@ -7,6 +7,8 @@ import android.widget.TextView;
 
 import com.example.healthtracker.Contollers.UserDataController;
 import com.example.healthtracker.EntityObjects.CareProvider;
+import com.example.healthtracker.EntityObjects.PatientRecord;
+import com.example.healthtracker.R;
 
 public class CareProviderRecordView extends Activity {
 

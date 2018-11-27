@@ -1,4 +1,4 @@
-package com.example.healthtracker;
+package com.example.healthtracker.Activities;
 
 import android.content.Context;
 import android.content.Intent;
@@ -13,6 +13,7 @@ import com.example.healthtracker.Contollers.UserDataController;
 import com.example.healthtracker.EntityObjects.CareProvider;
 import com.example.healthtracker.EntityObjects.Patient;
 import com.example.healthtracker.EntityObjects.User;
+import com.example.healthtracker.R;
 
 import java.util.List;
 

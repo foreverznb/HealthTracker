@@ -1,4 +1,4 @@
-package com.example.healthtracker;
+package com.example.healthtracker.View;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -6,6 +6,9 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 
 import com.example.healthtracker.Contollers.UserDataController;
+import com.example.healthtracker.R;
+import com.example.healthtracker.Activities.SearchActivity;
+import com.example.healthtracker.Activities.UserSettingsActivity;
 
 
 /*

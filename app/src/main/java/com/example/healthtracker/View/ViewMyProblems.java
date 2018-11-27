@@ -1,4 +1,4 @@
-package com.example.healthtracker;
+package com.example.healthtracker.View;
 
 import android.content.Context;
 import android.content.DialogInterface;
@@ -11,9 +11,11 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
+import com.example.healthtracker.Activities.EditProblem;
 import com.example.healthtracker.Contollers.UserDataController;
 import com.example.healthtracker.EntityObjects.Patient;
 import com.example.healthtracker.EntityObjects.Problem;
+import com.example.healthtracker.R;
 
 import java.util.ArrayList;
 

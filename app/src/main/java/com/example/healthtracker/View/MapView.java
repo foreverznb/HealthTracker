@@ -1,4 +1,4 @@
-package com.example.healthtracker;
+package com.example.healthtracker.View;
 
 import android.Manifest;
 import android.content.pm.PackageManager;
@@ -10,6 +10,7 @@ import android.support.v4.app.FragmentActivity;
 import android.view.View;
 import android.widget.EditText;
 
+import com.example.healthtracker.R;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;

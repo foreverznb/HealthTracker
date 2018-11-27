@@ -7,6 +7,8 @@ import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
 
+import com.example.healthtracker.Activities.CreateAccountActivity;
+import com.example.healthtracker.Activities.LoginActivity;
 import com.robotium.solo.Solo;
 
 import org.junit.After;

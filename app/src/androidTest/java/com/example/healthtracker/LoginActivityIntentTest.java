@@ -4,9 +4,12 @@ package com.example.healthtracker;
 import android.support.test.InstrumentationRegistry;
 import android.support.test.rule.ActivityTestRule;
 import android.support.test.runner.AndroidJUnit4;
-import android.widget.AutoCompleteTextView;
 import android.widget.EditText;
 
+import com.example.healthtracker.Activities.CreateAccountActivity;
+import com.example.healthtracker.Activities.LoginActivity;
+import com.example.healthtracker.View.CareProviderHomeView;
+import com.example.healthtracker.View.PatientHomeView;
 import com.robotium.solo.Solo;
 
 import org.junit.After;

@@ -1,4 +1,4 @@
-package com.example.healthtracker;
+package com.example.healthtracker.View;
 
 import android.content.Context;
 import android.content.DialogInterface;
@@ -13,6 +13,9 @@ import android.widget.Toast;
 
 import com.example.healthtracker.Contollers.UserDataController;
 import com.example.healthtracker.EntityObjects.Patient;
+import com.example.healthtracker.EntityObjects.PatientRecord;
+import com.example.healthtracker.R;
+import com.example.healthtracker.Activities.TakePhotoActivity;
 
 import java.io.File;
 

@@ -1,4 +1,4 @@
-package com.example.healthtracker;
+package com.example.healthtracker.View;
 
 import android.content.Context;
 import android.content.Intent;
@@ -14,6 +14,7 @@ import com.example.healthtracker.Contollers.ElasticsearchController;
 import com.example.healthtracker.Contollers.UserDataController;
 import com.example.healthtracker.EntityObjects.CareProvider;
 import com.example.healthtracker.EntityObjects.Patient;
+import com.example.healthtracker.R;
 
 import java.util.ArrayList;
 import java.util.concurrent.ExecutionException;

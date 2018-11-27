@@ -1,6 +1,5 @@
-package com.example.healthtracker;
+package com.example.healthtracker.View;
 
-import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -17,6 +16,8 @@ import android.widget.Toast;
 import com.example.healthtracker.Contollers.UserDataController;
 import com.example.healthtracker.EntityObjects.Patient;
 import com.example.healthtracker.EntityObjects.Problem;
+import com.example.healthtracker.EntityObjects.PatientRecord;
+import com.example.healthtracker.R;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -25,63 +26,62 @@ import java.util.Date;
 import java.util.Locale;
 
 /*
- * EditProblem enables a patient to alter the details of one of their problems and select any PatientRecord
- * associated with it to edit. The altered problem is saved by selecting the "save" button.
+ * AddProblemView enables a patient to add a new problem to their account. The patient must fill in
+ * the title, description, and date started fields then click the save button to add the problem.
+ * The date started field must be in the proper date format or the problem cannot be added. The
+ * patient may optionally add any number of records to the problem. An individual record can be added
+ * by clicking the add record button. An already added record can be edited or deleted by selecting it.
+ *
  */
-public class EditProblem extends AppCompatActivity {
+public class AddProblemView extends AppCompatActivity {
 
     private EditText titleText;
     private EditText dateText;
     private EditText descriptionText;
+    public static Integer counter = 0;
     private String title;
+    private String dateString;
     private String description;
     private Date date;
-    private String initial_entry;
-    private Patient user;
-    private Problem problem;
-    private int index;
     private Context context;
     private ArrayList<PatientRecord> recordList;
     private ArrayAdapter<PatientRecord> adapter;
     private ListView mListView;
+    private int index;
 
-    @SuppressLint("Assert")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_edit_problem);
-
-        titleText = findViewById(R.id.title_text_editscreen);
-        dateText = findViewById(R.id.date_started_editscreen);
-        descriptionText = findViewById(R.id.problem_description_editscreen);
+        setContentView(R.layout.activity_add_problem);
+        titleText = findViewById(R.id.title_text);
+        dateText = findViewById(R.id.date_started_editable);
+        descriptionText = findViewById(R.id.problem_description_edit);
         context = this;
+        recordList = new ArrayList<PatientRecord>();
+    }
 
-        // get current problem data
-        user = UserDataController.loadPatientData(this);
-        Intent intent = getIntent();
-        index = intent.getIntExtra("Index", -1);
-        assert index >= 0;
-        problem = user.getProblem(index);
-        recordList = problem.getRecords();
-
-        // display current data
-        displayData();
-
-        // initial entry to check if changes have been made
-        initial_entry = getEntry();
-
-
+    private static boolean testDate(String date) {
+        // establish the date format and make the format non lenient, include a parse catch and try clause
+        SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd", Locale.CANADA);
+        format.setLenient(false);
+        try {
+            format.parse(date.trim());
+        } catch (ParseException e) {
+            e.printStackTrace();
+            return false;
+        }
+        return true;
     }
 
     @Override
-    protected void onResume() {
+    protected void onResume(){
         super.onResume();
 
         // Create an instance of an array adapter
         adapter = new ArrayAdapter<PatientRecord>(this, android.R.layout.simple_list_item_1, recordList);
 
         // Set an adapter for the list view
-        mListView = findViewById(R.id.record_list_editscreen);
+        mListView = findViewById(R.id.record_list_addscreen);
         mListView.setAdapter(adapter);
 
         // Create a context menu to permit users to select and edit a problem
@@ -94,7 +94,7 @@ public class EditProblem extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 // create an alert dialog via the alert dialog builder to help build dialog to specifics
-                AlertDialog.Builder ab = new AlertDialog.Builder(EditProblem.this);
+                AlertDialog.Builder ab = new AlertDialog.Builder(AddProblemView.this);
                 // set dialog message to edit entry to appear at grabbed position
                 ab.setMessage("Record Options:" + recordList.get(position).getTitle() + "\n");
                 // set the dialog to be cancelable outside of box
@@ -128,13 +128,13 @@ public class EditProblem extends AppCompatActivity {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
                         // Create an intent object containing the bridge to between the two activities
-                        Intent intent = new Intent(EditProblem.this, AddorEditRecordView.class);
+                        Intent intent = new Intent(AddProblemView.this, AddorEditRecordView.class);
 
                         // store record index
                         index = position;
                         PatientRecord selectedRecord = recordList.get(position);
                         intent.putExtra("Record", UserDataController
-                                .serializeRecord(EditProblem.this, selectedRecord));
+                                .serializeRecord(AddProblemView.this, selectedRecord));
                         intent.putExtra("Index", position);
 
                         // Launch the edit record activity
@@ -148,39 +148,11 @@ public class EditProblem extends AppCompatActivity {
         });
     }
 
-    private void displayData() {
-        titleText.setText(problem.getTitle());
-        descriptionText.setText(problem.getDescription());
-        date = problem.getDate();
-        SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd", Locale.CANADA);
-        String dateString = format.format(date);
-        dateText.setText(dateString);
-    }
-
-    private static boolean testDate(String date) {
-        // establish the date format and make the format non lenient, include a parse catch and try clause
-        SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd", Locale.CANADA);
-        format.setLenient(false);
-        try {
-            format.parse(date.trim());
-        } catch (ParseException e) {
-            e.printStackTrace();
-            return false;
-        }
-        return true;
-    }
-
-    private String getEntry() {
-        return titleText.getText().toString() + " -- " + dateText.getText().toString() + "\n" + descriptionText.getText().toString();
-    }
-
     @Override
-    /*
-     * Override back button to warn patient that their changes will not be saved.
-     */
     public void onBackPressed() {
-        if (!initial_entry.equals(getEntry())) {
-            AlertDialog.Builder ab = new AlertDialog.Builder(this);
+        if (!titleText.getText().toString().equals("") || !dateText.getText().toString().equals("")
+                || !descriptionText.getText().toString().equals("")) {
+            AlertDialog.Builder ab = new AlertDialog.Builder(AddProblemView.this);
             ab.setMessage("Warning. Changes have been made to the problem." + "\n" + "Returning to the home screen will not save changes.");
             ab.setCancelable(true);
             // Set a button to return to the Home screen and don't save changes
@@ -190,6 +162,7 @@ public class EditProblem extends AppCompatActivity {
                     finish();
                 }
             });
+
             // set a button which will close the alert dialog
             ab.setNegativeButton("Return to Problem", new DialogInterface.OnClickListener() {
                 @Override
@@ -203,78 +176,68 @@ public class EditProblem extends AppCompatActivity {
         }
     }
 
+
     /*
-     * Clicking save button will save the edited problem as long as all the necessary fields are filled
-     * and the date is in the proper date format.
+     * When the save button is clicked the new problem is added to the patient's account. A toast
+     * message will indicate if the problem was added or if it could not be added due to an improper
+     * date format or not every field being filled.
      */
-    public void editPatientProblem(View view) {
+    public void addPatientProblem(View view) {
         if (titleText.getText().toString().equals("") || dateText.getText().toString().equals("")
                 || descriptionText.getText().toString().equals("")) {
-            Toast.makeText(this, "Error, all fields must be filled", Toast.LENGTH_LONG).show();
+            Toast.makeText(this, "Error, all field must be filled", Toast.LENGTH_LONG).show();
         } else if (!testDate(dateText.getText().toString())) {
             Toast.makeText(this, "Improper Date Format", Toast.LENGTH_LONG).show();
         } else {
-            // get changes
-            String titleString = titleText.getText().toString();
-            String descriptionString = descriptionText.getText().toString();
-            Date date = null;
-            SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd", Locale.CANADA);
-            try {
-                date = format.parse(dateText.getText().toString());
-            } catch (ParseException e) {
-                e.printStackTrace();
-            }
-
-            // save changes
-            user = UserDataController.loadPatientData(this);
-            problem = user.getProblem(index);
-            problem.update(titleString, date, descriptionString);
-            problem.setRecords(recordList);
-            user.setProblem(problem, index);
-            UserDataController.savePatientData(this, user);
-
-            // done
-            finish();
+            saveProblem();
         }
     }
 
+    private void saveProblem(){
+        // get Problem info
+        title = titleText.getText().toString();
+        dateString = dateText.getText().toString();
+        description = descriptionText.getText().toString();
+        try{
+            date = new SimpleDateFormat("yyyy-MM-dd",Locale.CANADA).parse(dateString);
+        } catch (ParseException e){
+            Toast.makeText(this, "Improper Date Format", Toast.LENGTH_LONG).show();
+        }
+
+        // fetch user data
+        Patient patient = UserDataController.loadPatientData(context);
+
+        // create problem
+        Problem problem = new Problem(title, date, description);
+        problem.setRecords(recordList);
+        patient.addProblem(problem);
+
+        // save problem
+        UserDataController.savePatientData(context, patient);
+
+        // done
+        finish();
+
+    }
+
+
     /*
-     * Selecting the "add record" button begins the AddorEditRecord activity with request code 1 which
-     * indicates a new problem is being added.
+     * When the add record button is clicked the AddorEditRecordView activity is started with
+     * request code 1 which indicates that a record is being added and not edited.
+     *
      */
     public void addRecordFromAdd(View view) {
         // Create an intent object containing the bridge to between the two activities
-        Intent intent = new Intent(EditProblem.this, AddorEditRecordView.class);
-        // Launch the activity
+        Intent intent = new Intent(AddProblemView.this, AddorEditRecordView.class);
+        // Launch the browse emotions activity
         startActivityForResult(intent, 1);
-    }
-
-    /*
-    * Select "View Care Provider Comments" to be taken to a page listing all comments left by the
-    * user's Care Providers.
-     */
-    public void viewCareProviderComments(View view){
-        if(user.getProblem(index).getcaregiverRecords().size()>0){
-            // Create an intent object containing the bridge to between the two activities
-            Intent intent = new Intent(EditProblem.this, ViewCareProviderComments.class);
-
-            Bundle bd = new Bundle();
-            bd.putInt("problemNum", index);
-            bd.putString("profileType", "Patient");
-            intent.putExtras(bd);
-
-            // Launch the activity
-            startActivity(intent);
-        } else{
-            Toast.makeText(this, "No comments to view!", Toast.LENGTH_SHORT).show();
-        }
     }
 
     @Override
     /*
-     * Deal with result of AddorEditRecord. If no result is found (patient backed out of page) do
-     * nothing. If a result is found add or set the record based on the request code. 1 indicates
-     * a record should be added. 2 indicates a record was edited so the record should be set.
+     * Override onActivityResult to specify what should be done when the AddorEditRecordView
+     * Activity finishes. If no result was acquired do nothing. Otherwise add the record to the record
+     * list if a new record was added or change an existing record in the list if a record was edited.
      */
     public void onActivityResult (int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
@@ -283,7 +246,7 @@ public class EditProblem extends AppCompatActivity {
             // get record
             String recordString = data.getStringExtra("Record");
             PatientRecord record = UserDataController
-                    .unSerializeRecord(EditProblem.this, recordString);
+                    .unSerializeRecord(AddProblemView.this, recordString);
 
             // Check which request we're responding to
             if (requestCode == 1) {
@@ -295,6 +258,5 @@ public class EditProblem extends AppCompatActivity {
             }
         }
     }
-
 
 }

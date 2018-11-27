@@ -7,7 +7,7 @@ import android.widget.Toast;
 
 import com.example.healthtracker.EntityObjects.CareProvider;
 import com.example.healthtracker.EntityObjects.Patient;
-import com.example.healthtracker.PatientRecord;
+import com.example.healthtracker.EntityObjects.PatientRecord;
 
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;

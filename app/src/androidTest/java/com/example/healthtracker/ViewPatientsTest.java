@@ -5,10 +5,10 @@ import android.support.test.runner.AndroidJUnit4;
 import android.support.test.rule.ActivityTestRule;
 import android.widget.EditText;
 
+import com.example.healthtracker.Activities.LoginActivity;
 import com.robotium.solo.Solo;
 
 import org.junit.After;
-import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Rule;
 import org.junit.Test;

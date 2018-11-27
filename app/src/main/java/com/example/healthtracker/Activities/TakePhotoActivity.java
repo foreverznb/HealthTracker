@@ -1,4 +1,4 @@
-package com.example.healthtracker;
+package com.example.healthtracker.Activities;
 
 import android.content.Intent;
 import android.graphics.Bitmap;
@@ -17,6 +17,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.healthtracker.Contollers.PhotoController;
+import com.example.healthtracker.R;
 
 import java.io.FileNotFoundException;
 import java.util.Objects;

@@ -1,4 +1,4 @@
-package com.example.healthtracker;
+package com.example.healthtracker.View;
 
 import android.content.Intent;
 import android.os.Build;
@@ -13,6 +13,9 @@ import android.widget.Toast;
 
 import com.example.healthtracker.Contollers.UserDataController;
 import com.example.healthtracker.EntityObjects.Patient;
+import com.example.healthtracker.R;
+import com.example.healthtracker.Activities.SearchActivity;
+import com.example.healthtracker.Activities.UserSettingsActivity;
 
 /* Idea and implemented code for learning how to make a textview clickable to bring to an
 external website from *Bebin T.N (user:1485235),  

@@ -1,4 +1,4 @@
-package com.example.healthtracker;
+package com.example.healthtracker.View;
 
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -9,10 +9,12 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.example.healthtracker.EntityObjects.CareProviderComment;
 import com.example.healthtracker.Contollers.UserDataController;
 import com.example.healthtracker.EntityObjects.CareProvider;
 import com.example.healthtracker.EntityObjects.Patient;
 import com.example.healthtracker.EntityObjects.Problem;
+import com.example.healthtracker.R;
 
 import java.util.ArrayList;
 

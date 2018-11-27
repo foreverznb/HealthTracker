@@ -1,4 +1,4 @@
-package com.example.healthtracker;
+package com.example.healthtracker.EntityObjects;
 
 import android.graphics.Bitmap;
 

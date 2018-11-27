@@ -1,5 +1,6 @@
 package com.example.healthtracker;
 
+import com.example.healthtracker.EntityObjects.CareProviderComment;
 import com.example.healthtracker.EntityObjects.Problem;
 
 import org.junit.Before;

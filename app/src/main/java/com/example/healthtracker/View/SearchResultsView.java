@@ -1,9 +1,12 @@
-package com.example.healthtracker;
+package com.example.healthtracker.View;
 
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+
+import com.example.healthtracker.Activities.SearchActivity;
+import com.example.healthtracker.R;
 
 /**
  * SearchResultsView enables patients and careproviders to view the results of their search queries.
