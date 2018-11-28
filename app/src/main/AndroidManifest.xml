@@ -103,6 +103,8 @@
 
         <activity android:name=".Activities.TakePhotoActivity">
         </activity>
+        <activity android:name=".Activities.AddGeoLocationActivity">
+        </activity>
         <activity android:name=".Contollers.PhotoController" />
     </application>
 

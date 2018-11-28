@@ -1118,6 +1118,7 @@ id actions
 id activity_chooser_view_content
 id add
 id add_comment_button
+id add_geolocation
 id add_patient
 id add_patient_button
 id add_problem
@@ -1136,6 +1137,7 @@ id blocking
 id bodylocation_button
 id bottom
 id button
+id button2
 id buttonPanel
 id cancel_action
 id care_comment
@@ -1274,6 +1276,7 @@ id right
 id right_icon
 id right_side
 id satellite
+id save_geo_location
 id save_image_matrix
 id save_non_transition_alpha
 id save_scale_type
@@ -1302,6 +1305,7 @@ id shortcut
 id showCustom
 id showHome
 id showTitle
+id show_geo
 id smallLabel
 id snackbar_action
 id snackbar_text
@@ -1417,6 +1421,7 @@ layout abc_search_view
 layout abc_select_dialog_material
 layout abc_tooltip
 layout activity_add_care_provider_comment
+layout activity_add_geo_location
 layout activity_add_patient
 layout activity_add_problem
 layout activity_addor_edit_record

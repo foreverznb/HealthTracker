@@ -111,6 +111,8 @@
             android:label="@string/title_activity_care_provider_record_view" />
         <activity android:name="com.example.healthtracker.Activities.TakePhotoActivity" >
         </activity>
+        <activity android:name="com.example.healthtracker.Activities.AddGeoLocationActivity" >
+        </activity>
         <activity android:name="com.example.healthtracker.Contollers.PhotoController" />
 
         <provider

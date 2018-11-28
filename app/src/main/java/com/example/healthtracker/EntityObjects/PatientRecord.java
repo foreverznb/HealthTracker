@@ -1,6 +1,7 @@
 package com.example.healthtracker.EntityObjects;
 
 import android.graphics.Bitmap;
+import android.location.Address;
 
 import com.example.healthtracker.EntityObjects.Photo;
 
@@ -20,7 +21,7 @@ public class PatientRecord implements Serializable {
     private String RecordTitle;
     private String comment;
     private Timestamp timestamp;
-    private final ArrayList<Bitmap> geoLocations;
+    private String geoLocations;
     private final ArrayList<Photo> photos;
 
     /**
@@ -29,11 +30,11 @@ public class PatientRecord implements Serializable {
      * @param title A string for the title of the record
      * @param comment A string for description of the problem
      */
-    public PatientRecord(String title, String comment){
+    public PatientRecord(String title, String comment, String geoLocations){
         this.RecordTitle = title;
         this.comment = comment;
         this.timestamp = new Timestamp(System.currentTimeMillis());
-        geoLocations = new ArrayList<Bitmap> ();
+        this.geoLocations = geoLocations;
         photos = new ArrayList<Photo> ();
     }
 
@@ -45,7 +46,7 @@ public class PatientRecord implements Serializable {
         RecordTitle = "";
         comment = "";
         timestamp = new Timestamp(System.currentTimeMillis());
-        geoLocations = new ArrayList<Bitmap> ();
+        geoLocations = "";
         photos = new ArrayList<Photo> ();
     }
 
@@ -54,8 +55,8 @@ public class PatientRecord implements Serializable {
      *
      * @param geoLocation The geoLocation to be added.
      */
-    public void addGeoLocation(Bitmap geoLocation){
-        geoLocations.add(geoLocation);
+    public void setGeoLocation(String geoLocation){
+        this.geoLocations = geoLocation;
     }
 
     /**
@@ -63,8 +64,8 @@ public class PatientRecord implements Serializable {
      *
      * @param geoLocation The geoLocation to be deleted.
      */
-    public void deleteGeoLocation(Bitmap geoLocation){
-        geoLocations.remove(geoLocation);
+    public String getGeoLocation(){
+        return this.geoLocations;
     }
 
     /**

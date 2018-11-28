@@ -1,9 +1,9 @@
 -- Merging decision tree log ---
 manifest
-ADDED from C:\Users\ningbo\Documents\GitHub\HealthTracker\app\src\main\AndroidManifest.xml:2:1-109:12
-INJECTED from C:\Users\ningbo\Documents\GitHub\HealthTracker\app\src\main\AndroidManifest.xml:2:1-109:12
-INJECTED from C:\Users\ningbo\Documents\GitHub\HealthTracker\app\src\main\AndroidManifest.xml:2:1-109:12
-INJECTED from C:\Users\ningbo\Documents\GitHub\HealthTracker\app\src\main\AndroidManifest.xml:2:1-109:12
+ADDED from C:\Users\ningbo\Documents\GitHub\HealthTracker\app\src\main\AndroidManifest.xml:2:1-111:12
+INJECTED from C:\Users\ningbo\Documents\GitHub\HealthTracker\app\src\main\AndroidManifest.xml:2:1-111:12
+INJECTED from C:\Users\ningbo\Documents\GitHub\HealthTracker\app\src\main\AndroidManifest.xml:2:1-111:12
+INJECTED from C:\Users\ningbo\Documents\GitHub\HealthTracker\app\src\main\AndroidManifest.xml:2:1-111:12
 MERGED from [com.android.support.test:rules:1.0.2] C:\Users\ningbo\.gradle\caches\transforms-1\files-1.1\rules-1.0.2.aar\20c40a5a7ca95ca98c2bc15be6e6b8f2\AndroidManifest.xml:17:1-24:12
 MERGED from [com.android.support.test:runner:1.0.2] C:\Users\ningbo\.gradle\caches\transforms-1\files-1.1\runner-1.0.2.aar\b5447548dba5223f1f871c553743578d\AndroidManifest.xml:17:1-24:12
 MERGED from [com.android.support:multidex:1.0.2] C:\Users\ningbo\.gradle\caches\transforms-1\files-1.1\multidex-1.0.2.aar\95f7a49558fe8f607840956757db591a\AndroidManifest.xml:17:1-22:12
@@ -13,16 +13,15 @@ MERGED from [com.android.support.constraint:constraint-layout:1.1.3] C:\Users\ni
 MERGED from [android.arch.lifecycle:extensions:1.1.1] C:\Users\ningbo\.gradle\caches\transforms-1\files-1.1\extensions-1.1.1.aar\10bcf0124cb7da4f88afcbc5ffe2637e\AndroidManifest.xml:17:1-30:12
 MERGED from [com.google.android.gms:play-services-maps:16.0.0] C:\Users\ningbo\.gradle\caches\transforms-1\files-1.1\play-services-maps-16.0.0.aar\b4b967b28e4985bc5637a1e90677c3ba\AndroidManifest.xml:17:1-32:12
 MERGED from [com.android.support.test:monitor:1.0.2] C:\Users\ningbo\.gradle\caches\transforms-1\files-1.1\monitor-1.0.2.aar\a83ac35d10e2648d83299a27871add54\AndroidManifest.xml:17:1-24:12
+MERGED from [com.android.support:animated-vector-drawable:28.0.0] C:\Users\ningbo\.gradle\caches\transforms-1\files-1.1\animated-vector-drawable-28.0.0.aar\88c468a3638fc4b95d2656d859bbd076\AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:support-vector-drawable:28.0.0] C:\Users\ningbo\.gradle\caches\transforms-1\files-1.1\support-vector-drawable-28.0.0.aar\d88d6e03579262c5d7a442c549475805\AndroidManifest.xml:17:1-22:12
 MERGED from [com.android.support:transition:28.0.0] C:\Users\ningbo\.gradle\caches\transforms-1\files-1.1\transition-28.0.0.aar\c5f454c69161f9cd956058a7d257446e\AndroidManifest.xml:17:1-22:12
-MERGED from [com.android.support:cardview-v7:28.0.0] C:\Users\ningbo\.gradle\caches\transforms-1\files-1.1\cardview-v7-28.0.0.aar\a219a5c00fd5673ce0bd39e890283930\AndroidManifest.xml:17:1-22:12
 MERGED from [com.android.support:recyclerview-v7:28.0.0] C:\Users\ningbo\.gradle\caches\transforms-1\files-1.1\recyclerview-v7-28.0.0.aar\54a51b8c2f42cb0f1efbea7293a1a4b5\AndroidManifest.xml:17:1-22:12
 MERGED from [com.google.android.gms:play-services-base:16.0.1] C:\Users\ningbo\.gradle\caches\transforms-1\files-1.1\play-services-base-16.0.1.aar\0b289bc65b14143801883af4388bb12f\AndroidManifest.xml:17:1-29:12
 MERGED from [com.google.android.gms:play-services-tasks:16.0.1] C:\Users\ningbo\.gradle\caches\transforms-1\files-1.1\play-services-tasks-16.0.1.aar\6c2088d16929d07c562f0e6533dc714a\AndroidManifest.xml:2:1-9:12
 MERGED from [com.google.android.gms:play-services-basement:16.0.1] C:\Users\ningbo\.gradle\caches\transforms-1\files-1.1\play-services-basement-16.0.1.aar\d1458ecfa59c17655d2bae6ee94247bf\AndroidManifest.xml:17:1-28:12
 MERGED from [com.android.support:support-v4:26.1.0] C:\Users\ningbo\.gradle\caches\transforms-1\files-1.1\support-v4-26.1.0.aar\694980b23f54273c8a36491dca5e6c3c\AndroidManifest.xml:17:1-31:12
 MERGED from [com.android.support:support-media-compat:26.1.0] C:\Users\ningbo\.gradle\caches\transforms-1\files-1.1\support-media-compat-26.1.0.aar\929150adf67ad7beb1826c828cc7e552\AndroidManifest.xml:17:1-31:12
-MERGED from [com.android.support:animated-vector-drawable:28.0.0] C:\Users\ningbo\.gradle\caches\transforms-1\files-1.1\animated-vector-drawable-28.0.0.aar\88c468a3638fc4b95d2656d859bbd076\AndroidManifest.xml:17:1-22:12
-MERGED from [com.android.support:support-vector-drawable:28.0.0] C:\Users\ningbo\.gradle\caches\transforms-1\files-1.1\support-vector-drawable-28.0.0.aar\d88d6e03579262c5d7a442c549475805\AndroidManifest.xml:17:1-22:12
 MERGED from [com.android.support:support-fragment:28.0.0] C:\Users\ningbo\.gradle\caches\transforms-1\files-1.1\support-fragment-28.0.0.aar\ceeaee20a560e90555245b0a69bc6ca6\AndroidManifest.xml:17:1-22:12
 MERGED from [com.android.support:support-core-ui:28.0.0] C:\Users\ningbo\.gradle\caches\transforms-1\files-1.1\support-core-ui-28.0.0.aar\352242ab990f4ce070b693fd7127ea04\AndroidManifest.xml:17:1-22:12
 MERGED from [com.android.support:support-core-utils:28.0.0] C:\Users\ningbo\.gradle\caches\transforms-1\files-1.1\support-core-utils-28.0.0.aar\4d1e22514858e04c6a94a7b793ca69f6\AndroidManifest.xml:17:1-22:12
@@ -35,33 +34,34 @@ MERGED from [com.android.support:customview:28.0.0] C:\Users\ningbo\.gradle\cach
 MERGED from [com.android.support:swiperefreshlayout:28.0.0] C:\Users\ningbo\.gradle\caches\transforms-1\files-1.1\swiperefreshlayout-28.0.0.aar\e7ce61e328e3aa481eb16d0630ea0fb2\AndroidManifest.xml:17:1-22:12
 MERGED from [com.android.support:asynclayoutinflater:28.0.0] C:\Users\ningbo\.gradle\caches\transforms-1\files-1.1\asynclayoutinflater-28.0.0.aar\b61a56d23bad26fa9f6842e34f289306\AndroidManifest.xml:17:1-22:12
 MERGED from [com.android.support:support-compat:28.0.0] C:\Users\ningbo\.gradle\caches\transforms-1\files-1.1\support-compat-28.0.0.aar\7f55983391e6f63c3358daf4b700e169\AndroidManifest.xml:17:1-24:12
+MERGED from [com.android.support:versionedparcelable:28.0.0] C:\Users\ningbo\.gradle\caches\transforms-1\files-1.1\versionedparcelable-28.0.0.aar\59af9913b23f9f19d9639785854fcc43\AndroidManifest.xml:17:1-25:12
+MERGED from [com.android.support:cursoradapter:28.0.0] C:\Users\ningbo\.gradle\caches\transforms-1\files-1.1\cursoradapter-28.0.0.aar\9fe86ac8a2c32d335417f99d217c20f1\AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:cardview-v7:28.0.0] C:\Users\ningbo\.gradle\caches\transforms-1\files-1.1\cardview-v7-28.0.0.aar\a219a5c00fd5673ce0bd39e890283930\AndroidManifest.xml:17:1-22:12
 MERGED from [android.arch.lifecycle:runtime:1.1.1] C:\Users\ningbo\.gradle\caches\transforms-1\files-1.1\runtime-1.1.1.aar\74d15d12e06b95818a7e689897c7fca1\AndroidManifest.xml:17:1-22:12
 MERGED from [android.arch.lifecycle:livedata:1.1.1] C:\Users\ningbo\.gradle\caches\transforms-1\files-1.1\livedata-1.1.1.aar\fa6721b21ed80b0638f9c9612286ed80\AndroidManifest.xml:17:1-22:12
 MERGED from [android.arch.lifecycle:livedata-core:1.1.1] C:\Users\ningbo\.gradle\caches\transforms-1\files-1.1\livedata-core-1.1.1.aar\14e3b6371876c5d89d26a8b9ad2f6732\AndroidManifest.xml:17:1-22:12
 MERGED from [android.arch.core:runtime:1.1.1] C:\Users\ningbo\.gradle\caches\transforms-1\files-1.1\runtime-1.1.1.aar\7b0fe01d222ff213f925efcd0c6f6ecc\AndroidManifest.xml:17:1-22:12
 MERGED from [android.arch.lifecycle:viewmodel:1.1.1] C:\Users\ningbo\.gradle\caches\transforms-1\files-1.1\viewmodel-1.1.1.aar\5f86d9a449f9227f24ff21004d503156\AndroidManifest.xml:17:1-22:12
-MERGED from [com.android.support:versionedparcelable:28.0.0] C:\Users\ningbo\.gradle\caches\transforms-1\files-1.1\versionedparcelable-28.0.0.aar\59af9913b23f9f19d9639785854fcc43\AndroidManifest.xml:17:1-25:12
-MERGED from [com.android.support:cursoradapter:28.0.0] C:\Users\ningbo\.gradle\caches\transforms-1\files-1.1\cursoradapter-28.0.0.aar\9fe86ac8a2c32d335417f99d217c20f1\AndroidManifest.xml:17:1-22:12
 MERGED from [com.android.support:documentfile:28.0.0] C:\Users\ningbo\.gradle\caches\transforms-1\files-1.1\documentfile-28.0.0.aar\0edcce9f67e0c6631c94d7c36592222e\AndroidManifest.xml:17:1-22:12
 MERGED from [com.android.support:localbroadcastmanager:28.0.0] C:\Users\ningbo\.gradle\caches\transforms-1\files-1.1\localbroadcastmanager-28.0.0.aar\74223f8cd24a2766a10cf81fce93b231\AndroidManifest.xml:17:1-22:12
 MERGED from [com.android.support:print:28.0.0] C:\Users\ningbo\.gradle\caches\transforms-1\files-1.1\print-28.0.0.aar\f4ac8c0e2a8dcaf870e150de9d24f797\AndroidManifest.xml:17:1-22:12
 MERGED from [com.android.support:interpolator:28.0.0] C:\Users\ningbo\.gradle\caches\transforms-1\files-1.1\interpolator-28.0.0.aar\4843edb7a24ce05b85075439a51d97a9\AndroidManifest.xml:17:1-22:12
-INJECTED from C:\Users\ningbo\Documents\GitHub\HealthTracker\app\src\main\AndroidManifest.xml:2:1-109:12
-INJECTED from C:\Users\ningbo\Documents\GitHub\HealthTracker\app\src\main\AndroidManifest.xml:2:1-109:12
-INJECTED from C:\Users\ningbo\Documents\GitHub\HealthTracker\app\src\main\AndroidManifest.xml:2:1-109:12
+INJECTED from C:\Users\ningbo\Documents\GitHub\HealthTracker\app\src\main\AndroidManifest.xml:2:1-111:12
+INJECTED from C:\Users\ningbo\Documents\GitHub\HealthTracker\app\src\main\AndroidManifest.xml:2:1-111:12
+INJECTED from C:\Users\ningbo\Documents\GitHub\HealthTracker\app\src\main\AndroidManifest.xml:2:1-111:12
 	package
 		ADDED from C:\Users\ningbo\Documents\GitHub\HealthTracker\app\src\main\AndroidManifest.xml:4:5-40
 		INJECTED from C:\Users\ningbo\Documents\GitHub\HealthTracker\app\src\main\AndroidManifest.xml
 		INJECTED from C:\Users\ningbo\Documents\GitHub\HealthTracker\app\src\main\AndroidManifest.xml
 	android:versionName
 		INJECTED from C:\Users\ningbo\Documents\GitHub\HealthTracker\app\src\main\AndroidManifest.xml
-		ADDED from C:\Users\ningbo\Documents\GitHub\HealthTracker\app\src\main\AndroidManifest.xml:2:1-109:12
+		ADDED from C:\Users\ningbo\Documents\GitHub\HealthTracker\app\src\main\AndroidManifest.xml:2:1-111:12
 		INJECTED from C:\Users\ningbo\Documents\GitHub\HealthTracker\app\src\main\AndroidManifest.xml
 	xmlns:tools
 		ADDED from C:\Users\ningbo\Documents\GitHub\HealthTracker\app\src\main\AndroidManifest.xml:3:5-51
 	android:versionCode
 		INJECTED from C:\Users\ningbo\Documents\GitHub\HealthTracker\app\src\main\AndroidManifest.xml
-		ADDED from C:\Users\ningbo\Documents\GitHub\HealthTracker\app\src\main\AndroidManifest.xml:2:1-109:12
+		ADDED from C:\Users\ningbo\Documents\GitHub\HealthTracker\app\src\main\AndroidManifest.xml:2:1-111:12
 		INJECTED from C:\Users\ningbo\Documents\GitHub\HealthTracker\app\src\main\AndroidManifest.xml
 	xmlns:android
 		ADDED from C:\Users\ningbo\Documents\GitHub\HealthTracker\app\src\main\AndroidManifest.xml:2:11-69
@@ -142,7 +142,7 @@ ADDED from C:\Users\ningbo\Documents\GitHub\HealthTracker\app\src\main\AndroidMa
 	android:name
 		ADDED from C:\Users\ningbo\Documents\GitHub\HealthTracker\app\src\main\AndroidManifest.xml:36:9-73
 application
-ADDED from C:\Users\ningbo\Documents\GitHub\HealthTracker\app\src\main\AndroidManifest.xml:39:5-107:19
+ADDED from C:\Users\ningbo\Documents\GitHub\HealthTracker\app\src\main\AndroidManifest.xml:39:5-109:19
 MERGED from [com.android.support:design:28.0.0] C:\Users\ningbo\.gradle\caches\transforms-1\files-1.1\design-28.0.0.aar\53996395823d64b33d88cf4bfcd6a43f\AndroidManifest.xml:22:5-20
 MERGED from [com.android.support:design:28.0.0] C:\Users\ningbo\.gradle\caches\transforms-1\files-1.1\design-28.0.0.aar\53996395823d64b33d88cf4bfcd6a43f\AndroidManifest.xml:22:5-20
 MERGED from [com.android.support.constraint:constraint-layout:1.1.3] C:\Users\ningbo\.gradle\caches\transforms-1\files-1.1\constraint-layout-1.1.3.aar\671f5db47dbe7acf36318f0abfaaa934\AndroidManifest.xml:9:5-20
@@ -319,10 +319,14 @@ activity#com.example.healthtracker.Activities.TakePhotoActivity
 ADDED from C:\Users\ningbo\Documents\GitHub\HealthTracker\app\src\main\AndroidManifest.xml:104:9-105:20
 	android:name
 		ADDED from C:\Users\ningbo\Documents\GitHub\HealthTracker\app\src\main\AndroidManifest.xml:104:19-63
-activity#com.example.healthtracker.Contollers.PhotoController
-ADDED from C:\Users\ningbo\Documents\GitHub\HealthTracker\app\src\main\AndroidManifest.xml:106:9-64
+activity#com.example.healthtracker.Activities.AddGeoLocationActivity
+ADDED from C:\Users\ningbo\Documents\GitHub\HealthTracker\app\src\main\AndroidManifest.xml:106:9-107:20
 	android:name
-		ADDED from C:\Users\ningbo\Documents\GitHub\HealthTracker\app\src\main\AndroidManifest.xml:106:19-61
+		ADDED from C:\Users\ningbo\Documents\GitHub\HealthTracker\app\src\main\AndroidManifest.xml:106:19-68
+activity#com.example.healthtracker.Contollers.PhotoController
+ADDED from C:\Users\ningbo\Documents\GitHub\HealthTracker\app\src\main\AndroidManifest.xml:108:9-64
+	android:name
+		ADDED from C:\Users\ningbo\Documents\GitHub\HealthTracker\app\src\main\AndroidManifest.xml:108:19-61
 uses-sdk
 INJECTED from C:\Users\ningbo\Documents\GitHub\HealthTracker\app\src\main\AndroidManifest.xml reason: use-sdk injection requested
 INJECTED from C:\Users\ningbo\Documents\GitHub\HealthTracker\app\src\main\AndroidManifest.xml
@@ -345,10 +349,12 @@ MERGED from [com.google.android.gms:play-services-maps:16.0.0] C:\Users\ningbo\.
 MERGED from [com.google.android.gms:play-services-maps:16.0.0] C:\Users\ningbo\.gradle\caches\transforms-1\files-1.1\play-services-maps-16.0.0.aar\b4b967b28e4985bc5637a1e90677c3ba\AndroidManifest.xml:20:5-44
 MERGED from [com.android.support.test:monitor:1.0.2] C:\Users\ningbo\.gradle\caches\transforms-1\files-1.1\monitor-1.0.2.aar\a83ac35d10e2648d83299a27871add54\AndroidManifest.xml:20:5-22:41
 MERGED from [com.android.support.test:monitor:1.0.2] C:\Users\ningbo\.gradle\caches\transforms-1\files-1.1\monitor-1.0.2.aar\a83ac35d10e2648d83299a27871add54\AndroidManifest.xml:20:5-22:41
+MERGED from [com.android.support:animated-vector-drawable:28.0.0] C:\Users\ningbo\.gradle\caches\transforms-1\files-1.1\animated-vector-drawable-28.0.0.aar\88c468a3638fc4b95d2656d859bbd076\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:animated-vector-drawable:28.0.0] C:\Users\ningbo\.gradle\caches\transforms-1\files-1.1\animated-vector-drawable-28.0.0.aar\88c468a3638fc4b95d2656d859bbd076\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-vector-drawable:28.0.0] C:\Users\ningbo\.gradle\caches\transforms-1\files-1.1\support-vector-drawable-28.0.0.aar\d88d6e03579262c5d7a442c549475805\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-vector-drawable:28.0.0] C:\Users\ningbo\.gradle\caches\transforms-1\files-1.1\support-vector-drawable-28.0.0.aar\d88d6e03579262c5d7a442c549475805\AndroidManifest.xml:20:5-44
 MERGED from [com.android.support:transition:28.0.0] C:\Users\ningbo\.gradle\caches\transforms-1\files-1.1\transition-28.0.0.aar\c5f454c69161f9cd956058a7d257446e\AndroidManifest.xml:20:5-44
 MERGED from [com.android.support:transition:28.0.0] C:\Users\ningbo\.gradle\caches\transforms-1\files-1.1\transition-28.0.0.aar\c5f454c69161f9cd956058a7d257446e\AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:cardview-v7:28.0.0] C:\Users\ningbo\.gradle\caches\transforms-1\files-1.1\cardview-v7-28.0.0.aar\a219a5c00fd5673ce0bd39e890283930\AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:cardview-v7:28.0.0] C:\Users\ningbo\.gradle\caches\transforms-1\files-1.1\cardview-v7-28.0.0.aar\a219a5c00fd5673ce0bd39e890283930\AndroidManifest.xml:20:5-44
 MERGED from [com.android.support:recyclerview-v7:28.0.0] C:\Users\ningbo\.gradle\caches\transforms-1\files-1.1\recyclerview-v7-28.0.0.aar\54a51b8c2f42cb0f1efbea7293a1a4b5\AndroidManifest.xml:20:5-44
 MERGED from [com.android.support:recyclerview-v7:28.0.0] C:\Users\ningbo\.gradle\caches\transforms-1\files-1.1\recyclerview-v7-28.0.0.aar\54a51b8c2f42cb0f1efbea7293a1a4b5\AndroidManifest.xml:20:5-44
 MERGED from [com.google.android.gms:play-services-base:16.0.1] C:\Users\ningbo\.gradle\caches\transforms-1\files-1.1\play-services-base-16.0.1.aar\0b289bc65b14143801883af4388bb12f\AndroidManifest.xml:20:5-44
@@ -361,10 +367,6 @@ MERGED from [com.android.support:support-v4:26.1.0] C:\Users\ningbo\.gradle\cach
 MERGED from [com.android.support:support-v4:26.1.0] C:\Users\ningbo\.gradle\caches\transforms-1\files-1.1\support-v4-26.1.0.aar\694980b23f54273c8a36491dca5e6c3c\AndroidManifest.xml:21:5-23:54
 MERGED from [com.android.support:support-media-compat:26.1.0] C:\Users\ningbo\.gradle\caches\transforms-1\files-1.1\support-media-compat-26.1.0.aar\929150adf67ad7beb1826c828cc7e552\AndroidManifest.xml:21:5-23:63
 MERGED from [com.android.support:support-media-compat:26.1.0] C:\Users\ningbo\.gradle\caches\transforms-1\files-1.1\support-media-compat-26.1.0.aar\929150adf67ad7beb1826c828cc7e552\AndroidManifest.xml:21:5-23:63
-MERGED from [com.android.support:animated-vector-drawable:28.0.0] C:\Users\ningbo\.gradle\caches\transforms-1\files-1.1\animated-vector-drawable-28.0.0.aar\88c468a3638fc4b95d2656d859bbd076\AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:animated-vector-drawable:28.0.0] C:\Users\ningbo\.gradle\caches\transforms-1\files-1.1\animated-vector-drawable-28.0.0.aar\88c468a3638fc4b95d2656d859bbd076\AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:support-vector-drawable:28.0.0] C:\Users\ningbo\.gradle\caches\transforms-1\files-1.1\support-vector-drawable-28.0.0.aar\d88d6e03579262c5d7a442c549475805\AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:support-vector-drawable:28.0.0] C:\Users\ningbo\.gradle\caches\transforms-1\files-1.1\support-vector-drawable-28.0.0.aar\d88d6e03579262c5d7a442c549475805\AndroidManifest.xml:20:5-44
 MERGED from [com.android.support:support-fragment:28.0.0] C:\Users\ningbo\.gradle\caches\transforms-1\files-1.1\support-fragment-28.0.0.aar\ceeaee20a560e90555245b0a69bc6ca6\AndroidManifest.xml:20:5-44
 MERGED from [com.android.support:support-fragment:28.0.0] C:\Users\ningbo\.gradle\caches\transforms-1\files-1.1\support-fragment-28.0.0.aar\ceeaee20a560e90555245b0a69bc6ca6\AndroidManifest.xml:20:5-44
 MERGED from [com.android.support:support-core-ui:28.0.0] C:\Users\ningbo\.gradle\caches\transforms-1\files-1.1\support-core-ui-28.0.0.aar\352242ab990f4ce070b693fd7127ea04\AndroidManifest.xml:20:5-44
@@ -389,6 +391,12 @@ MERGED from [com.android.support:asynclayoutinflater:28.0.0] C:\Users\ningbo\.gr
 MERGED from [com.android.support:asynclayoutinflater:28.0.0] C:\Users\ningbo\.gradle\caches\transforms-1\files-1.1\asynclayoutinflater-28.0.0.aar\b61a56d23bad26fa9f6842e34f289306\AndroidManifest.xml:20:5-44
 MERGED from [com.android.support:support-compat:28.0.0] C:\Users\ningbo\.gradle\caches\transforms-1\files-1.1\support-compat-28.0.0.aar\7f55983391e6f63c3358daf4b700e169\AndroidManifest.xml:20:5-44
 MERGED from [com.android.support:support-compat:28.0.0] C:\Users\ningbo\.gradle\caches\transforms-1\files-1.1\support-compat-28.0.0.aar\7f55983391e6f63c3358daf4b700e169\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:versionedparcelable:28.0.0] C:\Users\ningbo\.gradle\caches\transforms-1\files-1.1\versionedparcelable-28.0.0.aar\59af9913b23f9f19d9639785854fcc43\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:versionedparcelable:28.0.0] C:\Users\ningbo\.gradle\caches\transforms-1\files-1.1\versionedparcelable-28.0.0.aar\59af9913b23f9f19d9639785854fcc43\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:cursoradapter:28.0.0] C:\Users\ningbo\.gradle\caches\transforms-1\files-1.1\cursoradapter-28.0.0.aar\9fe86ac8a2c32d335417f99d217c20f1\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:cursoradapter:28.0.0] C:\Users\ningbo\.gradle\caches\transforms-1\files-1.1\cursoradapter-28.0.0.aar\9fe86ac8a2c32d335417f99d217c20f1\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:cardview-v7:28.0.0] C:\Users\ningbo\.gradle\caches\transforms-1\files-1.1\cardview-v7-28.0.0.aar\a219a5c00fd5673ce0bd39e890283930\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:cardview-v7:28.0.0] C:\Users\ningbo\.gradle\caches\transforms-1\files-1.1\cardview-v7-28.0.0.aar\a219a5c00fd5673ce0bd39e890283930\AndroidManifest.xml:20:5-44
 MERGED from [android.arch.lifecycle:runtime:1.1.1] C:\Users\ningbo\.gradle\caches\transforms-1\files-1.1\runtime-1.1.1.aar\74d15d12e06b95818a7e689897c7fca1\AndroidManifest.xml:20:5-44
 MERGED from [android.arch.lifecycle:runtime:1.1.1] C:\Users\ningbo\.gradle\caches\transforms-1\files-1.1\runtime-1.1.1.aar\74d15d12e06b95818a7e689897c7fca1\AndroidManifest.xml:20:5-44
 MERGED from [android.arch.lifecycle:livedata:1.1.1] C:\Users\ningbo\.gradle\caches\transforms-1\files-1.1\livedata-1.1.1.aar\fa6721b21ed80b0638f9c9612286ed80\AndroidManifest.xml:20:5-44
@@ -399,10 +407,6 @@ MERGED from [android.arch.core:runtime:1.1.1] C:\Users\ningbo\.gradle\caches\tra
 MERGED from [android.arch.core:runtime:1.1.1] C:\Users\ningbo\.gradle\caches\transforms-1\files-1.1\runtime-1.1.1.aar\7b0fe01d222ff213f925efcd0c6f6ecc\AndroidManifest.xml:20:5-44
 MERGED from [android.arch.lifecycle:viewmodel:1.1.1] C:\Users\ningbo\.gradle\caches\transforms-1\files-1.1\viewmodel-1.1.1.aar\5f86d9a449f9227f24ff21004d503156\AndroidManifest.xml:20:5-44
 MERGED from [android.arch.lifecycle:viewmodel:1.1.1] C:\Users\ningbo\.gradle\caches\transforms-1\files-1.1\viewmodel-1.1.1.aar\5f86d9a449f9227f24ff21004d503156\AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:versionedparcelable:28.0.0] C:\Users\ningbo\.gradle\caches\transforms-1\files-1.1\versionedparcelable-28.0.0.aar\59af9913b23f9f19d9639785854fcc43\AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:versionedparcelable:28.0.0] C:\Users\ningbo\.gradle\caches\transforms-1\files-1.1\versionedparcelable-28.0.0.aar\59af9913b23f9f19d9639785854fcc43\AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:cursoradapter:28.0.0] C:\Users\ningbo\.gradle\caches\transforms-1\files-1.1\cursoradapter-28.0.0.aar\9fe86ac8a2c32d335417f99d217c20f1\AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:cursoradapter:28.0.0] C:\Users\ningbo\.gradle\caches\transforms-1\files-1.1\cursoradapter-28.0.0.aar\9fe86ac8a2c32d335417f99d217c20f1\AndroidManifest.xml:20:5-44
 MERGED from [com.android.support:documentfile:28.0.0] C:\Users\ningbo\.gradle\caches\transforms-1\files-1.1\documentfile-28.0.0.aar\0edcce9f67e0c6631c94d7c36592222e\AndroidManifest.xml:20:5-44
 MERGED from [com.android.support:documentfile:28.0.0] C:\Users\ningbo\.gradle\caches\transforms-1\files-1.1\documentfile-28.0.0.aar\0edcce9f67e0c6631c94d7c36592222e\AndroidManifest.xml:20:5-44
 MERGED from [com.android.support:localbroadcastmanager:28.0.0] C:\Users\ningbo\.gradle\caches\transforms-1\files-1.1\localbroadcastmanager-28.0.0.aar\74223f8cd24a2766a10cf81fce93b231\AndroidManifest.xml:20:5-44

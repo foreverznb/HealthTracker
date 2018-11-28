@@ -7,10 +7,13 @@ import android.location.Geocoder;
 import android.os.Bundle;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.FragmentActivity;
+import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import com.example.healthtracker.R;
+import com.google.android.gms.maps.CameraUpdate;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
@@ -58,17 +61,25 @@ public class MapView extends FragmentActivity implements OnMapReadyCallback {
         List<Address> addressList = null;
 
         if (location != null || !location.equals("")) {
-            Geocoder geocoder = new Geocoder(this);
             try {
+                Geocoder geocoder = new Geocoder(this);
                 addressList = geocoder.getFromLocationName(location, 1);
-
+                //Log.d("array",addressList.toString());
+                if  (!addressList.isEmpty()){
+                Address address = addressList.get(0);
+                String Locality = address.getLocality();
+                Toast.makeText(getApplicationContext(),Locality,Toast.LENGTH_SHORT).show();
+                //LatLng LatLng = new LatLng(address.getLatitude(), address.getLongitude());
+                goToLocation(address.getLatitude(), address.getLongitude(),15);}
+                else{
+                    String no_address = "No address found";
+                    Toast.makeText(getApplicationContext(),no_address,Toast.LENGTH_SHORT).show();
+                }
             } catch (IOException e) {
                 e.printStackTrace();
             }
-            Address address = addressList.get(0);
-            LatLng latLng = new LatLng(address.getLatitude(), address.getLongitude());
-            mMap.addMarker(new MarkerOptions().position(latLng).title("Marker"));
-            mMap.animateCamera(CameraUpdateFactory.newLatLng(latLng));
+
+            //mMap.animateCamera(CameraUpdateFactory.newLatLng(latLng));
         }
     }
 
@@ -79,7 +90,7 @@ public class MapView extends FragmentActivity implements OnMapReadyCallback {
     public void onMapReady(GoogleMap googleMap) {
 
         mMap = googleMap;
-
+        /*
         // Add a marker in Sydney and move the camera
         LatLng sydney = new LatLng(27.700769, 85.300140);
         mMap.addMarker(new MarkerOptions().position(sydney).title("Marke"));
@@ -88,6 +99,17 @@ public class MapView extends FragmentActivity implements OnMapReadyCallback {
 
             return;
         }
-        mMap.setMyLocationEnabled(true);
+        mMap.setMyLocationEnabled(true);*/
+
+        goToLocation(27.700769, 85.300140, 15);
+    }
+
+    public void goToLocation(double latitude, double longitude, int zoom ){
+        LatLng LatLng = new LatLng(latitude, longitude );
+        CameraUpdate update = CameraUpdateFactory.newLatLngZoom(LatLng,15);
+        mMap.addMarker(new MarkerOptions().position(LatLng).title("Marker"));
+        mMap.moveCamera(update);
+
+
     }
 }

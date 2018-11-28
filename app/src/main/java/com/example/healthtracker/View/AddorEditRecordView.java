@@ -3,14 +3,17 @@ package com.example.healthtracker.View;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.location.Address;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.healthtracker.Activities.AddGeoLocationActivity;
 import com.example.healthtracker.Contollers.UserDataController;
 import com.example.healthtracker.EntityObjects.Patient;
 import com.example.healthtracker.EntityObjects.PatientRecord;
@@ -30,11 +33,13 @@ public class AddorEditRecordView extends AppCompatActivity {
 
     private EditText titleText, descriptionText;
     private TextView timestampText;
-    private String title, comment;
+    private String title, comment, geo_location;
     private Context context;
     private Patient patient;
     File capturedImages;
     private PatientRecord record;
+    private Button geoLocation;
+    private TextView saved_geoLocation;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,6 +48,8 @@ public class AddorEditRecordView extends AppCompatActivity {
         titleText = findViewById(R.id.title_edit_text);
         descriptionText = findViewById(R.id.description_edit_text);
         timestampText = findViewById(R.id.patient_record_timestamp);
+        geoLocation = findViewById(R.id.add_geolocation);
+        saved_geoLocation = findViewById(R.id.show_geo);
         context = this;
         record = new PatientRecord();
 
@@ -109,6 +116,7 @@ public class AddorEditRecordView extends AppCompatActivity {
         titleText.setText(record.getTitle());
         descriptionText.setText(record.getComment());
         timestampText.setText(record.getTimestamp().toString());
+        saved_geoLocation.setText(record.getGeoLocation());
         //TODO show geomap, photos, bodlocation
     }
 
@@ -120,6 +128,7 @@ public class AddorEditRecordView extends AppCompatActivity {
         // get Record info
         title = titleText.getText().toString();
         comment = descriptionText.getText().toString();
+        geo_location = saved_geoLocation.getText().toString();
 
         // fetch user data
         patient = UserDataController.loadPatientData(context);
@@ -127,6 +136,7 @@ public class AddorEditRecordView extends AppCompatActivity {
         // add record
         record.setComment(comment);
         record.setTitle(title);
+        record.setGeoLocation(geo_location);
 
         // TODO set photos, geomap, bodylocation once they are implemented
 
@@ -142,4 +152,9 @@ public class AddorEditRecordView extends AppCompatActivity {
         Intent intent = new Intent(AddorEditRecordView.this, TakePhotoActivity.class);
         startActivity(intent);
     }
+    public void addGeoLocation(View view) {
+        Intent intent = new Intent(AddorEditRecordView.this, AddGeoLocationActivity.class);
+        startActivity(intent);
+    }
+
 }
