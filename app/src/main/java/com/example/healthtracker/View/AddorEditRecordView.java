@@ -154,7 +154,14 @@ public class AddorEditRecordView extends AppCompatActivity {
     }
     public void addGeoLocation(View view) {
         Intent intent = new Intent(AddorEditRecordView.this, AddGeoLocationActivity.class);
-        startActivity(intent);
+        startActivityForResult(intent,1);
+    }
+
+   // @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        if(resultCode==RESULT_OK){
+        geo_location = data.getExtras().getString("result");
+        saved_geoLocation.setText(geo_location);}
     }
 
 }

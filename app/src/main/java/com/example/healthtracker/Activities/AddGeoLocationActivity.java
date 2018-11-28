@@ -1,5 +1,6 @@
 package com.example.healthtracker.Activities;
 
+import android.content.Intent;
 import android.location.Address;
 import android.location.Geocoder;
 import android.os.Bundle;
@@ -24,6 +25,7 @@ import java.util.List;
 public class AddGeoLocationActivity extends FragmentActivity implements OnMapReadyCallback {
 
     private GoogleMap mMap;
+    private String CurrentLocation;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -50,6 +52,11 @@ public class AddGeoLocationActivity extends FragmentActivity implements OnMapRea
                 //Log.d("array",addressList.toString());
                 if  (!addressList.isEmpty()){
                     Address address = addressList.get(0);
+                    String city = address.getLocality();
+                    String state = address.getAdminArea();
+                    String country = address.getCountryName();
+                    String postalCode = address.getPostalCode();
+                    CurrentLocation = city+ " " + state + " " + country + " " + postalCode;
                     String Locality = address.getLocality();
                     Toast.makeText(getApplicationContext(),Locality,Toast.LENGTH_SHORT).show();
                     //LatLng LatLng = new LatLng(address.getLatitude(), address.getLongitude());
@@ -83,8 +90,34 @@ public class AddGeoLocationActivity extends FragmentActivity implements OnMapRea
             return;
         }
         mMap.setMyLocationEnabled(true);*/
+        String location = "University of Alberta";
+        List<Address> addressList = null;
 
-        goToLocation(27.700769, 85.300140, 15);
+
+
+        Geocoder geocoder = new Geocoder(this);
+        try {
+            addressList = geocoder.getFromLocationName(location,1);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+
+        Address address = addressList.get(0);
+        String city = address.getLocality();
+        String state = address.getAdminArea();
+        String country = address.getCountryName();
+        String postalCode = address.getPostalCode();
+        CurrentLocation = city+ " " + state + " " + country + " " + postalCode;
+        String Locality = address.getLocality();
+        Toast.makeText(getApplicationContext(),Locality,Toast.LENGTH_SHORT).show();
+
+        goToLocation(address.getLatitude(), address.getLongitude(),15);
+
+
+
+
+        //goToLocation(27.700769, 85.300140, 15);
     }
 
     public void goToLocation(double latitude, double longitude, int zoom ){
@@ -94,5 +127,19 @@ public class AddGeoLocationActivity extends FragmentActivity implements OnMapRea
         mMap.moveCamera(update);
 
 
+    }
+
+    public void onBackPressed() {
+        Intent intent = new Intent();
+        intent.putExtra("result", CurrentLocation);
+        AddGeoLocationActivity.this.setResult(0, intent);
+        AddGeoLocationActivity.this.finish();
+    }
+
+    public void Save_current(View view){
+        Intent intent = new Intent();
+        intent.putExtra("result", CurrentLocation);
+        AddGeoLocationActivity.this.setResult(RESULT_OK, intent);
+        AddGeoLocationActivity.this.finish();
     }
 }
