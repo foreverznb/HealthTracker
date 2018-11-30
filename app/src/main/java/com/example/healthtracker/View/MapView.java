@@ -124,7 +124,7 @@ public class MapView extends FragmentActivity implements OnMapReadyCallback {
         Double Lon;
         String CurrentLocation;
         createRecordArray();
-        for (int counter = 0; counter < mProblems.size(); counter++) {
+        for (int counter = 0; counter < mRecords.size(); counter++) {
             if(mRecords.get(counter).getGeoLocation().size() != 0) {
                 Lat = mRecords.get(counter).getGeoLocation().get(0);
                 Lon =  mRecords.get(counter).getGeoLocation().get(1);
