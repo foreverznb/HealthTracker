@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.location.Address;
+import android.location.Geocoder;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -19,8 +20,12 @@ import com.example.healthtracker.EntityObjects.Patient;
 import com.example.healthtracker.EntityObjects.PatientRecord;
 import com.example.healthtracker.R;
 import com.example.healthtracker.Activities.TakePhotoActivity;
+import com.google.android.gms.maps.model.LatLng;
 
 import java.io.File;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 /*
  * AddorEditRecordView enables a patient to add a new record to one of their problems or edit an
@@ -40,6 +45,8 @@ public class AddorEditRecordView extends AppCompatActivity {
     private PatientRecord record;
     private Button geoLocation;
     private TextView saved_geoLocation;
+    private Double Lat;
+    private Double Lon;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -113,10 +120,29 @@ public class AddorEditRecordView extends AppCompatActivity {
      * If a record is being edited this method is called to display its current data.
      */
     private void showRecord(){
+
         titleText.setText(record.getTitle());
         descriptionText.setText(record.getComment());
         timestampText.setText(record.getTimestamp().toString());
-        saved_geoLocation.setText(record.getGeoLocation());
+        //saved_geoLocation.setText(geo_location);
+            List<Address> addressList = null;
+            String CurrentLocation;
+            Lat = record.getGeoLocation().get(0);
+            Lon = record.getGeoLocation().get(1);
+            Geocoder geocoder = new Geocoder(this);
+            try {
+                addressList = geocoder.getFromLocation(Lat, Lon, 1);
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+            Address address = addressList.get(0);
+            String city = address.getLocality();
+            String state = address.getAdminArea();
+            String country = address.getCountryName();
+            String postalCode = address.getPostalCode();
+            CurrentLocation = city + " " + state + " " + country + " " + postalCode;
+            saved_geoLocation.setText(CurrentLocation);
+
         //TODO show geomap, photos, bodlocation
     }
 
@@ -128,7 +154,7 @@ public class AddorEditRecordView extends AppCompatActivity {
         // get Record info
         title = titleText.getText().toString();
         comment = descriptionText.getText().toString();
-        geo_location = saved_geoLocation.getText().toString();
+        //geo_location = saved_geoLocation.getText().toString();
 
         // fetch user data
         patient = UserDataController.loadPatientData(context);
@@ -136,7 +162,7 @@ public class AddorEditRecordView extends AppCompatActivity {
         // add record
         record.setComment(comment);
         record.setTitle(title);
-        record.setGeoLocation(geo_location);
+        record.setGeoLocation(Lat,Lon);
 
         // TODO set photos, geomap, bodylocation once they are implemented
 
@@ -159,9 +185,19 @@ public class AddorEditRecordView extends AppCompatActivity {
 
    // @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        List<Address> addressList = null;
         if(resultCode==RESULT_OK){
         geo_location = data.getExtras().getString("result");
         saved_geoLocation.setText(geo_location);}
+        Geocoder geocoder = new Geocoder(this);
+        try {
+            addressList = geocoder.getFromLocationName(geo_location, 1);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        Address address = addressList.get(0);
+        Lat = address.getLatitude();
+        Lon =  address.getLongitude();
     }
 
 }

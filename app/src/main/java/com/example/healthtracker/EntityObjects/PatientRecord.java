@@ -21,7 +21,9 @@ public class PatientRecord implements Serializable {
     private String RecordTitle;
     private String comment;
     private Timestamp timestamp;
-    private String geoLocations;
+    private Double Lon;
+    private Double Lat;
+    private ArrayList<Double> geoLocations = new ArrayList<>();
     private final ArrayList<Photo> photos;
 
     /**
@@ -30,11 +32,14 @@ public class PatientRecord implements Serializable {
      * @param title A string for the title of the record
      * @param comment A string for description of the problem
      */
-    public PatientRecord(String title, String comment, String geoLocations){
+    public PatientRecord(String title, String comment, Double Lon, Double Lat){
         this.RecordTitle = title;
         this.comment = comment;
         this.timestamp = new Timestamp(System.currentTimeMillis());
-        this.geoLocations = geoLocations;
+        this.Lat = Lat;
+        this.Lon = Lon;
+        this.geoLocations.add(Lat);
+        this.geoLocations.add(Lon);
         photos = new ArrayList<Photo> ();
     }
 
@@ -46,7 +51,7 @@ public class PatientRecord implements Serializable {
         RecordTitle = "";
         comment = "";
         timestamp = new Timestamp(System.currentTimeMillis());
-        geoLocations = "";
+        geoLocations = new ArrayList<Double>();
         photos = new ArrayList<Photo> ();
     }
 
@@ -55,8 +60,9 @@ public class PatientRecord implements Serializable {
      *
      * @param geoLocation The geoLocation to be added.
      */
-    public void setGeoLocation(String geoLocation){
-        this.geoLocations = geoLocation;
+    public void setGeoLocation(Double Lat, Double Lon){
+        this.geoLocations.add(Lat);
+        this.geoLocations.add(Lon);
     }
 
     /**
@@ -64,7 +70,7 @@ public class PatientRecord implements Serializable {
      *
      * @param geoLocation The geoLocation to be deleted.
      */
-    public String getGeoLocation(){
+    public ArrayList<Double> getGeoLocation(){
         return this.geoLocations;
     }
 
